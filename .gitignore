@@ -7,4 +7,4 @@
 !.bash_profile
 !scripts/*
 !.gitconfig
-!.ssh/*
+!.ssh/config
