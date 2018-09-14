@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!readme.md
+!.bash_profile
+!scripts/*
+!.gitconfig
+!.ssh

@@ -1,0 +1,12 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Duncan McClean
+	email = duncan@mcclean.co.uk
+[credential]
+	helper = osxkeychain
+[core]
+	autocrlf = input
