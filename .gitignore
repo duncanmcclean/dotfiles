@@ -5,6 +5,6 @@
 !.gitignore
 !readme.md
 !.bash_profile
-!scripts/*
+!Scripts/*.sh
 !.gitconfig
 !.ssh/config
