@@ -32,3 +32,7 @@
 * `watch` - Preforms `npm run watch`
 * `prod` - Preforms `npm run prod`
 * `deploy` - Preforms `npm run deploy`
+
+## Other
+* `study` - Opens up my local dev enviroment for studying.
+* `profile` - Reloads bash profile

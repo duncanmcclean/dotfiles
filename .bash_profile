@@ -42,3 +42,6 @@ alias watch="npm run watch"
 alias prod="npm run production"
 alias deploy="npm run deploy"
 
+# Other
+alias study="cd /Users/Duncan/Vue/RevisionNotes && subl .. && npm run docs:dev"
+alias profile="source ~/.bash_profile"
