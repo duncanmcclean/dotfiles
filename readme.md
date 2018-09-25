@@ -19,6 +19,7 @@
 ## Git
 * `all` - Preforms `git add .`
 * `push` - Pushes changes of a Git repository
+* `com` - Preforms the first part of a commit. Usage: `com "commit message"`
 
 ## Valet
 * `share` - Shares local valet site

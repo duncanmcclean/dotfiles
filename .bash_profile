@@ -28,6 +28,7 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # Git
 alias all="git add ."
 alias push="git push"
+alias com="git commit -m"
 
 # Laravel
 alias art="php artisan"
