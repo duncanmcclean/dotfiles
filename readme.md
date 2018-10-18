@@ -48,3 +48,4 @@
 * `study` - Opens up my local dev enviroment for studying.
 * `profile` - Reloads bash profile
 * `clearmail` - Clear stupid terminal mail
+* `cls` - Clears terminal
