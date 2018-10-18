@@ -26,6 +26,7 @@ alias start="cdvm && vagrant resume"
 alias end="cdvm && vagrant suspend"
 alias talk="cdvm && vagrant ssh"
 alias reprov="cdvm && vagrant reload --provision"
+alias homestead="cd /Users/Duncan/Homestead"
 
 # Finder - Hide/Show
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -44,6 +45,7 @@ alias fresh="art migrate --fresh"
 
 # Valet
 alias share="valet share"
+alias sites="cd /Users/Duncan/Sites"
 
 # Laravel Mix
 alias dev="npm run dev"

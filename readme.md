@@ -17,6 +17,7 @@
 * `end` - Suspends local Homestead box
 * `talk` - Opens an SSH session with the Homestead box
 * `reprov` - Reprovisions + reloads the homestead box (to update changes on VM from `homestead.yaml`)
+* `homestead` - Changes directory into the Homestead sites directory
 
 ## Finder
 * `show` - Show hidden files in Finder
@@ -30,6 +31,7 @@
 
 ## Valet
 * `share` - Shares local valet site
+* `sites` - Changes directory into the Valet sites directory
 
 ## Laravel
 * `art` - Preforms `php artisan`
