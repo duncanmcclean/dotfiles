@@ -15,11 +15,18 @@ alias backupbs="sh /Users/Duncan/Scripts/BackupBiblioSpot.sh"
 
 # Statamic
 alias update="sh /Users/Duncan/Scripts/UpdateStatamicSites.sh"
+alias please="php please"
 
 # Homestead
+alias cdvm="cd /Users/Duncan/VMs/Homestead"
 alias hosts="sudo nano /etc/hosts"
-alias start="cd /Users/Duncan/VMS/Homestead && vagrant resume"
-alias end="cd /Users/Duncan/VMS/Homestead && vagrant suspend"
+alias vmsites="cdvm && nano homestead.yaml"
+alias addsite="hosts && vmsites && reprov"
+alias start="cdvm && vagrant resume"
+alias end="cdvm && vagrant suspend"
+alias talk="cdvm && vagrant ssh"
+alias reprov="cdvm && vagrant reload --provision"
+alias homestead="cd /Users/Duncan/Homestead"
 
 # Finder - Hide/Show
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -28,13 +35,17 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # Git
 alias all="git add ."
 alias push="git push"
-alias com="git commit -m"
+alias pull="git pull"
+alias commit="git commit -m"
 
 # Laravel
 alias art="php artisan"
+alias migrate="art migrate"
+alias fresh="art migrate --fresh"
 
 # Valet
 alias share="valet share"
+alias sites="cd /Users/Duncan/Sites"
 
 # Laravel Mix
 alias dev="npm run dev"
@@ -45,3 +56,4 @@ alias deploy="npm run deploy"
 # Other
 alias study="cd /Users/Duncan/Vue/RevisionNotes && subl . && npm run docs:dev"
 alias profile="source ~/.bash_profile"
+alias clearmail=": > /var/mail/$USER"
