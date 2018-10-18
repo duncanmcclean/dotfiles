@@ -15,11 +15,13 @@ alias backupbs="sh /Users/Duncan/Scripts/BackupBiblioSpot.sh"
 
 # Statamic
 alias update="sh /Users/Duncan/Scripts/UpdateStatamicSites.sh"
+alias please="php please"
 
 # Homestead
 alias hosts="sudo nano /etc/hosts"
 alias start="cd /Users/Duncan/VMS/Homestead && vagrant resume"
 alias end="cd /Users/Duncan/VMS/Homestead && vagrant suspend"
+alias talk="cd /Users/Duncan/VMs/Homestead && vagrant ssh"
 
 # Finder - Hide/Show
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -28,7 +30,8 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # Git
 alias all="git add ."
 alias push="git push"
-alias com="git commit -m"
+alias pull="git pull"
+alias commit="git commit -m"
 
 # Laravel
 alias art="php artisan"
@@ -45,3 +48,4 @@ alias deploy="npm run deploy"
 # Other
 alias study="cd /Users/Duncan/Vue/RevisionNotes && subl . && npm run docs:dev"
 alias profile="source ~/.bash_profile"
+alias clearmail=": > /var/mail/$USER"
