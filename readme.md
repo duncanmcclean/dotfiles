@@ -50,3 +50,4 @@
 * `clearmail` - Clear stupid terminal mail
 * `cls` - Clears terminal
 * `middle` - Runs `bundle exec middleman server`
+* `serve` - Serve a local jekyll site
