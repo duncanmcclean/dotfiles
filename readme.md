@@ -51,3 +51,4 @@
 * `cls` - Clears terminal
 * `middle` - Runs `bundle exec middleman server`
 * `serve` - Serve a local jekyll site
+* `key` - Copies SSH key to clipboard
