@@ -37,6 +37,7 @@ alias all="git add ."
 alias push="git push"
 alias pull="git pull"
 alias commit="git commit -m"
+alias check="git checkout "
 
 # Laravel
 alias art="php artisan"

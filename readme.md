@@ -28,6 +28,7 @@
 * `push` - Pushes changes of a Git repository
 * `pull` - Pulls changes from a git repository
 * `commit` - Preforms the first part of a commit. Usage: `commit "commit message"`
+* `check` - Preforms the first part of a checkout. Usage: `check develop`
 
 ## Valet
 * `share` - Shares local valet site
