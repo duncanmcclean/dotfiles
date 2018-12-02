@@ -29,6 +29,8 @@
 * `pull` - Pulls changes from a git repository
 * `commit` - Preforms the first part of a commit. Usage: `commit "commit message"`
 * `check` - Preforms the first part of a checkout. Usage: `check develop`
+* `branch` - Displays list of Git branches
+* `reset` - Preforms the first part of a git reset. Usage: `reset abababab`
 
 ## Valet
 * `share` - Shares local valet site
@@ -54,3 +56,4 @@
 * `serve` - Serve a local jekyll site
 * `key` - Copies SSH key to clipboard
 * `static` - Clone my static boilerplate
+* `iprod` - Pulls down Iamlittle production content and pushes to Git
