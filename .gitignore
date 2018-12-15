@@ -5,7 +5,9 @@
 !.gitignore
 !readme.md
 !.bash_profile
+!.bashrc
 !/scripts/*
 !.gitconfig
 !/.ssh/config
 !/VMs/Homestead/homestead.yaml
+!.zshrc
