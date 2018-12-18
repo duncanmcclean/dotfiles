@@ -57,3 +57,4 @@
 * `key` - Copies SSH key to clipboard
 * `static` - Clone my static boilerplate
 * `iprod` - Pulls down Iamlittle production content and pushes to Git
+* `phpunit` - PHP unit testing
