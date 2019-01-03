@@ -67,3 +67,11 @@ alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias static="git clone https://github.com/damcclean/boilerplate-static.git static && cd static && rm -rf .git && git init && npm install && npm run dev && cd .."
 alias iprod="cd /Users/Duncan/Sites/iamlittle/scripts && sh ./production-sync.sh"
 alias phpunit="vendor/bin/phpunit"
+
+# G Cloud
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/duncan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/duncan/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/duncan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/duncan/google-cloud-sdk/completion.zsh.inc'; fi
