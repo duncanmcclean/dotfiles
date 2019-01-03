@@ -1,3 +1,8 @@
+# Keyboard Shortcuts
+
+* Cmd + Tab -- menu of apps open
+* Cmd + Space -- open Spotlight
+
 # Commands
 
 ## BiblioSpot
