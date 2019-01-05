@@ -16,6 +16,7 @@ alias backupbs="sh /Users/Duncan/Scripts/BackupBiblioSpot.sh"
 # Statamic
 alias update="sh /Users/Duncan/Scripts/UpdateStatamicSites.sh"
 alias please="php please"
+alias pls="php please"
 
 # Homestead
 alias cdvm="cd /Users/Duncan/VMs/Homestead"
@@ -33,6 +34,7 @@ alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && kill
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # Git
+alias add="git add"
 alias all="git add ."
 alias push="git push"
 alias pull="git pull"
@@ -55,6 +57,10 @@ alias dev="npm run dev"
 alias watch="npm run watch"
 alias prod="npm run production"
 alias deploy="npm run deploy"
+alias mixupdate="npm remove laravel-mix && npm install laravel-mix && npm run dev"
+
+# Webpack
+alias serve="npm run serve"
 
 # Other
 alias study="cd /Users/Duncan/Vue/RevisionNotes && subl . && npm run docs:dev"
@@ -62,7 +68,7 @@ alias profile="source ~/.bash_profile"
 alias clearmail=": > /var/mail/$USER"
 alias cls="clear"
 alias middle="bundle exec middleman server"
-alias serve="jekyll serve"
+alias jserve="jekyll serve"
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias static="git clone https://github.com/damcclean/boilerplate-static.git static && cd static && rm -rf .git && git init && npm install && npm run dev && cd .."
 alias iprod="cd /Users/Duncan/Sites/iamlittle/scripts && sh ./production-sync.sh"
