@@ -18,17 +18,6 @@ alias update="sh /Users/Duncan/Scripts/UpdateStatamicSites.sh"
 alias please="php please"
 alias pls="php please"
 
-# Homestead
-alias cdvm="cd /Users/Duncan/VMs/Homestead"
-alias hosts="sudo nano /etc/hosts"
-alias vmsites="cdvm && nano homestead.yaml"
-alias addsite="hosts && vmsites && reprov"
-alias start="cdvm && vagrant resume"
-alias end="cdvm && vagrant suspend"
-alias talk="cdvm && vagrant ssh"
-alias reprov="cdvm && vagrant reload --provision"
-alias homestead="cd /Users/Duncan/Homestead"
-
 # Finder - Hide/Show
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"

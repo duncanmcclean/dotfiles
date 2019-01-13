@@ -14,17 +14,6 @@
 * `please` - Preforms `php please`
 * `pls` - Preforms `php please`
 
-## Homestead
-* `cdvm` - Changes directory into the Homestead VM directory
-* `hosts` - Opens the system hosts file in nano
-* `vmsites` - Opens the `homestead.yaml` file
-* `addsite` - Runs `hosts`, `vmsites` and `reprov`
-* `start` - Resumes local Homestead box
-* `end` - Suspends local Homestead box
-* `talk` - Opens an SSH session with the Homestead box
-* `reprov` - Reprovisions + reloads the homestead box (to update changes on VM from `homestead.yaml`)
-* `homestead` - Changes directory into the Homestead sites directory
-
 ## Finder
 * `show` - Show hidden files in Finder
 * `hide` - Hide hidden files in Finder
