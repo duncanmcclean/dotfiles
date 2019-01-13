@@ -27,6 +27,7 @@
 * `check` - Preforms the first part of a checkout. Usage: `check develop`
 * `branch` - Displays list of Git branches
 * `reset` - Preforms the first part of a git reset. Usage: `reset abababab`
+* `clone` - Preforms the first part of `git clone`
 
 ## Valet
 * `share` - Shares local valet site

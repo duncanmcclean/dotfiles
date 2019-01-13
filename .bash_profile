@@ -31,6 +31,7 @@ alias commit="git commit -m"
 alias check="git checkout"
 alias branch="git branch"
 alias reset="git reset"
+alias clone="git clone"
 
 # Laravel
 alias art="php artisan"
