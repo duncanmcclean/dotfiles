@@ -10,11 +10,9 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH
 
 # BiblioSpot
-alias merge="sh /Users/Duncan/Scripts/MergeIntoMaster.sh"
-alias backupbs="sh /Users/Duncan/Scripts/BackupBiblioSpot.sh"
+alias backupbs="ssh codepier@206.189.24.237 'cd bibliospot.com/current/scripts && sh backup.sh && exit'"
 
 # Statamic
-alias update="sh /Users/Duncan/Scripts/UpdateStatamicSites.sh"
 alias please="php please"
 alias pls="php please"
 

@@ -6,11 +6,9 @@
 # Commands
 
 ## BiblioSpot
-* `merge` - Merges the develop branch into master
 * `backupbs` - Automaticlly makes a cloud backup of the Production BiblioSpot database.
 
 ## Statamic
-* `update` - Updates all of my development Statamic sites
 * `please` - Preforms `php please`
 * `pls` - Preforms `php please`
 
