@@ -11,3 +11,4 @@
 !/.ssh/config
 !/VMs/Homestead/homestead.yaml
 !.zshrc
+!setup.sh
