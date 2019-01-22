@@ -24,6 +24,7 @@ homebrew_packages=(
   "mysql"
   "php"
   "sqlite"
+  "node"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
@@ -91,10 +92,7 @@ cd ~/Sites
 valet park && cd ~
 echo "Configuring Laravel Valet"
 cd ~
-
-# iTerm
-echo "Setting up iTerm"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+brew services restart php-fpm
 
 # Install VS Code extentions
 echo "Installing VS Code extentions"
@@ -122,6 +120,11 @@ code_extensions=(
 for code_extension in "${code_extensions[@]}"; do
   code --install-extension "$code_extension"
 done
+
+# Installing Global Node Dependecies
+echo "Installing Global Node Dependecies"
+npm install -g @vue/cli
+npm install -g jovo-cli
 
 # Complete
 echo "Installation Complete"
