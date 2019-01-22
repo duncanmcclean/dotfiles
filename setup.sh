@@ -13,7 +13,6 @@ if test ! $(which brew); then
 fi
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-nvm install 8.11.1
 
 # Install Homebrew Packages
 
@@ -40,14 +39,12 @@ homebrew_cask_packages=(
   "google-backup-and-sync"
   "discord"
   "droplr"
-  "balenaetcher"
-  "filezilla"
   "flux"
   "font-fira-mono"
   "font-quicksand"
   "google-chrome"
   "insomnia"
-  "iterm"
+  "iterm2"
   "notion"
   "onedrive"
   "opendns-updater"
