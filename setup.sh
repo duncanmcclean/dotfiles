@@ -54,7 +54,7 @@ homebrew_cask_packages=(
   "slack"
   "spotify"
   "sublime-text"
-  "sequel-pro"
+  "tableplus"
   "sketch"
   "teamviewer"
   "visual-studio-code"
