@@ -25,6 +25,7 @@ homebrew_packages=(
   "php"
   "sqlite"
   "node"
+  "ruby"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
@@ -93,6 +94,9 @@ valet park && cd ~
 echo "Configuring Laravel Valet"
 cd ~
 brew services restart php-fpm
+
+# Install Jekyll
+gem install jekyll
 
 # Install VS Code extentions
 echo "Installing VS Code extentions"
