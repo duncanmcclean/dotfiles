@@ -129,6 +129,7 @@ done
 echo "Installing Global Node Dependecies"
 npm install -g @vue/cli
 npm install -g jovo-cli
+npm install -g ask-cli
 
 # Complete
 echo "Installation Complete"
