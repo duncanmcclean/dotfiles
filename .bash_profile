@@ -65,7 +65,7 @@ alias phpunit="vendor/bin/phpunit"
 # G Cloud
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/duncan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/duncan/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/duncan/gcloud/path.zsh.inc' ]; then . '/Users/duncan/gcloud/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/duncan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/duncan/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/duncan/gcloud/completion.zsh.inc' ]; then . '/Users/duncan/gcloud/completion.zsh.inc'; fi

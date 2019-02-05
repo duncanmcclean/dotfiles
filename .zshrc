@@ -96,3 +96,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source /Users/duncan/.bash_profile
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/duncan/gcloud/path.zsh.inc' ]; then . '/Users/duncan/gcloud/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/duncan/gcloud/completion.zsh.inc' ]; then . '/Users/duncan/gcloud/completion.zsh.inc'; fi
