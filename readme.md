@@ -54,3 +54,5 @@
 * `key` - Copies SSH key to clipboard
 * `static` - Clone my static boilerplate
 * `phpunit` - PHP unit testing
+* `test` - Runs PHPUnit tests
+* `thunder` - Short for `php thunderbird`
