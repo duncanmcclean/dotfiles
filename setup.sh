@@ -57,7 +57,6 @@ homebrew_cask_packages=(
   "sublime-text"
   "tableplus"
   "sketch"
-  "teamviewer"
   "visual-studio-code"
   "vlc"
   "whatsapp"
