@@ -5,9 +5,6 @@
 
 # Commands
 
-## BiblioSpot
-* `backupbs` - Automaticlly makes a cloud backup of the Production BiblioSpot database.
-
 ## Statamic
 * `please` - Preforms `php please`
 * `pls` - Preforms `php please`

@@ -9,9 +9,6 @@ export PATH=/usr/local/bin:$PATH
 PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH
 
-# BiblioSpot
-alias backupbs="ssh codepier@206.189.24.237 'cd bibliospot.com/current/scripts && sh backup.sh && exit'"
-
 # Statamic
 alias please="php please"
 alias pls="php please"
