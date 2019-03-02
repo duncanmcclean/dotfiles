@@ -31,21 +31,26 @@ alias clone="git clone"
 # Laravel
 alias art="php artisan"
 alias migrate="art migrate"
-alias fresh="art migrate --fresh"
+alias fresh="art migrate:fresh"
 
 # Valet
 alias share="valet share"
 alias sites="cd /Users/Duncan/Sites"
 
-# Laravel Mix
+# NPM / Webpack
 alias dev="npm run dev"
 alias watch="npm run watch"
 alias prod="npm run production"
 alias deploy="npm run deploy"
 alias mixupdate="npm remove laravel-mix && npm install laravel-mix && npm run dev"
-
-# Webpack
 alias serve="npm run serve"
+alias npi="npm install"
+
+# Composer
+alias comp="composer"
+alias compi="composer install"
+alias compn="rm -rf vendor && rm composer.lock && composer install"
+alias compd="composer dump-autoload"
 
 # Other
 alias study="cd /Users/Duncan/Vue/RevisionNotes && subl . && npm run docs:dev"

@@ -33,13 +33,20 @@
 * `migrate` - Migrates a laravel database
 * `fresh` - Migrates a laravel database and refreshes the database
 
-## Laravel Mix/Webpack
+## NPM / Webpack
 * `dev` - Preforms `npm run dev`
 * `watch` - Preforms `npm run watch`
 * `prod` - Preforms `npm run prod`
 * `deploy` - Preforms `npm run deploy`
 * `mixupdate` - Updates Laravel Mix
 * `serve` - Preforms `npm run serve`
+* `npi` - Installs node dependencies
+
+## Composer
+* `comp` - Preforms `composer`
+* `compi` - Installs composer dependencies
+* `compn` - Nukes composer dependencies, gets rid of the lock file, reinstalls composer dependencies
+* `compd` - Preforms `composer dump-autoload`
 
 ## Other
 * `study` - Opens up my local dev enviroment for studying.
