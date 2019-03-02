@@ -50,6 +50,7 @@ homebrew_cask_packages=(
   "notion"
   "onedrive"
   "opendns-updater"
+  "prey"
   "propresenter"
   "rocket"
   "slack"
