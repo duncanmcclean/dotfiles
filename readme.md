@@ -23,6 +23,7 @@
 * `branch` - Displays list of Git branches
 * `reset` - Preforms the first part of a git reset. Usage: `reset abababab`
 * `clone` - Preforms the first part of `git clone`
+* `init` - Init a git repo and create initial commit
 
 ## Valet
 * `share` - Shares local valet site
