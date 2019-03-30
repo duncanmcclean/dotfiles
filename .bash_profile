@@ -27,7 +27,7 @@ alias check="git checkout"
 alias branch="git branch"
 alias reset="git reset"
 alias clone="git clone"
-alias init="git add . && git commit -m '🐤 Initial commit'"
+alias init="git init && git add . && git commit -m '🐤 Initial commit'"
 
 # Laravel
 alias art="php artisan"
@@ -66,6 +66,7 @@ alias phpunit="vendor/bin/phpunit"
 alias test="phpunit"
 alias thunder="php thunderbird"
 alias bundin="sudo gem install -n /usr/local/bin"
+alias middleman="bundle exec middleman"
 
 # G Cloud
 

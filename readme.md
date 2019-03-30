@@ -62,3 +62,4 @@
 * `test` - Runs PHPUnit tests
 * `thunder` - Short for `php thunderbird`
 * `bundin` - Fixed the bundler installers - So installing bundler would look like `bundin bundler`
+* `middleman` - Fixes middleman command line issues
