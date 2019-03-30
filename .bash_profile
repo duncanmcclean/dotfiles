@@ -65,6 +65,7 @@ alias static="git clone https://github.com/damcclean/boilerplate-static.git stat
 alias phpunit="vendor/bin/phpunit"
 alias test="phpunit"
 alias thunder="php thunderbird"
+alias bundin="sudo gem install -n /usr/local/bin"
 
 # G Cloud
 
