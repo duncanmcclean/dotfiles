@@ -64,7 +64,7 @@ alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias static="git clone https://github.com/damcclean/boilerplate-static.git static && cd static && rm -rf .git && git init && npm install && npm run dev && cd .."
 alias phpunit="vendor/bin/phpunit"
 alias test="phpunit"
-alias thunder="php thunderbird"
+alias sys="php systatic"
 alias bundin="sudo gem install -n /usr/local/bin"
 alias middleman="bundle exec middleman"
 
