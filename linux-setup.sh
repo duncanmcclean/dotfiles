@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Display message 'Setting up your Mac...'
 echo "Setting up your Mac..."
