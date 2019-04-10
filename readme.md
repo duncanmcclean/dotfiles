@@ -1,10 +1,21 @@
-# Keyboard Shortcuts
+# Installation
+## MacOS
+1. Open Safari, open this repository
+2. Download the `setup.sh` file
+3. Run it in the terminal `sh setup.sh`
+4. The script will now run - you may be required to enter your sudo password a few times.
 
+## Linux
+1. Open the default browser, open this repository.
+2. Download the `setup-linux.sh` file
+3. Run it in the terminal `sh setup-linux.sh`
+4. The script will now run - you may be required to enter your sudo password a few times.
+
+# Mac Keyboard Shortcuts
 * Cmd + Tab -- menu of apps open
 * Cmd + Space -- open Spotlight
 
-# Commands
-
+# Aliases
 ## Statamic
 * `please` - Preforms `php please`
 * `pls` - Preforms `php please`
