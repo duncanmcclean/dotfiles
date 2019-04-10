@@ -2,6 +2,7 @@
 
 # Display message 'Setting up your Mac...'
 echo "Setting up your Mac..."
+sudo -v
 
 # Update package manager
 echo "Updating package manager"
