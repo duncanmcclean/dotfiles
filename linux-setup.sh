@@ -18,7 +18,7 @@ packages=(
   "libnss3-tools"
   "jq"
   "xsel"
-  
+  "snapd"
   "php7.2-cli"
   "php7.2-curl"
   "php7.2-mbstring"
@@ -32,6 +32,14 @@ packages=(
 for package in "${packages[@]}"; do
   sudo apt-get install "$homebrew_package" -y
 done
+
+# Install snap packages
+echo "Installing Snap packages"
+sudo snap install chromium
+sudo snap install slack --classic
+sudo snap install sublime-text --classic
+sudo snap install insomnia
+sudo snap install telegram-desktop
 
 # Install composer
 echo "Installing Composer"
