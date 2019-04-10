@@ -131,5 +131,12 @@ npm install -g @vue/cli
 npm install -g jovo-cli
 npm install -g ask-cli
 
+# Generate SSH key
+echo "Generating SSH keys"
+ssh-keygen -t rsa
+
+echo "Copied SSH key to clipboard - You can now add it to Github"
+pbcopy < ~/.ssh/id_rsa.pub
+
 # Complete
 echo "Installation Complete"
