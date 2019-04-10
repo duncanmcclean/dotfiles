@@ -54,7 +54,6 @@ alias compn="rm -rf vendor && rm composer.lock && composer install"
 alias compd="composer dump-autoload"
 
 # Other
-alias study="cd /Users/Duncan/Vue/RevisionNotes && subl . && npm run docs:dev"
 alias profile="source ~/.bash_profile"
 alias clearmail=": > /var/mail/$USER"
 alias cls="clear"
