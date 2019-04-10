@@ -3,9 +3,9 @@ set -euo pipefail
 
 # Display message 'Setting up your Mac...'
 echo "Setting up your Mac..."
+sudo -v
 
 # Homebrew - Installation
-
 echo "Installing Homebrew"
 
 if test ! $(which brew); then
