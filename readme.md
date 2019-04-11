@@ -4,12 +4,16 @@
 2. Download the `setup.sh` file
 3. Run it in the terminal `./setup.sh`
 4. The script will now run - you may be required to enter your sudo password a few times.
+5. Now copy the SSH key from your clipboard and set it up on Github.
+6. Clone this repo into your user profile directory. Then reload your bash.
 
 ## Linux
 1. Open the default browser, open this repository.
 2. Download the `setup-linux.sh` file
-3. Run it in the terminal `./setup-linux.sh`
+3. Run it in the terminal `bash ./setup-linux.sh`
 4. The script will now run - you may be required to enter your sudo password a few times.
+5. Now copy the SSH key from your clipboard and set it up on Github.
+6. Clone this repo into your user profile directory. Then reload your bash.
 
 # Mac Keyboard Shortcuts
 * Cmd + Tab -- menu of apps open
