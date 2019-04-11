@@ -1,5 +1,4 @@
 #!/bin/bash
-set -euo pipefail
 
 # Display message 'Setting up your Mac...'
 echo "Setting up your Mac..."
@@ -11,7 +10,7 @@ sudo apt-get update
 
 # Install packages
 echo "Installing packages"
-packages=(
+apt_packages=(
   "php"
   "nodejs"
   "git"
@@ -31,8 +30,8 @@ packages=(
   "php7.2-mysql"
 )
 
-for package in "${packages[@]}"; do
-  sudo apt-get install "$homebrew_package" -y
+for package in "${apt_packages[@]}"; do
+  sudo apt-get install "$package" -y
 done
 
 # Install snap packages
