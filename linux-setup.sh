@@ -62,6 +62,8 @@ npm install -g ask-cli
 # Generate SSH key
 echo "Generating SSH keys"
 ssh-keygen -t rsa
+eval "$(ssh-agent -s)"
+ssh-add -K ~/.ssh/id_rsa
 
 echo "Copied SSH key to clipboard - You can now add it to Github"
 pbcopy < ~/.ssh/id_rsa.pub
