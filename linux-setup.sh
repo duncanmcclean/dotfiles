@@ -67,6 +67,7 @@ ssh-add -K ~/.ssh/id_rsa
 
 echo "Copied SSH key to clipboard - You can now add it to Github"
 pbcopy < ~/.ssh/id_rsa.pub
+xsel --primary < ~/.ssh/id_rsa.pub
 
 # Complete
 echo "Installation Complete"
