@@ -12,14 +12,15 @@ sudo apt-get update
 echo "Installing packages"
 apt_packages=(
   "php"
+  "composer"
   "nodejs"
+  "npm"
   "git"
   "sqlite"
   "network-manager"
   "libnss3-tools"
   "jq"
   "xsel"
-  "snapd"
   "php7.2-cli"
   "php7.2-curl"
   "php7.2-mbstring"
@@ -33,19 +34,6 @@ apt_packages=(
 for package in "${apt_packages[@]}"; do
   sudo apt-get install "$package" -y
 done
-
-# Install snap packages
-echo "Installing Snap packages"
-sudo snap install chromium
-sudo snap install slack --classic
-sudo snap install sublime-text --classic
-sudo snap install insomnia
-sudo snap install telegram-desktop
-
-# Install composer
-echo "Installing Composer"
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
 
 # Install Global Composer Packages
 echo "Installing Global Composer Packages"
