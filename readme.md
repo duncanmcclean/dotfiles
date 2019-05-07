@@ -81,4 +81,5 @@
 # Github
 ## Two Factor Authentication setup
 1. [Create a new personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
-2. [Switch remote from SSH to HTTPS](https://help.github.com/en/articles/changing-a-remotes-url#switching-remote-urls-from-ssh-to-https) (be ware this is a procedure that is required to happen on each repo.)
+2. Remove the `origin` remote - `git remote remove origin`
+3. Add the updated `origin` - `git remote add origin git@github.com:damcclean/dotfiles.git`
