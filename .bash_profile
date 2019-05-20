@@ -1,6 +1,7 @@
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH=$PATH:/usr/local/mysql/bin/
 export PATH=/usr/local/bin:$PATH
+export PATH="$PATH:`pwd`/flutter/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
