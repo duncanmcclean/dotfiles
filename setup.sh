@@ -46,10 +46,8 @@ homebrew_cask_packages=(
   "google-chrome"
   "insomnia"
   "iterm2"
-  "notion"
   "onedrive"
   "opendns-updater"
-  "prey"
   "propresenter"
   "rocket"
   "slack"
@@ -92,37 +90,7 @@ cd ~/Sites
 valet park && cd ~
 echo "Configuring Laravel Valet"
 cd ~
-brew services restart php-fpm
-
-# Install Jekyll
-gem install jekyll
-
-# Install VS Code extentions
-echo "Installing VS Code extentions"
-
-code_extensions=(
-  "formulahendry.auto-close-tag"
-  "formulahendry.auto-rename-tag"
-  "CoenraadS.bracket-pair-colorizer"
-  "dbaeumer.vscode-eslint"
-  "eamodio.gitlens"
-  "ginfuru.vscode-jekyll-snippets"
-  "onecentlin.laravel-blade"
-  "npm"
-  "christian-kohler.npm-intellisense"
-  "felixfbecker.php-intellisense"
-  "MehediDracula.php-namespace-resolver"
-  "alexcvzz.vscode-sqlite"
-  "ahdesign.language-antlers"
-  "bradlc.vscode-tailwindcss"
-  "whatwedo.twig"
-  "octref.vetur"
-  "shyykoserhiy.vscode-spotify"
-)
-
-for code_extension in "${code_extensions[@]}"; do
-  code --install-extension "$code_extension"
-done
+valet restart
 
 # Installing Global Node Dependecies
 echo "Installing Global Node Dependecies"
