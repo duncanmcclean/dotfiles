@@ -25,7 +25,6 @@ homebrew_packages=(
   "php"
   "sqlite"
   "node"
-  "ruby"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
@@ -57,10 +56,10 @@ homebrew_cask_packages=(
   "spotify"
   "sublime-text"
   "tableplus"
+  "telegram"
   "sketch"
   "visual-studio-code"
   "vlc"
-  "whatsapp"
 )
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
@@ -128,8 +127,6 @@ done
 # Installing Global Node Dependecies
 echo "Installing Global Node Dependecies"
 npm install -g @vue/cli
-npm install -g jovo-cli
-npm install -g ask-cli
 
 # Generate SSH key
 echo "Generating SSH keys"
