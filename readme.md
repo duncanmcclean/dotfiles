@@ -83,3 +83,21 @@
 1. [Create a new personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 2. Remove the `origin` remote - `git remote remove origin`
 3. Add the updated `origin` - `git remote add origin git@github.com:damcclean/dotfiles.git`
+
+# Local Package Development with Composer
+When developing Composer packages you may need to test the app out seperatly. You can do this by creating another directory for the new app, and using this code (Systatic is the package I'm using in the example)
+
+```
+{
+    "require": {
+        "damcclean/systatic": "@dev"
+   },
+   "repositories": [
+        {
+            "type": "path",
+            "url": "../systatic"
+        }
+   ]
+}
+
+```
