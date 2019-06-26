@@ -2,13 +2,11 @@
 *
 
 # But not these files...
-!.gitignore
-!readme.md
 !.bash_profile
-!.bashrc
-!/scripts/*
 !.gitconfig
-!/.ssh/config
-!/VMs/Homestead/homestead.yaml
-!.zshrc
+!.mackup.cfg
+!.vuerc
+!.yarnrc
+!README.md
+!linux-setup.sh
 !setup.sh

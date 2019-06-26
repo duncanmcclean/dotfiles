@@ -29,6 +29,7 @@ apt_packages=(
   "php7.2-zip"
   "php7.2-sqlite3"
   "php7.2-mysql"
+  "yarn"
 )
 
 for package in "${apt_packages[@]}"; do

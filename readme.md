@@ -1,103 +1,28 @@
-# Installation
-## MacOS
-1. Open Safari, open this repository
-2. Download the `setup.sh` file
-3. Run it in the terminal `./setup.sh`
-4. The script will now run - you may be required to enter your sudo password a few times.
-5. Now copy the SSH key from your clipboard and set it up on Github.
-6. Clone this repo into your user profile directory. Then reload your bash.
+# Duncan's Dotfiles
 
-## Linux
-1. Open the default browser, open this repository.
-2. Download the `setup-linux.sh` file
-3. Run it in the terminal `bash ./setup-linux.sh`
-4. The script will now run - you may be required to enter your sudo password a few times.
-5. Now copy the SSH key from your clipboard and set it up on Github.
-6. Clone this repo into your user profile directory. Then reload your bash.
+This repository contains my Dotfiles and anything I use to setup and maintain my Mac (and sometimes Linux) machines. It simplifies the process of installing software and tools on a fresh install of MacOS and it contains any configuration files I use to keep my Mac in shape.
 
-# Mac Keyboard Shortcuts
-* Cmd + Tab -- menu of apps open
-* Cmd + Space -- open Spotlight
+Feel free to copy parts of this for your own dotfiles!
 
-# Aliases
-## Statamic
-* `please` - Preforms `php please`
-* `pls` - Preforms `php please`
+## Fresh macOS Setup
+### Before re-installing
+First go through this checklist to make sure you don't forget anything before wiping clean your hard drive.
+* [ ] Have you committed and pushed any changes/branches to your Git repos?
+* [ ] Have you remembered to save all import files on your Desktop to Cloud locations
+* [ ] Have you made sure that all clouds have finished syncing (OneDrive and Google Drive)?
+* [ ] Have you remembered to export any important information from local databases?
+* [ ] Have you updated and ran [Mackup](https://github.com/lra/mackup)? `mackup backup`
 
-## Finder
-* `show` - Show hidden files in Finder
-* `hide` - Hide hidden files in Finder
+### Setting up your Mac
+Now that you've made sure you've done all the things, setup your mac!
+1. Update macOS to the latest version through the App Store
+2. Install the full version of Xcode from the App Store and run `xcode-select --install`
+3. Clone this repository to your home directory.
+4. Run the `setup.sh` script
+5. Login to all the things
+6. Restore prefrenced by running `mackup restore`
+7. Restore your computer
 
-## Git
-* `add` - Preforms `git add`
-* `all` - Preforms `git add .`
-* `push` - Pushes changes of a Git repository
-* `pull` - Pulls changes from a git repository
-* `commit` - Preforms the first part of a commit. Usage: `commit "commit message"`
-* `check` - Preforms the first part of a checkout. Usage: `check develop`
-* `branch` - Displays list of Git branches
-* `reset` - Preforms the first part of a git reset. Usage: `reset abababab`
-* `clone` - Preforms the first part of `git clone`
-* `init` - Init a git repo and create initial commit
+## Thanks to..
 
-## Valet
-* `share` - Shares local valet site
-* `sites` - Changes directory into the Valet sites directory
-
-## Laravel
-* `art` - Preforms `php artisan`
-* `migrate` - Migrates a laravel database
-* `fresh` - Migrates a laravel database and refreshes the database
-
-## NPM / Webpack
-* `dev` - Preforms `npm run dev`
-* `watch` - Preforms `npm run watch`
-* `prod` - Preforms `npm run prod`
-* `deploy` - Preforms `npm run deploy`
-* `mixupdate` - Updates Laravel Mix
-* `serve` - Preforms `npm run serve`
-* `npi` - Installs node dependencies
-
-## Composer
-* `comp` - Preforms `composer`
-* `compi` - Installs composer dependencies
-* `compn` - Nukes composer dependencies, gets rid of the lock file, reinstalls composer dependencies
-* `compd` - Preforms `composer dump-autoload`
-
-## Other
-* `profile` - Reloads bash profile
-* `clearmail` - Clear stupid terminal mail
-* `cls` - Clears terminal
-* `middle` - Runs `bundle exec middleman server`
-* `jserve` - Serve a local jekyll site
-* `key` - Copies SSH key to clipboard
-* `static` - Clone my static boilerplate
-* `phpunit` - PHP unit testing
-* `test` - Runs PHPUnit tests
-* `sys` - Short for `php systatic`
-* `bundin` - Fixed the bundler installers - So installing bundler would look like `bundin bundler`
-* `middleman` - Fixes middleman command line issues
-
-# Github
-## Two Factor Authentication setup
-1. [Create a new personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
-2. Remove the `origin` remote - `git remote remove origin`
-3. Add the updated `origin` - `git remote add origin git@github.com:damcclean/dotfiles.git`
-
-# Local Package Development with Composer
-When developing Composer packages you may need to test the app out seperatly. You can do this by creating another directory for the new app, and using this code (Systatic is the package I'm using in the example)
-
-```
-{
-    "require": {
-        "damcclean/systatic": "@dev"
-   },
-   "repositories": [
-        {
-            "type": "path",
-            "url": "../systatic"
-        }
-   ]
-}
-
-```
+This repository was inspired by [Dries Vints' dotfiles](https://github.com/driesvints/dotfiles) repo.
