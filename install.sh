@@ -5,11 +5,19 @@ set -euo pipefail
 echo "Setting up your Mac..."
 sudo -v
 
+# Oh My Zsh
+echo "Installing Oh My Zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Configure symlinks
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.mackup.cfg ~/.mackup.cfg
+
 # Homebrew - Installation
 echo "Installing Homebrew"
 
 if test ! $(which brew); then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
@@ -19,15 +27,15 @@ cd ~
 echo "Installing Homebrew packages"
 
 homebrew_packages=(
-  "git"
-  "mysql"
-  "php"
-  "node"
-  "yarn"
+ "git"
+ "mysql"
+ "php"
+ "node"
+ "yarn"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
-  brew install "$homebrew_package"
+ brew install "$homebrew_package"
 done
 
 # Install Casks
@@ -114,6 +122,9 @@ ssh-keygen -t rsa
 
 echo "Copied SSH key to clipboard - You can now add it to Github"
 pbcopy < ~/.ssh/id_rsa.pub
+
+# Register the Global Gitignore file
+git config --global core.exludesfile ~/.dotfiles/.gitconfig_global
 
 # Complete
 echo "Installation Complete"
