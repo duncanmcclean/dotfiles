@@ -26,4 +26,4 @@ Now that you've made sure you've done all the things, setup your mac!
 
 ## Inspired by...
 
-This repository was inspired by [Dries Vints' dotfiles](https://github.com/driesvints/dotfiles) repo. You can watch how Dries manaages his Dotfiles over at [Laracasts](https://laracasts.com/series/guest-spotlight/episodes/1).
+This repository was inspired by [Dries Vints' dotfiles](https://github.com/driesvints/dotfiles) repo. You can watch how Dries manages his Dotfiles over at [Laracasts](https://laracasts.com/series/guest-spotlight/episodes/1).
