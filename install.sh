@@ -47,22 +47,23 @@ echo "Installing Homebrew cask packages"
 brew tap caskroom/fonts
 
 homebrew_cask_packages=(
+  "1password"
   "alfred"
-  "android-studio"
+  "anydesk"
   "authy"
-  "google-chrome"
+  "google-backup-and-sync"
   "balenaetcher"
   "chrome-remote-desktop-host"
-  "cloudapp"
   "discord"
-  "docker"
   "firefox"
-  "github-desktop"
+  "flux"
+  "github"
   "google-chrome"
   "insomnia"
-  "iterm"
+  "iterm2"
+  "droplr"
   "obs"
-  "opendns-updater"
+  "opendnsupdater"
   "phpstorm"
   "propresenter"
   "rocket"
@@ -76,6 +77,9 @@ homebrew_cask_packages=(
   "vlc"
   "zoomus"
 )
+
+## filezilla needed
+## tinkerwell needed
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
   brew cask install "$homebrew_cask_package"
