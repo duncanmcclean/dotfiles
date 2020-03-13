@@ -126,7 +126,7 @@ echo "Copied SSH key to clipboard - You can now add it to Github"
 pbcopy < ~/.ssh/id_rsa.pub
 
 # Register the Global Gitignore file
-git config --global core.exludesfile ~/.dotfiles/.gitconfig_global
+git config --global core.excludesfile $HOME/.dotfiles/.gitignore_global
 
 # Hide 'Last Logged In' in terminal
 touch .hushlogin
