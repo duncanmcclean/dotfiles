@@ -44,7 +44,6 @@ done
 
 # Install Casks
 echo "Installing Homebrew cask packages"
-brew tap caskroom/fonts
 
 homebrew_cask_packages=(
   "1password"
@@ -128,6 +127,9 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 # Register the Global Gitignore file
 git config --global core.exludesfile ~/.dotfiles/.gitconfig_global
+
+# Hide 'Last Logged In' in terminal
+touch .hushlogin
 
 # Complete
 echo "Installation Complete"
