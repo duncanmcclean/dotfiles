@@ -36,6 +36,7 @@ homebrew_packages=(
  "php"
  "node"
  "yarn"
+ "mackup"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
