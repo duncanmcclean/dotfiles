@@ -73,13 +73,11 @@ homebrew_cask_packages=(
   "sublime-text"
   "tableplus"
   "telegram"
+  "tuple"
   "typora"
   "vlc"
   "zoomus"
 )
-
-## filezilla needed
-## tinkerwell needed
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
   brew cask install "$homebrew_cask_package"
@@ -120,9 +118,6 @@ npm install -g @nuxt/cli
 npm install -g cross-env
 npm install -g heroku
 npm install -g netlify-cli
-
-# Install Tuple
-curl -L https://git.io/tuple-install | bash
 
 # Generate SSH key
 echo "Generating SSH keys"
