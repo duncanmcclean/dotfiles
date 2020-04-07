@@ -10,6 +10,7 @@ alias n="npm"
 alias y="yarn"
 alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 alias cl="clear"
+alias st="composer create-project statamic/statamic $1 --prefer-dist --stability=dev"
 
 # Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -35,3 +36,4 @@ alias clearmail=": > /var/mail/$USER"
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias test="phpunit"
 alias pls="php please"
+alias profile="source ~/.zshrc"
