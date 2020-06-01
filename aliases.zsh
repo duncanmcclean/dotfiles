@@ -27,6 +27,7 @@ alias branch="git branch"
 alias reset="git reset"
 alias clone="git clone"
 alias init="git init && git add . && git commit -m 'Initial commit'"
+alias status="git status"
 
 # Other
 alias migrate="php artisan migrate"
