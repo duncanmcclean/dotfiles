@@ -37,6 +37,7 @@ homebrew_packages=(
  "node"
  "yarn"
  "mackup"
+ "go"
 )
 
 for homebrew_package in "${homebrew_packages[@]}"; do
