@@ -23,6 +23,12 @@ alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
+# Mac Apps
+if [[ $OSTYPE == darwin* ]]; then
+    alias slack="open -a /Applications/Slack.app"
+    alias chrome="open -a /Applications/Google\ Chrome.app"
+fi
+
 # Git
 alias add="git add"
 alias all="git add ."
