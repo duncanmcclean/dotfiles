@@ -52,7 +52,7 @@ alias seed="php artisan db:seed"
 # Statamic
 alias pls="php please"
 alias plsnew="composer create-project statamic/statamic $1 --prefer-dist --stability=dev"
-alias plsclear="pls clear:cache && pls clear:stache && pls clear:static && pls clear:glide"
+alias plsclear="p stache:clear && p glide:clear && p static:clear && a cache:clear"
 alias plsuser="cp ~/.dotfiles/statamic/duncan@mcclean.co.uk.yaml users/duncan@mcclean.co.uk.yaml"
 
 # Link sites/cms to current site
