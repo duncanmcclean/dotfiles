@@ -56,6 +56,8 @@ alias plsclear="pls clear:cache && pls clear:stache && pls clear:static && pls c
 alias plsuser="cp ~/.dotfiles/statamic/duncan@mcclean.co.uk.yaml users/duncan@mcclean.co.uk.yaml"
 
 # Link sites/cms to current site
+# To link cms: plslink cms
+# To link dist: plslink dist
 plslink() {
   if [ "$1" = 'dist' ] || [ "$1" = 'cp' ]; then
     rm -rf public/vendor/statamic/cp
