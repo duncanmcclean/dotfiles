@@ -1,8 +1,6 @@
 # Duncan's Dotfiles
 
-This repository contains my Dotfiles and anything else I use to setup and maintain my Macs. It simplifies the process of installing software on new Macs and it helps to keep my configuration the same on every machone I use.
-
-Feel free to copy parts of this for your own dotfiles!
+This repo contains the dotfiles I use for working on my Macs. It's got a bunch of aliases, functions and scripts. Feel free to fork this repo and build your own dotfiles repo.
 
 ## Fresh macOS Setup
 ### Before re-installing
