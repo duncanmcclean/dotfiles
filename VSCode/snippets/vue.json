@@ -1,0 +1,29 @@
+{
+	"Vue Component": {
+        "prefix": "template",
+        "body": [
+            "<template>",
+            "<div>",
+            "$1",
+            "</div>",
+            "</template>",
+            "",
+            "<script>",
+            "export default {",
+            "name: '$2',",
+            "}",
+            "</script>"
+        ]
+    },
+
+    "Vue Data": {
+        "prefix": "data",
+        "body": [
+            "data() {",
+            "return {",
+            "$1",
+            "}",
+            "},"
+        ]
+    },
+}

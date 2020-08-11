@@ -130,6 +130,11 @@ pbcopy < ~/.ssh/id_rsa.pub
 # Register the Global Gitignore file
 git config --global core.excludesfile $HOME/.dotfiles/.gitignore_global
 
+# Symlinks
+ln -s /Users/duncan/.dotfiles/VSCode/settings.json /Users/duncan/Library/Application\ Support/Code/User/settings.json
+ln -s /Users/duncan/.dotfiles/VSCode/keybindings.json /Users/duncan/Library/Application\ Support/Code/User/keybindings.json
+ln -s /Users/duncan/.dotfiles/VSCode/snippets/ /Users/duncan/Library/Application\ Support/Code/User
+
 # Hide 'Last Logged In' in terminal
 touch .hushlogin
 

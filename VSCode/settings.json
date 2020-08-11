@@ -1,0 +1,130 @@
+{
+    /** Better Defaults */
+    "editor.copyWithSyntaxHighlighting": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.emptySelectionClipboard": false,
+    "workbench.editor.enablePreview": false,
+    "window.newWindowDimensions": "inherit",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "files.trimTrailingWhitespace": true,
+    "diffEditor.renderSideBySide": false,
+    "editor.snippetSuggestions": "top",
+    "editor.detectIndentation": false,
+    "window.nativeFullScreen": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+
+    /** Hide everything **/
+    "workbench.activityBar.visible": false,
+    "workbench.sideBar.location": "right",
+    "workbench.statusBar.visible": false,
+    "workbench.editor.showTabs": false,
+    "editor.renderIndentGuides": false,
+    "editor.minimap.enabled": false,
+
+    /** Silence the noise */
+    "breadcrumbs.enabled": false,
+    "scm.diffDecorations": "none",
+    "editor.hover.enabled": false,
+    "editor.matchBrackets": "never",
+    "workbench.tips.enabled": false,
+    "editor.colorDecorators": false,
+    "git.decorations.enabled": false,
+    "workbench.startupEditor": "none",
+    "editor.lightbulb.enabled": false,
+    "editor.selectionHighlight": false,
+    "editor.overviewRulerBorder": false,
+    // "editor.renderLineHighlight": "none",
+    "editor.occurrencesHighlight": false,
+    "problems.decorations.enabled": false,
+    "editor.renderControlCharacters": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.gotoLocation.multipleReferences": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+
+    /** Theme */
+    "workbench.colorTheme": "SynthWave '84",
+
+    /**
+    * Find
+    **/
+    "search.useIgnoreFiles": false,
+    "search.exclude": {
+        // Hide everything in /vendor, except the "laravel" and "livewire" folder.
+        "**/vendor/{[^l],?[^ai]}*": true,
+        // Hide everything in /public, except "index.php"
+        "**/public/{[^i],?[^n]}*": true,
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/_ide_helper.php": true,
+        "**/composer.lock": true,
+        "**/package-lock.json": true,
+        "storage": true,
+        ".phpunit.result.cache": true
+    },
+
+    /**
+    * Code
+    **/
+    // Include "-" in word selection.
+    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+    "emmet.includeLanguages": {
+        "blade": "html",
+        "vue-html": "html",
+        "vue": "html"
+    },
+    "files.associations": {
+        ".php_cs": "php",
+        ".php_cs.dist": "php",
+        "*.html": "html",
+        "*.module": "php"
+    },
+
+    /**
+    * PHP
+    **/
+    "php.suggest.basic": false,
+
+    /**
+    * PHP CS Fixer
+    **/
+    // "[php]": {
+    //     "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    // },
+    "php-cs-fixer.onsave": true,
+    "php-cs-fixer.showOutput": false,
+    "php-cs-fixer.autoFixByBracket": false,
+    "php-cs-fixer.rules": "@PSR2",
+
+    /**
+    * Prettier
+    **/
+    "[javascript]": {
+        // "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "prettier.requireConfig": true,
+    "prettier.useEditorConfig": false,
+
+    /**
+        Some of my own custom settings
+    */
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "window.zoomLevel": 0,
+
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "eslint.options": {
+        "extensions": [".html", ".js", ".vue", ".jsx"]
+    },
+    "eslint.run": "onSave",
+    "eslint.validate": ["html", "vue", "javascript"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}
