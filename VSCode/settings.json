@@ -10,7 +10,7 @@
     "diffEditor.renderSideBySide": false,
     "editor.snippetSuggestions": "top",
     "editor.detectIndentation": false,
-    "window.nativeFullScreen": false,
+    "window.nativeFullScreen": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
 
@@ -45,6 +45,7 @@
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "editor.gotoLocation.multipleImplementations": "goto",
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    // "editor.multiCursorModifier": "ctrlCmd",
 
     /** Theme */
     "workbench.colorTheme": "SynthWave '84",
@@ -87,7 +88,7 @@
     /**
     * PHP
     **/
-    "php.suggest.basic": false,
+    // "php.suggest.basic": false,
 
     /**
     * PHP CS Fixer
