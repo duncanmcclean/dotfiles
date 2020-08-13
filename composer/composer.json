@@ -6,6 +6,7 @@
         "laravel/envoy": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.16",
         "tightenco/lambo": "^0.5.5",
-        "beyondcode/expose": "^1.1"
+        "beyondcode/expose": "^1.1",
+        "laravel/vapor-cli": "^1.8"
     }
 }
