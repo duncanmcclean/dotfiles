@@ -53,37 +53,37 @@
     /**
     * Find
     **/
-    "search.useIgnoreFiles": false,
-    "search.exclude": {
-        // Hide everything in /vendor, except the "laravel" and "livewire" folder.
-        "**/vendor/{[^l],?[^ai]}*": true,
-        // Hide everything in /public, except "index.php"
-        "**/public/{[^i],?[^n]}*": true,
-        "**/node_modules": true,
-        "**/dist": true,
-        "**/_ide_helper.php": true,
-        "**/composer.lock": true,
-        "**/package-lock.json": true,
-        "storage": true,
-        ".phpunit.result.cache": true
-    },
+    // "search.useIgnoreFiles": false,
+    // "search.exclude": {
+    //     // Hide everything in /vendor, except the "laravel" and "livewire" folder.
+    //     "**/vendor/{[^l],?[^ai]}*": true,
+    //     // Hide everything in /public, except "index.php"
+    //     "**/public/{[^i],?[^n]}*": true,
+    //     "**/node_modules": true,
+    //     "**/dist": true,
+    //     "**/_ide_helper.php": true,
+    //     "**/composer.lock": true,
+    //     "**/package-lock.json": true,
+    //     "storage": true,
+    //     ".phpunit.result.cache": true
+    // },
 
     /**
     * Code
     **/
     // Include "-" in word selection.
-    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
-    "emmet.includeLanguages": {
-        "blade": "html",
-        "vue-html": "html",
-        "vue": "html"
-    },
-    "files.associations": {
-        ".php_cs": "php",
-        ".php_cs.dist": "php",
-        "*.html": "html",
-        "*.module": "php"
-    },
+    // "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+    // "emmet.includeLanguages": {
+    //     "blade": "html",
+    //     "vue-html": "html",
+    //     "vue": "html"
+    // },
+    // "files.associations": {
+    //     ".php_cs": "php",
+    //     ".php_cs.dist": "php",
+    //     "*.html": "html",
+    //     "*.module": "php"
+    // },
 
     /**
     * PHP
