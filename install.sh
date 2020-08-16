@@ -135,6 +135,7 @@ ln -s /Users/duncan/.dotfiles/VSCode/settings.json /Users/duncan/Library/Applica
 ln -s /Users/duncan/.dotfiles/VSCode/keybindings.json /Users/duncan/Library/Application\ Support/Code/User/keybindings.json
 ln -s /Users/duncan/.dotfiles/VSCode/snippets/ /Users/duncan/Library/Application\ Support/Code/User
 ln -s /Users/duncan/.dotfiles/composer/composer.json /Users/duncan/.composer/composer.json
+ln -s /Users/duncan/.dotfiles/.gitignore_global /Users/duncan/.gitignore_global
 
 # Hide 'Last Logged In' in terminal
 touch .hushlogin
