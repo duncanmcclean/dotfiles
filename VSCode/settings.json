@@ -75,10 +75,10 @@
     // "[php]": {
     //     "editor.defaultFormatter": "junstyle.php-cs-fixer"
     // },
-    "php-cs-fixer.onsave": true,
-    "php-cs-fixer.showOutput": false,
-    "php-cs-fixer.autoFixByBracket": false,
-    "php-cs-fixer.rules": "@PSR2",
+    // "php-cs-fixer.onsave": true,
+    // "php-cs-fixer.showOutput": false,
+    // "php-cs-fixer.autoFixByBracket": false,
+    // "php-cs-fixer.rules": "@PSR2",
 
     /**
     * Prettier

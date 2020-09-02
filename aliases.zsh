@@ -49,6 +49,7 @@ alias diff="git diff -w"
 alias migrate="php artisan migrate"
 alias fresh="php artisan migrate:fresh"
 alias seed="php artisan db:seed"
+alias larasetup="composer install && cp .env.example .env && php artisan key:generate && npm install && npm run dev"
 
 # Statamic
 alias pls="php please"
