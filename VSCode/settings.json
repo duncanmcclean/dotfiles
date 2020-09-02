@@ -72,9 +72,9 @@
     /**
     * PHP CS Fixer
     **/
-    "[php]": {
-        "editor.defaultFormatter": "junstyle.php-cs-fixer"
-    },
+    // "[php]": {
+    //     "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    // },
     "php-cs-fixer.onsave": true,
     "php-cs-fixer.showOutput": false,
     "php-cs-fixer.autoFixByBracket": false,
