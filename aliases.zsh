@@ -11,6 +11,7 @@ alias uc="php -d memory_limit=-1 /usr/local/bin/composer"
 alias n="npm"
 alias y="yarn"
 alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
+alias subl="open -a 'Sublime Text'"
 alias reb="comp install && rm -rf node_modules && npm install && npm run dev"
 
 # Bash stuff
