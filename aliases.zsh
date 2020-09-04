@@ -54,6 +54,7 @@ alias larasetup="composer install && cp .env.example .env && php artisan key:gen
 alias hor="php artisan horizon"
 
 # Laravel Vapor
+alias v="vapor"
 alias vdp="vapor deploy production"
 alias vds="vapor deploy staging"
 
