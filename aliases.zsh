@@ -3,6 +3,7 @@ alias a="php artisan"
 alias p="php please"
 alias g="git"
 alias t="./vendor/bin/phpunit"
+alias pe="./vendor/bin/pest"
 alias c="composer"
 alias ci="composer install"
 alias cr="composer require"
@@ -51,6 +52,12 @@ alias migrate="php artisan migrate"
 alias fresh="php artisan migrate:fresh"
 alias seed="php artisan db:seed"
 alias larasetup="composer install && cp .env.example .env && php artisan key:generate && npm install && npm run dev"
+alias hor="php artisan horizon"
+
+# Laravel Vapor
+alias v="vapor"
+alias vdp="vapor deploy production"
+alias vds="vapor deploy staging"
 
 # Statamic
 alias pls="php please"
