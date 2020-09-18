@@ -8,6 +8,7 @@
         "beyondcode/expose": "^1.1",
         "laravel/vapor-cli": "^1.8",
         "laravel/installer": "^4.0",
-        "laravel-zero/installer": "^2.4"
+        "laravel-zero/installer": "^2.4",
+        "tightenco/takeout": "^1.3"
     }
 }
