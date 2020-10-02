@@ -9,6 +9,7 @@ alias ci="composer install"
 alias cr="composer require"
 alias cu="composer update"
 alias uc="php -d memory_limit=-1 /usr/local/bin/composer"
+alias cg="composer global"
 alias n="npm"
 alias y="yarn"
 alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
