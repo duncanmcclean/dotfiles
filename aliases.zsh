@@ -8,7 +8,7 @@ alias c="composer"
 alias ci="composer install"
 alias cr="composer require"
 alias cu="composer update"
-alias uc="php -d memory_limit=-1 /usr/local/bin/composer"
+#alias uc="php -d memory_limit=-1 /usr/local/bin/composer"
 alias cg="composer global"
 alias n="npm"
 alias y="yarn"
@@ -62,7 +62,7 @@ alias vds="vapor deploy staging"
 
 # Statamic
 alias pls="php please"
-alias plsnew="composer create-project statamic/statamic $1 --prefer-dist --stability=dev"
+alias plsnew="statamic new"
 alias plsclear="p stache:clear && p glide:clear && p static:clear && a cache:clear"
 alias plsuser="cp ~/.dotfiles/statamic/duncan@mcclean.co.uk.yaml users/duncan@mcclean.co.uk.yaml"
 
