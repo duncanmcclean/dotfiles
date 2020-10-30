@@ -137,6 +137,15 @@ ln -s /Users/duncan/.dotfiles/VSCode/snippets/ /Users/duncan/Library/Application
 ln -s /Users/duncan/.dotfiles/composer/composer.json /Users/duncan/.composer/composer.json
 ln -s /Users/duncan/.dotfiles/.gitignore_global /Users/duncan/.gitignore_global
 
+# Sublime Text 3
+mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\
+mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+
+curl "https://packagecontrol.io/Package%20Control.sublime-package" > settings/Package\ Control.sublime-package
+cp -r settings/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package
+
+ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+
 # Hide 'Last Logged In' in terminal
 touch .hushlogin
 
