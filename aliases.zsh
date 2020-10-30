@@ -15,6 +15,7 @@ alias y="yarn"
 alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 alias subl="open -a 'Sublime Text'"
 alias reb="comp install && rm -rf node_modules && npm install && npm run dev"
+alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 # Bash stuff
 alias cl="clear"
