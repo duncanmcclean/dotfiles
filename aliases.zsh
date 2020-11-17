@@ -18,6 +18,7 @@ alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 alias subl="open -a 'Sublime Text'"
 alias reb="comp install && rm -rf node_modules && npm install && npm run dev"
 alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias dot="cd ~/.dotfiles"
 
 # Bash stuff
 alias cl="clear"
@@ -68,6 +69,7 @@ alias pls="php please"
 alias plsnew="statamic new"
 alias plsclear="p stache:clear && p glide:clear && p static:clear && a cache:clear"
 alias plsuser="cp ~/.dotfiles/statamic/duncan@mcclean.co.uk.yaml users/duncan@mcclean.co.uk.yaml"
+alias plsdeets="php please support:details"
 
 # Link sites/cms to current site
 # To link cms: plslink cms
