@@ -78,6 +78,7 @@ homebrew_cask_packages=(
   "typora"
   "vlc"
   "zoomus"
+  "hammerspoon"
 )
 
 for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
@@ -136,6 +137,7 @@ ln -s /Users/duncan/.dotfiles/VSCode/keybindings.json /Users/duncan/Library/Appl
 ln -s /Users/duncan/.dotfiles/VSCode/snippets/ /Users/duncan/Library/Application\ Support/Code/User
 ln -s /Users/duncan/.dotfiles/composer/composer.json /Users/duncan/.composer/composer.json
 ln -s /Users/duncan/.dotfiles/.gitignore_global /Users/duncan/.gitignore_global
+ln -s /Users/duncan/.dotfiles/hammerspoon /Users/duncan/.hammerspoon
 
 # Sublime Text 3
 mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\
