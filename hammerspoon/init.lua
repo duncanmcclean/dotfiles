@@ -2,7 +2,7 @@
 -- When I startup my work computer, I don't want to open everything I need...
 
 for i,hostname in ipairs(hs.host.names()) do
-    if hostname == 'Duncans-MacBook-Air.local' then
+    if hostname == 'Steadfast-Mac-3.local' then
         local applicationsToOpen = {
             '/Applications/Discord.app',
             '/Applications/Github Desktop.app',
