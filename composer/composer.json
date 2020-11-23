@@ -2,7 +2,7 @@
     "require": {
         "laravel/valet": "^2.10",
         "statamic/cli": "^2.0",
-        "laravel/envoy": "^2.0",
+        "laravel/envoy": "^2.4",
         "friendsofphp/php-cs-fixer": "^2.16",
         "tightenco/lambo": "^0.5.5",
         "beyondcode/expose": "^1.3",
