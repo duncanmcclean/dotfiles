@@ -1,0 +1,43 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+
+brew "cocoapods"
+brew "dnsmasq", restart_service: true
+brew "git"
+brew "mackup"
+brew "mysql", restart_service: true
+brew "nginx", restart_service: true
+brew "node"
+brew "php", restart_service: true
+brew "yarn"
+
+cask "1password"
+cask "alfred"
+cask "anydesk"
+cask "authy"
+cask "balenaetcher"
+cask "chrome-remote-desktop-host"
+cask "discord"
+cask "firefox"
+cask "flux"
+cask "github"
+cask "google-backup-and-sync"
+cask "google-chrome"
+cask "insomnia"
+cask "iterm2"
+cask "obs"
+cask "rocket"
+cask "sketch"
+cask "slack"
+cask "spotify"
+cask "sublime-text"
+cask "tableplus"
+cask "telegram"
+cask "tuple"
+cask "vlc"
+cask "zoomus"
+
+cask "hammerspoon"
+cask "tinkerwell"

@@ -30,60 +30,8 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 cd ~
 echo "Installing Homebrew packages"
 
-homebrew_packages=(
- "git"
- "mysql"
- "php"
- "node"
- "yarn"
- "mackup"
- "go"
-)
-
-for homebrew_package in "${homebrew_packages[@]}"; do
- brew install "$homebrew_package"
-done
-
-# Install Casks
-echo "Installing Homebrew cask packages"
-
-homebrew_cask_packages=(
-  "1password"
-  "alfred"
-  "anydesk"
-  "authy"
-  "google-backup-and-sync"
-  "balenaetcher"
-  "chrome-remote-desktop-host"
-  "discord"
-  "firefox"
-  "flux"
-  "github"
-  "google-chrome"
-  "insomnia"
-  "iterm2"
-  "droplr"
-  "obs"
-  "opendnsupdater"
-  "phpstorm"
-  "propresenter"
-  "rocket"
-  "sketch"
-  "slack"
-  "spotify"
-  "sublime-text"
-  "tableplus"
-  "telegram"
-  "tuple"
-  "typora"
-  "vlc"
-  "zoomus"
-  "hammerspoon"
-)
-
-for homebrew_cask_package in "${homebrew_cask_packages[@]}"; do
-  brew cask install "$homebrew_cask_package"
-done
+# Install packages from Brew
+brew bundle --file=~/.dotfiles/
 
 # Install Composer
 echo "Installing Composer"
