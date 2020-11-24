@@ -80,9 +80,7 @@ pbcopy < ~/.ssh/id_rsa.pub
 git config --global core.excludesfile $HOME/.dotfiles/.gitignore_global
 
 # Symlinks
-ln -s /Users/duncan/.dotfiles/code/snippets/ /Users/duncan/Library/Application\ Support/Code/User
-ln -s /Users/duncan/.dotfiles/code/settings.json /Users/duncan/Library/Application\ Support/Code/User/settings.json
-ln -s /Users/duncan/.dotfiles/code/keybindings.json /Users/duncan/Library/Application\ Support/Code/User/keybindings.json
+ln -s /Users/duncan/.dotfiles/code /Users/duncan/Library/Application\ Support/Code/User
 ln -s /Users/duncan/.dotfiles/composer/composer.json /Users/duncan/.composer/composer.json
 ln -s /Users/duncan/.dotfiles/.gitignore_global /Users/duncan/.gitignore_global
 ln -s /Users/duncan/.dotfiles/hammerspoon /Users/duncan/.hammerspoon
