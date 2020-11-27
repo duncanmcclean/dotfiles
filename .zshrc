@@ -99,3 +99,38 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+# Link sites/cms to current site
+# To link cms: plslink cms
+# To link dist: plslink dist
+
+plslink() {
+  if [ "$1" = 'dist' ] || [ "$1" = 'cp' ]; then
+    rm -rf public/vendor/statamic/cp
+    ln -s ~/Sites/cms/resources/dist public/vendor/statamic/cp
+  elif [ -n "$1" ]; then
+    rm -rf vendor/statamic/$1
+    ln -s ~/Sites/$1 vendor/statamic/$1
+  fi
+
+  echo "\nIn vendor/statamic:"
+  la vendor/statamic
+  echo "\nIn public/vendor/statamic:"
+  la public/vendor/statamic
+}
+
+simplink() {
+  if [ "$1" = 'dist' ] || [ "$1" = 'cp' ]; then
+    rm -rf public/vendor/simple-commerce
+    ln -s ~/Sites/simple-commerce/resources/dist public/vendor/simple-commerce
+  elif [ -n "$1" ]; then
+    rm -rf vendor/doublethreedigital/$1
+    ln -s ~/Sites/$1 vendor/doublethreedigital/$1
+  fi
+
+  echo "\nIn vendor/doublethreedigital:"
+  la vendor/doublethreedigital
+  echo "\nIn public/vendor/simple-commerce:"
+  la public/vendor/simple-commerce
+}

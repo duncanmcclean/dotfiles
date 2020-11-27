@@ -14,10 +14,7 @@ alias uc="php -d memory_limit=-1 /usr/local/bin/composer"
 alias cg="composer global"
 alias n="npm"
 alias y="yarn"
-alias pstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 alias subl="open -a 'Sublime Text'"
-alias reb="comp install && rm -rf node_modules && npm install && npm run dev"
-alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias dot="cd ~/.dotfiles"
 
 # Bash stuff
@@ -25,16 +22,11 @@ alias cl="clear"
 alias clearmail=": > /var/mail/$USER"
 alias profile="source ~/.zshrc"
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
+alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 # Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-
-# Mac Apps
-if [[ $OSTYPE == darwin* ]]; then
-    alias slack="open -a /Applications/Slack.app"
-    alias chrome="open -a /Applications/Google\ Chrome.app"
-fi
 
 # Git
 alias add="git add"
@@ -44,13 +36,11 @@ alias pull="git pull"
 alias commit="git commit -m"
 alias wip="all && commit 'wip'"
 alias check="git checkout"
-alias newbr="git checkout -b"
-alias branch="git branch"
 alias reset="git reset"
 alias clone="git clone"
 alias init="git init && git add . && git commit -m 'Initial commit'"
 alias status="git status"
-alias diff="git diff -w"
+alias nah="git reset HEAD --hard"
 
 # Laravel
 alias migrate="php artisan migrate"
