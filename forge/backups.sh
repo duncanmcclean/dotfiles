@@ -5,7 +5,7 @@ rm -rf $HOME/.backups
 mkdir $HOME/.backups
 
 # Loop through Forge sites on this server
-for siteDirectory in $HOME/sites/*/ ; do
+for siteDirectory in $HOME/*/ ; do
     siteName=$(basename $siteDirectory)
 
     echo "$siteDirectory"
