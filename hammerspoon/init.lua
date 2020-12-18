@@ -1,22 +1,22 @@
 -- Startup
 -- When I startup my work computer, I don't want to open everything I need...
 
-for i,hostname in ipairs(hs.host.names()) do
-    if hostname == 'Steadfast-Mac-3.local' then
-        local applicationsToOpen = {
-            '/Applications/Discord.app',
-            '/Applications/Github Desktop.app',
-            '/Applications/Google Chrome.app',
-            '/Applications/Notion.app',
-            '/Applications/Slack.app',
-            '/Applications/Visual Studio Code.app',
-        }
-
-        for i,app in ipairs(applicationsToOpen) do
-            hs.application.open(app)
-        end
-    end
-end
+#for i,hostname in ipairs(hs.host.names()) do
+#    if hostname == 'Steadfast-Mac-3.local' then
+#        local applicationsToOpen = {
+#            '/Applications/Discord.app',
+#            '/Applications/Github Desktop.app',
+#            '/Applications/Google Chrome.app',
+#            '/Applications/Notion.app',
+#            '/Applications/Slack.app',
+#            '/Applications/Visual Studio Code.app',
+#        }
+#
+#        for i,app in ipairs(applicationsToOpen) do
+#            hs.application.open(app)
+#        end
+#    end
+#end
 
 -- Window management
 -- Ideally I'd like to make it so I can have a consistent window layout with the
