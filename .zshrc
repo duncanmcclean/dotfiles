@@ -138,8 +138,8 @@ simplink() {
 # Run PHPUnit or Pest tests (depending on available runners in project)
 t() {
   if [ -f "./vendor/bin/pest" ]; then
-    php -d memory_limit=-1 ./vendor/bin/pest
+    php -d memory_limit=-1 ./vendor/bin/pest $@
   elif [ -n "./vendor/bin/phpunit" ]; then
-    php -d memory_limit=-1 ./vendor/bin/phpunit
+    php -d memory_limit=-1 ./vendor/bin/phpunit $@
   fi
 }
