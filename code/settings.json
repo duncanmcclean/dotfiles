@@ -45,7 +45,7 @@
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
     /** Theme */
-    "workbench.colorTheme": "SynthWave '84",
+    "workbench.colorTheme": "Monokai Pro",
 
     /**
     * Code
@@ -107,5 +107,6 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
-    "extensions.ignoreRecommendations": false
+    "extensions.ignoreRecommendations": false,
+    "workbench.iconTheme": "Monokai Pro Icons"
 }
