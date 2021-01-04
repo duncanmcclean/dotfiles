@@ -47,3 +47,17 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "T", function ()
 
     hs.application.open('/Applications/Tuple.app')
 end)
+
+-- Lunchtime
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function ()
+    -- Set slack status
+
+    -- Stop music
+    if hs.spotify.isPlaying() then
+        hs.spotify.pause()
+    end
+
+    -- Stop Harvest timer
+    hs.application.launchOrFocus('/Applications/Slack.app')
+end)
