@@ -12,6 +12,7 @@ alias uc="php -d memory_limit=-1 /usr/local/bin/composer"
 alias cg="composer global"
 alias n="npm"
 alias y="yarn"
+alias tf="t --filter"
 alias subl="open -a 'Sublime Text'"
 alias dot="cd ~/.dotfiles"
 
