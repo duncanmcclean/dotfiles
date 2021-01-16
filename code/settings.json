@@ -45,7 +45,7 @@
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
     /** Theme */
-    "workbench.colorTheme": "Monokai Pro",
+    "workbench.colorTheme": "Remedy - Dark (Straight)",
 
     /**
     * Code
@@ -95,7 +95,7 @@
     */
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
 
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
