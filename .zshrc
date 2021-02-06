@@ -143,3 +143,16 @@ t() {
     php -d memory_limit=-1 ./vendor/bin/phpunit $@
   fi
 }
+
+# Script that does all the Statamic/Laravel setup nonsense
+plssetup() {
+  composer install
+  cp .env.example .env
+  php artisan key:generate
+  npm install
+  npm run dev
+
+  if [ -f "please" ]; then
+    plsuser
+  fi
+}
