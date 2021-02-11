@@ -38,6 +38,14 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
     end
 end)
 
+-- Maximise current window
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "F", function ()
+   local currentWindow = hs.window.focusedWindow
+
+   ha.layout.apply({ currentWindow.name, nil, nil, hs.layout.maximized, nil, nil  })
+end)
+
 -- Time to pair...
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "T", function ()
