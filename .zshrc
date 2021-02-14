@@ -144,7 +144,6 @@ t() {
   fi
 }
 
-<<<<<<< HEAD
 # Script that does all the Statamic/Laravel setup nonsense
 plssetup() {
   composer install
@@ -166,9 +165,4 @@ compv() {
     composer info | grep $1
   fi
 }
-=======
-# Node Version Manager stuff
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
->>>>>>> b189c9f322d3803ee0468d2df7670a3aa7499633
+
