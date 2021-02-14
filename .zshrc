@@ -156,3 +156,12 @@ plssetup() {
     plsuser
   fi
 }
+
+# Get composer version
+compv() {
+  if [[ $1 == *"/"* ]]; then
+    composer show $1 | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1;
+  else
+    composer info | grep $1
+  fi
+}
