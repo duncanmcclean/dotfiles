@@ -94,6 +94,23 @@ cp -r settings/Package\ Control.sublime-package ~/Library/Application\ Support/S
 
 ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 
+# Finder: show file extensions & disable file extension warning
+defaults write NSGlobalDomain AppleShowAllExtensions -bool false
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Avoid creating .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
+# Wipe everything from the Dock
+defaults write com.apple.dock persistent-apps -array	
+
 # Hide 'Last Logged In' in terminal
 touch .hushlogin
 
