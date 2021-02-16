@@ -95,7 +95,6 @@
     */
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
-    "window.zoomLevel": 0,
 
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
@@ -108,5 +107,6 @@
         "source.fixAll.eslint": true
     },
     "extensions.ignoreRecommendations": false,
-    "workbench.iconTheme": "Monokai Pro Icons"
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "window.zoomLevel": -1
 }
