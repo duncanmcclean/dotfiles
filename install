@@ -50,6 +50,10 @@ $HOME/.composer/vendor/bin/valet install
 echo "Creating a Sites directory"
 mkdir $HOME/Sites
 
+# Create Projects directory
+echo "Creating a Projects directory"
+mkdir $HOME/Projects
+
 # Start MySQL for the first time
 echo "Starting MySQL for the first time"
 brew services start mysql
