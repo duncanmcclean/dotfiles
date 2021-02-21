@@ -11,7 +11,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # Configure symlinks
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.mackup.cfg ~/.mackup.cfg
 
 # Homebrew - Installation
 echo "Installing Homebrew"

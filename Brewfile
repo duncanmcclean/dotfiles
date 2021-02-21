@@ -6,7 +6,6 @@ tap "homebrew/services"
 brew "cocoapods"
 brew "dnsmasq", restart_service: true
 brew "git"
-brew "mackup"
 brew "mysql", restart_service: true
 brew "nginx", restart_service: true
 brew "node"
