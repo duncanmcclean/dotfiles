@@ -1,6 +1,6 @@
-# Link sites/cms to current site
-# To link cms: plslink cms
-# To link dist: plslink dist
+# ------------------------------------------------------------------------------
+# Link `~/Sites/cms` to current site
+# ------------------------------------------------------------------------------
 
 plslink() {
   if [ "$1" = 'dist' ] || [ "$1" = 'cp' ]; then
@@ -17,6 +17,11 @@ plslink() {
   la public/vendor/statamic
 }
 
+
+# ------------------------------------------------------------------------------
+# Link `~/Sites/simple-commerce` to current site
+# ------------------------------------------------------------------------------
+
 simplink() {
   if [ "$1" = 'dist' ] || [ "$1" = 'cp' ]; then
     rm -rf public/vendor/simple-commerce
@@ -32,7 +37,11 @@ simplink() {
   la public/vendor/simple-commerce
 }
 
-# Run PHPUnit or Pest tests (depending on available runners in project)
+
+# ------------------------------------------------------------------------------
+# Run Test Suite (Pest or PHPUnit, depending on what's available)
+# ------------------------------------------------------------------------------
+
 t() {
   if [ -f "./vendor/bin/pest" ]; then
     php -d memory_limit=-1 ./vendor/bin/pest $@
@@ -41,7 +50,11 @@ t() {
   fi
 }
 
-# Script that does all the Statamic/Laravel setup nonsense
+
+# ------------------------------------------------------------------------------
+# Setup all the things for a Laravel/Statamic app
+# ------------------------------------------------------------------------------
+
 plssetup() {
   composer install
   cp .env.example .env
@@ -54,7 +67,11 @@ plssetup() {
   fi
 }
 
-# Get composer version
+
+# ------------------------------------------------------------------------------
+# Get version of installed Composer package
+# ------------------------------------------------------------------------------
+
 compv() {
   if [[ $1 == *"/"* ]]; then
     composer show $1 | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1;
