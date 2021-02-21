@@ -1,9 +1,8 @@
 # Fork, clone and install deps
 oss() {
     GH_REPO=$1
-    # read PACAKGE_VENDOR PACKAGE_NAME <<<$(IFS="/"; echo $GH_REPO)
-    PACAKGE_VENDOR='statamic'
-    PACKAGE_NAME='migrator'
+    PACAKGE_VENDOR=`echo $1 | cut -d"/" -f1`
+    PACKAGE_NAME=`echo $1 | cut -d"/" -f2`
 
     if [ $# -eq 2 ]; then
         CLONE_LOCATION=$PWD/$2
@@ -32,9 +31,8 @@ oss() {
 # Install package
 osslink() {
     GH_REPO=$1
-    # read PACAKGE_VENDOR PACKAGE_NAME <<<$(IFS="/"; echo $GH_REPO)
-    PACAKGE_VENDOR='statamic'
-    PACKAGE_NAME='migrator'
+    PACAKGE_VENDOR=`echo $1 | cut -d"/" -f1`
+    PACKAGE_NAME=`echo $1 | cut -d"/" -f2`
 
     if [ $# -eq 2 ]; then
         CLONE_LOCATION=$PWD/$2
