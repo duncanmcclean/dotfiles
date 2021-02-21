@@ -11,6 +11,7 @@ brew "nginx", restart_service: true
 brew "node"
 brew "php", restart_service: true
 brew "yarn"
+brew "gh"
 
 cask "1password"
 cask "alfred"
