@@ -77,7 +77,7 @@ echo "Copied SSH key to clipboard - You can now add it to Github"
 pbcopy < ~/.ssh/id_rsa.pub
 
 # Register the Global Gitignore file
-git config --global core.excludesfile $HOME/.dotfiles/.gitignore_global
+git config --global core.excludesfile $HOME/.dotfiles/git/.gitignore_global
 
 # Symlinks
 ln -s /Users/duncan/.dotfiles/code /Users/duncan/Library/Application\ Support/Code/User
