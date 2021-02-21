@@ -45,7 +45,7 @@
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
     /** Theme */
-    "workbench.colorTheme": "Remedy - Dark (Straight)",
+    "workbench.colorTheme": "Solarized Dark",
 
     /**
     * Code
