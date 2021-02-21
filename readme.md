@@ -9,3 +9,14 @@ This repo contains a bunch of stuff I use to keep my settings in sync across my 
 3. Run the install script `./install.sh`
 4. Restore application configs with `mackup restore` (if you have Google Drive synced)
 5. **Login to everything and start working!**
+
+
+
+## Duncan's Dotfiles
+
+I'm Duncan, and these are my dotfiles.
+
+### Installation
+
+* `git clone git@github.com:duncanmcclean/dotfiles.git ~/.dotfiles`
+* `~/.dotfiles/install`
