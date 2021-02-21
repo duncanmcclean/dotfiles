@@ -108,5 +108,6 @@
         "source.fixAll.eslint": true
     },
     "extensions.ignoreRecommendations": false,
-    "workbench.iconTheme": "Monokai Pro Icons"
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "window.zoomLevel": -1
 }

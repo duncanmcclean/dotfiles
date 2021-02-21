@@ -15,6 +15,7 @@ alias y="yarn"
 alias tf="t --filter"
 alias subl="open -a 'Sublime Text'"
 alias dot="cd ~/.dotfiles"
+alias rfa="redis-cli flushall"
 
 # Bash stuff
 alias cl="clear"
