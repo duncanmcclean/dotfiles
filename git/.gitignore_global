@@ -1,33 +1,4 @@
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-
-# Logs and databases #
-######################
-*.log
-*.sql
-*.sqlite
-
-# OS generated files #
-######################
+# Mac OS files
 .DS_Store
 .DS_Store?
 ._*
@@ -36,11 +7,13 @@
 ehthumbs.db
 Thumbs.db
 
-# Codekit Config file #
-######################
-config.codekit3
+# Logs (and stuff
+*.log
+*.sql
+*.sqlite
 
-# VS code file #
-######################
-*.vscode
+# Statamic
+users/duncan@mcclean.co.uk
+
+# VS Code
 .vscode
