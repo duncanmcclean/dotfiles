@@ -1,3 +1,4 @@
+# Fork, clone and install deps
 oss() {
     GH_REPO=$1
     # read PACAKGE_VENDOR PACKAGE_NAME <<<$(IFS="/"; echo $GH_REPO)
@@ -25,5 +26,31 @@ oss() {
     if [ -f "package.json" ]; then
         npm install
         npm run dev
+    fi
+}
+
+# Install package
+osslink() {
+    GH_REPO=$1
+    # read PACAKGE_VENDOR PACKAGE_NAME <<<$(IFS="/"; echo $GH_REPO)
+    PACAKGE_VENDOR='statamic'
+    PACKAGE_NAME='migrator'
+
+    if [ $# -eq 2 ]; then
+        CLONE_LOCATION=$PWD/$2
+    else
+        CLONE_LOCATION=~/Sites/$PACKAGE_NAME
+    fi
+
+    # vendor symlink
+    rm -rf vendor/$PACAKGE_VENDOR/$PACKAGE_NAME
+    ln -s $CLONE_LOCATION vendor/$PACAKGE_VENDOR/$PACKAGE_NAME
+    la vendor/$PACAKGE_VENDOR
+
+    # public/vendor symlink
+    if [ -f "resources/dist" ]; then
+        rm -rf public/vendor/$PACAKGE_VENDOR
+        ln -s $CLONE_LOCATION/resources/dist public/vendor/$PACAKGE_VENDOR
+        la public/vendor/$PACAKGE_VENDOR
     fi
 }
