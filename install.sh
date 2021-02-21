@@ -10,7 +10,7 @@ echo "Installing Oh My Zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Configure symlinks
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.mackup.cfg ~/.mackup.cfg
 
 # Homebrew - Installation
@@ -109,7 +109,7 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 
 # Wipe everything from the Dock
-defaults write com.apple.dock persistent-apps -array	
+defaults write com.apple.dock persistent-apps -array
 
 # Hide 'Last Logged In' in terminal
 touch .hushlogin
