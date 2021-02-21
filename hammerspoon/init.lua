@@ -1,6 +1,6 @@
 local hyper = {"cmd", "alt", "ctrl"}
 
--- Window manager --
+-- Window manager
 
 hs.loadSpoon("MiroWindowsManager")
 
@@ -15,10 +15,16 @@ spoon.MiroWindowsManager:bindHotkeys({
 
 -- Time to pair...
 
-hs.hotkey.bind({hyper, "T", function ()
+hs.hotkey.bind(hyper, "T", function ()
     if hs.spotify.isPlaying() then
         hs.spotify.pause()
     end
 
     hs.application.open('/Applications/Tuple.app')
+end)
+
+-- 🔒 Lock the computer
+
+hs.hotkey.bind(hyper, "L", function ()
+    hs.caffeinate.lockScreen()
 end)
