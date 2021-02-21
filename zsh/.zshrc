@@ -1,41 +1,37 @@
 export DOTFILES="$HOME/.dotfiles"
-
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+
+# ------------------------------------------------------------------------------
+# Zsh Config
+# ------------------------------------------------------------------------------
+
 ZSH_THEME="agnoster"
-
-# Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
-
-# Date form`t
 HIST_STAMPS="dd/mm/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$DOTFILES/zsh
-
-# ZSH Plugins
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+
+# ------------------------------------------------------------------------------
 # Paths
+# ------------------------------------------------------------------------------
+
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH=$PATH:/usr/local/mysql/bin/
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/mys"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# ------------------------------------------------------------------------------
+# Functions
+# ------------------------------------------------------------------------------
 
 # Link sites/cms to current site
 # To link cms: plslink cms
@@ -102,7 +98,11 @@ compv() {
   fi
 }
 
-# Node Version Manager (if on work laptop)
+
+# ------------------------------------------------------------------------------
+# Node Version Manager (NVM)
+# ------------------------------------------------------------------------------
+
 if [[ hostname == "Steadfast-Mac-3.local" ]]; then
     export NVM_DIR="$HOME/.nvm"
         [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
