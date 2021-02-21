@@ -39,7 +39,8 @@ mv composer.phar /usr/local/bin/composer
 
 # Install Global Composer Packages
 echo "Installing Global Composer Packages"
-/usr/local/bin/composer global require laravel/installer laravel/lumen-installer laravel/valet statamic/cli
+ln -s /Users/duncan/.dotfiles/composer/composer.json /Users/duncan/.composer/composer.json
+/usr/local/bin/composer global install
 
 # Install Laravel Valet
 echo "Installing Laravel Valet"
@@ -80,7 +81,6 @@ git config --global core.excludesfile $HOME/.dotfiles/git/.gitignore_global
 
 # Symlinks
 ln -s /Users/duncan/.dotfiles/code /Users/duncan/Library/Application\ Support/Code/User
-ln -s /Users/duncan/.dotfiles/composer/composer.json /Users/duncan/.composer/composer.json
 ln -s /Users/duncan/.dotfiles/.gitignore_global /Users/duncan/.gitignore_global
 ln -s /Users/duncan/.dotfiles/hammerspoon /Users/duncan/.hammerspoon
 
