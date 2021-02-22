@@ -88,3 +88,12 @@ alias plsnew="statamic new"
 alias plsclear="p stache:clear && p glide:clear && p static:clear && a cache:clear"
 alias plsuser="cp ~/.dotfiles/statamic/duncan@mcclean.co.uk.yaml users/duncan@mcclean.co.uk.yaml"
 alias plsdeets="php please support:details"
+
+# ------------------------------------------------------------------------------
+# NPM
+# ------------------------------------------------------------------------------
+
+alias ni="npm install"
+alias dev="npm run dev"
+alias watch="npm run watch"
+alias prod="npm run production"
