@@ -10,8 +10,12 @@ oss() {
         CLONE_LOCATION=~/Sites/$PACKAGE_NAME
     fi
 
-    # Fork repo
-    gh repo fork $GH_REPO $CLONE_LOCATION --remote=true --clone=true
+    # Fork & clone repo
+    if [ $PACKAGE_VENDOR == 'doublethreedigital' ];then
+	git clone git@github.com/$GH_REPO.git $CLONE_LOCATION
+    else
+        gh repo fork $GH_REPO $CLONE_LOCATION --remote=true --clone=true
+    fi
 
     # Cd into Fork
     cd $CLONE_LOCATION
