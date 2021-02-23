@@ -103,5 +103,9 @@ defaults write com.apple.dock persistent-apps -array
 # Hide 'Last Logged In' in terminal
 touch .hushlogin
 
+# Configure Git details
+git config --global user.name "Duncan McClean"
+git config --global user.email "duncan@mcclean.co.uk"
+
 # Complete
 echo "Installation Complete"
