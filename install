@@ -7,9 +7,10 @@ sudo -v
 
 # Oh My Zsh
 echo "Installing Oh My Zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Configure symlinks
+rm ~/.zshrc
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 
 # Homebrew - Installation
@@ -22,15 +23,12 @@ fi
 # Update homebrew recipes
 brew update
 
-# Install NVM
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-
 # Install Homebrew Packages
 cd ~
 echo "Installing Homebrew packages"
 
 # Install packages from Brew
-brew bundle --file=~/.dotfiles/
+brew bundle --file=~/.dotfiles/Brewfile
 
 # Install Composer
 echo "Installing Composer"
@@ -39,6 +37,7 @@ mv composer.phar /usr/local/bin/composer
 
 # Install Global Composer Packages
 echo "Installing Global Composer Packages"
+rm /Users/duncan/.composer/composer.json
 ln -s /Users/duncan/.dotfiles/composer/composer.json /Users/duncan/.composer/composer.json
 /usr/local/bin/composer global install
 
@@ -83,15 +82,6 @@ git config --global core.excludesfile $HOME/.dotfiles/git/.gitignore_global
 ln -s /Users/duncan/.dotfiles/code /Users/duncan/Library/Application\ Support/Code/User
 ln -s /Users/duncan/.dotfiles/.gitignore_global /Users/duncan/.gitignore_global
 ln -s /Users/duncan/.dotfiles/hammerspoon /Users/duncan/.hammerspoon
-
-# Sublime Text 3
-mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\
-mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
-
-curl "https://packagecontrol.io/Package%20Control.sublime-package" > settings/Package\ Control.sublime-package
-cp -r settings/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package\ Control.sublime-package
-
-ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 
 # Finder: show file extensions & disable file extension warning
 defaults write NSGlobalDomain AppleShowAllExtensions -bool false
