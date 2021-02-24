@@ -19,6 +19,9 @@ alias tf="t --filter"
 alias subl="open -a 'Sublime Text'"
 alias dot="cd ~/.dotfiles"
 alias rfa="redis-cli flushall"
+alias sv="valet use"
+alias p8="valet use php"
+alias p74="valet use php@7.4"
 
 
 # ------------------------------------------------------------------------------

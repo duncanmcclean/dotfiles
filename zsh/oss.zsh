@@ -7,10 +7,10 @@ oss() {
     if [ $# -eq 2 ]; then
         CLONE_LOCATION=$PWD/$2
     else
-        CLONE_LOCATION=~/Sites/$PACKAGE_NAME
+        CLONE_LOCATION=~/Projects/$PACKAGE_NAME
     fi
 
-    # Fork repo
+    # Fork & clone repo
     gh repo fork $GH_REPO $CLONE_LOCATION --remote=true --clone=true
 
     # Cd into Fork
@@ -37,7 +37,7 @@ osslink() {
     if [ $# -eq 2 ]; then
         CLONE_LOCATION=$PWD/$2
     else
-        CLONE_LOCATION=~/Sites/$PACKAGE_NAME
+        CLONE_LOCATION=~/Projects/$PACKAGE_NAME
     fi
 
     # vendor symlink
