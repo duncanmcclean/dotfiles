@@ -17,3 +17,6 @@ users/duncan@mcclean.co.uk
 
 # VS Code
 .vscode
+
+# Tinkerwell
+tinkerwell/*.php
