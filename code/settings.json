@@ -103,9 +103,9 @@
     },
     "eslint.run": "onSave",
     "eslint.validate": ["html", "vue", "javascript"],
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
+    // "editor.codeActionsOnSave": {
+    //     "source.fixAll.eslint": true
+    // },
     "extensions.ignoreRecommendations": false,
     "workbench.iconTheme": "Monokai Pro Icons",
     "docker.showStartPage": false
