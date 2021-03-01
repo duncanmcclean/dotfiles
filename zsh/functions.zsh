@@ -79,3 +79,9 @@ compv() {
     composer info | grep $1
   fi
 }
+
+# TODO: fix comment
+# clone one of my repos
+cloneme() {
+  git clone git@github.com:duncanmcclean/$1.git
+}
