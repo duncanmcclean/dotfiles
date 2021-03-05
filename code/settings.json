@@ -45,7 +45,7 @@
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
     /** Theme */
-    "workbench.colorTheme": "SynthWave '84",
+    "workbench.colorTheme": "Quiet Light",
 
     /**
     * Code
