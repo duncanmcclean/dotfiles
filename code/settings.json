@@ -45,7 +45,7 @@
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
     /** Theme */
-    "workbench.colorTheme": "Quiet Light",
+    "workbench.colorTheme": "Ayu Mirage",
 
     /**
     * Code
@@ -107,6 +107,5 @@
     //     "source.fixAll.eslint": true
     // },
     "extensions.ignoreRecommendations": false,
-    "workbench.iconTheme": "Monokai Pro Icons",
     "docker.showStartPage": false
 }
