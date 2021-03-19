@@ -60,6 +60,7 @@ alias clone="git clone"
 alias init="git init && git add . && git commit -m 'Initial commit'"
 alias status="git status"
 alias nah="git reset HEAD --hard"
+alias diff="git diff"
 
 
 # ------------------------------------------------------------------------------
