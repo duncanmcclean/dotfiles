@@ -45,7 +45,7 @@
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
     /** Theme */
-    "workbench.colorTheme": "Ayu Mirage",
+    "workbench.colorTheme": "Tomorrow Night Blue",
 
     /**
     * Code
