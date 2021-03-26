@@ -107,5 +107,11 @@
     //     "source.fixAll.eslint": true
     // },
     "extensions.ignoreRecommendations": false,
-    "docker.showStartPage": false
+    "docker.showStartPage": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "octref.vetur"
+    }
 }
