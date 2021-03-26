@@ -104,8 +104,9 @@ alias watch="npm run watch"
 alias prod="npm run production"
 
 
-
-# And others that need propper comments
+# ------------------------------------------------------------------------------
+# Project Shortcuts
+# ------------------------------------------------------------------------------
 
 alias cms="code ~/Projects/cms"
 alias simple="code ~/Projects/simple-commerce"

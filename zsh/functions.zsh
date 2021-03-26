@@ -1,44 +1,4 @@
 # ------------------------------------------------------------------------------
-# Link `~/Sites/cms` to current site
-# ------------------------------------------------------------------------------
-
-plslink() {
-  if [ "$1" = 'dist' ] || [ "$1" = 'cp' ]; then
-    rm -rf public/vendor/statamic/cp
-    ln -s ~/Sites/cms/resources/dist public/vendor/statamic/cp
-  elif [ -n "$1" ]; then
-    rm -rf vendor/statamic/$1
-    ln -s ~/Sites/$1 vendor/statamic/$1
-  fi
-
-  echo "\nIn vendor/statamic:"
-  la vendor/statamic
-  echo "\nIn public/vendor/statamic:"
-  la public/vendor/statamic
-}
-
-
-# ------------------------------------------------------------------------------
-# Link `~/Sites/simple-commerce` to current site
-# ------------------------------------------------------------------------------
-
-simplink() {
-  if [ "$1" = 'dist' ] || [ "$1" = 'cp' ]; then
-    rm -rf public/vendor/simple-commerce
-    ln -s ~/Sites/simple-commerce/resources/dist public/vendor/simple-commerce
-  elif [ -n "$1" ]; then
-    rm -rf vendor/doublethreedigital/$1
-    ln -s ~/Sites/$1 vendor/doublethreedigital/$1
-  fi
-
-  echo "\nIn vendor/doublethreedigital:"
-  la vendor/doublethreedigital
-  echo "\nIn public/vendor/simple-commerce:"
-  la public/vendor/simple-commerce
-}
-
-
-# ------------------------------------------------------------------------------
 # Run Test Suite (Pest or PHPUnit, depending on what's available)
 # ------------------------------------------------------------------------------
 
@@ -80,8 +40,19 @@ compv() {
   fi
 }
 
-# TODO: fix comment
-# clone one of my repos
+
+# ------------------------------------------------------------------------------
+# Clone one of my repositories
+# ------------------------------------------------------------------------------
+
 cloneme() {
   git clone git@github.com:duncanmcclean/$1.git
+}
+
+clonedo() {
+  git clone git@github.com:doublethreedigital/$1.git
+}
+
+clonesf() {
+  git clone git@github.com:steadfast-collective/$1.git
 }
