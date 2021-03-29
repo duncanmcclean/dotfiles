@@ -44,9 +44,6 @@
     "editor.gotoLocation.multipleImplementations": "goto",
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
-    /** Theme */
-    "workbench.colorTheme": "Tomorrow Night Blue",
-
     /**
     * Code
     **/
@@ -113,5 +110,6 @@
     },
     "[vue]": {
         "editor.defaultFormatter": "octref.vetur"
-    }
+    },
+    "workbench.colorTheme": "Atom One Dark"
 }
