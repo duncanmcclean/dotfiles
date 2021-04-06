@@ -111,5 +111,5 @@
     "[vue]": {
         "editor.defaultFormatter": "octref.vetur"
     },
-    "workbench.colorTheme": "Dracula"
+    "workbench.colorTheme": "Solarized Light"
 }
