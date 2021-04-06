@@ -13,6 +13,10 @@ echo "Installing Oh My Zsh"
 rm ~/.zshrc
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 
+# Download & symlink Spaceship Zsh Prompt
+git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.zsh-spaceship-prompt --depth=1
+ln -s ~/.zsh-spaceship-prompt/spaceship.zsh-theme ~/.dotfiles/zsh/themes/spaceship.zsh-theme
+
 # Homebrew - Installation
 echo "Installing Homebrew"
 
