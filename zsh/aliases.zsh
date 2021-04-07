@@ -51,6 +51,7 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 
 alias add="git add"
 alias all="git add ."
+alias fpush="git push -u origin HEAD" # first push, might want to combine this and `push` at some point
 alias push="git push"
 alias pull="git pull"
 alias commit="git commit -m"
