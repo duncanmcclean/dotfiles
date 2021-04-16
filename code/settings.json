@@ -95,21 +95,28 @@
 
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
+
+
     "eslint.options": {
-        "extensions": [".html", ".js", ".vue", ".jsx"]
+        "extensions": [".js", ".vue", ".jsx"]
     },
     "eslint.run": "onSave",
-    "eslint.validate": ["html", "vue", "javascript"],
-    // "editor.codeActionsOnSave": {
-    //     "source.fixAll.eslint": true
-    // },
+    "eslint.validate": ["vue", "javascript", "javascriptreact"],
+
+
     "extensions.ignoreRecommendations": false,
     "docker.showStartPage": false,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[vue]": {
-        "editor.defaultFormatter": "octref.vetur"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "workbench.colorTheme": "Solarized Light"
+    "workbench.colorTheme": "Solarized Light",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    }
 }
