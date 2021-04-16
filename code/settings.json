@@ -81,7 +81,7 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
 
-    /** Extensions **/
+
     "extensions.ignoreRecommendations": false,
     "docker.showStartPage": false,
 
