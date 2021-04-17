@@ -3,7 +3,6 @@ local hyper = {"cmd", "alt", "ctrl"}
 hs.console.darkMode(true)
 
 -- json = require("json")
-
 require("hs.ipc")
 
 -- Ray
@@ -11,7 +10,10 @@ require("hs.ipc")
 -- function ray(dump)
 --     print("we are raying", dump)
 
---     os.execute("ray 'smth' --large")
+--     local rayCommand = "ray 'smth' --large"
+
+--     os.execute(rayCommand)
+--     -- os.execute("mkdir /Users/duncan/Desktop/test1")
 -- end
 
 -- Window manager
@@ -54,12 +56,12 @@ hs.hotkey.bind(hyper, "O", function ()
     local currentWindow = hs.window.focusedWindow()
     local visibleWindows = 	hs.window.visibleWindows()
 
-    -- ray("hello world")
+    for window in visibleWindows
+    do
+        print(window.new():title())
+    end
 
-    -- for window in visibleWindows
-    -- do
-    --     -- print(window.new():title())
-    -- end
+    -- hs.application.open('/Applications/Loom.app')
 end)
 
 -- Reload Hammerspoon config
