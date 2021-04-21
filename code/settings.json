@@ -1,5 +1,7 @@
 {
-    /** Better Defaults */
+    "workbench.colorTheme": "Solarized Light",
+
+    /** Better defaults **/
     "editor.copyWithSyntaxHighlighting": false,
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.emptySelectionClipboard": false,
@@ -12,6 +14,8 @@
     "window.nativeFullScreen": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
+    "window.dialogStyle": "custom",
+    "window.title": ""
 
     /** Hide everything **/
     "workbench.activityBar.visible": false,
@@ -21,7 +25,7 @@
     "editor.renderIndentGuides": false,
     "editor.minimap.enabled": false,
 
-    /** Silence the noise */
+    /** Silence the noise **/
     "breadcrumbs.enabled": false,
     "scm.diffDecorations": "none",
     "editor.hover.enabled": false,
@@ -44,16 +48,17 @@
     "editor.gotoLocation.multipleImplementations": "goto",
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
-    /**
-    * Code
-    **/
-    // Include "-" in word selection.
+    /** Code **/
     "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+
+    /** Emmet **/
     "emmet.includeLanguages": {
         "blade": "html",
         "vue-html": "html",
         "vue": "html"
     },
+
+    /** File assosiations **/
     "files.associations": {
         ".php_cs": "php",
         ".php_cs.dist": "php",
@@ -61,62 +66,31 @@
         "*.module": "php"
     },
 
-    /**
-    * PHP
-    **/
-    "php.suggest.basic": false,
+    /** ESLint **/
+    "eslint.options": {
+        "extensions": [".html", ".js", ".vue", ".jsx"]
+    },
+    "eslint.run": "onSave",
+    "eslint.validate": ["html", "vue", "javascript"],
 
-    /**
-    * PHP CS Fixer
-    **/
-    // "[php]": {
-    //     "editor.defaultFormatter": "junstyle.php-cs-fixer"
-    // },
-    // "php-cs-fixer.onsave": true,
-    // "php-cs-fixer.showOutput": false,
-    // "php-cs-fixer.autoFixByBracket": false,
-    // "php-cs-fixer.rules": "@PSR2",
-
-    /**
-    * Prettier
-    **/
-    // "[javascript]": {
-    //     // "editor.defaultFormatter": "esbenp.prettier-vscode",
-    //     "editor.formatOnSave": true
-    // },
-    // "prettier.requireConfig": true,
-    // "prettier.useEditorConfig": false,
-
-    /**
-        Some of my own custom settings
-    */
+    /** Git **/
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
 
+    /** Explorer **/
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
 
 
-    "eslint.options": {
-        "extensions": [".js", ".vue", ".jsx"]
-    },
-    "eslint.run": "onSave",
-    "eslint.validate": ["vue", "javascript", "javascriptreact"],
-
-
     "extensions.ignoreRecommendations": false,
     "docker.showStartPage": false,
+
+    /** Language Specific **/
+    "php.suggest.basic": false,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[vue]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "workbench.colorTheme": "Solarized Light",
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
+        "editor.defaultFormatter": "octref.vetur"
     }
 }
