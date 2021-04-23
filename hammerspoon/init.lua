@@ -2,12 +2,20 @@ local hyper = {"cmd", "alt", "ctrl"}
 
 hs.console.darkMode(true)
 
--- json = require("json")
+local lunajson = require 'lunajson' -- installed via Luarocks https://github.com/grafi-tt/lunajson
 
 -- Ray
 
 function ray(dump)
-    hs.execute("ray 'test' --large", true)
+    if (type(dump) == 'string') then
+        hs.execute(string.format("ray '" .. dump .. "' "), true)
+    else
+        local wip = string.format("ray '" .. lunajson.encode(dump) .. "' --json")
+
+        print(wip) -- ya see, it looks fine here
+
+        hs.execute(wip, true) -- but when it gets sent to ray, it comes out as 'null'
+    end
 end
 
 -- Window manager
@@ -50,7 +58,8 @@ hs.hotkey.bind(hyper, "O", function ()
     local currentWindow = hs.window.focusedWindow()
     local visibleWindows = 	hs.window.visibleWindows()
 
-    ray('me say hellow')
+    ray('Sand')
+    ray({ 1, 2, 3, { x = 10 } })
 
     -- for window in visibleWindows
     -- do
@@ -72,8 +81,6 @@ function reloadConfig(files)
     if doReload then
         hs.reload()
     end
-
-    ray('whatever')
 end
 
 myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.dotfiles/hammerspoon/", reloadConfig):start()
