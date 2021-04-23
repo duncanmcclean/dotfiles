@@ -3,18 +3,16 @@ local hyper = {"cmd", "alt", "ctrl"}
 hs.console.darkMode(true)
 
 -- json = require("json")
-require("hs.ipc")
 
 -- Ray
 
--- function ray(dump)
---     print("we are raying", dump)
+function ray(dump)
+    print("we are raying", dump)
 
---     local rayCommand = "ray 'smth' --large"
+    os.execute("/usr/local/bin/php /Users/duncan/.composer/vendor/bin/ray 'test' --large")
 
---     os.execute(rayCommand)
---     -- os.execute("mkdir /Users/duncan/Desktop/test1")
--- end
+    os.execute("touch /Users/dunncan/smth.txt")
+end
 
 -- Window manager
 
@@ -56,10 +54,12 @@ hs.hotkey.bind(hyper, "O", function ()
     local currentWindow = hs.window.focusedWindow()
     local visibleWindows = 	hs.window.visibleWindows()
 
-    for window in visibleWindows
-    do
-        print(window.new():title())
-    end
+    ray('me say hellow')
+
+    -- for window in visibleWindows
+    -- do
+    --     print(window.new():title())
+    -- end
 
     -- hs.application.open('/Applications/Loom.app')
 end)
@@ -76,6 +76,8 @@ function reloadConfig(files)
     if doReload then
         hs.reload()
     end
+
+    ray('whatever')
 end
 
 myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.dotfiles/hammerspoon/", reloadConfig):start()

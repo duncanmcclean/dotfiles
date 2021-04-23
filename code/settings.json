@@ -15,7 +15,7 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "window.dialogStyle": "custom",
-    "window.title": ""
+    "window.title": "",
 
     /** Hide everything **/
     "workbench.activityBar.visible": false,
@@ -92,5 +92,8 @@
     },
     "[vue]": {
         "editor.defaultFormatter": "octref.vetur"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
     }
 }
