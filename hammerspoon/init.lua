@@ -7,11 +7,7 @@ hs.console.darkMode(true)
 -- Ray
 
 function ray(dump)
-    print("we are raying", dump)
-
-    os.execute("/usr/local/bin/php /Users/duncan/.composer/vendor/bin/ray 'test' --large")
-
-    os.execute("touch /Users/dunncan/smth.txt")
+    hs.execute("ray 'test' --large", true)
 end
 
 -- Window manager
