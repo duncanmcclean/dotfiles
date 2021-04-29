@@ -2,7 +2,7 @@ local hyper = {"cmd", "alt", "ctrl"}
 
 hs.console.darkMode(true)
 
-local lunajson = require 'lunajson' -- installed via Luarocks https://github.com/grafi-tt/lunajson
+-- local lunajson = require 'lunajson' -- installed via Luarocks https://github.com/grafi-tt/lunajson
 
 -- Ray
 
@@ -10,11 +10,11 @@ function ray(dump)
     if (type(dump) == 'string') then
         hs.execute(string.format("ray '" .. dump .. "' "), true)
     else
-        local wip = string.format("ray '" .. lunajson.encode(dump) .. "' --json")
+        local wip = string.format("ray '" .. hs.json.encode(dump) .. "' --json")
 
         print(wip) -- ya see, it looks fine here
 
-        hs.execute(wip, true) -- but when it gets sent to ray, it comes out as 'null'
+        print(hs.execute(wip, true)) -- but when it gets sent to ray, it comes out as 'null'
     end
 end
 
@@ -60,6 +60,7 @@ hs.hotkey.bind(hyper, "O", function ()
 
     ray('Sand')
     ray({ 1, 2, 3, { x = 10 } })
+    ray(os.execute('php -v', true))
 
     -- for window in visibleWindows
     -- do
