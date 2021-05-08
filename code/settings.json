@@ -12,6 +12,8 @@
     "window.nativeFullScreen": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
+    "extensions.ignoreRecommendations": false,
+    "docker.showStartPage": false,
 
     /** Hide everything **/
     "workbench.activityBar.visible": false,
@@ -62,13 +64,6 @@
         "*.module": "php"
     },
 
-    /** ESLint **/
-    "eslint.options": {
-        "extensions": [".html", ".js", ".vue", ".jsx"]
-    },
-    "eslint.run": "onSave",
-    "eslint.validate": ["html", "vue", "javascript"],
-
     /** Git **/
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
@@ -76,10 +71,6 @@
     /** Explorer **/
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-
-
-    "extensions.ignoreRecommendations": false,
-    "docker.showStartPage": false,
 
     /** Language Specific **/
     "php.suggest.basic": false,
