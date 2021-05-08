@@ -1,6 +1,4 @@
 {
-    "workbench.colorTheme": "Solarized Light",
-
     /** Better defaults **/
     "editor.copyWithSyntaxHighlighting": false,
     "diffEditor.ignoreTrimWhitespace": false,
@@ -14,8 +12,6 @@
     "window.nativeFullScreen": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "window.dialogStyle": "custom",
-    "window.title": "",
 
     /** Hide everything **/
     "workbench.activityBar.visible": false,
@@ -95,5 +91,14 @@
     },
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
-    }
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+
+    /** Extension: Sundial */
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "workbench.preferredDarkColorTheme": "Atom One Dark",
+    "window.autoDetectColorScheme": false
 }
