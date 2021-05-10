@@ -88,7 +88,7 @@
     },
 
     /** Extension: Sundial */
-    "workbench.colorTheme": "Atom One Dark",
+    "workbench.colorTheme": "Solarized Light",
     "workbench.preferredLightColorTheme": "Solarized Light",
     "workbench.preferredDarkColorTheme": "Atom One Dark",
     "window.autoDetectColorScheme": false
