@@ -31,6 +31,10 @@ spoon.MiroWindowsManager:bindHotkeys({
     fullscreen = {hyper, "f"}
 })
 
+hs.hotkey.bind({"cmd", "shift"}, "return", function ()
+    hs.window.focusedWindow():centerOnScreen(nil,nil,0)
+end)
+
 -- Time to pair...
 
 hs.hotkey.bind(hyper, "T", function ()
