@@ -17,6 +17,7 @@ users/duncan@mcclean.co.uk
 
 # VS Code
 .vscode
+.antlers.json # Antlers Code extension
 
 # Tinkerwell
 tinkerwell/*.php
