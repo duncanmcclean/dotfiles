@@ -56,3 +56,12 @@ clonedo() {
 clonesf() {
   git clone git@github.com:steadfast-collective/$1.git
 }
+
+
+# ------------------------------------------------------------------------------
+# Lines of code on a project
+# ------------------------------------------------------------------------------
+
+lines() {
+  git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+}
