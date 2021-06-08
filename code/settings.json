@@ -91,5 +91,8 @@
     "workbench.colorTheme": "Solarized Light",
     "workbench.preferredLightColorTheme": "Solarized Light",
     "workbench.preferredDarkColorTheme": "Atom One Dark",
-    "window.autoDetectColorScheme": false
+    "window.autoDetectColorScheme": false,
+    "[html]": {
+        "editor.defaultFormatter": "stillat-llc.vscode-antlers"
+    }
 }
