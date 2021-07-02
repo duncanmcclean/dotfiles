@@ -94,5 +94,10 @@
     "window.autoDetectColorScheme": false,
     "[html]": {
         "editor.defaultFormatter": "stillat-llc.vscode-antlers"
-    }
+    },
+    "terminal.integrated.tabs.enabled": false,
+    "redhat.telemetry.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true
 }
