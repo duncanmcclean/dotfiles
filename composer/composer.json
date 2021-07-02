@@ -12,6 +12,7 @@
         "tightenco/takeout": "^1.3",
         "tightenco/tlint": "^5.0",
         "permafrost-dev/ray-cli": "^1.12",
-        "symfony/console": "5.2.x"
+        "symfony/console": "5.2.x",
+        "steadfastcollective/fabric": "^2.0"
     }
 }
