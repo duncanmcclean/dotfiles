@@ -95,5 +95,6 @@
     "[html]": {
         "editor.defaultFormatter": "stillat-llc.vscode-antlers"
     },
-    "redhat.telemetry.enabled": false
+    "redhat.telemetry.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open"
 }
