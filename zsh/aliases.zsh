@@ -110,5 +110,9 @@ alias prod="npm run production"
 # Project Shortcuts
 # ------------------------------------------------------------------------------
 
+alias home="cd ~"
+alias sites="cd ~/Sites"
+alias proj="cd ~/Projects"
+
 alias cms="code ~/Projects/cms"
 alias simple="code ~/Projects/simple-commerce"
