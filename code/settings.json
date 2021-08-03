@@ -12,7 +12,7 @@
     "window.nativeFullScreen": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "extensions.ignoreRecommendations": false,
+    "extensions.ignoreRecommendations": true,
     "docker.showStartPage": false,
 
     /** Hide everything **/
@@ -96,5 +96,7 @@
         "editor.defaultFormatter": "stillat-llc.vscode-antlers"
     },
     "redhat.telemetry.enabled": false,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true
 }

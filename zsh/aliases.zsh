@@ -20,9 +20,9 @@ alias subl="open -a 'Sublime Text'"
 alias dot="cd ~/.dotfiles"
 alias rfa="redis-cli flushall"
 alias sv="valet use"
-alias p8="valet use php"
-alias p74="valet use php@7.4"
-alias p73="valet use php@7.3"
+alias p8="valet use php && composer global update"
+alias p74="valet use php@7.4 && composer global update"
+alias p73="valet use php@7.3 && composer global update"
 
 
 # ------------------------------------------------------------------------------
@@ -74,6 +74,7 @@ alias fresh="php artisan migrate:fresh"
 alias seed="php artisan db:seed"
 alias larasetup="composer install && cp .env.example .env && php artisan key:generate && npm install && npm run dev"
 alias hor="php artisan horizon"
+alias ray="composer require spatie/ray"
 
 
 # ------------------------------------------------------------------------------
