@@ -113,6 +113,4 @@ alias prod="npm run production"
 alias home="cd ~"
 alias sites="cd ~/Sites"
 alias proj="cd ~/Projects"
-
-alias cms="code ~/Projects/cms"
-alias simple="code ~/Projects/simple-commerce"
+alias dots="cd ~/.dotfiles"
