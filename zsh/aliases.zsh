@@ -35,6 +35,7 @@ alias profile="source ~/.zshrc"
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias syms="find . -maxdepth 1 -type l"
+alias hosts="sudo nano /etc/hosts"
 
 
 # ------------------------------------------------------------------------------
