@@ -58,6 +58,8 @@
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -96,7 +98,7 @@
 			<key>uid</key>
 			<string>7B86D057-DA8E-4302-AF17-83B889B48EE2</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -138,7 +140,7 @@ For example setting the value of `branch` variable on the right `7.0` will searc
 	<key>variables</key>
 	<dict>
 		<key>branch</key>
-		<string>master</string>
+		<string>8.x</string>
 	</dict>
 	<key>version</key>
 	<string>0.2.4</string>
