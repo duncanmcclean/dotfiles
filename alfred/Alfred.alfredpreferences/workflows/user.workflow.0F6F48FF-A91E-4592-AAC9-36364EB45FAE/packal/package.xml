@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Tailwind Docs Workflow for Alfred</name>
-  <version>1.1.0</version>
-  <bundle>com.clnt.tailwindcss-docs</bundle>
-  <updated>1559561249</updated>
-  <file>tailwindcssdocs1.1.0.alfredworkflow</file>
-</workflow>
