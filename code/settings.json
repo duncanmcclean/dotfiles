@@ -103,5 +103,6 @@
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
     "editor.fontFamily": "JetBrains Mono",
-    "editor.fontLigatures": true
+    "editor.fontLigatures": true,
+    "editor.inlineSuggest.enabled": true
 }
