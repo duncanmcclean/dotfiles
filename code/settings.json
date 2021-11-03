@@ -86,20 +86,23 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-
-    /** Extension: Sundial */
-    "workbench.colorTheme": "Solarized Light",
-    "workbench.preferredLightColorTheme": "Solarized Light",
-    "workbench.preferredDarkColorTheme": "Atom One Dark",
-    "window.autoDetectColorScheme": false,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[html]": {
         "editor.defaultFormatter": "stillat-llc.vscode-antlers"
     },
+
+    /** Extension: Sundial */
+    "workbench.colorTheme": "SynthWave '84",
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "workbench.preferredDarkColorTheme": "SynthWave '84",
+    "window.autoDetectColorScheme": false,
+
+    /** Various other bits and bobs... */
     "redhat.telemetry.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
     "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    "editor.inlineSuggest.enabled": true
 }
