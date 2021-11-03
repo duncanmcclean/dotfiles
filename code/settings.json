@@ -94,7 +94,7 @@
     },
 
     /** Extension: Sundial */
-    "workbench.colorTheme": "SynthWave '84",
+    "workbench.colorTheme": "Solarized Light",
     "workbench.preferredLightColorTheme": "Solarized Light",
     "workbench.preferredDarkColorTheme": "SynthWave '84",
     "window.autoDetectColorScheme": false,
