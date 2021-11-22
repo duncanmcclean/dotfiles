@@ -12,7 +12,7 @@ brew "node"
 brew "php", restart_service: true
 brew "php@7.4", restart_service: true
 brew "yarn"
-brew "gh",
+brew "gh"
 brew "redis"
 
 cask "1password"
