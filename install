@@ -94,7 +94,9 @@ ln -s /Users/duncan/.dotfiles/code /Users/duncan/Library/Application\ Support/Co
 
 # Symlinks
 ln -s /Users/duncan/.dotfiles/git/.gitignore_global /Users/duncan/.gitignore_global
-ln -s /Users/duncan/.dotfiles/hammerspoon/init.lua /Users/duncan/.hammerspoon/init
+
+mkdir /Users/duncan/.dotfiles/hammerspoon
+ln -s /Users/duncan/.dotfiles/hammerspoon/init.lua /Users/duncan/.hammerspoon/init.lua
 ln -s /Users/duncan/.dotfiles/hammerspoon/Spoons /Users/duncan/.hammerspoon
 
 # Finder: show file extensions & disable file extension warning
