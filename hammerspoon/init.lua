@@ -74,6 +74,18 @@ hs.hotkey.bind(hyper, "O", function ()
     -- hs.application.open('/Applications/Loom.app')
 end)
 
+-- Regularly commit & push changes to Brain
+
+hs.timer.doEvery(60, function ()
+    gitStatus = hs.execute("cd ~/Brain && git status")
+
+    if string.find(gitStatus, "Changes not staged for commit:") then
+        commitMessage = os.date("%d %B %Y %H:%M:%S") .. " [" .. hs.host.localizedName() .. "]"
+
+        hs.execute("cd ~/Brain && git add . && git commit -m '" .. commitMessage .. "' && git push")
+    end
+end)
+
 -- Reload Hammerspoon config
 
 function reloadConfig(files)
