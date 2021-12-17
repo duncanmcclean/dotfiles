@@ -2,8 +2,6 @@ local hyper = {"cmd", "alt", "ctrl"}
 
 hs.console.darkMode(true)
 
--- local lunajson = require 'lunajson' -- installed via Luarocks https://github.com/grafi-tt/lunajson
-
 -- Ray
 
 function ray(dump)
@@ -49,29 +47,6 @@ end)
 
 hs.hotkey.bind(hyper, "L", function ()
     hs.caffeinate.lockScreen()
-end)
-
--- Activate Loom mode
-
--- 1. hide desktop icons
--- 2. minimise all apps, apart from current one
--- 3. make current app take up most of screen, apart from border on outside
--- 4. open Loom window?
-
-hs.hotkey.bind(hyper, "O", function ()
-    local currentWindow = hs.window.focusedWindow()
-    local visibleWindows = 	hs.window.visibleWindows()
-
-    ray('Sand')
-    ray({ 1, 2, 3, { x = 10 } })
-    ray(os.execute('php -v', true))
-
-    -- for window in visibleWindows
-    -- do
-    --     print(window.new():title())
-    -- end
-
-    -- hs.application.open('/Applications/Loom.app')
 end)
 
 -- Regularly commit & push changes to Brain
