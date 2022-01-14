@@ -1,108 +1,120 @@
 {
-    /** Better defaults **/
-    "editor.copyWithSyntaxHighlighting": false,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.emptySelectionClipboard": false,
-    "workbench.editor.enablePreview": false,
-    "window.newWindowDimensions": "inherit",
-    "files.trimTrailingWhitespace": true,
-    "diffEditor.renderSideBySide": false,
-    "editor.snippetSuggestions": "top",
-    "editor.detectIndentation": false,
-    "window.nativeFullScreen": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "extensions.ignoreRecommendations": true,
-    "docker.showStartPage": false,
+  /** Better defaults **/
+  "editor.copyWithSyntaxHighlighting": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.emptySelectionClipboard": false,
+  "workbench.editor.enablePreview": false,
+  "window.newWindowDimensions": "inherit",
+  "files.trimTrailingWhitespace": true,
+  "diffEditor.renderSideBySide": false,
+  "editor.snippetSuggestions": "top",
+  "editor.detectIndentation": false,
+  "window.nativeFullScreen": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "extensions.ignoreRecommendations": true,
+  "docker.showStartPage": false,
 
-    /** Hide everything **/
-    "workbench.activityBar.visible": false,
-    "workbench.sideBar.location": "right",
-    "workbench.statusBar.visible": false,
-    "workbench.editor.showTabs": false,
-    "editor.renderIndentGuides": false,
-    "editor.minimap.enabled": false,
+  /** Hide everything **/
+  "workbench.activityBar.visible": false,
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": false,
+  "workbench.editor.showTabs": false,
+  "editor.renderIndentGuides": false,
+  "editor.minimap.enabled": false,
 
-    /** Silence the noise **/
-    "breadcrumbs.enabled": false,
-    "scm.diffDecorations": "none",
-    // "editor.hover.enabled": false,
-    "editor.matchBrackets": "never",
-    "workbench.tips.enabled": false,
-    "editor.colorDecorators": false,
-    "git.decorations.enabled": false,
-    "workbench.startupEditor": "none",
-    "editor.lightbulb.enabled": false,
-    "editor.selectionHighlight": false,
-    "editor.overviewRulerBorder": false,
-    "editor.occurrencesHighlight": false,
-    "problems.decorations.enabled": false,
-    "editor.renderControlCharacters": false,
-    "editor.hideCursorInOverviewRuler": true,
-    "editor.gotoLocation.multipleReferences": "goto",
-    "editor.gotoLocation.multipleDefinitions": "goto",
-    "editor.gotoLocation.multipleDeclarations": "goto",
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "editor.gotoLocation.multipleImplementations": "goto",
-    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+  /** Silence the noise **/
+  "breadcrumbs.enabled": false,
+  "scm.diffDecorations": "none",
+  // "editor.hover.enabled": false,
+  "editor.matchBrackets": "never",
+  "workbench.tips.enabled": false,
+  "editor.colorDecorators": false,
+  "git.decorations.enabled": false,
+  "workbench.startupEditor": "none",
+  "editor.lightbulb.enabled": false,
+  "editor.selectionHighlight": false,
+  "editor.overviewRulerBorder": false,
+  "editor.occurrencesHighlight": false,
+  "problems.decorations.enabled": false,
+  "editor.renderControlCharacters": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.gotoLocation.multipleReferences": "goto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
-    /** Code **/
-    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+  /** Code **/
+  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
 
-    /** Emmet **/
-    "emmet.includeLanguages": {
-        "blade": "html",
-        "vue-html": "html",
-        "vue": "html"
-    },
+  /** Emmet **/
+  "emmet.includeLanguages": {
+    "blade": "html",
+    "vue-html": "html",
+    "vue": "html"
+  },
 
-    /** File assosiations **/
-    "files.associations": {
-        ".php_cs": "php",
-        ".php_cs.dist": "php",
-        "*.html": "html",
-        "*.module": "php"
-    },
+  /** File assosiations **/
+  "files.associations": {
+    ".php_cs": "php",
+    ".php_cs.dist": "php",
+    "*.html": "html",
+    "*.module": "php"
+  },
 
-    /** Git **/
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
+  /** Git **/
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
 
-    /** Explorer **/
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
+  /** Explorer **/
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
 
-    /** Language Specific **/
-    "php.suggest.basic": false,
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[vue]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "stillat-llc.vscode-antlers"
-    },
+  /** Language Specific **/
+  "php.suggest.basic": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "stillat-llc.vscode-antlers"
+  },
 
-    /** Extension: Sundial */
-    "workbench.colorTheme": "Solarized Light",
-    "workbench.preferredLightColorTheme": "Solarized Light",
-    "workbench.preferredDarkColorTheme": "SynthWave '84",
-    "window.autoDetectColorScheme": false,
+  /** Extension: Sundial */
+  "workbench.colorTheme": "SynthWave '84",
+  "workbench.preferredLightColorTheme": "Solarized Light",
+  "workbench.preferredDarkColorTheme": "SynthWave '84",
+  "window.autoDetectColorScheme": false,
 
-    /** Various other bits and bobs... */
-    "redhat.telemetry.enabled": false,
-    "security.workspace.trust.untrustedFiles": "open",
-    "editor.fontFamily": "JetBrains Mono",
-    "editor.fontLigatures": true,
-    "editor.inlineSuggest.enabled": true
+  /** ESLint **/
+  "editor.formatOnSave": true, // Tell VSCode to format files on save
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.options": {
+    "extensions": [".js", ".vue", ".jsx"]
+  },
+  "eslint.run": "onSave",
+  "eslint.validate": ["vue", "javascript", "javascriptreact"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+
+  /** Various other bits and bobs... */
+  "redhat.telemetry.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.inlineSuggest.enabled": true
 }
