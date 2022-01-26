@@ -19,6 +19,7 @@ alias tf="t --filter"
 alias subl="open -a 'Sublime Text'"
 alias dot="cd ~/.dotfiles"
 alias rfa="redis-cli flushall"
+alias swh="stripe listen --forward-to"
 
 # ------------------------------------------------------------------------------
 # PHP
