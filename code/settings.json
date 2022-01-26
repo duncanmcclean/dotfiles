@@ -72,6 +72,18 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
 
+  /** ESLint **/
+  "editor.formatOnSave": true, // Tell VSCode to format files on save
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.options": {
+    "extensions": [".js", ".vue", ".jsx"]
+  },
+  "eslint.run": "onSave",
+  "eslint.validate": ["vue", "javascript", "javascriptreact"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+
   /** Language Specific **/
   "php.suggest.basic": false,
   "[javascript]": {
@@ -92,29 +104,20 @@
   "[html]": {
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
   },
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+ },
 
   /** Extension: Sundial */
-  "workbench.colorTheme": "SynthWave '84",
+  "workbench.colorTheme": "Solarized Light",
   "workbench.preferredLightColorTheme": "Solarized Light",
   "workbench.preferredDarkColorTheme": "SynthWave '84",
   "window.autoDetectColorScheme": false,
-
-  /** ESLint **/
-  "editor.formatOnSave": true, // Tell VSCode to format files on save
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.options": {
-    "extensions": [".js", ".vue", ".jsx"]
-  },
-  "eslint.run": "onSave",
-  "eslint.validate": ["vue", "javascript", "javascriptreact"],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
 
   /** Various other bits and bobs... */
   "redhat.telemetry.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
-  "editor.inlineSuggest.enabled": true
+  "editor.inlineSuggest.enabled": true,
 }
