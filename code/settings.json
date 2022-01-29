@@ -92,9 +92,12 @@
   "[html]": {
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
   },
+  "[md]": {
+    "editor.defaultFormatter": null
+  },
 
   /** Extension: Sundial */
-  "workbench.colorTheme": "SynthWave '84",
+  "workbench.colorTheme": "Solarized Light",
   "workbench.preferredLightColorTheme": "Solarized Light",
   "workbench.preferredDarkColorTheme": "SynthWave '84",
   "window.autoDetectColorScheme": false,
