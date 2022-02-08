@@ -81,6 +81,10 @@
     "source.fixAll.eslint": true
   },
 
+  /** PHP CS Fixer **/
+  "php-cs-fixer.onsave": true,
+  "php-cs-fixer.config": "~/.dotfiles/.php-cs-fixer.dist.php",
+
   /** Language Specific **/
   "php.suggest.basic": false,
   "[javascript]": {
@@ -105,7 +109,7 @@
     "editor.defaultFormatter": null
   },
   "[php]": {
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    "editor.defaultFormatter": "junstyle.php-cs-fixer"
   },
 
   /** Extension: Sundial */
