@@ -13,20 +13,17 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "extensions.ignoreRecommendations": true,
-  "docker.showStartPage": false,
 
   /** Hide everything **/
   "workbench.activityBar.visible": false,
   "workbench.sideBar.location": "right",
   "workbench.statusBar.visible": false,
   "workbench.editor.showTabs": false,
-  "editor.renderIndentGuides": false,
   "editor.minimap.enabled": false,
 
   /** Silence the noise **/
   "breadcrumbs.enabled": false,
   "scm.diffDecorations": "none",
-  // "editor.hover.enabled": false,
   "editor.matchBrackets": "never",
   "workbench.tips.enabled": false,
   "editor.colorDecorators": false,
@@ -84,6 +81,10 @@
     "source.fixAll.eslint": true
   },
 
+  /** PHP CS Fixer **/
+  "php-cs-fixer.onsave": true,
+  "php-cs-fixer.config": "~/.dotfiles/.php-cs-fixer.dist.php",
+
   /** Language Specific **/
   "php.suggest.basic": false,
   "[javascript]": {
@@ -104,20 +105,24 @@
   "[html]": {
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
   },
+  "[md]": {
+    "editor.defaultFormatter": null
+  },
   "[php]": {
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
- },
+    "editor.defaultFormatter": "junstyle.php-cs-fixer"
+  },
 
   /** Extension: Sundial */
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorTheme": "SynthWave '84",
   "workbench.preferredLightColorTheme": "Solarized Light",
   "workbench.preferredDarkColorTheme": "SynthWave '84",
   "window.autoDetectColorScheme": false,
 
   /** Various other bits and bobs... */
-  "redhat.telemetry.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
   "editor.inlineSuggest.enabled": true,
+  "intelephense.format.enable": false,
+  "redhat.telemetry.enabled": false
 }

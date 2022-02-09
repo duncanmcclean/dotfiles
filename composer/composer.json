@@ -3,12 +3,12 @@
         "laravel/valet": "^2.18",
         "statamic/cli": "^2.1",
         "laravel/envoy": "^2.4",
-        "friendsofphp/php-cs-fixer": "^2.16",
         "beyondcode/expose": "^2.0",
         "laravel/vapor-cli": "^1.8",
         "laravel/installer": "^4.0",
         "tightenco/tlint": "^5.0",
         "permafrost-dev/ray-cli": "^1.12",
-        "symfony/console": "5.4.x"
+        "symfony/console": "5.4.x",
+        "friendsofphp/php-cs-fixer": "^3.6"
     }
 }
