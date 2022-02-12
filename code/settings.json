@@ -13,6 +13,7 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "extensions.ignoreRecommendations": true,
+  "terminal.integrated.tabs.location": "left",
 
   /** Hide everything **/
   "workbench.activityBar.visible": false,
@@ -20,6 +21,7 @@
   "workbench.statusBar.visible": false,
   "workbench.editor.showTabs": false,
   "editor.minimap.enabled": false,
+  "editor.renderIndentGuides": false,
 
   /** Silence the noise **/
   "breadcrumbs.enabled": false,
@@ -113,7 +115,7 @@
   },
 
   /** Extension: Sundial */
-  "workbench.colorTheme": "SynthWave '84",
+  "workbench.colorTheme": "Solarized Light",
   "workbench.preferredLightColorTheme": "Solarized Light",
   "workbench.preferredDarkColorTheme": "SynthWave '84",
   "window.autoDetectColorScheme": false,
@@ -124,5 +126,5 @@
   "editor.fontLigatures": true,
   "editor.inlineSuggest.enabled": true,
   "intelephense.format.enable": false,
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
 }
