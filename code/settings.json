@@ -126,5 +126,5 @@
   "editor.fontLigatures": true,
   "editor.inlineSuggest.enabled": true,
   "intelephense.format.enable": false,
-  "redhat.telemetry.enabled": false,
+  "redhat.telemetry.enabled": false
 }
