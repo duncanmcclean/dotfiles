@@ -107,9 +107,6 @@
   "[html]": {
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
   },
-  "[md]": {
-    "editor.defaultFormatter": null
-  },
   "[php]": {
     "editor.defaultFormatter": "junstyle.php-cs-fixer"
   },
