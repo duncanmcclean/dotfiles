@@ -102,7 +102,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "aeschli.vscode-css-formatter"
   },
   "[html]": {
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
@@ -127,4 +127,5 @@
   "editor.inlineSuggest.enabled": true,
   "intelephense.format.enable": false,
   "redhat.telemetry.enabled": false,
+  "eslint.format.enable": true
 }
