@@ -33,6 +33,12 @@ hs.hotkey.bind({"cmd"}, "return", function ()
     hs.window.focusedWindow():centerOnScreen(nil,nil,0)
 end)
 
+-- Screenshot binding (Cmd + Home)
+
+hs.hotkey.bind({"cmd"}, "home", function ()
+    hs.eventtap.keyStroke({"shift", "cmd"}, "4")
+end)
+
 -- Reload Hammerspoon config
 
 function reloadConfig(files)
