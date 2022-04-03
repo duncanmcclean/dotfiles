@@ -9,6 +9,7 @@
         "tightenco/tlint": "^5.0",
         "permafrost-dev/ray-cli": "^1.12",
         "symfony/console": "5.4.x",
-        "friendsofphp/php-cs-fixer": "^3.6"
+        "friendsofphp/php-cs-fixer": "^3.6",
+        "tightenco/takeout": "^1.8"
     }
 }
