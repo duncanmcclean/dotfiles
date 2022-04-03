@@ -33,22 +33,6 @@ hs.hotkey.bind({"cmd"}, "return", function ()
     hs.window.focusedWindow():centerOnScreen(nil,nil,0)
 end)
 
--- Time to pair...
-
-hs.hotkey.bind(hyper, "T", function ()
-    if hs.spotify.isPlaying() then
-        hs.spotify.pause()
-    end
-
-    hs.application.open('/Applications/Tuple.app')
-end)
-
--- 🔒 Lock the computer
-
-hs.hotkey.bind(hyper, "L", function ()
-    hs.caffeinate.lockScreen()
-end)
-
 -- Reload Hammerspoon config
 
 function reloadConfig(files)
