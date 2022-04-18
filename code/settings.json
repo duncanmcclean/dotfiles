@@ -112,8 +112,8 @@
   },
 
   /** Extension: Sundial */
-  "workbench.colorTheme": "Visual Studio Light",
-  "workbench.preferredLightColorTheme": "Visual Studio Light",
+  "workbench.colorTheme": "Github",
+  "workbench.preferredLightColorTheme": "Github",
   "workbench.preferredDarkColorTheme": "SynthWave '84",
   "window.autoDetectColorScheme": false,
 
