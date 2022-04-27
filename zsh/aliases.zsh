@@ -21,9 +21,10 @@ alias rfa="redis-cli flushall"
 alias swh="stripe listen --forward-to"
 
 # ------------------------------------------------------------------------------
-# PHP
+# Laravel Valet
 # ------------------------------------------------------------------------------
 
+alias v="valet"
 alias sv="valet use"
 alias p81="valet use php@8.1 && composer global update"
 alias p81f="valet use php@8.1 --force"
@@ -89,7 +90,7 @@ alias ray="composer require spatie/ray"
 # Laravel Vapor
 # ------------------------------------------------------------------------------
 
-alias v="vapor"
+alias vp="vapor"
 alias vdp="vapor deploy production"
 alias vds="vapor deploy staging"
 
