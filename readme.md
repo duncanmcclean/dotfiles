@@ -20,7 +20,7 @@ You're free to take a look around how I've got things setup and copy any of it t
 - Dotbot
 - Maybe switch up my iTerm theme
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)]
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ### Inspiration
 
