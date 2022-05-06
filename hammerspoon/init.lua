@@ -41,7 +41,7 @@ end)
 
 -- Camera Preview (Cmd + Escape + 1)
 
-hs.hotkey.bind({"cmd"}, "escape", 1, function ()
+hs.hotkey.bind({"cmd", "escape"}, 1, function ()
     hs.application.open("Photo Booth")
 end)
 
