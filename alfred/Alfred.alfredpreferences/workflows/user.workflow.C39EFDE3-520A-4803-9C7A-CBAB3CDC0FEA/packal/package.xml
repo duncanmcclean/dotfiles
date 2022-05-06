@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>alForge</name>
-  <version>1.4.2</version>
-  <bundle>com.vmitchell85.alforge</bundle>
-  <updated>1507309875</updated>
-  <file>alforge.alfredworkflow</file>
-</workflow>
