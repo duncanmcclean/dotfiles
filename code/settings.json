@@ -21,7 +21,6 @@
   "workbench.statusBar.visible": false,
   "workbench.editor.showTabs": false,
   "editor.minimap.enabled": false,
-  "editor.renderIndentGuides": false,
 
   /** Silence the noise **/
   "breadcrumbs.enabled": false,
@@ -82,6 +81,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "eslint.format.enable": true,
+  "editor.guides.indentation": false,
 
   /** PHP CS Fixer **/
   "php-cs-fixer.onsave": true,
@@ -89,6 +90,7 @@
 
   /** Language Specific **/
   "php.suggest.basic": false,
+  "intelephense.format.enable": false,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -112,17 +114,17 @@
   },
 
   /** Extension: Sundial */
-  "workbench.colorTheme": "Github",
+  "workbench.colorTheme": "SynthWave '84",
   "workbench.preferredLightColorTheme": "Github",
   "workbench.preferredDarkColorTheme": "SynthWave '84",
   "window.autoDetectColorScheme": false,
+
+  /** Redhat */
+  "redhat.telemetry.enabled": false,
 
   /** Various other bits and bobs... */
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
-  "editor.inlineSuggest.enabled": true,
-  "intelephense.format.enable": false,
-  "redhat.telemetry.enabled": false,
-  "eslint.format.enable": true
+  "editor.inlineSuggest.enabled": true
 }
