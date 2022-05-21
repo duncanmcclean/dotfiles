@@ -114,7 +114,7 @@
   },
 
   /** Extension: Sundial */
-  "workbench.colorTheme": "SynthWave '84",
+  "workbench.colorTheme": "Github",
   "workbench.preferredLightColorTheme": "Github",
   "workbench.preferredDarkColorTheme": "SynthWave '84",
   "window.autoDetectColorScheme": false,
