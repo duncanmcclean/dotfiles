@@ -113,16 +113,11 @@
     "editor.defaultFormatter": "junstyle.php-cs-fixer"
   },
 
-  /** Extension: Sundial */
-  "workbench.colorTheme": "Solarized Dark",
-  "workbench.preferredLightColorTheme": "Solarized Dark",
-  "workbench.preferredDarkColorTheme": "SynthWave '84",
-  "window.autoDetectColorScheme": false,
-
   /** Redhat */
   "redhat.telemetry.enabled": false,
 
   /** Various other bits and bobs... */
+  "workbench.colorTheme": "Solarized Dark",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
