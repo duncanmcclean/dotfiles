@@ -21,7 +21,6 @@ You're free to take a look around how I've got things setup and copy any of it t
 - Maybe switch up my iTerm theme
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-- Make use of Valet's new 'different PHP versions per site' feature (need to change some aliases)
 - Change name of `master` branch to `main`
 
 ### Inspiration

@@ -1,6 +1,6 @@
 {
     "require": {
-        "laravel/valet": "^2.18",
+        "laravel/valet": "^3.1",
         "statamic/cli": "^2.1",
         "laravel/envoy": "^2.4",
         "beyondcode/expose": "^2.0",
