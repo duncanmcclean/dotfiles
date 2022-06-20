@@ -2,8 +2,8 @@
 # General Shortcuts
 # ------------------------------------------------------------------------------
 
-alias a="php artisan"
-alias p="php please"
+alias a="valet php artisan"
+alias p="valet php please"
 alias g="git"
 alias c="valet composer"
 alias c1="valet composer self-update --1"
