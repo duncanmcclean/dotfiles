@@ -78,11 +78,11 @@ alias diff="git diff"
 # Laravel
 # ------------------------------------------------------------------------------
 
-alias migrate="php artisan migrate"
-alias fresh="php artisan migrate:fresh"
-alias seed="php artisan db:seed"
-alias larasetup="composer install && cp .env.example .env && php artisan key:generate && npm install && npm run dev"
-alias hor="php artisan horizon"
+alias migrate="valet php artisan migrate"
+alias fresh="valet php artisan migrate:fresh"
+alias seed="valet php artisan db:seed"
+alias larasetup="composer install && cp .env.example .env && valet php artisan key:generate && npm install && npm run dev"
+alias hor="valet php artisan horizon"
 alias ray="composer require spatie/ray"
 
 
@@ -99,11 +99,11 @@ alias vds="vapor deploy staging"
 # Statamic
 # ------------------------------------------------------------------------------
 
-alias pls="php please"
+alias pls="valet php please"
 alias plsnew="statamic new"
 alias plsclear="p stache:clear && p glide:clear && p static:clear && a cache:clear"
 alias plsuser="cp ~/.dotfiles/statamic/duncan@mcclean.co.uk.yaml users/duncan@mcclean.co.uk.yaml"
-alias plsdeets="php please support:details"
+alias plsdeets="valet php please support:details"
 
 # ------------------------------------------------------------------------------
 # NPM
