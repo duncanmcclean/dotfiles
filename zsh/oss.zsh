@@ -46,7 +46,8 @@ osslink() {
     la vendor/$PACAKGE_VENDOR
 
     # public/vendor symlink
-    if [ -f "resources/dist" ]; then
+    if [[ -d "$CLONE_LOCATION/resources/dist" ]]
+    then
         rm -rf public/vendor/$PACAKGE_VENDOR
         ln -s $CLONE_LOCATION/resources/dist public/vendor/$PACAKGE_VENDOR
         la public/vendor/$PACAKGE_VENDOR
