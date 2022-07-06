@@ -10,6 +10,7 @@
         "permafrost-dev/ray-cli": "^1.12",
         "symfony/console": "5.4.x",
         "friendsofphp/php-cs-fixer": "^3.6",
-        "tightenco/takeout": "^1.8"
+        "tightenco/takeout": "^1.8",
+        "laravel/forge-cli": "^1.4"
     }
 }
