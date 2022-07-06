@@ -122,6 +122,7 @@ touch .hushlogin
 # Configure Git details
 git config --global user.name "Duncan McClean"
 git config --global user.email "duncan@mcclean.co.uk"
+git config --global init.defaultBranch main
 
 # Switch Git remote for dotfiles to SSH
 git remote set-url origin git@github.com:duncanmcclean/dotfiles.git
