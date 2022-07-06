@@ -64,6 +64,7 @@ alias fpush="git push -u origin HEAD" # first push, might want to combine this a
 alias push="git push"
 alias pull="git pull"
 alias commit="git commit -m"
+alias empty="git commit --allow-empty"
 alias wip="all && commit 'wip'"
 alias check="git checkout"
 alias reset="git reset"
@@ -101,8 +102,7 @@ alias vds="vapor deploy staging"
 
 alias pls="valet php please"
 alias plsnew="statamic new"
-alias plsclear="p stache:clear && p glide:clear && p static:clear && a cache:clear"
-alias plsuser="cp ~/.dotfiles/statamic/duncan@mcclean.co.uk.yaml users/duncan@mcclean.co.uk.yaml"
+alias plsuser="cp ~/.dotfiles/statamic/duncan@doublethree.digital.yaml users/duncan@doublethree.digital.yaml"
 alias plsdeets="valet php please support:details"
 
 # ------------------------------------------------------------------------------
