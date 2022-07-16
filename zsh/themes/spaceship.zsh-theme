@@ -1,1 +1,0 @@
-/Users/duncan/.zsh-spaceship-prompt/spaceship.zsh-theme

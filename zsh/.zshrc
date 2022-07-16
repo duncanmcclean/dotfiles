@@ -6,7 +6,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Zsh Config
 # ------------------------------------------------------------------------------
 
-ZSH_THEME="spaceship"
+ZSH_THEME="bubblegum"
 CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
