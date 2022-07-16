@@ -42,23 +42,6 @@ compv() {
 
 
 # ------------------------------------------------------------------------------
-# Clone one of my repositories
-# ------------------------------------------------------------------------------
-
-cloneme() {
-  git clone git@github.com:duncanmcclean/$1.git
-}
-
-clonedo() {
-  git clone git@github.com:doublethreedigital/$1.git
-}
-
-clonesf() {
-  git clone git@github.com:steadfast-collective/$1.git
-}
-
-
-# ------------------------------------------------------------------------------
 # Lines of code on a project
 # ------------------------------------------------------------------------------
 
