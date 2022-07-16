@@ -1,6 +1,8 @@
 ## My Dotfiles
 
-**👋 Hello, I'm Duncan and these are my Dotfiles.** I regularly switch between two MacBook Pro's (one for work, one for personal/side project use). My Dotfiles are essential to ensuring I have the same development experience on both MacBooks - they help me keep settings in sync & setup new Macs when I need to.
+**👋 Hello, I'm Duncan and these are my Dotfiles.**
+
+I regularly switch between two MacBook Pro's (one for work, one for personal/side project use). My Dotfiles are essential to ensuring I have the same development experience on both MacBooks - they help me keep settings in sync & setup new Macs when I need to.
 
 I've tried to keep everything nice & organised - feel free to take a look around and steal anything you want.
 
