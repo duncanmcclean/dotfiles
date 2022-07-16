@@ -53,7 +53,6 @@ I've tried to keep everything nice & organised - feel free to take a look around
 - Dotbot
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-- Laravel Pint in VS Code (instead of PHP CS Fixer)
 
 ### Inspiration
 
