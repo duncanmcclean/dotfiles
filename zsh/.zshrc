@@ -14,7 +14,7 @@ DISABLE_UPDATE_PROMPT="true"
 HIST_STAMPS="dd/mm/yyyy"
 ZSH_DISABLE_COMPFIX="true"
 ZSH_CUSTOM=$DOTFILES/zsh
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
