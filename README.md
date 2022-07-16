@@ -47,12 +47,13 @@ I've tried to keep everything nice & organised - feel free to take a look around
 
 - iTerm Theme: Dark Background
 - Oh My Zsh Theme: Bubblegum
+- Oh My Zsh Plugins:
+  - zsh-autosuggestions
+  - zsh-syntax-hilighting
 
 ### Things to look into
 
 - Dotbot
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ### Inspiration
 
