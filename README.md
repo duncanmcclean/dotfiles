@@ -1,8 +1,8 @@
 ## My Dotfiles
 
-**Hey, I'm Duncan and these are my dotfiles.** I use two MacBook Pro's regularly (one for work, one for personal use), so my dotfiles are essential to ensuring I have a similar/same development experience on both machines. My dotfiles are incredibly useful when setting up new computers.
+**👋 Hello, I'm Duncan and these are my Dotfiles.** I regularly switch between two MacBook Pro's (one for work, one for personal/side project use). My Dotfiles are essential to ensuring I have the same development experience on both MacBooks - they help me keep settings in sync & setup new Macs when I need to.
 
-You're free to take a look around how I've got things setup and copy any of it to your own dotfiles. I've tried to keep everything nice & organised.
+I've tried to keep everything nice & organised - feel free to take a look around and steal anything you want.
 
 ### Installation
 
@@ -11,14 +11,28 @@ You're free to take a look around how I've got things setup and copy any of it t
 
 ### What's being used
 
-- Hammerspoon for window management and keyboard shortcuts
-- Oh My Zsh is my shell (using iTerm as my terminal)
-- Homebrew for dependency management
+- [Hammerspoon](https://www.hammerspoon.org/) for window management and keyboard shortcuts
+- [Oh My Zsh](https://ohmyz.sh/) is my shell (using iTerm as my terminal)
+- [Homebrew](https://brew.sh/) for dependency management
+
+### Screenshots
+
+![VS Code](screenshots/iterm.png)
+
+#### VS Code
+
+Theme: Ayu Dark
+
+![iTerm & Oh My Zsh](screenshots/vs-code.png)
+
+#### iTerm & Oh My Zsh
+
+iTerm Theme: Dark Background
+Oh My Zsh Theme: Bubblegum
 
 ### Things to look into
 
 - Dotbot
-- Maybe switch up my iTerm theme
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - Laravel Pint in VS Code (instead of PHP CS Fixer)
