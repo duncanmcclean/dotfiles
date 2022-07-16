@@ -24,6 +24,22 @@ I've tried to keep everything nice & organised - feel free to take a look around
 ![VS Code](screenshots/iterm.png)
 
 - Theme: Ayu Dark
+- Extensions:
+  - Antlers Toolbox
+  - Ayu
+  - CSS Formatter
+  - DotENV
+  - GitHub Copilot
+  - Laravel Blade Snippets
+  - Laravel Pint
+  - PHP Intelephense
+  - Prettier
+  - Sublime Text Keymap and Settings Importer
+  - Tailwind CSS IntelliSense
+  - Twig
+  - Vetur
+  - XML
+  - YAML
 
 #### iTerm & Oh My Zsh
 
