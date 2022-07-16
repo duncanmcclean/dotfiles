@@ -117,7 +117,7 @@
   "redhat.telemetry.enabled": false,
 
   /** Various other bits and bobs... */
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorTheme": "Ayu Dark",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
