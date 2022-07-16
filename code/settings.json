@@ -73,15 +73,9 @@
   /** ESLint **/
   "editor.formatOnSave": true, // Tell VSCode to format files on save
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.options": {
-    "extensions": [".js", ".vue", ".jsx"]
-  },
-  "eslint.run": "onSave",
-  "eslint.validate": ["vue", "javascript", "javascriptreact"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.format.enable": true,
   "editor.guides.indentation": false,
 
   /** Laravel Pint **/
@@ -108,9 +102,6 @@
   "[html]": {
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
   },
-  //   "[php]": {
-  //     "editor.defaultFormatter": "open-southeners.laravel-pint"
-  //   },
 
   /** Redhat */
   "redhat.telemetry.enabled": false,
