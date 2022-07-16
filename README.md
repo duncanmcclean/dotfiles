@@ -17,18 +17,18 @@ I've tried to keep everything nice & organised - feel free to take a look around
 
 ### Screenshots
 
-![VS Code](screenshots/iterm.png)
-
 #### VS Code
 
-Theme: Ayu Dark
+![VS Code](screenshots/iterm.png)
 
-![iTerm & Oh My Zsh](screenshots/vs-code.png)
+- Theme: Ayu Dark
 
 #### iTerm & Oh My Zsh
 
-iTerm Theme: Dark Background
-Oh My Zsh Theme: Bubblegum
+![iTerm & Oh My Zsh](screenshots/vs-code.png)
+
+- iTerm Theme: Dark Background
+- Oh My Zsh Theme: Bubblegum
 
 ### Things to look into
 
