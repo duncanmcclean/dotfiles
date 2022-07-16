@@ -15,6 +15,7 @@ brew "php@7.4", restart_service: true
 brew "yarn"
 brew "gh"
 brew "redis"
+brew "mas"
 
 cask "1password"
 cask "alfred"
@@ -41,10 +42,13 @@ cask "sketch"
 cask "slack"
 cask "spotify"
 cask "tableplus"
+cask "tailscale"
 cask "telegram"
-# TODO: Things 3
 cask "tinkerwell"
 cask "tuple"
 cask "tweetbot"
 cask "visual-studio-code"
+cask "vlc"
 cask "zoom"
+
+mas "Things", id: 904280696
