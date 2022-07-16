@@ -20,6 +20,7 @@ alias dot="cd ~/.dotfiles"
 alias rfa="redis-cli flushall"
 alias swh="stripe listen --forward-to"
 
+
 # ------------------------------------------------------------------------------
 # Laravel Valet
 # ------------------------------------------------------------------------------
@@ -32,6 +33,7 @@ alias p8="valet use php@8.0 && composer global update"
 alias p8f="valet use php@8.0 --force"
 alias p74="valet use php@7.4 && composer global update"
 alias p74f="valet use php@7.4 --force"
+
 
 # ------------------------------------------------------------------------------
 # System
@@ -104,6 +106,7 @@ alias pls="valet php please"
 alias plsnew="statamic new"
 alias plsuser="cp ~/.dotfiles/statamic/duncan@doublethree.digital.yaml users/duncan@doublethree.digital.yaml"
 alias plsdeets="valet php please support:details"
+
 
 # ------------------------------------------------------------------------------
 # NPM
