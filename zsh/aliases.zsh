@@ -1,5 +1,26 @@
 # ------------------------------------------------------------------------------
-# General Shortcuts
+# System
+# ------------------------------------------------------------------------------
+
+alias cl="clear"
+alias clearmail=": > /var/mail/$USER"
+alias profile="source ~/.zshrc"
+alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
+alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias syms="find . -maxdepth 1 -type l"
+alias hosts="sudo nano /etc/hosts"
+
+
+# ------------------------------------------------------------------------------
+# Finder
+# ------------------------------------------------------------------------------
+
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+
+# ------------------------------------------------------------------------------
+# General Stuffz
 # ------------------------------------------------------------------------------
 
 alias a="valet php artisan"
@@ -19,6 +40,7 @@ alias tf="t --filter"
 alias dot="cd ~/.dotfiles"
 alias rfa="redis-cli flushall"
 alias swh="stripe listen --forward-to"
+alias ray="composer require spatie/ray"
 
 
 # ------------------------------------------------------------------------------
@@ -33,27 +55,6 @@ alias p8="valet use php@8.0 && composer global update"
 alias p8f="valet use php@8.0 --force"
 alias p74="valet use php@7.4 && composer global update"
 alias p74f="valet use php@7.4 --force"
-
-
-# ------------------------------------------------------------------------------
-# System
-# ------------------------------------------------------------------------------
-
-alias cl="clear"
-alias clearmail=": > /var/mail/$USER"
-alias profile="source ~/.zshrc"
-alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
-alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias syms="find . -maxdepth 1 -type l"
-alias hosts="sudo nano /etc/hosts"
-
-
-# ------------------------------------------------------------------------------
-# Finder
-# ------------------------------------------------------------------------------
-
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 
 # ------------------------------------------------------------------------------
@@ -86,7 +87,8 @@ alias fresh="valet php artisan migrate:fresh"
 alias seed="valet php artisan db:seed"
 alias larasetup="composer install && cp .env.example .env && valet php artisan key:generate && npm install && npm run dev"
 alias hor="valet php artisan horizon"
-alias ray="composer require spatie/ray"
+alias dusk="valet php artisan dusk"
+alias duskf="dusk --filter"
 
 
 # ------------------------------------------------------------------------------
