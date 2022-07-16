@@ -84,9 +84,8 @@
   "eslint.format.enable": true,
   "editor.guides.indentation": false,
 
-  /** PHP CS Fixer **/
-  "php-cs-fixer.onsave": true,
-  "php-cs-fixer.config": "~/.dotfiles/.php-cs-fixer.dist.php",
+  /** Laravel Pint **/
+  "laravel-pint.executablePath": "/Users/duncan/.composer/vendor/bin/pint",
 
   /** Language Specific **/
   "php.suggest.basic": false,
@@ -109,9 +108,9 @@
   "[html]": {
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
   },
-  "[php]": {
-    "editor.defaultFormatter": "junstyle.php-cs-fixer"
-  },
+  //   "[php]": {
+  //     "editor.defaultFormatter": "open-southeners.laravel-pint"
+  //   },
 
   /** Redhat */
   "redhat.telemetry.enabled": false,
