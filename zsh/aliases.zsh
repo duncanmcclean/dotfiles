@@ -3,11 +3,9 @@
 # ------------------------------------------------------------------------------
 
 alias cl="clear"
-alias clearmail=": > /var/mail/$USER"
 alias profile="source ~/.zshrc"
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias syms="find . -maxdepth 1 -type l"
 alias hosts="sudo nano /etc/hosts"
 
 
@@ -25,21 +23,16 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 
 alias a="valet php artisan"
 alias p="valet php please"
-alias g="git"
 alias c="valet composer"
 alias c1="valet composer self-update --1"
 alias c2="valet composer self-update && composer self-update --2"
 alias ci="valet composer install"
 alias cr="valet composer require"
 alias cu="valet composer update"
-alias uc="valet php -d memory_limit=-1 /usr/local/bin/composer"
 alias cg="composer global"
 alias n="npm"
-alias y="yarn"
 alias tf="t --filter"
-alias dot="cd ~/.dotfiles"
-alias rfa="redis-cli flushall"
-alias swh="stripe listen --forward-to"
+alias redflush="redis-cli flushall"
 alias ray="composer require spatie/ray"
 
 
@@ -85,19 +78,9 @@ alias diff="git diff"
 alias migrate="valet php artisan migrate"
 alias fresh="valet php artisan migrate:fresh"
 alias seed="valet php artisan db:seed"
-alias larasetup="composer install && cp .env.example .env && valet php artisan key:generate && npm install && npm run dev"
 alias hor="valet php artisan horizon"
 alias dusk="valet php artisan dusk"
 alias duskf="dusk --filter"
-
-
-# ------------------------------------------------------------------------------
-# Laravel Vapor
-# ------------------------------------------------------------------------------
-
-alias vp="vapor"
-alias vdp="vapor deploy production"
-alias vds="vapor deploy staging"
 
 
 # ------------------------------------------------------------------------------
