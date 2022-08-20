@@ -89,7 +89,7 @@ alias duskf="dusk --filter"
 
 alias pls="valet php please"
 alias plsnew="statamic new"
-alias plsuser="cp ~/.dotfiles/statamic/duncan@doublethree.digital.yaml users/duncan@doublethree.digital.yaml"
+alias plsuser="cp ~/.dotfiles/statamic/duncan@duncanmcclean.com.yaml users/duncan@duncanmcclean.com.yaml"
 alias plsdeets="valet php please support:details"
 
 
