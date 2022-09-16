@@ -102,12 +102,15 @@
   "[html]": {
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
   },
+  "[xml]": {
+    "editor.defaultFormatter": "fabianlauer.vs-code-xml-format"
+  },
 
   /** Redhat */
   "redhat.telemetry.enabled": false,
 
   /** Various other bits and bobs... */
-  "workbench.colorTheme": "Abyss",
+  "workbench.colorTheme": "SynthWave '84",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
