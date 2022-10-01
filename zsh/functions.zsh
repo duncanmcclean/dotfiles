@@ -105,14 +105,19 @@ osslink() {
     # public/vendor symlink
     if [[ -d "$CLONE_LOCATION/resources/dist" ]]
     then
-        # Statamic uses it's vendor name
-        rm -rf public/vendor/$PACAKGE_VENDOR
-        ln -s $CLONE_LOCATION/resources/dist public/vendor/$PACAKGE_VENDOR
-        la public/vendor/$PACAKGE_VENDOR
+        if [[ $PACAKGE_VENDOR == "statamic" && $PACKAGE_NAME == "cms" ]]
+        then
+            rm -rf public/vendor/statamic
 
-        # But all my addons use the package name
-        rm -rf public/vendor/$PACKAGE_NAME
-        ln -s $CLONE_LOCATION/resources/dist public/vendor/$PACKAGE_NAME
-        la public/vendor/$PACKAGE_NAME
+            mkdir public/vendor
+            mkdir public/vendor/statamic
+
+            ln -s $CLONE_LOCATION/resources/dist public/vendor/statamic/cp
+            la public/vendor/statamic/cp
+        else
+            rm -rf public/vendor/$PACKAGE_NAME
+            ln -s $CLONE_LOCATION/resources/dist public/vendor/$PACKAGE_NAME
+            la public/vendor/$PACKAGE_NAME
+        fi
     fi
 }
