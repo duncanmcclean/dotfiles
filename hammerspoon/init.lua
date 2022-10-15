@@ -5,6 +5,7 @@ local hyper = {"cmd", "alt", "ctrl"}
 hs.loadSpoon("MiroWindowsManager")
 
 hs.window.animationDuration = 0.3
+
 spoon.MiroWindowsManager:bindHotkeys({
     up = {hyper, "up"},
     right = {hyper, "right"},
