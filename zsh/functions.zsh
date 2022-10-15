@@ -16,6 +16,7 @@ t() {
 # ------------------------------------------------------------------------------
 
 plssetup() {
+  valet isolate php@8.1
   composer install
   cp .env.example .env
   php artisan key:generate
