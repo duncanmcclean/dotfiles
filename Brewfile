@@ -52,4 +52,5 @@ cask "visual-studio-code"
 cask "vlc"
 cask "zoom"
 
+mas "Overcast", id: 888422857
 mas "Things", id: 904280696
