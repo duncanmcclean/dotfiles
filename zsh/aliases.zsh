@@ -41,13 +41,7 @@ alias ray="composer require spatie/ray"
 # ------------------------------------------------------------------------------
 
 alias v="valet"
-alias sv="valet use"
-alias p81="valet use php@8.1 && composer global update"
-alias p81f="valet use php@8.1 --force"
-alias p8="valet use php@8.0 && composer global update"
-alias p8f="valet use php@8.0 --force"
-alias p74="valet use php@7.4 && composer global update"
-alias p74f="valet use php@7.4 --force"
+alias vi="valet isolate"
 
 
 # ------------------------------------------------------------------------------
