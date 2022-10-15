@@ -1,21 +1,5 @@
 local hyper = {"cmd", "alt", "ctrl"}
 
-hs.console.darkMode(true)
-
--- Ray
-
-function ray(dump)
-    if (type(dump) == 'string') then
-        hs.execute(string.format("ray '" .. dump .. "' "), true)
-    else
-        local wip = string.format("ray '" .. hs.json.encode(dump) .. "' --json")
-
-        print(wip) -- ya see, it looks fine here
-
-        print(hs.execute(wip, true)) -- but when it gets sent to ray, it comes out as 'null'
-    end
-end
-
 -- Window manager
 
 hs.loadSpoon("MiroWindowsManager")
