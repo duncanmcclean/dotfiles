@@ -105,6 +105,9 @@
   "[xml]": {
     "editor.defaultFormatter": "fabianlauer.vs-code-xml-format"
   },
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  },
 
   /** Redhat */
   "redhat.telemetry.enabled": false,
