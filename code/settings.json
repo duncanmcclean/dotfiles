@@ -96,9 +96,6 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "[css]": {
-    "editor.defaultFormatter": "aeschli.vscode-css-formatter"
-  },
   "[html]": {
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
   },
@@ -110,7 +107,7 @@
   "redhat.telemetry.enabled": false,
 
   /** Various other bits and bobs... */
-  "workbench.colorTheme": "Quiet Light",
+  "workbench.colorTheme": "Solarized Light",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
