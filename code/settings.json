@@ -98,9 +98,6 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "[css]": {
-    "editor.defaultFormatter": "aeschli.vscode-css-formatter"
-  },
   "[html]": {
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
   },
