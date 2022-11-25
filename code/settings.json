@@ -65,6 +65,7 @@
   /** Git **/
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
+  "git.mergeEditor": false,
 
   /** Explorer **/
   "explorer.confirmDragAndDrop": false,
@@ -84,6 +85,7 @@
   /** Language Specific **/
   "php.suggest.basic": false,
   "intelephense.format.enable": false,
+  "laravel-pint.enable": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -113,10 +115,9 @@
   "redhat.telemetry.enabled": false,
 
   /** Various other bits and bobs... */
-  "workbench.colorTheme": "Quiet Light",
+  "workbench.colorTheme": "SynthWave '84",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
-  "editor.inlineSuggest.enabled": true,
-  "git.mergeEditor": false
+  "editor.inlineSuggest.enabled": true
 }
