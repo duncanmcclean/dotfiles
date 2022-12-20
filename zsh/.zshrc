@@ -6,7 +6,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Zsh Config
 # ------------------------------------------------------------------------------
 
-ZSH_THEME="bubblegum"
+ZSH_THEME="robbyrussell"
 CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
@@ -36,5 +36,5 @@ export PATH="$PATH:$HOME/mys"
 # ------------------------------------------------------------------------------
 
 export NVM_DIR="$HOME/.nvm"
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"

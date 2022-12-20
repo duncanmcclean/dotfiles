@@ -1,50 +1,7 @@
 # ------------------------------------------------------------------------------
-# Run Test Suite (Pest or PHPUnit, depending on what's available)
+# Fork, clone and install dependencies
 # ------------------------------------------------------------------------------
 
-t() {
-  if [ -f "./vendor/bin/pest" ]; then
-    php -d memory_limit=-1 ./vendor/bin/pest $@
-  elif [ -n "./vendor/bin/phpunit" ]; then
-    php -d memory_limit=-1 ./vendor/bin/phpunit $@
-  fi
-}
-
-
-# ------------------------------------------------------------------------------
-# Setup all the things for a Laravel/Statamic app
-# ------------------------------------------------------------------------------
-
-plssetup() {
-  valet isolate php@8.1
-  composer install
-  cp .env.example .env
-  php artisan key:generate
-  npm install
-  npm run dev
-
-  if [ -f "please" ]; then
-    plsuser
-  fi
-}
-
-
-# ------------------------------------------------------------------------------
-# Get version of installed Composer package
-# ------------------------------------------------------------------------------
-
-compv() {
-  if [[ $1 == *"/"* ]]; then
-    composer show $1 | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1;
-  else
-    composer info | grep $1
-  fi
-}
-
-
-# ------------------------------------------------------------------------------
-# Fork, clone and install deps
-# ------------------------------------------------------------------------------
 oss() {
     GH_REPO=$1
     PACAKGE_VENDOR=`echo $1 | cut -d"/" -f1`
@@ -78,6 +35,7 @@ oss() {
 # ------------------------------------------------------------------------------
 # Link up a package to the current project
 # ------------------------------------------------------------------------------
+
 osslink() {
     GH_REPO=$1
     PACAKGE_VENDOR=`echo $1 | cut -d"/" -f1`

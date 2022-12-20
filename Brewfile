@@ -16,6 +16,7 @@ brew "yarn"
 brew "gh"
 brew "redis"
 brew "mas"
+brew "fzf"
 
 cask "1password"
 cask "anydesk"
