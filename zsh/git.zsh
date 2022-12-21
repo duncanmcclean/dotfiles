@@ -1,7 +1,7 @@
 alias all="git add ."
 alias push="git push"
 alias pull="git pull"
-alias commit="git commit -m '"
+alias commit="git commit -m"
 alias wip="all && commit 'wip'"
 alias reset="git reset"
 alias clone="git clone"
