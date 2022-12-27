@@ -102,7 +102,7 @@
     "editor.defaultFormatter": "stillat-llc.vscode-antlers"
   },
   "[xml]": {
-    "editor.defaultFormatter": "fabianlauer.vs-code-xml-format"
+    "editor.defaultFormatter": "redhat.vscode-xml"
   },
   "[sql]": {
     "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
@@ -112,7 +112,7 @@
   "redhat.telemetry.enabled": false,
 
   /** Various other bits and bobs... */
-  "workbench.colorTheme": "Ayu Mirage Bordered",
+  "workbench.colorTheme": "Solarized Light",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
