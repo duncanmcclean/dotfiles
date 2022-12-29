@@ -111,10 +111,17 @@
   /** Redhat */
   "redhat.telemetry.enabled": false,
 
+  /** Sundial */
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredLightColorTheme": "Solarized Light",
+  "workbench.preferredDarkColorTheme": "Solarized Dark",
+  "sundial.latitude": "55.861158840692",
+  "sundial.longitude": "-4.2502163866515",
+
   /** Various other bits and bobs... */
-  "workbench.colorTheme": "Solarized Light",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
-  "editor.inlineSuggest.enabled": true
+  "editor.inlineSuggest.enabled": true,
+  "workbench.colorTheme": "Solarized Light"
 }
