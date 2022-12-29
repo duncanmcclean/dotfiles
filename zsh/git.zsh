@@ -22,6 +22,13 @@ check() {
   git branch -vv | fzf | awk '{print $1}' | xargs git checkout
 }
 
+checknew() {
+    if [ -n "$1" ]; then git checkout -b $1; return; fi
+    local selected=$(git branch -vv | fzf | awk '{print $1}' | sed "s/.* //")
+    if [ -z "$selected" ]; then return; fi
+    git checkout -b $selected
+}
+
 # Git checkout remote branch with fzf fuzzy search
 checkr() {
   git fetch
