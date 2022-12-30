@@ -123,5 +123,5 @@
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
   "editor.inlineSuggest.enabled": true,
-  "workbench.colorTheme": "Solarized Light"
+  "workbench.colorTheme": "Solarized Dark"
 }

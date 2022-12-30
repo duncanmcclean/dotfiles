@@ -23,10 +23,11 @@ I've tried to keep everything nice & organised - feel free to take a look around
 
 ![VS Code](screenshots/iterm.png)
 
-- Theme: Ayu Dark
+- Themes:
+  - Solarized Light (during the day)
+  - Solarized Dark (during the night)
 - Extensions:
   - Antlers Toolbox
-  - Ayu
   - CSS Formatter
   - DotENV
   - GitHub Copilot
@@ -35,6 +36,7 @@ I've tried to keep everything nice & organised - feel free to take a look around
   - PHP Intelephense
   - Prettier
   - Sublime Text Keymap and Settings Importer
+  - Sundial
   - Tailwind CSS IntelliSense
   - Twig
   - Vetur
@@ -45,11 +47,11 @@ I've tried to keep everything nice & organised - feel free to take a look around
 
 ![iTerm & Oh My Zsh](screenshots/vs-code.png)
 
-- iTerm Theme: Dark Background
-- Oh My Zsh Theme: Bubblegum
+- iTerm Theme: Solarized Light
+- Oh My Zsh Theme: robbyrussell
 - Oh My Zsh Plugins:
-  - zsh-autosuggestions
-  - zsh-syntax-hilighting
+  - git
+  - zsh-syntax-highlighting
 
 ### Things to look into
 
