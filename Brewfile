@@ -3,6 +3,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 
+brew "awscli"
 brew "cocoapods"
 brew "dnsmasq", restart_service: true
 brew "git"
