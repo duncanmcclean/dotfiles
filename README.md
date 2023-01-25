@@ -56,6 +56,7 @@ I've tried to keep everything nice & organised - feel free to take a look around
 ### Things to look into
 
 - Dotbot
+- Using Mackup to sync Raycast between laptops
 
 ### Inspiration
 
