@@ -21,6 +21,7 @@
   "workbench.statusBar.visible": false,
   "workbench.editor.showTabs": false,
   "editor.minimap.enabled": false,
+  "update.showReleaseNotes": false,
 
   /** Silence the noise **/
   "breadcrumbs.enabled": false,
