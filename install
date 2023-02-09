@@ -37,6 +37,7 @@ cd ~
 echo "Installing Homebrew packages"
 
 # Install packages from Brew
+brew tap nicoverbruggen/homebrew-cask
 brew bundle --file=~/.dotfiles/Brewfile
 
 # Install Composer
