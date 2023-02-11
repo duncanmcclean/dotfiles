@@ -1,23 +1,5 @@
 local hyper = {"cmd", "alt", "ctrl"}
 
--- Window manager
-
-hs.loadSpoon("MiroWindowsManager")
-
-hs.window.animationDuration = 0.3
-
-spoon.MiroWindowsManager:bindHotkeys({
-    up = {hyper, "up"},
-    right = {hyper, "right"},
-    down = {hyper, "down"},
-    left = {hyper, "left"},
-    fullscreen = {hyper, "f"}
-})
-
-hs.hotkey.bind({"cmd"}, "return", function ()
-    hs.window.focusedWindow():centerOnScreen(nil,nil,0)
-end)
-
 -- Screenshot binding (Cmd + Home)
 
 hs.hotkey.bind({"cmd"}, "home", function ()
