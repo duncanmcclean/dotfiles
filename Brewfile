@@ -20,6 +20,7 @@ brew "mas"
 brew "fzf"
 
 cask "1password"
+cask "1password-cli"
 cask "anydesk"
 cask "arc"
 cask "bartender"
