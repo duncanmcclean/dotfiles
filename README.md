@@ -21,7 +21,7 @@ I've tried to keep everything nice & organised - feel free to take a look around
 
 #### VS Code
 
-![VS Code](screenshots/iterm.png)
+![VS Code](screenshots/vs-code.png)
 
 - Themes:
   - Solarized Light (during the day)
@@ -45,7 +45,7 @@ I've tried to keep everything nice & organised - feel free to take a look around
 
 #### iTerm & Oh My Zsh
 
-![iTerm & Oh My Zsh](screenshots/vs-code.png)
+![iTerm & Oh My Zsh](screenshots/iterm.png)
 
 - iTerm Theme: Solarized Light
 - Oh My Zsh Theme: robbyrussell
