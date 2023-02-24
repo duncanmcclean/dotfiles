@@ -6,18 +6,19 @@ tap "homebrew/services"
 brew "awscli"
 brew "cocoapods"
 brew "dnsmasq", restart_service: true
+brew "fzf"
+brew "gh"
 brew "git"
+brew "mackup"
+brew "mas"
 brew "mysql", restart_service: true
 brew "nginx", restart_service: true
 brew "node"
 brew "php@8.2", restart_service: true
 brew "php@8.1", restart_service: true
 brew "php@8.0", restart_service: true
-brew "yarn"
-brew "gh"
 brew "redis"
-brew "mas"
-brew "fzf"
+brew "yarn"
 
 cask "1password"
 cask "1password-cli"
