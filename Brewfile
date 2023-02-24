@@ -9,7 +9,7 @@ brew "dnsmasq", restart_service: true
 brew "fzf"
 brew "gh"
 brew "git"
-brew "mackup"
+# brew "mackup"
 brew "mas"
 brew "mysql", restart_service: true
 brew "nginx", restart_service: true
