@@ -70,4 +70,22 @@ osslink() {
             la public/vendor/$PACKAGE_NAME
         fi
     fi
+
+    if [[ -d "$CLONE_LOCATION/dist" ]]
+    then
+        if [[ $PACAKGE_VENDOR == "statamic" && $PACKAGE_NAME == "cms" ]]
+        then
+            rm -rf public/vendor/statamic
+
+            mkdir public/vendor
+            mkdir public/vendor/statamic
+
+            ln -s $CLONE_LOCATION/dist public/vendor/statamic/cp
+            la public/vendor/statamic/cp
+        else
+            rm -rf public/vendor/$PACKAGE_NAME
+            ln -s $CLONE_LOCATION/dist public/vendor/$PACKAGE_NAME
+            la public/vendor/$PACKAGE_NAME
+        fi
+    fi
 }
