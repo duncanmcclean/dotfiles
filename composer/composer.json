@@ -1,6 +1,5 @@
 {
     "require": {
-        "laravel/valet": "^3.1",
         "statamic/cli": "^2.1",
         "beyondcode/expose": "^2.0",
         "laravel/vapor-cli": "^1.8",
@@ -9,6 +8,7 @@
         "symfony/console": "5.4.x",
         "tightenco/takeout": "^2.1",
         "laravel/forge-cli": "^1.4",
-        "laravel/pint": "^1.0"
+        "laravel/pint": "^1.0",
+        "laravel/valet": "^3.3"
     }
 }
