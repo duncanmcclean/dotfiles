@@ -25,7 +25,7 @@ alias ci="valet composer install"
 alias cr="valet composer require"
 alias cu="valet composer update"
 alias cg="composer global"
-alias ray="composer require spatie/ray"
+alias ray="valet composer require spatie/ray"
 
 # Get version of installed Composer package
 compv() {
