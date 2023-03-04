@@ -22,3 +22,10 @@ alias home="cd ~"
 alias sites="cd ~/Sites"
 alias proj="cd ~/Projects"
 alias dots="cd ~/.dotfiles"
+
+
+# ------------------------------------------------------------------------------
+# Homebrew
+# ------------------------------------------------------------------------------
+
+export HOMEBREW_NO_AUTO_UPDATE=1
