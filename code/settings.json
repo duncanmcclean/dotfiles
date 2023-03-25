@@ -48,7 +48,6 @@
   /** Font **/
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
-  "editor.fontSize": 13,
   "editor.lineHeight": 25,
 
   /** Code **/
