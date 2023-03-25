@@ -45,6 +45,12 @@
   "editor.gotoLocation.multipleImplementations": "goto",
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
+  /** Font **/
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.lineHeight": 25,
+
   /** Code **/
   "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
 
@@ -121,8 +127,7 @@
 
   /** Various other bits and bobs... */
   "security.workspace.trust.untrustedFiles": "open",
-  "editor.fontFamily": "JetBrains Mono",
-  "editor.fontLigatures": true,
   "editor.inlineSuggest.enabled": true,
-  "workbench.colorTheme": "Solarized Dark"
+  "workbench.colorTheme": "Solarized Light",
+  "html.format.wrapAttributes": "preserve"
 }
