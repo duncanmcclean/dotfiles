@@ -4,6 +4,7 @@ alias seed="valet php artisan db:seed"
 alias hor="valet php artisan horizon"
 alias dusk="valet php artisan dusk"
 alias duskf="dusk --filter"
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
 function tpo() {
   if [ -d '/Applications/TablePlus.app' ]; then
