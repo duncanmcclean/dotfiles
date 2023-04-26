@@ -42,11 +42,13 @@ compv() {
 # ------------------------------------------------------------------------------
 
 t() {
-  if [ -f "./vendor/bin/pest" ]; then
-    php -d memory_limit=-1 ./vendor/bin/pest $@
-  elif [ -n "./vendor/bin/phpunit" ]; then
-    php -d memory_limit=-1 ./vendor/bin/phpunit $@
-  fi
+    if [ -f "./vendor/bin/sail" ]; then
+        sh ./vendor/bin/sail artisan test $@
+    elif [ -f "./vendor/bin/pest" ]; then
+        php -d memory_limit=-1 ./vendor/bin/pest $@
+    elif [ -n "./vendor/bin/phpunit" ]; then
+        php -d memory_limit=-1 ./vendor/bin/phpunit $@
+    fi
 }
 
 alias tf="t --filter"
