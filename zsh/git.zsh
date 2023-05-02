@@ -1,5 +1,4 @@
 alias all="git add ."
-alias push="git push"
 alias pull="git pull"
 alias wip="all && commit 'wip'"
 alias reset="git reset"
@@ -23,6 +22,17 @@ function commit() {
   fi
 
   eval "git commit -a -m '${commitMessage}'"
+}
+
+# Push commits to remote
+function push() {
+    branch=$(git rev-parse --abbrev-ref HEAD)
+
+    if git ls-remote --exit-code --heads origin $branch >/dev/null 2>&1; then
+        git push origin $branch
+    else
+        git push --set-upstream origin $branch
+    fi
 }
 
 # ------------------------------------------------------------------------------
