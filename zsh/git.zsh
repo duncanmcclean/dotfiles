@@ -1,7 +1,6 @@
 alias all="git add ."
 alias push="git push"
 alias pull="git pull"
-alias commit="git commit -m"
 alias wip="all && commit 'wip'"
 alias reset="git reset"
 alias clone="git clone"
@@ -12,9 +11,22 @@ alias diff="git diff"
 alias unstage="git reset"
 alias empty="git commit --allow-empty -m 'Empty commit'"
 
+# Commit everything
+function commit() {
+  commitMessage="$*"
+
+  git add .
+
+  if [ "$commitMessage" = "" ]; then
+     aicommits
+     return
+  fi
+
+  eval "git commit -a -m '${commitMessage}'"
+}
 
 # ------------------------------------------------------------------------------
-# Borrowed from Jesse Leite's dotfiles (https://github.com/jesseleite/dotfiles/blob/master/zsh/local/git.zsh)
+# Some of this was borrowed from Jesse Leite's dotfiles (https://github.com/jesseleite/dotfiles/blob/master/zsh/local/git.zsh)
 # ------------------------------------------------------------------------------
 
 # Git checkout with fzf fuzzy search
@@ -23,6 +35,7 @@ check() {
   git branch -vv | fzf | awk '{print $1}' | xargs git checkout
 }
 
+# Git checkout new branch
 checknew() {
     if [ -n "$1" ]; then git checkout -b $1; return; fi
     local selected=$(git branch -vv | fzf | awk '{print $1}' | sed "s/.* //")
@@ -50,7 +63,7 @@ checkt() {
 }
 
 # Git delete branch with fzf fuzzy search
-deletebranch() {
+rmbranch() {
   if [ -n "$1" ]; then git branch -d $1; return; fi
   local selected=$(git branch -vv | fzf | awk '{print $1}' | sed "s/.* //")
   if [ -z "$selected" ]; then return; fi
@@ -59,6 +72,19 @@ deletebranch() {
   if [[ "$confirmation" == "delete" ]]; then
     git branch -D $selected
   fi
+}
+
+# Git delete tag with fuzzy search (on both local and remote)
+rmtag() {
+    if [ -n "$1" ]; then git tag -d $1; git push origin :refs/tags/$1; return; fi
+    local selected=$(git tag | fzf)
+    if [ -z "$selected" ]; then return; fi
+    echo "Are you sure you would like to delete tag [\e[0;31m$selected\e[0m]? (Type 'delete' to confirm)"
+    read confirmation
+    if [[ "$confirmation" == "delete" ]]; then
+        git tag -d $selected
+        git push origin :refs/tags/$selected
+    fi
 }
 
 # Undo last commit and tip of branch
