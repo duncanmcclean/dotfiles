@@ -9,6 +9,7 @@ alias nah="git reset HEAD --hard"
 alias diff="git diff"
 alias unstage="git reset"
 alias empty="git commit --allow-empty -m 'Empty commit'"
+alias merge="git merge"
 
 # Commit everything
 function commit() {
