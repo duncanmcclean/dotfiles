@@ -10,7 +10,7 @@ alias diff="git diff"
 alias unstage="git reset"
 alias empty="git commit --allow-empty -m 'Empty commit'"
 alias merge="git merge"
-alias pushtags="git push --tags"
+alias ptag="git push --tags"
 
 # Commit everything
 function commit() {
