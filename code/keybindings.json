@@ -270,5 +270,26 @@
   {
     "key": "cmd+m",
     "command": "workbench.files.action.focusFilesExplorer"
-  }
+  },
+
+  /**
+    * AceJump
+    **/
+  {
+    "key": "cmd+l",
+    "command": "extension.aceJump"
+  },
+
+//   {
+//     "key": "space+cmd+l",
+//     "command": "extension.aceJump.multiChar"
+// },
+// {
+//     "key": "your key",
+//     "command": "extension.aceJump.line"
+// },
+// {
+//     "key": "your key",
+//     "command": "extension.aceJump.selection"
+// }
 ]

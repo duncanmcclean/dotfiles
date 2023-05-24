@@ -85,6 +85,9 @@
   },
   "editor.guides.indentation": false,
 
+  /** Prettier **/
+  "prettier.enable": false,
+
   /** Laravel Pint **/
   "laravel-pint.executablePath": "/Users/duncan/.composer/vendor/bin/pint",
 
@@ -104,14 +107,8 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "[html]": {
-    "editor.defaultFormatter": "stillat-llc.vscode-antlers"
-  },
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
-  },
-  "[sql]": {
-    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
   },
 
   /** Redhat */
@@ -127,6 +124,6 @@
   /** Various other bits and bobs... */
   "security.workspace.trust.untrustedFiles": "open",
   "editor.inlineSuggest.enabled": true,
-  "workbench.colorTheme": "Solarized Dark",
+  "workbench.colorTheme": "Solarized Light",
   "html.format.wrapAttributes": "preserve"
 }
