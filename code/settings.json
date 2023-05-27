@@ -124,6 +124,6 @@
   /** Various other bits and bobs... */
   "security.workspace.trust.untrustedFiles": "open",
   "editor.inlineSuggest.enabled": true,
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorTheme": "Solarized Dark",
   "html.format.wrapAttributes": "preserve"
 }
