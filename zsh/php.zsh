@@ -4,6 +4,7 @@
 
 alias v="valet"
 alias vi="valet isolate"
+alias share="~/.dotfiles/bin/cf"
 
 
 # ------------------------------------------------------------------------------

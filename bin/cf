@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+# Borrowed from https://gist.github.com/irazasyed/46295bc3b823bb3b13c9acd51b96b4ad
+
+# This script is meant to be run from the root of a Laravel project.
+# It will start a Cloudflare tunnel to the project's domain.
+# It will also pass through any parameters to the Cloudflare tunnel.
+# For example, you can run `cf --metrics`
+#
+# By default, it'll try to use a global config file but a project level config file is also supported.
+# If you have a cf-tunnel.yml file in the root of your project, it will be passed through to the Cloudflare tunnel,
+# optionally you can pass a custom config file too.
+#
+# To pass custom config, use the `--config /path/to/config.yml` file.
+#
+# If you have multiple sites linked to the same directory, it will use the
+# first one it finds.
+#
+# If you have a secure site, it will use port 60.
+#
+# If you have a custom TLD, it will use that.
+#
+# If you have a custom tunnel name, you can set it in the TUNNEL_NAME
+# variable below.
+
+# Set your tunnel name
+TUNNEL_NAME=58fe11c5-0759-4cff-8c01-16a2c73849f2
+
+# Default parameters to pass to Cloudflare
+PARAMS=()
+HOST="${PWD##*/}"
+TLD=$(valet tld)
+PORT=80
+
+if ! command -v cloudflared > /dev/null 2>&1; then
+  echo "Error: cloudflared is not installed or cannot be found."
+  exit 1
+fi
+
+# Check for parameters to pass through to Cloudflare (these will start with '-' or '--')
+for ARG in "$@"; do
+    case "$ARG" in
+        --config) CONFIG_FLAG=true;;
+        -*) PARAMS+=("$ARG");;
+        *) PARAMS+=("'$ARG'");;
+    esac
+done
+
+# Add --config flag if cf-tunnel.yml exists and --config is not already present
+if [ -f "cf-tunnel.yml" ] && [ "${CONFIG_FLAG:-false}" != true ]; then
+    PARAMS+=("--config" "cf-tunnel.yml")
+fi
+
+# Find the first linked site for the current dir, if one exists
+for LINK in ~/.config/valet/Sites/*; do
+    if [[ "$(readlink "$LINK")" = "$PWD" ]]; then
+        HOST="${LINK##*/}"
+        break
+    fi
+done
+
+# Decide the correct PORT: uses 60 for secure, else 80
+if grep --quiet --no-messages 443 ~/.config/valet/Nginx/"$HOST"*; then
+    PORT=60
+fi
+
+# Lowercase the host to match how the rest of our domains are looked up
+HOST=$(echo "$HOST" | tr '[:upper:]' '[:lower:]')
+
+# Start the Cloudflare tunnel
+sudo -u "$USER" cloudflared tunnel \
+    --http-host-header "$HOST.$TLD" \
+    --url "localhost:$PORT" \
+    "${PARAMS[@]}" \
+    run "$TUNNEL_NAME"
+
+exit 0
