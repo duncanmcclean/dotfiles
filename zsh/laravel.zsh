@@ -3,13 +3,11 @@
 # ------------------------------------------------------------------------------
 
 a() {
-    # if [ -f "./vendor/bin/sail" ]; then
-    #     sh ./vendor/bin/sail artisan $@
-    # elif [ -f "./artisan" ]; then
-    #     valet php artisan $@
-    # fi
-
-    valet php artisan $@
+    if [ -f ./artisan ]; then
+        valet php artisan $@
+    else
+        valet php vendor/bin/testbench $@
+    fi
 }
 
 alias migrate="a migrate"
