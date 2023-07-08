@@ -17,16 +17,61 @@ alias changelog='gcslt && gcslt | pbcopy'
 
 # Commit everything
 function commit() {
-  commitMessage="$*"
+    local description=""
+    local coauthors=""
+    local message=""
 
-  git add .
+    # Function to display script usage
+    function usage {
+        echo "Usage: git_commit [-d <description>] [-c <coauthors>] <commit message>"
+        echo "Options:"
+        echo "  -d, --description <description>   Add a description to the Git commit"
+        echo "  -c, --coauthors <coauthors>       Specify coauthors of the commit"
+        exit 1
+    }
 
-  if [ "$commitMessage" = "" ]; then
-     aicommits
-     return
-  fi
+    # Parse command line arguments
+    while [[ $# -gt 0 ]]; do
+        key="$1"
+        case $key in
+            -d|--description)
+                description="$2"
+                shift
+                shift
+                ;;
+            -c|--coauthors)
+                coauthors="$2"
+                shift
+                shift
+                ;;
+            *)
+                message="$1"
+                shift
+                ;;
+        esac
+    done
 
-  eval "git commit -a -m '${commitMessage}'"
+    # Check if a commit message is provided
+    if [[ -z $message ]]; then
+        echo "Commit message is missing."
+        usage
+    fi
+
+    # Construct the commit command
+    local commit_command="git commit -m \"$message\""
+
+    # Add description if provided
+    if [[ -n $description ]]; then
+        commit_command+=" -m \"$description\""
+    fi
+
+    # Add coauthors if provided
+    if [[ -n $coauthors ]]; then
+        commit_command+=" -m \"Co-authored-by: $coauthors\""
+    fi
+
+    # Execute the commit command
+    eval "$commit_command"
 }
 
 # Push commits to remote
