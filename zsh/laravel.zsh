@@ -11,11 +11,10 @@ a() {
 }
 
 alias migrate="a migrate"
+alias rollback="a migrate:rollback"
 alias fresh="a migrate:fresh"
 alias seed="a db:seed"
 alias hor="a horizon"
-alias dusk="a dusk"
-alias duskf="a dusk --filter"
 
 
 # ------------------------------------------------------------------------------
