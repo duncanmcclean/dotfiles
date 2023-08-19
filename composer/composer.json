@@ -1,14 +1,11 @@
 {
     "require": {
-        "statamic/cli": "^2.1",
+        "laravel/valet": "^3.1",
+        "statamic/cli": "^3.0",
         "beyondcode/expose": "^2.0",
-        "laravel/vapor-cli": "^1.8",
         "laravel/installer": "^4.0",
-        "tightenco/tlint": "^5.0",
-        "symfony/console": "5.4.x",
+        "symfony/console": "^6.2",
         "tightenco/takeout": "^2.1",
-        "laravel/forge-cli": "^1.4",
-        "laravel/pint": "^1.0",
-        "laravel/valet": "^3.3"
+        "laravel/pint": "^1.10"
     }
 }
