@@ -158,3 +158,9 @@ gundo() {
   echo "\nRecent commits:"
   glog -n 5
 }
+
+# Merge another branch into current branch
+gmerge() {
+    git pull origin $1
+    git push
+}
