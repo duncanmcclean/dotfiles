@@ -13,6 +13,8 @@ I've tried to keep everything nice & organised - feel free to take a look around
 
 ### What's being used
 
+> **Changes in progress!** This list is no longer completely accurate. I'll come back and update this list at some point.
+
 - [Hammerspoon](https://www.hammerspoon.org/) for window management and keyboard shortcuts
 - [Oh My Zsh](https://ohmyz.sh/) is my shell (using iTerm as my terminal)
 - [Homebrew](https://brew.sh/) for dependency management
@@ -53,12 +55,8 @@ I've tried to keep everything nice & organised - feel free to take a look around
   - git
   - zsh-syntax-highlighting
 
-### Things to look into
-
-- Dotbot
-- Using Mackup to sync Raycast between laptops
-
 ### Inspiration
 
 - [Jesse Leite's Dotfiles](https://github.com/jesseleite/dotfiles)
+- [Jason Varga's Dotfiles](https://github.com/jasonvarga/dotfiles)
 - [Dries Vints' Dotfiles](https://github.com/driesvints/dotfiles)

@@ -1,0 +1,15 @@
+[user]
+    name = Duncan McClean
+    email = duncan@duncanmcclean.com
+
+[core]
+    excludesFile = /Users/duncan/.dotfiles/git/gitignore_global
+
+[init]
+    defaultBranch = main
+
+[push]
+    autoSetupRemote = true
+
+[pull]
+    rebase = false

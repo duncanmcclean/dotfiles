@@ -1,139 +1,15 @@
-#!/bin/bash
-set -euo pipefail
+#!/usr/bin/env bash
 
-# Display message 'Setting up your Mac...'
-echo "Setting up your Mac..."
-sudo -v
+set -e
 
-# Oh My Zsh
-echo "Installing Oh My Zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
 
-# Oh My Zsh - Autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Oh My Zsh - Syntax Highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+cd "${BASEDIR}"
+git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
+git submodule update --init --recursive "${DOTBOT_DIR}"
 
-# Configure symlinks
-rm ~/.zshrc
-ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
-
-# Homebrew - Installation
-echo "Installing Homebrew"
-
-if test ! $(which brew); then
- /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
-
- eval "$(/opt/homebrew/bin/brew shellenv)"
- echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/duncan/.zprofile
-
-# Update homebrew recipes
-brew update
-
-# Install Homebrew Packages
-cd ~
-echo "Installing Homebrew packages"
-
-# Install packages from Brew
-brew tap nicoverbruggen/homebrew-cask
-brew tap 1password/tap
-
-brew bundle --file=~/.dotfiles/Brewfile
-
-# Install Composer
-echo "Installing Composer"
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
-
-# Install Global Composer Packages
-echo "Installing Global Composer Packages"
-rm /Users/duncan/.composer/composer.json
-ln -s /Users/duncan/.dotfiles/composer/composer.json /Users/duncan/.composer/composer.json
-/usr/local/bin/composer global install
-
-# Install Laravel Valet
-echo "Installing Laravel Valet"
-$HOME/.composer/vendor/bin/valet install
-
-# Create Sites directory
-echo "Creating a Sites directory"
-mkdir $HOME/Sites
-
-# Create Projects directory
-echo "Creating a Projects directory"
-mkdir $HOME/Projects
-
-# Start MySQL for the first time
-echo "Starting MySQL for the first time"
-brew services start mysql
-
-# Configure Laravel Valet
-cd ~/Sites
-valet park && cd ~
-echo "Configuring Laravel Valet"
-cd ~
-valet restart
-
-# Installing Global Node Dependecies
-echo "Installing Global Node Dependecies"
-npm install -g cross-env
-npm install -g aicommits
-
-# Generate SSH key
-echo "Generating SSH keys"
-ssh-keygen -t rsa
-
-echo "Copied SSH key to clipboard - You can now add it to Github"
-pbcopy < ~/.ssh/id_rsa.pub
-
-# Register the Global Gitignore file
-git config --global core.excludesfile $HOME/.dotfiles/git/.gitignore_global
-
-# VS Code
-open -a "Visual Studio Code"
-sleep 5s
-osascript -e 'quit app "Visual Studio Code"'
-
-ln -s /Users/duncan/.dotfiles/code /Users/duncan/Library/Application\ Support/Code/User
-
-# Symlinks
-ln -s /Users/duncan/.dotfiles/git/.gitignore_global /Users/duncan/.gitignore_global
-
-mkdir /Users/duncan/.hammerspoon
-ln -s /Users/duncan/.dotfiles/hammerspoon/init.lua /Users/duncan/.hammerspoon/init.lua
-ln -s /Users/duncan/.dotfiles/hammerspoon/Spoons /Users/duncan/.hammerspoon
-
-# Finder: show file extensions & disable file extension warning
-defaults write NSGlobalDomain AppleShowAllExtensions -bool false
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
-# Avoid creating .DS_Store files on network or USB volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
-
-# Don’t show recent applications in Dock
-defaults write com.apple.dock show-recents -bool false
-
-# Wipe everything from the Dock
-defaults write com.apple.dock persistent-apps -array
-
-# Hide 'Last Logged In' in terminal
-touch .hushlogin
-
-# Configure Git details
-git config --global user.name "Duncan McClean"
-git config --global user.email "duncan@duncanmcclean.com"
-git config --global init.defaultBranch main
-git config --global --add --bool push.autoSetupRemote true
-git config --global pull.rebase false
-
-# Switch Git remote for dotfiles to SSH
-git remote set-url origin git@github.com:duncanmcclean/dotfiles.git
-
-# Complete
-echo "Installation Complete"
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

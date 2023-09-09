@@ -1,0 +1,74 @@
+- defaults:
+    link:
+      create: true
+      force: true
+    shell:
+      quiet: true
+
+- shell:
+  - description: Validating sudo credentials
+    command: "sudo --validate"
+
+- clean: ['~']
+
+- link:
+  ~/.gitconfig: git/gitconfig
+  ~/.gitignore_global: git/gitignore_global
+  ~/.composer/composer.json: composer/composer.json
+  ~/.composer/config.json: composer/config.json
+  ~/.hammerspoon: hammerspoon
+  ~/.vimrc: vim/.vimrc
+  ~/.zshrc: zsh/.zshrc
+
+- create:
+  - ~/Code
+  - ~/Code/DoubleThreeDigital
+  - ~/Code/Statamic
+
+- shell:
+  - description: Hushing login
+    command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
+
+  - description: Telling gatekeeper to allow unidentified developers
+    command: "sudo spctl --master-disable"
+
+  - description: Installing Oh My Zsh
+    command: "[ -d ~/.oh-my-zsh ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
+
+  - description: Install Oh My Zsh Syntax Highlighting
+    command: "[ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
+
+  - description: Installing Homebrew
+    command: "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+
+  - description: Updating Homebrew
+    command: "brew update"
+
+  - description: Installing Brewfile bundle
+    command: "brew bundle --file=~/dotfiles/Brewfile"
+    stdout: true
+    stderr: true
+
+  - description: Cleaning up Homebrew
+    command: "brew cleanup"
+
+  - description: Installing global Composer dependencies
+    command: "composer global install"
+
+  - description: Parking Valet
+    command: "herd park ~/Code/DoubleThreeDigital && herd park ~/Code/Statamic"
+
+  - description: Starting MySQL
+    command: "brew services start mysql"
+
+  - description: Install global npm packages
+    command: "npm install --global cross-env"
+
+  - description: Generate SSH Key
+    command: "ssh-keygen -t rsa"
+
+  - description: Switch Git remote to SSH
+    command: "git remote set-url origin git@github.com:duncanmcclean/dotfiles.git"
+
+  - description: Apply macOS Preferences
+    command: "./.macos"

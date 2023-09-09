@@ -1,4 +1,3 @@
-# Mac OS files
 .DS_Store
 .DS_Store?
 ._*
@@ -6,14 +5,7 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Logs (and stuff
+.vscode
 *.log
 *.sql
 *.sqlite
-
-# VS Code
-.vscode
-
-# Tinkerwell
-tinkerwell/*.php
