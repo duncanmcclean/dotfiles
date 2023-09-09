@@ -9,11 +9,11 @@ return {
       summonModal = 'b', -- browser
       focus = positions.center.large,
     },
-    -- Warp = {
-    --   id = 'dev.warp.Warp-Stable',
+    Warp = {
+      id = 'dev.warp.Warp-Stable',
     --   summon = {'cmd', 'escape'},
-    --   focus = positions.center.large,
-    -- },
+      focus = positions.center.large,
+    },
     Slack = {
       id = 'com.tinyspeck.slackmacgap',
       summonModal = 's',
