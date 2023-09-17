@@ -29,7 +29,7 @@ TUNNEL_NAME=58fe11c5-0759-4cff-8c01-16a2c73849f2
 # Default parameters to pass to Cloudflare
 PARAMS=()
 HOST="${PWD##*/}"
-TLD=$(herd tld)
+TLD=$(valet tld)
 PORT=80
 
 if ! command -v cloudflared > /dev/null 2>&1; then

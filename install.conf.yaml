@@ -55,8 +55,14 @@
   - description: Installing global Composer dependencies
     command: "composer global install"
 
+  - description: Installing Laravel Valet
+    command: "$HOME/.composer/vendor/bin/valet install"
+
   - description: Parking Valet
-    command: "herd park ~/Code/DoubleThreeDigital && herd park ~/Code/Statamic"
+    command: "valet park ~/Code/DoubleThreeDigital && valet park ~/Code/Statamic"
+
+  - description: Restart Laravel Valet
+    command: "valet restart"
 
   - description: Starting MySQL
     command: "brew services start mysql"

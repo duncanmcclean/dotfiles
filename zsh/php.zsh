@@ -1,9 +1,9 @@
 # ------------------------------------------------------------------------------
-# Laravel Herd
+# Laravel Valet
 # ------------------------------------------------------------------------------
 
-alias v="herd"
-alias vi="herd isolate"
+alias v="valet"
+alias vi="valet isolate"
 alias share="~/.dotfiles/bin/cf"
 
 
@@ -11,14 +11,14 @@ alias share="~/.dotfiles/bin/cf"
 # Composer
 # ------------------------------------------------------------------------------
 
-alias c="herd composer"
-alias c1="herd composer self-update --1"
-alias c2="herd composer self-update && composer self-update --2"
-alias ci="herd composer install"
-alias cr="herd composer require"
-alias cu="herd composer update"
+alias c="valet composer"
+alias c1="valet composer self-update --1"
+alias c2="valet composer self-update && composer self-update --2"
+alias ci="valet composer install"
+alias cr="valet composer require"
+alias cu="valet composer update"
 alias cg="composer global"
-alias ray="herd composer require spatie/ray"
+alias ray="valet composer require spatie/ray"
 
 # Get version of installed Composer package
 compv() {
