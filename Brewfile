@@ -5,6 +5,7 @@ tap "homebrew/services"
 tap "1password/tap"
 
 brew "cocoapods"
+brew "composer"
 brew "dnsmasq", restart_service: true
 brew "fzf"
 brew "gh"
@@ -23,7 +24,6 @@ cask "anydesk"
 cask "arc"
 cask "audacity"
 cask "bartender"
-cask "brew"
 cask "cron"
 cask "discord"
 cask "docker"
@@ -54,6 +54,5 @@ cask "warp"
 cask "zoom"
 # Missing: Xnapper
 
-mas "Overcast", id: 888422857
 mas "Things", id: 904280696
 mas "Hand Mirror", id: 1502839586

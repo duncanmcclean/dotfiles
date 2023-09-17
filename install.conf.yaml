@@ -12,13 +12,13 @@
 - clean: ['~']
 
 - link:
-  ~/.gitconfig: git/gitconfig
-  ~/.gitignore_global: git/gitignore_global
-  ~/.composer/composer.json: composer/composer.json
-  ~/.composer/config.json: composer/config.json
-  ~/.hammerspoon: hammerspoon
-  ~/.vimrc: vim/.vimrc
-  ~/.zshrc: zsh/.zshrc
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
+    ~/.composer/composer.json: composer/composer.json
+    ~/.composer/config.json: composer/config.json
+    ~/.hammerspoon: hammerspoon
+    ~/.vimrc: vim/.vimrc
+    ~/.zshrc: zsh/.zshrc
 
 - create:
   - ~/Code
@@ -70,11 +70,9 @@
   - description: Install global npm packages
     command: "npm install --global cross-env"
 
-  - description: Generate SSH Key
-    command: "ssh-keygen -t rsa"
-
   - description: Switch Git remote to SSH
     command: "git remote set-url origin git@github.com:duncanmcclean/dotfiles.git"
 
   - description: Apply macOS Preferences
     command: "./.macos"
+    quiet: false
