@@ -212,7 +212,8 @@ defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 for app in "cfprefsd" \
 	"Dock" \
-	"Finder" \
+	"Finder"; do
 	killall "${app}" &> /dev/null
 done
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."
