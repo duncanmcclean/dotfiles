@@ -1,4 +1,29 @@
 # ------------------------------------------------------------------------------
+# Helper function for figuring out where to clone the repo.
+# ------------------------------------------------------------------------------
+
+getCloneLocation() {
+    if [ $# -eq 1 ]; then
+        CLONE_LOCATION=$PWD/$1
+    else
+        echo "1) ~/Code/DoubleThreeDigital"
+        echo "2) ~/Code/Statamic"
+        read -r CLONE_LOCATION_INPUT
+
+        if [ "$CLONE_LOCATION_INPUT" -eq 1 2>/dev/null ]; then
+            CLONE_LOCATION=~/Code/DoubleThreeDigital/$PACKAGE_NAME
+        elif [ "$CLONE_LOCATION_INPUT" -eq 2 2>/dev/null ]; then
+            CLONE_LOCATION=~/Code/Statamic/$PACKAGE_NAME
+        else
+            echo "Invalid option"
+            return
+        fi
+    fi
+
+    echo "$CLONE_LOCATION"
+}
+
+# ------------------------------------------------------------------------------
 # Fork, clone and install dependencies
 # ------------------------------------------------------------------------------
 
@@ -7,10 +32,12 @@ oss() {
     PACAKGE_VENDOR=`echo $1 | cut -d"/" -f1`
     PACKAGE_NAME=`echo $1 | cut -d"/" -f2`
 
-    if [ $# -eq 2 ]; then
-        CLONE_LOCATION=$PWD/$2
+    # Prompt the user for the clone location if not provided as an argument
+    if [ $# -lt 2 ]; then
+        echo "Which directory in ~/Code should this be cloned into? (Enter 1 or 2)"
+        getCloneLocation
     else
-        CLONE_LOCATION=~/Projects/$PACKAGE_NAME
+        CLONE_LOCATION=$2
     fi
 
     # Fork & clone repo
@@ -41,10 +68,12 @@ osslink() {
     PACAKGE_VENDOR=`echo $1 | cut -d"/" -f1`
     PACKAGE_NAME=`echo $1 | cut -d"/" -f2`
 
-    if [ $# -eq 2 ]; then
-        CLONE_LOCATION=$PWD/$2
+    # Prompt the user for the clone location if not provided as an argument
+    if [ $# -lt 2 ]; then
+        echo "In which ~/Code directory is this repository located? (Enter 1 or 2)"
+        getCloneLocation
     else
-        CLONE_LOCATION=~/Projects/$PACKAGE_NAME
+        CLONE_LOCATION=$2
     fi
 
     # vendor symlink
