@@ -10,12 +10,6 @@ summon = require('summon')
 chain = require('chain')
 require('window')
 
--- Screenshot binding (Cmd + Home)
-
-hs.hotkey.bind({"cmd"}, "home", function ()
-    hs.eventtap.keyStroke({"shift", "cmd"}, "4")
-end)
-
 -- When I switch to just my laptop screen, I want to do the same thing cmd + option + ctrl + k does for each of the windows.
 -- I want to do this for each of the windows that are open on my laptop screen.
 
