@@ -56,3 +56,6 @@ cask "zoom"
 
 mas "Things", id: 904280696
 mas "Hand Mirror", id: 1502839586
+mas "Pages", id: 409201541
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
