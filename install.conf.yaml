@@ -39,7 +39,10 @@
     command: "[ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
 
   - description: Installing Homebrew
-    command: "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+    command:
+      - "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+      - '(echo; echo \'eval "$(/opt/homebrew/bin/brew shellenv)"\') >> /Users/duncan/.zprofile'
+      - 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 
   - description: Updating Homebrew
     command: "brew update"
