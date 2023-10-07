@@ -2,4 +2,4 @@
 # Oh my Zsh
 # ------------------------------------------------------------------------------
 
-echo "source /home/forge/.dotfiles/forge/aliases.zsh" >> .zshrc
+echo "source /home/forge/.dotfiles/zsh/forge/aliases.zsh" >> .zshrc
