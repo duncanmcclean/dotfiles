@@ -19,7 +19,8 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # ------------------------------------------------------------------------------
 
 alias home="cd ~"
-alias code="cd ~/Code"
+alias dtd="cd ~/Code/DoubleThreeDigital"
+alias stat="cd ~/Code/Statamic"
 alias dots="cd ~/.dotfiles"
 
 
