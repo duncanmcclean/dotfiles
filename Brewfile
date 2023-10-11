@@ -18,6 +18,7 @@ brew "php@8.2", restart_service: true
 brew "php@8.1", restart_service: true
 brew "php@8.0", restart_service: true
 brew "redis", restart_service: true
+brew "stripe/stripe-cli/stripe"
 
 cask "1password"
 cask "anydesk"
