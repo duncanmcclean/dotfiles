@@ -50,4 +50,8 @@ return {
       id = 'com.culturedcode.ThingsMac',
       summonModal = 't',
     },
+    Tinkerwell = {
+      id = 'com.tinkerwellapp.Tinkerwell',
+      summonModal = 'w',
+    }
   }

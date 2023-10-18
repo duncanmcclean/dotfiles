@@ -1,55 +1,22 @@
 return {
     {
-        name = 'Standard Work',
+        name = 'Standard Code',
         cells = {
           { '0,0 40x20' },
           { '40,0 20x20' },
-        --   { '35,0 25x20' },
         },
         apps = {
           Arc = { cell = 1, open = true },
           Discord = { cell = 1 },
           Spotify = { cell = 1 },
           GitHubDesktop = { cell = 1 },
-        --   TablePlus = { cell = 1 },
+          Tinkerwell = { cell = 1 },
+          TablePlus = { cell = 1 },
           Slack = { cell = 2, open = true },
           Things = { cell = 2 },
           Ray = { cell = 2 },
         },
     },
-    {
-      name = 'Standard Dev',
-      cells = {
-        { '0,0 30x20' },
-        { '30,0 30x20' },
-        { '35,0 25x20' },
-      },
-      apps = {
-        Arc = { cell = 1, open = true },
-        Code = { cell = 2, open = true },
-        GitHubDesktop = { cell = 2 },
-        Slack = { cell = 3 },
-        Discord = { cell = 3 },
-      },
-    },
-    {
-        name = 'Standard Dev (w/ Ray)',
-        cells = {
-          { '0,0 25x20' },
-          { '25,0 10x20' },
-          { '35,0 35x20' },
-          { '35,0 25x20' },
-          { '35,0 20x20' },
-        },
-        apps = {
-          Arc = { cell = 1, open = true },
-          Ray = { cell = 2, open = true },
-          Code = { cell = 3, open = true },
-          GitHubDesktop = { cell = 3 },
-          Slack = { cell = 4 },
-          Discord = { cell = 5 },
-        },
-      },
     {
       name = 'Code Focused',
       cells = {
