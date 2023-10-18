@@ -1,5 +1,23 @@
 return {
     {
+        name = 'Standard Work',
+        cells = {
+          { '0,0 40x20' },
+          { '40,0 20x20' },
+        --   { '35,0 25x20' },
+        },
+        apps = {
+          Arc = { cell = 1, open = true },
+          Discord = { cell = 1 },
+          Spotify = { cell = 1 },
+          GitHubDesktop = { cell = 1 },
+        --   TablePlus = { cell = 1 },
+          Slack = { cell = 2, open = true },
+          Things = { cell = 2 },
+          Ray = { cell = 2 },
+        },
+    },
+    {
       name = 'Standard Dev',
       cells = {
         { '0,0 30x20' },

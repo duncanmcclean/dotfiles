@@ -46,4 +46,8 @@ return {
       id = 'com.tinyapp.TablePlus',
       summonModal = 'q', -- query
     },
+    Things = {
+      id = 'com.culturedcode.ThingsMac',
+      summonModal = 't',
+    },
   }
