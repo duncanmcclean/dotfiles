@@ -10,18 +10,6 @@ summon = require('summon')
 chain = require('chain')
 require('window')
 
--- When I switch to just my laptop screen, I want to do the same thing cmd + option + ctrl + k does for each of the windows.
--- I want to do this for each of the windows that are open on my laptop screen.
-
-handover = hs.screen.watcher.new(function()
-    logger.d('what is this?')
-    hs.alert.show('something happened')
-
-    local screens = hs.screen.allScreens()
-end)
-
-handover:start()
-
 --------------------------------------------------------------------------------
 -- Summon Specific Apps
 --------------------------------------------------------------------------------
