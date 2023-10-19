@@ -33,4 +33,21 @@ return {
         Spotify = { cell = 2 },
       },
     },
+    {
+        name = 'Laptop',
+        cells = {
+            { '0,0 60x20' },
+        },
+        apps = {
+            Arc = { cell = 1 },
+            Discord = { cell = 1 },
+            Spotify = { cell = 1 },
+            GitHubDesktop = { cell = 1 },
+            Tinkerwell = { cell = 1 },
+            TablePlus = { cell = 1 },
+            Slack = { cell = 1 },
+            Things = { cell = 1 },
+            Ray = { cell = 1 },
+        },
+    },
   }
