@@ -9,9 +9,8 @@ return {
       summonModal = 'b', -- browser
       focus = positions.center.large,
     },
-    Warp = {
-      id = 'dev.warp.Warp-Stable',
-    --   summon = {'cmd', 'escape'},
+    iTerm = {
+      id = 'com.googlecode.iterm2',
       focus = positions.center.large,
     },
     Slack = {

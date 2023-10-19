@@ -38,6 +38,7 @@ cask "hammerspoon"
 cask "helo"
 cask "imageoptim"
 cask "insomnia"
+cask "iterm2"
 cask "obsidian"
 cask "ray"
 cask "raycast"
@@ -51,9 +52,7 @@ cask "tinkerwell"
 cask "tuple"
 cask "visual-studio-code"
 cask "vlc"
-cask "warp"
 cask "zoom"
-# Missing: Xnapper
 
 mas "Things", id: 904280696
 mas "Hand Mirror", id: 1502839586

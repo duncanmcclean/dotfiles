@@ -15,6 +15,7 @@ return {
           Slack = { cell = 2, open = true },
           Things = { cell = 2 },
           Ray = { cell = 2 },
+          iTerm = { cell = 2 },
         },
     },
     {
