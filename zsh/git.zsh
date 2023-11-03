@@ -15,6 +15,15 @@ alias glt='git describe --tags --abbrev=0' # git latest tag
 alias gcslt='git --no-pager log $(glt)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
 alias changelog='gcslt && gcslt | pbcopy'
 
+# Re-tag the latest release
+function retag() {
+    local latest_tag=$(git describe --tags --abbrev=0)
+    git tag -d $latest_tag
+    git push origin :refs/tags/$latest_tag
+    git tag $latest_tag
+    git push --tags
+}
+
 # Commit everything
 function commit() {
     local description=""
