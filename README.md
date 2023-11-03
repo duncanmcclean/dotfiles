@@ -2,9 +2,7 @@
 
 **👋 Hello, I'm Duncan and these are my Dotfiles.**
 
-I regularly switch between two MacBook Pro's (one for work, one for personal/side project use). My Dotfiles are essential to ensuring I have the same development experience on both MacBooks - they help me keep settings in sync & setup new Macs when I need to.
-
-I've tried to keep everything nice & organised - feel free to take a look around and steal anything you want.
+My Dotfiles serve as a crucial tool for me to maintain and manage the configuration of my computer. I try to keep everything nice & organised. You're more than welcome to take a look around and steal anything you want.
 
 ### Installation
 
@@ -13,47 +11,22 @@ I've tried to keep everything nice & organised - feel free to take a look around
 
 ### What's being used
 
-> **Changes in progress!** This list is no longer completely accurate. I'll come back and update this list at some point.
-
-- [Hammerspoon](https://www.hammerspoon.org/) for window management and keyboard shortcuts
-- [Oh My Zsh](https://ohmyz.sh/) is my shell (using iTerm as my terminal)
-- [Homebrew](https://brew.sh/) for dependency management
+- **[Dotbot](https://github.com/anishathalye/dotbot)** for bootstrapping my dotfiles. Whenever I setup a new computer or wipe fresh, I only need to run a single Dotbot command to install software, create symlinks and configure stuff.
+- **[Oh My Zsh](https://ohmyz.sh/)** is my shell.
+- **[Hammerspoon](https://www.hammerspoon.org/)** for window management & keyboard shortcuts.
+- **[Homebrew](https://brew.sh/)** for dependency management
 
 ### Screenshots
-
-#### VS Code
-
-![VS Code](screenshots/vs-code.png)
-
-- Themes:
-  - Solarized Light (during the day)
-  - Solarized Dark (during the night)
-- Extensions:
-  - Antlers Toolbox
-  - CSS Formatter
-  - DotENV
-  - GitHub Copilot
-  - Laravel Blade Snippets
-  - Laravel Pint
-  - PHP Intelephense
-  - Prettier
-  - Sublime Text Keymap and Settings Importer
-  - Sundial
-  - Tailwind CSS IntelliSense
-  - Twig
-  - Vetur
-  - XML
-  - YAML
 
 #### iTerm & Oh My Zsh
 
 ![iTerm & Oh My Zsh](screenshots/iterm.png)
 
-- iTerm Theme: Solarized Light
-- Oh My Zsh Theme: robbyrussell
+- iTerm Theme: Lovelace
+- Oh My Zsh Theme: `robbyrussell`
 - Oh My Zsh Plugins:
-  - git
-  - zsh-syntax-highlighting
+  - `git`
+  - `zsh-syntax-highlighting`
 
 ### Inspiration
 
