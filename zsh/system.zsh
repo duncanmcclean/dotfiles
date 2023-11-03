@@ -6,6 +6,11 @@ alias hosts="sudo nano /etc/hosts"
 alias redflush="redis-cli flushall"
 
 
+# ------------------------------------------------------------------------------
+# Internet Connection
+# Thanks to @jasonvarga for this snippet!
+# ------------------------------------------------------------------------------
+
 internet() {
     disconnected=false
 

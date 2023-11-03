@@ -4,7 +4,6 @@
 
 alias v="valet"
 alias vi="valet isolate"
-alias share="~/.dotfiles/bin/cf"
 
 
 # ------------------------------------------------------------------------------
@@ -12,8 +11,6 @@ alias share="~/.dotfiles/bin/cf"
 # ------------------------------------------------------------------------------
 
 alias c="valet composer"
-alias c1="valet composer self-update --1"
-alias c2="valet composer self-update && composer self-update --2"
 alias ci="valet composer install"
 alias cr="valet composer require"
 alias cu="valet composer update"
