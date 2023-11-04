@@ -16,6 +16,7 @@ return {
           Things = { cell = 2 },
           Ray = { cell = 2 },
           iTerm = { cell = 2 },
+          Obsidian = { cell = 2 },
         },
     },
     {

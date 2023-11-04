@@ -52,5 +52,5 @@ return {
     Tinkerwell = {
       id = 'com.tinkerwellapp.Tinkerwell',
       summonModal = 'w',
-    }
+    },
   }
