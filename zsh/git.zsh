@@ -10,6 +10,7 @@ alias diff="git diff"
 alias unstage="git reset"
 alias empty="git commit --allow-empty -m 'Empty commit'"
 alias merge="git merge"
+alias gtag="git tag"
 alias ptag="git push --tags"
 alias glt='git describe --tags --abbrev=0' # git latest tag
 alias gcslt='git --no-pager log $(glt)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
