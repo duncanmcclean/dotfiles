@@ -57,6 +57,7 @@ return {
             Slack = { cell = 2 },
             Discord = { cell = 2 },
             Spotify = { cell = 2 },
+            Tinkerwell = { cell = 2 },
         },
     },
     {
