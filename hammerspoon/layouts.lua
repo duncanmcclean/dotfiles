@@ -50,6 +50,7 @@ return {
             Ray = { cell = 1 },
             iTerm = { cell = 1 },
             Obsidian = { cell = 1 },
+            Things = { cell = 1 },
             Code = { cell = 2, open = true },
             Arc = { cell = 2 },
             GitHubDesktop = { cell = 2 },
