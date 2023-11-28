@@ -91,8 +91,11 @@ osslink() {
             mkdir public/vendor
             mkdir public/vendor/statamic
 
-            ln -s $CLONE_LOCATION/resources/dist public/vendor/statamic/cp
+            ln -s $CLONE_LOCATION/resources/dist/cp public/vendor/statamic/cp
             la public/vendor/statamic/cp
+
+            ln -s $CLONE_LOCATION/resources/dist/frontend public/vendor/statamic/frontend
+            la public/vendor/statamic/frontend
         fi
     else
         if [[ -d "$CLONE_LOCATION/dist/build" ]]
