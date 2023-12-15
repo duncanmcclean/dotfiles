@@ -10,30 +10,6 @@ alias diff="git diff"
 alias unstage="git reset"
 alias empty="git commit --allow-empty -m 'Empty commit'"
 alias merge="git merge"
-alias ptag="git push --tags"
-alias glt='git describe --tags --abbrev=0' # git latest tag
-alias gcslt='git --no-pager log $(glt)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
-alias changelog='gcslt && gcslt | pbcopy'
-
-# Create a tag (and ensure it starts with a v)
-function gtag() {
-    local tag=$1
-    if [[ $tag != v* ]]; then
-        tag="v$tag"
-    fi
-    git tag $tag
-    git push --tags
-}
-
-
-# Re-tag the latest release
-function retag() {
-    local latest_tag=$(git describe --tags --abbrev=0)
-    git tag -d $latest_tag
-    git push origin :refs/tags/$latest_tag
-    git tag $latest_tag
-    git push --tags
-}
 
 # Commit everything
 function commit() {
@@ -110,6 +86,39 @@ function push() {
         git push --set-upstream origin $branch
     fi
 }
+
+
+# ------------------------------------------------------------------------------
+# Tagging & Releases
+# ------------------------------------------------------------------------------
+
+alias glt='git describe --tags --abbrev=0' # git latest tag
+alias gcslt='git --no-pager log $(git describe --tags --abbrev=0)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
+alias changelog="gcslt | sed -e 's/\[.*\] //g' | pbcopy" # git changelog
+
+# Create a tag & push to the remote.
+function gtag() {
+    local tag=$1
+
+    # Ensure the tag name always starts with a v
+    if [[ $tag != v* ]]; then
+        tag="v$tag"
+    fi
+
+    git tag $tag
+    git push --tags
+}
+
+
+# Re-tag the latest tag.
+function retag() {
+    local latest_tag=$(git describe --tags --abbrev=0)
+    git tag -d $latest_tag
+    git push origin :refs/tags/$latest_tag
+    git tag $latest_tag
+    git push --tags
+}
+
 
 # ------------------------------------------------------------------------------
 # Some of this was borrowed from Jesse Leite's dotfiles (https://github.com/jesseleite/dotfiles/blob/master/zsh/local/git.zsh)
