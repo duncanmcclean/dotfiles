@@ -100,8 +100,8 @@ alias changelog="gcslt | sed -e 's/\[.*\] //g' | pbcopy" # git changelog
 function gtag() {
     local tag=$1
 
-    # Ensure the tag name always starts with a v
-    if [[ $tag != v* ]]; then
+    # Before tagging, ensure the tag starts with a `v` if the last tag did.
+    if [[ $(glt) == v* && $tag != v* ]]; then
         tag="v$tag"
     fi
 
