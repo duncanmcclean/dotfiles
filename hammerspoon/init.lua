@@ -16,11 +16,11 @@ require('window')
 -- F13 to open summon modal
 -- See `apps.lua` for `summon` hotkeys and `summonModal` bindings
 
-hs.fnutils.each(apps, function(app)
-    if app.summon then
-        hs.hotkey.bind(app.summon[1], app.summon[2], function() summon(app.id) end)
-    end
-end)
+-- hs.fnutils.each(apps, function(app)
+--     if app.summon then
+--         hs.hotkey.bind(app.summon[1], app.summon[2], function() summon(app.id) end)
+--     end
+-- end)
 
 -- local summonModalBindings = tableFlip(hs.fnutils.map(apps, function(app)
 --     return app.summonModal
@@ -38,7 +38,6 @@ hs.window.animationDuration = 0
 hs.grid.setGrid('60x20')
 hs.grid.setMargins('15x15')
 
--- Log all monitors to the console
 if (hs.screen.primaryScreen():name() == 'LG HDR WFHD') then
   hs.grid.setMargins('20x20')
 end
@@ -111,9 +110,9 @@ local windowManagementBindings = {
   -- [?] = hideFloatingWindows, -- Do I want this?
 }
 
-registerKeyBindings(hyper, hs.fnutils.map(windowManagementBindings, function(fn)
-  return function() fn() end
-end))
+-- registerKeyBindings(hyper, hs.fnutils.map(windowManagementBindings, function(fn)
+--   return function() fn() end
+-- end))
 
 -- Reload Hammerspoon config
 
