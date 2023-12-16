@@ -25,6 +25,10 @@ return {
       id = 'com.github.GitHubClient',
       summonModal = 'g', -- git
     },
+    Tower = {
+      id = 'com.fournova.Tower3',
+      summonModal = 't',
+    },
     Ray = {
       id = 'be.spatie.ray',
       summonModal = 'r',
