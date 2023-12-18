@@ -110,9 +110,9 @@ local windowManagementBindings = {
   -- [?] = hideFloatingWindows, -- Do I want this?
 }
 
--- registerKeyBindings(hyper, hs.fnutils.map(windowManagementBindings, function(fn)
---   return function() fn() end
--- end))
+registerKeyBindings(hyper, hs.fnutils.map(windowManagementBindings, function(fn)
+  return function() fn() end
+end))
 
 -- Reload Hammerspoon config
 
