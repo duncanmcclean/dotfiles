@@ -64,7 +64,7 @@ return {
         },
     },
     {
-        name = 'Laptop',
+        name = 'Everything Full Screen',
         cells = {
             { '0,0 60x20' },
         },
@@ -80,6 +80,7 @@ return {
             Things = { cell = 1 },
             Ray = { cell = 1 },
             Obsidian = { cell = 1 },
+            Code = { cell = 1 },
         },
     },
   }
