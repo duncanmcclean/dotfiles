@@ -18,7 +18,7 @@ return {
           Things = { cell = 3 },
           Ray = { cell = 3 },
           iTerm = { cell = 3 },
-          Obsidian = { cell = 3 },
+          Bear = { cell = 3 },
         },
     },
     {
@@ -51,7 +51,7 @@ return {
         apps = {
             Ray = { cell = 1 },
             iTerm = { cell = 1 },
-            Obsidian = { cell = 1 },
+            Bear = { cell = 1 },
             Things = { cell = 1 },
             Code = { cell = 2, open = true },
             Arc = { cell = 2 },
@@ -79,7 +79,7 @@ return {
             Slack = { cell = 1 },
             Things = { cell = 1 },
             Ray = { cell = 1 },
-            Obsidian = { cell = 1 },
+            Bear = { cell = 1 },
             Code = { cell = 1 },
         },
     },
