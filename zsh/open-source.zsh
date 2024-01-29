@@ -5,6 +5,10 @@
 getCloneLocation() {
     if [ $# -eq 1 ]; then
         CLONE_LOCATION=$PWD/$1
+    elif [ $# -eq 2 ]; then
+        CLONE_LOCATION_INPUT=$2
+        echo $2/$PACKAGE_NAME
+        return
     else
         echo "1) ~/Code/DoubleThreeDigital"
         echo "2) ~/Code/Statamic"
