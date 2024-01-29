@@ -4,6 +4,7 @@ alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias hosts="sudo nano /etc/hosts"
 alias redflush="redis-cli flushall"
+alias hammertime="killall Hammerspoon && open -a Hammerspoon"
 
 
 # ------------------------------------------------------------------------------
