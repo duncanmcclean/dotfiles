@@ -44,9 +44,35 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # ------------------------------------------------------------------------------
 
 alias home="cd ~"
-alias dtd="cd ~/Code/DoubleThreeDigital"
-alias stat="cd ~/Code/Statamic"
 alias dots="cd ~/.dotfiles"
+
+
+# ------------------------------------------------------------------------------
+# EaZy Project Access
+# ------------------------------------------------------------------------------
+
+z() {
+    # When project is provided as an argument, go to that project.
+    if [ -n "$1" ]; then
+        if [ -d ~/Code/DoubleThreeDigital/$1 ]; then
+            cd ~/Code/DoubleThreeDigital/$1
+            return
+        elif [ -d ~/Code/Statamic/$1 ]; then
+            cd ~/Code/Statamic/$1
+            return
+        fi
+
+        echo "Project not found."
+        return
+    fi
+
+    doubleThreeProjects=($(basename -a $(ls -d ~/Code/DoubleThreeDigital/*/)))
+    statamicProjects=($(basename -a $(ls -d ~/Code/Statamic/*/)))
+    directories=("${doubleThreeProjects[@]}" "${statamicProjects[@]}")
+
+    selected_dir=$(for dir in "${directories[@]}"; do echo $dir; done | fzf)
+    cd $(find ~/Code/DoubleThreeDigital/ ~/Code/Statamic/ -type d -name "$selected_dir" -print -quit)
+}
 
 
 # ------------------------------------------------------------------------------
