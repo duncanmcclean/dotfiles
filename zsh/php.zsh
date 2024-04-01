@@ -3,7 +3,6 @@
 # ------------------------------------------------------------------------------
 
 alias v="valet"
-alias vi="valet isolate"
 
 
 # ------------------------------------------------------------------------------
@@ -15,7 +14,7 @@ alias ci="valet composer install"
 alias cr="valet composer require"
 alias cu="valet composer update"
 alias cg="composer global"
-alias ray="valet composer require spatie/ray"
+alias ray="valet composer require spatie/laravel-ray"
 
 # Get version of installed Composer package
 compv() {

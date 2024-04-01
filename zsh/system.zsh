@@ -1,9 +1,9 @@
 alias cl="clear"
 alias profile="source ~/.zshrc"
+alias hosts="sudo vim /etc/hosts"
+alias sshconf="sudo vim ~/.ssh/config"
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias hosts="sudo nano /etc/hosts"
-alias redflush="redis-cli flushall"
 alias hammertime="killall Hammerspoon && open /Applications/Hammerspoon.app"
 
 

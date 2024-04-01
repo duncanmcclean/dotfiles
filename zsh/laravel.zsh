@@ -11,8 +11,8 @@ a() {
 }
 
 alias migrate="a migrate"
-alias rollback="a migrate:rollback"
-alias fresh="a migrate:fresh"
 alias seed="a db:seed"
 alias hor="a horizon"
 alias acc="a cache:clear"
+alias fresh="a migrate:fresh"
+alias rollback="a migrate:rollback"

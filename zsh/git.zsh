@@ -1,17 +1,21 @@
 alias all="git add ."
+alias diff="git diff"
 alias pull="git pull"
-alias wip="all && commit 'wip'"
+alias merge="git merge"
 alias reset="git reset"
 alias clone="git clone"
-alias init="git init && git add . && git commit -m 'Initial commit'"
 alias status="git status"
-alias nah="git reset HEAD --hard"
-alias diff="git diff"
 alias unstage="git reset"
+alias wip="all && commit 'wip'"
+alias nah="git reset HEAD --hard"
 alias empty="git commit --allow-empty -m 'Empty commit'"
-alias merge="git merge"
+alias init="git init && git add . && git commit -m 'Initial commit'"
 
-# Commit everything
+
+# ------------------------------------------------------------------------------
+# Commit everything.
+# ------------------------------------------------------------------------------
+
 function commit() {
     local description=""
     local coauthors=""
@@ -70,7 +74,11 @@ function commit() {
     eval "$commit_command"
 }
 
-# Push commits to remote
+
+# ------------------------------------------------------------------------------
+# Push commits to the remote.
+# ------------------------------------------------------------------------------
+
 function push() {
     branch=$(git rev-parse --abbrev-ref HEAD)
 
@@ -93,8 +101,8 @@ function push() {
 # ------------------------------------------------------------------------------
 
 alias glt='git describe --tags --abbrev=0' # git latest tag
-alias gcslt='git --no-pager log $(git describe --tags --abbrev=0)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
 alias changelog="gcslt | sed -e 's/\[.*\] //g' | pbcopy" # git changelog
+alias gcslt='git --no-pager log $(git describe --tags --abbrev=0)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
 
 # Create a tag & push to the remote.
 function gtag() {
@@ -109,7 +117,6 @@ function gtag() {
     git push --tags
 }
 
-
 # Re-tag the latest tag.
 function retag() {
     local latest_tag=$(git describe --tags --abbrev=0)
@@ -121,7 +128,8 @@ function retag() {
 
 
 # ------------------------------------------------------------------------------
-# Some of this was borrowed from Jesse Leite's dotfiles (https://github.com/jesseleite/dotfiles/blob/master/zsh/local/git.zsh)
+# Various other Git commands...
+# Mostly borrowed from Jesse Leite's dotfiles (https://github.com/jesseleite/dotfiles/blob/master/zsh/local/git.zsh)
 # ------------------------------------------------------------------------------
 
 # Git checkout with fzf fuzzy search
@@ -151,12 +159,6 @@ checkpr() {
   gh pr list | fzf | awk '{print $1}' | xargs gh pr checkout
 }
 
-# Git checkout tag with fzf fuzzy search
-checkt() {
-  if [ -n "$1" ]; then git checkout $1; return; fi
-  git tag | fzf | xargs git checkout
-}
-
 # Git delete branch with fzf fuzzy search
 rmbranch() {
   if [ -n "$1" ]; then git branch -d $1; return; fi
@@ -167,19 +169,6 @@ rmbranch() {
   if [[ "$confirmation" == "delete" ]]; then
     git branch -D $selected
   fi
-}
-
-# Git delete tag with fuzzy search (on both local and remote)
-rmtag() {
-    if [ -n "$1" ]; then git tag -d $1; git push origin :refs/tags/$1; return; fi
-    local selected=$(git tag | fzf)
-    if [ -z "$selected" ]; then return; fi
-    echo "Are you sure you would like to delete tag [\e[0;31m$selected\e[0m]? (Type 'delete' to confirm)"
-    read confirmation
-    if [[ "$confirmation" == "delete" ]]; then
-        git tag -d $selected
-        git push origin :refs/tags/$selected
-    fi
 }
 
 # Undo last commit and tip of branch
