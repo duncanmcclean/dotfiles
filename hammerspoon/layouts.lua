@@ -1,27 +1,5 @@
 return {
     {
-        name = 'Standard',
-        cells = {
-          { '0,0 40x20' },
-          { '40,0 20x10' },
-          { '40,10 20x10' },
-        },
-        apps = {
-          Arc = { cell = 1, open = true },
-          Discord = { cell = 1 },
-          Spotify = { cell = 1 },
-          Tower = { cell = 1 },
-          Tinkerwell = { cell = 1 },
-          TablePlus = { cell = 1 },
-          Code = { cell = 1 },
-          Slack = { cell = 2, open = true },
-          Things = { cell = 3, open = true },
-          Ray = { cell = 3 },
-          iTerm = { cell = 3 },
-          Bear = { cell = 3 },
-        },
-    },
-    {
         name = 'Full Width',
         cells = {
             { '0,0 60x20' },
