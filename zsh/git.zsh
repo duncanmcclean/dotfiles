@@ -161,7 +161,7 @@ checkpr() {
 
 # Git delete branch with fzf fuzzy search
 rmbranch() {
-  if [ -n "$1" ]; then git branch -d $1; return; fi
+  if [ -n "$1" ]; then git branch -D $1; return; fi
   local selected=$(git branch -vv | fzf | awk '{print $1}' | sed "s/.* //")
   if [ -z "$selected" ]; then return; fi
   echo "Are you sure you would like to delete branch [\e[0;31m$selected\e[0m]? (Type 'delete' to confirm)"
