@@ -23,8 +23,8 @@ local layout = hs.loadSpoon('GridLayout')
     :setGrid('60x20')
     :setMargins('15x15')
 
-if (hs.screen.primaryScreen():name() == 'LG HDR WFHD') then
-  layout:setMargins('20x20')
+if (hs.screen.primaryScreen():name() == 'LG HDR WQHD+') then
+  layout:setMargins('25x25')
 end
 
 hs.screen.watcher.new(function ()
@@ -49,10 +49,10 @@ local layout = hs.loadSpoon('GridLayout')
   :setLayouts(layouts)
   :setApps(apps)
   :setGrid('60x20')
-  :setMargins('15x15')
+  :setMargins('30x30')
 
-if (hs.screen.primaryScreen():name() == 'LG HDR WQHD') then
-  layout:setMargins('30x30')
+if (hs.screen.primaryScreen():name() == 'LG HDR WQHD+') then
+  layout:setMargins('40x40')
 end
 
 local windowManagementBindings = {
