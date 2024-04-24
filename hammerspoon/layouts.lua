@@ -1,6 +1,21 @@
 return {
     {
-        name = 'Split',
+        name = 'Narrow',
+        cells = {
+          { '0,0 15x20', positions.sixths.left },
+          { '15,0 53x20', positions.fiveSixths.right },
+        },
+        apps = {
+          Ray = { cell = 1, open = true },
+          iTerm = { cell = 1 },
+          Code = { cell = 2, open = true },
+          Arc = { cell = 2 },
+          Tower = { cell = 2 },
+          Tinkerwell = { cell = 2 },
+        },
+    },
+    {
+        name = 'Half & Half',
         cells = {
             { positions.halves.left },
             { positions.halves.right },
@@ -16,22 +31,7 @@ return {
         },
     },
     {
-        name = 'Narrow',
-        cells = {
-          { '0,0 10x20', positions.sixths.left },
-          { '10,0 53x20', positions.fiveSixths.right },
-        },
-        apps = {
-          Ray = { cell = 1, open = true },
-          iTerm = { cell = 1 },
-          Code = { cell = 2, open = true },
-          Arc = { cell = 2 },
-          Tower = { cell = 2 },
-          Tinkerwell = { cell = 2 },
-        },
-    },
-    {
-        name = 'Multi',
+        name = 'Thirds',
         cells = {
             { '0,0 14x20', positions.twoThirds.left },
             { '14,0 23x20', positions.twoThirds.right },
@@ -47,6 +47,24 @@ return {
             Tower = { cell = 3 },
             Tinkerwell = { cell = 3 },
         }
+    },
+    {
+        name = 'Triage',
+        cells = {
+          { '0,0 20x10', positions.sixths.left },
+          { '0,10 20x10', positions.sixths.left },
+          { '20,0 38x20', positions.fiveSixths.right },
+        },
+        apps = {
+          Arc = { cell = 1, open = true },
+          Things = { cell = 2 },
+          Ray = { cell = 2 },
+          iTerm = { cell = 2 },
+          Slack = { cell = 2 },
+          Code = { cell = 3, open = true },
+          Tower = { cell = 3 },
+          Tinkerwell = { cell = 3 },
+        },
     },
     {
         name = 'Centered',
