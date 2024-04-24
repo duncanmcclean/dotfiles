@@ -1,12 +1,17 @@
 {
     "require": {
         "laravel/valet": "^4.3",
-        "statamic/cli": "^3.0",
+        "statamic/cli": "dev-master",
         "beyondcode/expose": "^2.6",
         "laravel/installer": "^4.0",
         "symfony/console": "^6.2",
         "tightenco/takeout": "^2.1",
-        "laravel/pint": "^1.10",
-        "spatie/global-ray": "^1.0"
-    }
+        "laravel/pint": "^1.10"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/Users/duncan/Code/Statamic/cli"
+        }
+    ]
 }
