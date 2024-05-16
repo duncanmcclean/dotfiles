@@ -37,3 +37,11 @@ export PATH=/opt/homebrew/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
     [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
     [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+
+
+# ------------------------------------------------------------------------------
+# Zoxide (smarter cd command)
+# https://github.com/ajeetdsouza/zoxide
+# ------------------------------------------------------------------------------
+
+eval "$(zoxide init zsh)"

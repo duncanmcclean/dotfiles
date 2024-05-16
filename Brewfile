@@ -57,6 +57,7 @@ cask "tuple"
 cask "visual-studio-code"
 cask "vlc"
 cask "zoom"
+cask "zoxide"
 
 mas "Bear", id: 1091189122
 mas "Things", id: 904280696
