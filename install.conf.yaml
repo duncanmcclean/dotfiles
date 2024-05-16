@@ -24,6 +24,7 @@
   - ~/Code
   - ~/Code/DoubleThreeDigital
   - ~/Code/Statamic
+  - ~/Code/Support
 
 - shell:
   - description: Hushing login
