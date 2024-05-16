@@ -4,6 +4,11 @@ return {
       summonModal = 'c',
       focus = positions.center.large,
     },
+    PhpStorm = {
+      id = 'com.jetbrains.PhpStorm',
+      summonModal = 'p',
+      focus = positions.center.large,
+    },
     Arc = {
       id = 'company.thebrowser.Browser',
       summonModal = 'b', -- browser
