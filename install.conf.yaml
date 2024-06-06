@@ -64,7 +64,7 @@
     command: "$HOME/.composer/vendor/bin/valet install"
 
   - description: Parking Valet
-    command: "valet park ~/Code/DoubleThreeDigital && valet park ~/Code/Statamic"
+    command: "valet park ~/Code/DoubleThreeDigital && valet park ~/Code/Statamic && valet park ~/Code/OpenSource && valet park ~/Code/Support"
 
   - description: Restart Laravel Valet
     command: "valet restart"
