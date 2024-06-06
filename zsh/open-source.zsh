@@ -12,12 +12,18 @@ getCloneLocation() {
     else
         echo "1) ~/Code/DoubleThreeDigital"
         echo "2) ~/Code/Statamic"
+        echo "3) ~/Code/Support"
+        echo "3) ~/Code/OpenSource"
         read -r CLONE_LOCATION_INPUT
 
         if [ "$CLONE_LOCATION_INPUT" -eq 1 2>/dev/null ]; then
             CLONE_LOCATION=~/Code/DoubleThreeDigital/$PACKAGE_NAME
         elif [ "$CLONE_LOCATION_INPUT" -eq 2 2>/dev/null ]; then
             CLONE_LOCATION=~/Code/Statamic/$PACKAGE_NAME
+        elif [ "$CLONE_LOCATION_INPUT" -eq 3 2>/dev/null ]; then
+            CLONE_LOCATION=~/Code/Support/$PACKAGE_NAME
+        elif [ "$CLONE_LOCATION_INPUT" -eq 4 2>/dev/null ]; then
+            CLONE_LOCATION=~/Code/OpenSource/$PACKAGE_NAME
         else
             echo "Invalid option"
             return
