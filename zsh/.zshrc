@@ -2,10 +2,17 @@ export DOTFILES="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 
 # ------------------------------------------------------------------------------
+# Zsh Theme
+# ------------------------------------------------------------------------------
+
+source "/opt/homebrew/opt/spaceship/spaceship.zsh"
+
+
+# ------------------------------------------------------------------------------
 # Zsh Config
 # ------------------------------------------------------------------------------
 
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
