@@ -52,7 +52,7 @@ return {
         }
     },
     {
-        name = 'Triage',
+        name = 'Split Two by One',
         cells = {
           { '0,0 20x10', positions.sixths.left },
           { '0,10 20x10', positions.sixths.left },
@@ -64,8 +64,8 @@ return {
           Ray = { cell = 2 },
           iTerm = { cell = 2 },
           Slack = { cell = 2 },
-          Code = { cell = 3, open = true },
-          PhpStorm = { cell = 2, open = true },
+          PhpStorm = { cell = 3, open = true },
+          Code = { cell = 3 },
           Tower = { cell = 3 },
           Tinkerwell = { cell = 3 },
         },
@@ -81,7 +81,7 @@ return {
           Tinkerwell = { cell = 1 },
           TablePlus = { cell = 1 },
           Code = { cell = 1 },
-          PhpStorm = { cell = 2, open = true },
+          PhpStorm = { cell = 1, open = true },
           Ray = { cell = 1 },
           iTerm = { cell = 1 },
           Bear = { cell = 1 },
