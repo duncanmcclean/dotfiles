@@ -69,6 +69,23 @@ return {
         },
     },
     {
+        name = 'Full Width',
+        cells = {
+            { positions.full },
+        },
+        apps = {
+          PhpStorm = { cell = 1, open = true },
+          Arc = { cell = 1 },
+          Tower = { cell = 1 },
+          Tinkerwell = { cell = 1 },
+          TablePlus = { cell = 1 },
+          Code = { cell = 1 },
+          Ray = { cell = 1 },
+          iTerm = { cell = 1 },
+          Bear = { cell = 1 },
+        },
+    },
+    {
         name = 'Triage',
         cells = {
           { '0,0 20x10', positions.sixths.left },
