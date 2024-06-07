@@ -8,8 +8,8 @@ return {
         apps = {
           Ray = { cell = 1, open = true },
           iTerm = { cell = 1 },
-          Code = { cell = 2, open = true },
           PhpStorm = { cell = 2, open = true },
+          Code = { cell = 2 },
           Arc = { cell = 2 },
           Tower = { cell = 2 },
           Tinkerwell = { cell = 2 },
