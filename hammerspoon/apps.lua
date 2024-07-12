@@ -9,8 +9,8 @@ return {
       summonModal = 'p',
       focus = positions.center.large,
     },
-    Arc = {
-      id = 'company.thebrowser.Browser',
+    Firefox = {
+      id = 'org.mozilla.firefox',
       summonModal = 'b', -- browser
       focus = positions.center.large,
     },
