@@ -57,17 +57,8 @@
   - description: Cleaning up Homebrew
     command: "brew cleanup"
 
-  - description: Installing global Composer dependencies
-    command: "composer global install"
-
-  - description: Installing Laravel Valet
-    command: "$HOME/.composer/vendor/bin/valet install"
-
-  - description: Parking Valet
-    command: "valet park ~/Code/DoubleThreeDigital && valet park ~/Code/Statamic && valet park ~/Code/OpenSource && valet park ~/Code/Support"
-
-  - description: Restart Laravel Valet
-    command: "valet restart"
+  # - description: Installing global Composer dependencies
+  #   command: "composer global install"
 
   - description: Starting MySQL
     command: "brew services start mysql"
