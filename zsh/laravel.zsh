@@ -4,9 +4,9 @@
 
 a() {
     if [ -f ./artisan ]; then
-        valet php artisan $@
+        herd php artisan $@
     else
-        valet php vendor/bin/testbench $@
+        herd php vendor/bin/testbench $@
     fi
 }
 

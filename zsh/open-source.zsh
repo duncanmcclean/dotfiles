@@ -13,7 +13,7 @@ getCloneLocation() {
         echo "1) ~/Code/DoubleThreeDigital"
         echo "2) ~/Code/Statamic"
         echo "3) ~/Code/Support"
-        echo "3) ~/Code/OpenSource"
+        echo "4) ~/Code/OpenSource"
         read -r CLONE_LOCATION_INPUT
 
         if [ "$CLONE_LOCATION_INPUT" -eq 1 2>/dev/null ]; then

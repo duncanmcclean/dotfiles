@@ -1,20 +1,13 @@
 # ------------------------------------------------------------------------------
-# Laravel Valet
-# ------------------------------------------------------------------------------
-
-alias v="valet"
-
-
-# ------------------------------------------------------------------------------
 # Composer
 # ------------------------------------------------------------------------------
 
-alias c="valet composer"
-alias ci="valet composer install"
-alias cr="valet composer require"
-alias cu="valet composer update"
+alias c="herd composer"
+alias ci="herd composer install"
+alias cr="herd composer require"
+alias cu="herd composer update"
 alias cg="composer global"
-alias ray="valet composer require spatie/laravel-ray"
+alias ray="herd composer require spatie/laravel-ray"
 
 # Get version of installed Composer package
 compv() {
@@ -32,9 +25,9 @@ compv() {
 
 t() {
     if [ -f "./vendor/bin/pest" ]; then
-        valet php ./vendor/bin/pest $@
+        herd php ./vendor/bin/pest $@
     elif [ -n "./vendor/bin/phpunit" ]; then
-        valet php ./vendor/bin/phpunit $@
+        herd php ./vendor/bin/phpunit $@
     fi
 }
 

@@ -1,6 +1,5 @@
 {
     "require": {
-        "laravel/valet": "^4.3",
         "statamic/cli": "dev-master",
         "beyondcode/expose": "^2.6",
         "laravel/installer": "^4.0",
