@@ -46,10 +46,10 @@ return {
             iTerm = { cell = 1 },
             Firefox = { cell = 2, open = true },
             TablePlus = { cell = 2 },
+            Tinkerwell = { cell = 2 },
             PhpStorm = { cell = 3, open = true },
             Code = { cell = 3 },
             Tower = { cell = 3 },
-            Tinkerwell = { cell = 3 },
         }
     },
     {
