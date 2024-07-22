@@ -1,22 +1,23 @@
 return {
     {
-        name = 'Narrow',
+        name = 'Full',
         cells = {
-          { '0,0 15x20', positions.sixths.left },
-          { '15,0 53x20', positions.fiveSixths.right },
+            { positions.full },
         },
         apps = {
-          Ray = { cell = 1, open = true },
+          PhpStorm = { cell = 1, open = true },
+          Firefox = { cell = 1 },
+          Tower = { cell = 1 },
+          Tinkerwell = { cell = 1 },
+          TablePlus = { cell = 1 },
+          Code = { cell = 1 },
+          Ray = { cell = 1 },
           iTerm = { cell = 1 },
-          PhpStorm = { cell = 2, open = true },
-          Code = { cell = 2 },
-          Firefox = { cell = 2 },
-          Tower = { cell = 2 },
-          Tinkerwell = { cell = 2 },
+          Bear = { cell = 1 },
         },
     },
     {
-        name = 'Half & Half',
+        name = 'Split',
         cells = {
             { positions.halves.left },
             { positions.halves.right },
@@ -52,6 +53,22 @@ return {
         }
     },
     {
+        name = 'Narrow',
+        cells = {
+          { '0,0 15x20', positions.sixths.left },
+          { '15,0 53x20', positions.fiveSixths.right },
+        },
+        apps = {
+          Ray = { cell = 1, open = true },
+          iTerm = { cell = 1 },
+          PhpStorm = { cell = 2, open = true },
+          Code = { cell = 2 },
+          Firefox = { cell = 2 },
+          Tower = { cell = 2 },
+          Tinkerwell = { cell = 2 },
+        },
+    },
+    {
         name = 'Centered',
         cells = {
           { '5,1 50x18' },
@@ -66,42 +83,6 @@ return {
           Ray = { cell = 1 },
           iTerm = { cell = 1 },
           Bear = { cell = 1 },
-        },
-    },
-    {
-        name = 'Full Width',
-        cells = {
-            { positions.full },
-        },
-        apps = {
-          PhpStorm = { cell = 1, open = true },
-          Firefox = { cell = 1 },
-          Tower = { cell = 1 },
-          Tinkerwell = { cell = 1 },
-          TablePlus = { cell = 1 },
-          Code = { cell = 1 },
-          Ray = { cell = 1 },
-          iTerm = { cell = 1 },
-          Bear = { cell = 1 },
-        },
-    },
-    {
-        name = 'Triage',
-        cells = {
-          { '0,0 20x10', positions.sixths.left },
-          { '0,10 20x10', positions.sixths.left },
-          { '20,0 38x20', positions.fiveSixths.right },
-        },
-        apps = {
-          Firefox = { cell = 1, open = true },
-          Things = { cell = 2 },
-          Ray = { cell = 2 },
-          iTerm = { cell = 2 },
-          Slack = { cell = 2 },
-          PhpStorm = { cell = 3, open = true },
-          Code = { cell = 3 },
-          Tower = { cell = 3 },
-          Tinkerwell = { cell = 3 },
         },
     },
 }
