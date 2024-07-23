@@ -6,6 +6,7 @@ alias reset="git reset"
 alias clone="git clone"
 alias status="git status"
 alias unstage="git reset"
+alias pushf="git push --force"
 alias wip="all && commit 'wip'"
 alias nah="git reset HEAD --hard"
 alias empty="git commit --allow-empty -m 'Empty commit'"
@@ -81,12 +82,6 @@ function commit() {
 
 function push() {
     branch=$(git rev-parse --abbrev-ref HEAD)
-
-    # Show a warning when pushing to a PR branch from a fork.
-    if [[ $branch == pr/* ]]; then
-        echo "\e[33mYou are on a PR branch. You need to push via GitHub Desktop for the commits to go back to the fork.\e[0m"
-        return
-    fi
 
     if git ls-remote --exit-code --heads origin $branch >/dev/null 2>&1; then
         git push origin $branch
