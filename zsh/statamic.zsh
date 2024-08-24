@@ -14,7 +14,7 @@ pfresh() {
     statamic new $1 --no-interaction
     cd $1
     puser
-    osslink statamic/cms ~/Code/Statamic/cms
+    osslink statamic/cms
     init
 
     echo ""
@@ -59,5 +59,5 @@ pinstall() {
 
     puser
     p pro:enable
-    osslink statamic/cms ~/Code/Statamic/cms
+    osslink statamic/cms
 }
