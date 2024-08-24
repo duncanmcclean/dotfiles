@@ -10,20 +10,26 @@ getCloneLocation() {
         echo $2/$PACKAGE_NAME
         return
     else
-        echo "1) ~/Code/DoubleThreeDigital"
-        echo "2) ~/Code/Statamic"
-        echo "3) ~/Code/Support"
-        echo "4) ~/Code/OpenSource"
+        echo "1) ~/Code/Freelance"
+        echo "2) ~/Code/OpenSource"
+        echo "3) ~/Code/Personal"
+        echo "4) ~/Code/SideProjects"
+        echo "5) ~/Code/Statamic"
+        echo "6) ~/Code/Support"
         read -r CLONE_LOCATION_INPUT
 
         if [ "$CLONE_LOCATION_INPUT" -eq 1 2>/dev/null ]; then
-            CLONE_LOCATION=~/Code/DoubleThreeDigital/$PACKAGE_NAME
+            CLONE_LOCATION=~/Code/Freelance/$PACKAGE_NAME
         elif [ "$CLONE_LOCATION_INPUT" -eq 2 2>/dev/null ]; then
-            CLONE_LOCATION=~/Code/Statamic/$PACKAGE_NAME
-        elif [ "$CLONE_LOCATION_INPUT" -eq 3 2>/dev/null ]; then
-            CLONE_LOCATION=~/Code/Support/$PACKAGE_NAME
-        elif [ "$CLONE_LOCATION_INPUT" -eq 4 2>/dev/null ]; then
             CLONE_LOCATION=~/Code/OpenSource/$PACKAGE_NAME
+        elif [ "$CLONE_LOCATION_INPUT" -eq 3 2>/dev/null ]; then
+            CLONE_LOCATION=~/Code/Personal/$PACKAGE_NAME
+        elif [ "$CLONE_LOCATION_INPUT" -eq 4 2>/dev/null ]; then
+            CLONE_LOCATION=~/Code/SideProjects/$PACKAGE_NAME
+        elif [ "$CLONE_LOCATION_INPUT" -eq 5 2>/dev/null ]; then
+            CLONE_LOCATION=~/Code/Statamic/$PACKAGE_NAME
+        elif [ "$CLONE_LOCATION_INPUT" -eq 6 2>/dev/null ]; then
+            CLONE_LOCATION=~/Code/Support/$PACKAGE_NAME
         else
             echo "Invalid option"
             return

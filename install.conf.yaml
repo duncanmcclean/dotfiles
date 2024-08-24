@@ -22,8 +22,10 @@
 
 - create:
   - ~/Code
-  - ~/Code/DoubleThreeDigital
+  - ~/Code/Freelance
   - ~/Code/OpenSource
+  - ~/Code/Personal
+  - ~/Code/SideProjects
   - ~/Code/Statamic
   - ~/Code/Support
 
