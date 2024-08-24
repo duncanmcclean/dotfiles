@@ -11,7 +11,7 @@ oss() {
     # Fork & clone repo
     gh repo fork $GH_REPO $CLONE_LOCATION --remote=true --clone=true
 
-    # Cd into Fork
+    # Change directory into fork
     cd $CLONE_LOCATION
 
     # Install Composer dependencies (for tests)
