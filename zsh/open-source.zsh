@@ -1,46 +1,4 @@
 # ------------------------------------------------------------------------------
-# Helper function for figuring out where to clone the repo.
-# ------------------------------------------------------------------------------
-
-getCloneLocation() {
-    if [ $# -eq 1 ]; then
-        CLONE_LOCATION=$PWD/$1
-    elif [ $# -eq 2 ]; then
-        CLONE_LOCATION_INPUT=$2
-        echo $2/$PACKAGE_NAME
-        return
-    else
-        echo "1) ~/Code/Freelance"
-        echo "2) ~/Code/OpenSource"
-        echo "3) ~/Code/Personal"
-        echo "4) ~/Code/SideProjects"
-        echo "5) ~/Code/Statamic"
-        echo "6) ~/Code/Support"
-        read -r CLONE_LOCATION_INPUT
-
-        if [ "$CLONE_LOCATION_INPUT" -eq 1 2>/dev/null ]; then
-            CLONE_LOCATION=~/Code/Freelance/$PACKAGE_NAME
-        elif [ "$CLONE_LOCATION_INPUT" -eq 2 2>/dev/null ]; then
-            CLONE_LOCATION=~/Code/OpenSource/$PACKAGE_NAME
-        elif [ "$CLONE_LOCATION_INPUT" -eq 3 2>/dev/null ]; then
-            CLONE_LOCATION=~/Code/Personal/$PACKAGE_NAME
-        elif [ "$CLONE_LOCATION_INPUT" -eq 4 2>/dev/null ]; then
-            CLONE_LOCATION=~/Code/SideProjects/$PACKAGE_NAME
-        elif [ "$CLONE_LOCATION_INPUT" -eq 5 2>/dev/null ]; then
-            CLONE_LOCATION=~/Code/Statamic/$PACKAGE_NAME
-        elif [ "$CLONE_LOCATION_INPUT" -eq 6 2>/dev/null ]; then
-            CLONE_LOCATION=~/Code/Support/$PACKAGE_NAME
-        else
-            echo "Invalid option"
-            return
-        fi
-    fi
-
-    echo "$CLONE_LOCATION"
-}
-
-
-# ------------------------------------------------------------------------------
 # Fork, clone and install dependencies
 # ------------------------------------------------------------------------------
 
@@ -74,17 +32,11 @@ oss() {
 # ------------------------------------------------------------------------------
 
 osslink() {
-    GH_REPO=$1
-    PACAKGE_VENDOR=`echo $1 | cut -d"/" -f1`
-    PACKAGE_NAME=`echo $1 | cut -d"/" -f2`
+    herd php ~/.dotfiles/prompts/project-symlinking.php $1
 
-    # Prompt the user for the clone location if not provided as an argument
-    if [ $# -lt 2 ]; then
-        echo "In which ~/Code directory is this repository located? (Enter 1 or 2)"
-        getCloneLocation
-    else
-        CLONE_LOCATION=$2
-    fi
+    read contents < /tmp/project-symlinking.txt
+    IFS='|' read -r CLONE_LOCATION PACAKGE_VENDOR PACKAGE_NAME <<< "$contents"
+    rm /tmp/project-symlinking.txt
 
     # vendor symlink
     rm -rf vendor/$PACAKGE_VENDOR/$PACKAGE_NAME
