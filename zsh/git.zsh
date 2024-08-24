@@ -1,12 +1,11 @@
 alias all="git add ."
-alias diff="git diff"
 alias pull="git pull"
 alias merge="git merge"
 alias reset="git reset"
 alias clone="git clone"
 alias status="git status"
 alias unstage="git reset"
-alias pushf="git push --force"
+alias commit="git commit -m"
 alias wip="all && commit 'wip'"
 alias nah="git reset HEAD --hard"
 alias empty="git commit --allow-empty -m 'Empty commit'"
@@ -14,71 +13,10 @@ alias init="git init && git add . && git commit -m 'Initial commit'"
 
 
 # ------------------------------------------------------------------------------
-# Commit everything.
-# ------------------------------------------------------------------------------
-
-function commit() {
-    local description=""
-    local coauthors=""
-    local message=""
-
-    # Function to display script usage
-    function usage {
-        echo "Usage: git_commit [-d <description>] [-c <coauthors>] <commit message>"
-        echo "Options:"
-        echo "  -d, --description <description>   Add a description to the Git commit"
-        echo "  -c, --coauthors <coauthors>       Specify coauthors of the commit"
-        exit 1
-    }
-
-    # Parse command line arguments
-    while [[ $# -gt 0 ]]; do
-        key="$1"
-        case $key in
-            -d|--description)
-                description="$2"
-                shift
-                shift
-                ;;
-            -c|--coauthors)
-                coauthors="$2"
-                shift
-                shift
-                ;;
-            *)
-                message="$1"
-                shift
-                ;;
-        esac
-    done
-
-    # Check if a commit message is provided
-    if [[ -z $message ]]; then
-        echo "Commit message is missing."
-        usage
-    fi
-
-    # Construct the commit command
-    local commit_command="git commit -m \"$message\""
-
-    # Add description if provided
-    if [[ -n $description ]]; then
-        commit_command+=" -m \"$description\""
-    fi
-
-    # Add coauthors if provided
-    if [[ -n $coauthors ]]; then
-        commit_command+=" -m \"Co-authored-by: $coauthors\""
-    fi
-
-    # Execute the commit command
-    eval "$commit_command"
-}
-
-
-# ------------------------------------------------------------------------------
 # Push commits to the remote.
 # ------------------------------------------------------------------------------
+
+alias pushf="git push --force"
 
 function push() {
     branch=$(git rev-parse --abbrev-ref HEAD)
