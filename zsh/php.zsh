@@ -6,7 +6,7 @@ alias c="herd composer"
 alias ci="herd composer install"
 alias cr="herd composer require"
 alias cu="herd composer update"
-alias cg="composer global"
+alias cg="herd composer global"
 alias ray="herd composer require spatie/laravel-ray"
 
 # Get version of installed Composer package
