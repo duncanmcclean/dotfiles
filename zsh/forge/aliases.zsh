@@ -7,6 +7,7 @@ alias p="php please"
 alias migrate="php artisan migrate"
 alias fresh="php artisan migrate:fresh"
 alias seed="php artisan db:seed"
+alias tinker="php artisan tinker"
 
 # Composer
 alias c="composer"
