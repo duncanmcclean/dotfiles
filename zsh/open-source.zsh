@@ -48,14 +48,7 @@ oss() {
     GH_REPO=$1
     PACAKGE_VENDOR=`echo $1 | cut -d"/" -f1`
     PACKAGE_NAME=`echo $1 | cut -d"/" -f2`
-
-    # Prompt the user for the clone location if not provided as an argument
-    if [ $# -lt 2 ]; then
-        echo "Which directory in ~/Code should this be cloned into? (Enter 1 or 2)"
-        getCloneLocation
-    else
-        CLONE_LOCATION=$2
-    fi
+    CLONE_LOCATION=~/Code/OpenSource/$PACKAGE_NAME
 
     # Fork & clone repo
     gh repo fork $GH_REPO $CLONE_LOCATION --remote=true --clone=true
