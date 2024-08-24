@@ -1,5 +1,9 @@
-local hyper = {'cmd', 'alt', 'ctrl'}
-local bigHyper = {'cmd', 'alt', 'ctrl', 'shift'}
+--------------------------------------------------------------------------------
+-- Setup
+--------------------------------------------------------------------------------
+
+local hyper = {'alt', 'shift', 'ctrl'} -- or D+F
+local bigHyper = {'alt', 'shift', 'ctrl', 'cmd'} -- or S+D+F
 
 require('helpers')
 
@@ -8,6 +12,36 @@ apps = require('apps')
 layouts = require('layouts')
 summon = require('summon')
 chain = require('chain')
+
+
+--------------------------------------------------------------------------------
+-- Summon Specific Apps
+--------------------------------------------------------------------------------
+-- F13 to open summon modal
+-- See `apps.lua` for `summon` modal bindings
+
+local summonModalBindings = tableFlip(hs.fnutils.map(apps, function(app)
+    return app.summon
+end))
+
+registerModalBindings(nil, 'f17', hs.fnutils.map(summonModalBindings, function(app)
+    return function() summon(app) end
+end), true)
+
+
+--------------------------------------------------------------------------------
+-- Misc Macros
+--------------------------------------------------------------------------------
+
+local macros = {
+    s = function() hs.eventtap.keyStroke({'cmd', 'shift'}, '4') end, -- screenshot
+    e = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'space') end, -- emoji picker
+    -- f = function() hs.eventtap.keyStroke({'cmd'}, '`') end, -- next window of focused apps
+    c = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'c') end, -- color picker
+}
+
+registerModalBindings(nil, 'f16', macros, true)
+
 
 --------------------------------------------------------------------------------
 -- Setup GridLayout.spoon
@@ -31,6 +65,7 @@ hs.screen.watcher.new(function ()
   hs.reload()
 end):start()
 
+
 --------------------------------------------------------------------------------
 -- Multi Window Management
 --------------------------------------------------------------------------------
@@ -49,10 +84,10 @@ local layout = hs.loadSpoon('GridLayout')
   :setLayouts(layouts)
   :setApps(apps)
   :setGrid('60x20')
-  :setMargins('30x30')
+  :setMargins('15x15')
 
 if (hs.screen.primaryScreen():name() == 'LG HDR WQHD+') then
-  layout:setMargins('40x40')
+  layout:setMargins('30x30')
 end
 
 local windowManagementBindings = {
@@ -72,6 +107,7 @@ local windowManagementBindings = {
 registerKeyBindings(hyper, hs.fnutils.map(windowManagementBindings, function(fn)
   return function() fn() end
 end))
+
 
 --------------------------------------------------------------------------------
 -- Single Window Movements
@@ -101,6 +137,7 @@ local singleWindowMovements = {
 registerKeyBindings(bigHyper, hs.fnutils.map(singleWindowMovements, function(fn)
   return function() fn() end
 end))
+
 
 --------------------------------------------------------------------------------
 -- Hammerspoon auto-reloading
