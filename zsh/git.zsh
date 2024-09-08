@@ -121,3 +121,8 @@ gmerge() {
     git pull origin $1
     git push
 }
+
+# Back to the main branch
+gmain() {
+    git checkout $(git branch --format='%(refname:short)' | grep -E '^(main|5.x|master)$' | head -n 1)
+}
