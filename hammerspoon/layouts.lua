@@ -25,6 +25,7 @@ return {
         apps = {
             Firefox = { cell = 1, open = true },
             TablePlus = { cell = 1 },
+            Bear = { cell = 1 },
             Code = { cell = 2 },
             PhpStorm = { cell = 2, open = true },
             iTerm = { cell = 2 },
@@ -47,6 +48,7 @@ return {
             Firefox = { cell = 2, open = true },
             TablePlus = { cell = 2 },
             Tinkerwell = { cell = 2 },
+            Bear = { cell = 2 },
             PhpStorm = { cell = 3, open = true },
             Code = { cell = 3 },
             Tower = { cell = 3 },
@@ -66,6 +68,7 @@ return {
           Firefox = { cell = 2 },
           Tower = { cell = 2 },
           Tinkerwell = { cell = 2 },
+          Bear = { cell = 2 },
         },
     },
     {
