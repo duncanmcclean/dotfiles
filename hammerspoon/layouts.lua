@@ -35,7 +35,25 @@ return {
         },
     },
     {
-        name = 'Thirds',
+        name = 'Narrow Split',
+        cells = {
+            { '0,0 18x20', positions.twoThirds.left },
+            { '18,0 42x20', positions.twoThirds.right },
+        },
+        apps = {
+            Firefox = { cell = 1, open = true },
+            TablePlus = { cell = 1 },
+            Bear = { cell = 1 },
+            Ray = { cell = 1 },
+            iTerm = { cell = 1 },
+            Code = { cell = 2 },
+            Tower = { cell = 2 },
+            Tinkerwell = { cell = 2 },
+            PhpStorm = { cell = 2, open = true },
+        },
+    },
+    {
+        name = 'Split Three',
         cells = {
             { '0,0 14x20', positions.twoThirds.left },
             { '14,0 23x20', positions.twoThirds.right },
