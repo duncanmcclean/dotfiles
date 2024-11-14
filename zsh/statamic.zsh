@@ -10,7 +10,7 @@ alias stacheid="a tinker --execute=\"echo app('stache')->generateId()\" | pbcopy
 # ------------------------------------------------------------------------------
 
 pfresh() {
-    cd ~/Code/Statamic
+    cd ~/Code/Support
     statamic new $1 --no-interaction
     cd $1
     puser
