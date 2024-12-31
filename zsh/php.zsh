@@ -2,12 +2,12 @@
 # Composer
 # ------------------------------------------------------------------------------
 
-alias c="herd composer"
-alias ci="herd composer install"
-alias cr="herd composer require"
-alias cu="herd composer update"
-alias cg="herd composer global"
-alias ray="herd composer require spatie/laravel-ray"
+alias c="composer"
+alias ci="composer install"
+alias cr="composer require"
+alias cu="composer update"
+alias cg="composer global"
+alias ray="composer require spatie/laravel-ray"
 
 # Get version of installed Composer package
 compv() {
