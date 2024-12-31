@@ -41,7 +41,7 @@ alias gcslt='git --no-pager log $(git describe --tags --abbrev=0)..HEAD --onelin
 function gtag() {
     local tag=$1
 
-    # Before tagging, ensure the tag starts with a `v` if the last tag did.
+    # Before tagging, ensure the tag follows the same format as the last tag.
     if [[ $(glt) == v* && $tag != v* ]]; then
         tag="v$tag"
     fi
@@ -116,13 +116,7 @@ gundo() {
   glog -n 5
 }
 
-# Merge another branch into current branch
-gmerge() {
-    git pull origin $1
-    git push
-}
-
-# Back to the main branch
+# Back to the default branch
 gmain() {
-    git checkout $(git branch --format='%(refname:short)' | grep -E '^(main|5.x|master)$' | head -n 1)
+  git checkout $(git branch --format='%(refname:short)' | grep -E '^(main|7.x|6.|x5.x|master)$' | head -n 1)
 }
