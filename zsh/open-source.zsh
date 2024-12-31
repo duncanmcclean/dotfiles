@@ -34,6 +34,8 @@ oss() {
 osslink() {
     herd php ~/.dotfiles/prompts/project-symlinking.php $1
 
+    [ -e "/tmp/project-symlinking.txt" ] || return 1
+
     read contents < /tmp/project-symlinking.txt
     IFS='|' read -r CLONE_LOCATION PACAKGE_VENDOR PACKAGE_NAME <<< "$contents"
     rm /tmp/project-symlinking.txt
