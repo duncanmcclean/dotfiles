@@ -59,15 +59,6 @@
   - description: Cleaning up Homebrew
     command: "brew cleanup"
 
-  # - description: Installing global Composer dependencies
-  #   command: "composer global install"
-
-  - description: Starting MySQL
-    command: "brew services start mysql"
-
-  - description: Install global npm packages
-    command: "npm install --global cross-env"
-
   - description: Switch Git remote to SSH
     command: "git remote set-url origin git@github.com:duncanmcclean/dotfiles.git"
 
