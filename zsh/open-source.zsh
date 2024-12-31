@@ -32,7 +32,7 @@ oss() {
 # ------------------------------------------------------------------------------
 
 osslink() {
-    herd php ~/.dotfiles/prompts/project-symlinking.php $1
+    php ~/.dotfiles/prompts/project-symlinking.php $1
 
     [ -e "/tmp/project-symlinking.txt" ] || return 1
 

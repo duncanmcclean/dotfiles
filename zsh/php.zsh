@@ -25,9 +25,9 @@ compv() {
 
 t() {
     if [ -f "./vendor/bin/pest" ]; then
-        herd php ./vendor/bin/pest $@
+        php ./vendor/bin/pest $@
     elif [ -n "./vendor/bin/phpunit" ]; then
-        herd php ./vendor/bin/phpunit $@
+        php ./vendor/bin/phpunit $@
     fi
 }
 
