@@ -2,14 +2,7 @@
 # Artisan
 # ------------------------------------------------------------------------------
 
-a() {
-    if [ -f ./artisan ]; then
-        php artisan $@
-    else
-        php vendor/bin/testbench $@
-    fi
-}
-
+alias a="php artisan"
 alias migrate="a migrate"
 alias seed="a db:seed"
 alias hor="a horizon"
