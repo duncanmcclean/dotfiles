@@ -4,7 +4,6 @@ alias hosts="sudo vim /etc/hosts"
 alias sshconfig="sudo vim ~/.ssh/config"
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias hammertime="killall Hammerspoon && open /Applications/Hammerspoon.app"
 
 
 # ------------------------------------------------------------------------------
