@@ -1,17 +1,17 @@
 return {
     Code = {
       id = 'com.microsoft.VSCode',
-      summonModal = 'c',
+      summon = 'c',
       focus = positions.center.large,
     },
     PhpStorm = {
       id = 'com.jetbrains.PhpStorm',
-      summonModal = 'p',
+      summon = 'p',
       focus = positions.center.large,
     },
     Firefox = {
       id = 'org.mozilla.firefox',
-      summonModal = 'b', -- browser
+      summon = 'b', -- browser
       focus = positions.center.large,
     },
     iTerm = {
@@ -20,46 +20,46 @@ return {
     },
     Slack = {
       id = 'com.tinyspeck.slackmacgap',
-      summonModal = 's',
+      summon = 's',
     },
     Discord = {
       id = 'com.hnc.Discord',
-      summonModal = 'd',
+      summon = 'd',
     },
     GitHubDesktop = {
       id = 'com.github.GitHubClient',
-      summonModal = 'g', -- git
+      summon = 'g', -- git
     },
     Tower = {
       id = 'com.fournova.Tower3',
-      summonModal = 't',
+      summon = 't',
     },
     Ray = {
       id = 'be.spatie.ray',
-      summonModal = 'r',
+      summon = 'r',
     },
     Bear = {
       id = 'net.shinyfrog.bear',
-      summonModal = 'n', -- notes
+      summon = 'n', -- notes
     },
     Spotify = {
       id = 'com.spotify.client',
-      summonModal = 'm',
+      summon = 'm',
     },
     Finder = {
       id = 'com.apple.finder',
-      summonModal = 'f',
+      summon = 'f',
     },
     TablePlus = {
       id = 'com.tinyapp.TablePlus',
-      summonModal = 'q', -- query
+      summon = 'q', -- query
     },
     Things = {
       id = 'com.culturedcode.ThingsMac',
-      summonModal = 't',
+      summon = 't',
     },
     Tinkerwell = {
       id = 'com.tinkerwellapp.Tinkerwell',
-      summonModal = 'w',
+      summon = 'w',
     },
   }
