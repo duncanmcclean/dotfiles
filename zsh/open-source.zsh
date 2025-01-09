@@ -58,7 +58,7 @@ osslink() {
             ln -s $CLONE_LOCATION/resources/dist public/vendor/statamic/cp
             la public/vendor/statamic/cp
 
-            ln -s $CLONE_LOCATION/resources/dist/frontend public/vendor/statamic/frontend
+            ln -s $CLONE_LOCATION/resources/dist-frontend public/vendor/statamic/frontend
             la public/vendor/statamic/frontend
         fi
     else
