@@ -38,7 +38,8 @@ local macros = {
     e = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'space') end, -- emoji picker
     -- f = function() hs.eventtap.keyStroke({'cmd'}, '`') end, -- next window of focused apps
     c = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'c') end, -- color picker
-    d = function () hs.eventtap.keyStroke({'cmd', 'shift'}, 'd') end, -- dark mode
+    d = function() hs.eventtap.keyStroke({'cmd', 'shift'}, 'd') end, -- dark mode
+    h = function() hs.application.open('com.openai.chat') end, -- ChatGPT
 }
 
 registerModalBindings(nil, 'f16', macros, true)
