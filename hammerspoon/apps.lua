@@ -42,6 +42,10 @@ return {
       id = 'md.obsidian',
       summon = 'n', -- notes
     },
+    Linear = {
+      id = 'com.linear.app',
+      summon = 'l',
+    },
     Spotify = {
       id = 'com.spotify.client',
       summon = 'm',
