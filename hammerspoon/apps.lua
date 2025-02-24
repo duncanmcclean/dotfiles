@@ -38,8 +38,8 @@ return {
       id = 'be.spatie.ray',
       summon = 'r',
     },
-    Bear = {
-      id = 'net.shinyfrog.bear',
+    Obsidian = {
+      id = 'md.obsidian',
       summon = 'n', -- notes
     },
     Spotify = {

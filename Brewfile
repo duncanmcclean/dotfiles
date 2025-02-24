@@ -39,6 +39,7 @@ cask "linear-linear"
 cask "monitorcontrol"
 cask "name-mangler"
 cask "obs"
+cask "obsidian"
 cask "phpstorm"
 cask "ray"
 cask "raycast"
@@ -56,7 +57,6 @@ cask "vlc"
 cask "zoom"
 cask "zoxide"
 
-mas "Bear", id: 1091189122
 mas "Things", id: 904280696
 mas "Pages", id: 409201541
 mas "Keynote", id: 409183694
