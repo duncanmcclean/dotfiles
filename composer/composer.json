@@ -1,9 +1,6 @@
 {
     "require": {
         "statamic/cli": "dev-master",
-        "beyondcode/expose": "^2.6",
-        "symfony/console": "^6.2",
-        "tightenco/takeout": "^2.1",
         "laravel/pint": "^1.10",
         "illuminate/collections": "^11.21"
     },
