@@ -3,16 +3,16 @@
 	email = duncan@duncanmcclean.com
 
 [core]
-    excludesFile = /Users/duncan/.dotfiles/git/gitignore_global
+	excludesFile = /Users/duncan/.dotfiles/git/gitignore_global
 
 [init]
-    defaultBranch = main
+	defaultBranch = main
 
 [push]
-    autoSetupRemote = true
+	autoSetupRemote = true
 
 [pull]
-    rebase = false
+	rebase = false
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -30,4 +30,4 @@
 	format = ssh
 
 [include]
-    path = ~/.gitconfig-signing
+	path = ~/.gitconfig-signing
