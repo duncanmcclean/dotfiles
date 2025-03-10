@@ -27,12 +27,9 @@ cask "figma"
 cask "firefox"
 cask "flux"
 cask "github"
-cask "google-chrome"
 cask "hammerspoon"
-cask "helo"
 cask "herd"
 cask "imageoptim"
-cask "insomnia"
 cask "iterm2"
 cask "keymapp"
 cask "linear-linear"
@@ -41,6 +38,7 @@ cask "name-mangler"
 cask "obs"
 cask "obsidian"
 cask "phpstorm"
+cask "rapidapi"
 cask "ray"
 cask "raycast"
 cask "slack"
@@ -57,8 +55,9 @@ cask "vlc"
 cask "zoom"
 cask "zoxide"
 
-mas "Things", id: 904280696
-mas "Pages", id: 409201541
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Xcode", id: 497799835
+mas "Keynote", id: 409183694  
+mas "Numbers", id: 409203825  
+mas "Overcast", id: 888422857  
+mas "Pages", id: 409201541  
+mas "Things", id: 904280696  
+mas "Xcode", id: 497799835  
