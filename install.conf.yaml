@@ -33,9 +33,6 @@
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
 
-  - description: Telling gatekeeper to allow unidentified developers
-    command: "sudo spctl --master-disable"
-
   - description: Installing Oh My Zsh
     command: "[ -d ~/.oh-my-zsh ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
 
