@@ -5,10 +5,6 @@
   shell:
     quiet: true
 
-- shell:
-  - description: Validating sudo credentials
-    command: "sudo --validate"
-
 - clean: ['~']
 
 - link:
@@ -30,6 +26,9 @@
   - ~/Code/Support
 
 - shell:
+  - description: Validating sudo credentials
+    command: "sudo --validate"
+
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
 
