@@ -1,9 +1,9 @@
 - defaults:
-    link:
-      create: true
-      force: true
-    shell:
-      quiet: true
+  link:
+    create: true
+    force: true
+  shell:
+    quiet: true
 
 - shell:
   - description: Validating sudo credentials
