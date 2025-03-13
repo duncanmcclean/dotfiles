@@ -11,7 +11,7 @@
 - clean: ['~']
 - link:
     ~/.gitconfig: git/gitconfig
-    ~/.gitignore_global: git/gitignore_global
+    ~/.gitignore: git/gitignore
     ~/.composer/composer.json: composer/composer.json
     ~/.composer/config.json: composer/config.json
     ~/.hammerspoon: hammerspoon

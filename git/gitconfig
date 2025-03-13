@@ -3,7 +3,7 @@
 	email = duncan@duncanmcclean.com
 
 [core]
-	excludesFile = /Users/duncan/.dotfiles/git/gitignore_global
+	excludesfile = /Users/duncan/.gitignore
 
 [init]
 	defaultBranch = main
