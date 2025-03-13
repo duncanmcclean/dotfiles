@@ -34,13 +34,11 @@ export PATH=$PATH:/usr/local/mysql/bin/
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Herd injected PHP binary.
+export PATH="/Users/duncan/Library/Application Support/Herd/bin/":$PATH
 
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="/Users/duncan/Library/Application Support/Herd/config/php/83/"
-
-# Herd injected PHP binary.
-export PATH="/Users/duncan/Library/Application Support/Herd/bin/":$PATH
 
 # Herd injected PHP 8.4 configuration.
 export HERD_PHP_84_INI_SCAN_DIR="/Users/duncan/Library/Application Support/Herd/config/php/84/"
@@ -50,9 +48,11 @@ export HERD_PHP_84_INI_SCAN_DIR="/Users/duncan/Library/Application Support/Herd/
 # Node Version Manager (NVM)
 # ------------------------------------------------------------------------------
 
-export NVM_DIR="$HOME/.nvm"
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+# Herd injected NVM configuration
+export NVM_DIR="/Users/duncan/Library/Application Support/Herd/config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
 
 
 # ------------------------------------------------------------------------------
