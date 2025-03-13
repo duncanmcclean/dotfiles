@@ -30,4 +30,4 @@
 	format = ssh
 
 [include]
-	path = ~/.gitconfig-signing
+	path = ~/.ssh/.gitconfig-signingkey
