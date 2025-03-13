@@ -12,13 +12,13 @@
 - clean: ['~']
 
 - link:
-    ~/.gitconfig: git/gitconfig
-    ~/.gitignore_global: git/gitignore_global
-    ~/.composer/composer.json: composer/composer.json
-    ~/.composer/config.json: composer/config.json
-    ~/.hammerspoon: hammerspoon
-    ~/.vimrc: vim/.vimrc
-    ~/.zshrc: zsh/.zshrc
+  ~/.gitconfig: git/gitconfig
+  ~/.gitignore_global: git/gitignore_global
+  ~/.composer/composer.json: composer/composer.json
+  ~/.composer/config.json: composer/config.json
+  ~/.hammerspoon: hammerspoon
+  ~/.vimrc: vim/.vimrc
+  ~/.zshrc: zsh/.zshrc
 
 - create:
   - ~/Code
@@ -41,7 +41,7 @@
 
   - description: Installing Homebrew
     command: "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
-    
+
   - description: Updating Homebrew
     command: "brew update"
 
