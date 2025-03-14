@@ -6,7 +6,7 @@ return {
         },
         apps = {
           PhpStorm = { cell = 1, open = true },
-          Firefox = { cell = 1 },
+          Safari = { cell = 1 },
           Tower = { cell = 1 },
           Tinkerwell = { cell = 1 },
           TablePlus = { cell = 1 },
@@ -23,7 +23,7 @@ return {
             { positions.halves.right },
         },
         apps = {
-            Firefox = { cell = 1, open = true },
+            Safari = { cell = 1, open = true },
             TablePlus = { cell = 1 },
             Obsidian = { cell = 1 },
             Code = { cell = 2 },
@@ -41,7 +41,7 @@ return {
             { '18,0 42x20', positions.twoThirds.right },
         },
         apps = {
-            Firefox = { cell = 1, open = true },
+            Safari = { cell = 1, open = true },
             TablePlus = { cell = 1 },
             Obsidian = { cell = 1 },
             Ray = { cell = 1 },
@@ -63,7 +63,7 @@ return {
             Slack = { cell = 1 },
             Ray = { cell = 1 },
             iTerm = { cell = 1 },
-            Firefox = { cell = 2, open = true },
+            Safari = { cell = 2, open = true },
             TablePlus = { cell = 2 },
             Tinkerwell = { cell = 2 },
             Obsidian = { cell = 2 },
@@ -83,7 +83,7 @@ return {
           iTerm = { cell = 1 },
           PhpStorm = { cell = 2, open = true },
           Code = { cell = 2 },
-          Firefox = { cell = 2 },
+          Safari = { cell = 2 },
           Tower = { cell = 2 },
           Tinkerwell = { cell = 2 },
           Obsidian = { cell = 2 },
@@ -95,7 +95,7 @@ return {
           { '5,1 50x18' },
         },
         apps = {
-          Firefox = { cell = 1 },
+          Safari = { cell = 1 },
           Tower = { cell = 1 },
           Tinkerwell = { cell = 1 },
           TablePlus = { cell = 1 },

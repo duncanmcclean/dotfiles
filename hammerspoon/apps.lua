@@ -9,8 +9,8 @@ return {
       summon = 'p',
       focus = positions.center.large,
     },
-    Firefox = {
-      id = 'org.mozilla.firefox',
+    Safari = {
+      id = 'com.apple.Safari',
       summon = 'b', -- browser
       focus = positions.center.large,
     },
@@ -28,11 +28,11 @@ return {
     },
     GitHubDesktop = {
       id = 'com.github.GitHubClient',
-      summon = 'g', -- git
+      summon = 'h',
     },
     Tower = {
       id = 'com.fournova.Tower3',
-      summon = 't',
+      summon = 'g', -- git
     },
     Ray = {
       id = 'be.spatie.ray',
@@ -48,7 +48,7 @@ return {
     },
     Spotify = {
       id = 'com.spotify.client',
-      summon = 'm',
+      summon = 'm', -- music
     },
     Finder = {
       id = 'com.apple.finder',
