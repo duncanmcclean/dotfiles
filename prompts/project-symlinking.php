@@ -9,6 +9,7 @@ $package = $argv[1] ?? null;
 $recommended = [
     '/Users/duncan/Code/Statamic/cms' => 'statamic/cms',
     '/Users/duncan/Code/Statamic/runway' => 'statamic-rad-pack/runway',
+    '/Users/duncan/Code/SideProjects/cargo' => 'duncanmcclean/cargo',
     '/Users/duncan/Code/SideProjects/simple-commerce' => 'duncanmcclean/simple-commerce',
 ];
 
