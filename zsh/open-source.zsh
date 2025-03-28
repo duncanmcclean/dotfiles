@@ -46,30 +46,20 @@ osslink() {
     # vendor symlink
     rm -rf vendor/$PACAKGE_VENDOR/$PACKAGE_NAME
     ln -s $CLONE_LOCATION vendor/$PACAKGE_VENDOR/$PACKAGE_NAME
-    la vendor/$PACAKGE_VENDOR
 
     # public/vendor symlink
-    if [[ -d "$CLONE_LOCATION/resources/dist" ]]
-    then
-        if [[ $PACAKGE_VENDOR == "statamic" && $PACKAGE_NAME == "cms" ]]
-        then
-            rm -rf public/vendor/statamic
+    if [[ $PACAKGE_VENDOR == "statamic" && $PACKAGE_NAME == "cms" ]]; then
+        rm -rf public/vendor/statamic
 
-            mkdir public/vendor
-            mkdir public/vendor/statamic
+        mkdir -p public/vendor/statamic
 
-            ln -s $CLONE_LOCATION/resources/dist public/vendor/statamic/cp
-            la public/vendor/statamic/cp
-
-            ln -s $CLONE_LOCATION/resources/dist-frontend public/vendor/statamic/frontend
-            la public/vendor/statamic/frontend
-        fi
-    else
-        if [[ -d "$CLONE_LOCATION/dist/build" ]]
-        then
-            rm -rf public/vendor/$PACKAGE_NAME
-            ln -s $CLONE_LOCATION/dist public/vendor/$PACKAGE_NAME
-            la public/vendor/$PACKAGE_NAME
-        fi
+        ln -s $CLONE_LOCATION/resources/dist public/vendor/statamic/cp
+        ln -s $CLONE_LOCATION/resources/dist-frontend public/vendor/statamic/frontend
+    elif [[ -d "$CLONE_LOCATION/dist/build" ]]; then
+        rm -rf public/vendor/$PACKAGE_NAME
+        ln -s $CLONE_LOCATION/dist public/vendor/$PACKAGE_NAME
+    elif [[ -d "$CLONE_LOCATION/resources/dist/build" ]]; then
+        rm -rf public/vendor/$PACKAGE_NAME
+        ln -s $CLONE_LOCATION/resources/dist public/vendor/$PACKAGE_NAME
     fi
 }
