@@ -7,6 +7,7 @@ return {
         apps = {
           PhpStorm = { cell = 1, open = true },
           Safari = { cell = 1 },
+          Chrome = { cell = 1 },
           Tower = { cell = 1 },
           Tinkerwell = { cell = 1 },
           TablePlus = { cell = 1 },
@@ -24,6 +25,7 @@ return {
         },
         apps = {
             Safari = { cell = 1, open = true },
+            Chrome = { cell = 1 },
             TablePlus = { cell = 1 },
             Obsidian = { cell = 1 },
             Code = { cell = 2 },
@@ -42,6 +44,7 @@ return {
         },
         apps = {
             Safari = { cell = 1, open = true },
+            Chrome = { cell = 1 },
             TablePlus = { cell = 1 },
             Obsidian = { cell = 1 },
             Ray = { cell = 1 },
@@ -64,6 +67,7 @@ return {
             Ray = { cell = 1 },
             iTerm = { cell = 1 },
             Safari = { cell = 2, open = true },
+            Chrome = { cell = 2 },
             TablePlus = { cell = 2 },
             Tinkerwell = { cell = 2 },
             Obsidian = { cell = 2 },
@@ -84,6 +88,7 @@ return {
           PhpStorm = { cell = 2, open = true },
           Code = { cell = 2 },
           Safari = { cell = 2 },
+          Chrome = { cell = 2 },
           Tower = { cell = 2 },
           Tinkerwell = { cell = 2 },
           Obsidian = { cell = 2 },
@@ -96,6 +101,7 @@ return {
         },
         apps = {
           Safari = { cell = 1 },
+          Chrome = { cell = 1 },
           Tower = { cell = 1 },
           Tinkerwell = { cell = 1 },
           TablePlus = { cell = 1 },

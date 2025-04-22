@@ -14,9 +14,13 @@ return {
       summon = 'b', -- browser
       focus = positions.center.large,
     },
+    Chrome = {
+      id = 'com.google.Chrome',
+      focus = positions.center.large
+    },
     iTerm = {
       id = 'com.googlecode.iterm2',
-      focus = positions.center.large,
+      focus = positions.center.large
     },
     Slack = {
       id = 'com.tinyspeck.slackmacgap',
