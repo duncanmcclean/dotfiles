@@ -24,7 +24,7 @@
     - ~/Code/Personal
     - ~/Code/SideProjects
     - ~/Code/Statamic
-    - ~/Code/Support
+    - ~/Code/Throwaway
 - shell:
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
