@@ -8,6 +8,7 @@ alias cr="composer require"
 alias cu="composer update"
 alias cg="composer global"
 alias ray="composer require spatie/laravel-ray"
+alias pif="./vendor/bin/pint"
 
 # Get version of installed Composer package
 compv() {
