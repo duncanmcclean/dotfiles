@@ -54,6 +54,7 @@ osslink() {
         mkdir -p public/vendor/statamic
 
         ln -s $CLONE_LOCATION/resources/dist public/vendor/statamic/cp
+        ln -s $CLONE_LOCATION/resources/dist-dev public/vendor/statamic/cp-dev
         ln -s $CLONE_LOCATION/resources/dist-frontend public/vendor/statamic/frontend
     elif [[ -d "$CLONE_LOCATION/dist/build" ]]; then
         rm -rf public/vendor/$PACKAGE_NAME
