@@ -59,5 +59,4 @@ pinstall() {
 
     puser
     p pro:enable
-    osslink statamic/cms
 }
