@@ -2,20 +2,20 @@
 # Composer
 # ------------------------------------------------------------------------------
 
-alias c="composer"
-alias ci="composer install"
-alias cr="composer require"
-alias cu="composer update"
-alias cg="composer global"
-alias ray="composer require spatie/laravel-ray"
+alias c="herd composer"
+alias ci="c install"
+alias cr="c require"
+alias cu="c update"
+alias cg="c global"
+alias ray="c require spatie/laravel-ray"
 alias pif="./vendor/bin/pint"
 
 # Get version of installed Composer package
 compv() {
   if [[ $1 == *"/"* ]]; then
-    composer show $1 | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1;
+    c show $1 | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1;
   else
-    composer info | grep $1
+    c info | grep $1
   fi
 }
 
@@ -26,9 +26,9 @@ compv() {
 
 t() {
     if [ -f "./vendor/bin/pest" ]; then
-        php ./vendor/bin/pest $@
+      herd php ./vendor/bin/pest $@
     elif [ -n "./vendor/bin/phpunit" ]; then
-        php ./vendor/bin/phpunit $@
+      herd php ./vendor/bin/phpunit $@
     fi
 }
 

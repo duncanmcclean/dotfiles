@@ -2,7 +2,7 @@
 # Artisan
 # ------------------------------------------------------------------------------
 
-alias a="php artisan"
+alias a="herd php artisan"
 alias migrate="a migrate"
 alias seed="a db:seed"
 alias hor="a horizon"
