@@ -18,8 +18,8 @@ return {
       id = 'com.google.Chrome',
       focus = positions.center.large
     },
-    iTerm = {
-      id = 'com.googlecode.iterm2',
+    Ghostty = {
+      id = 'com.mitchellh.ghostty',
       focus = positions.center.large
     },
     Slack = {
@@ -32,7 +32,6 @@ return {
     },
     GitHubDesktop = {
       id = 'com.github.GitHubClient',
-      summon = 'h',
     },
     Tower = {
       id = 'com.fournova.Tower3',
@@ -64,7 +63,7 @@ return {
     },
     Things = {
       id = 'com.culturedcode.ThingsMac',
-      summon = 't',
+      summon = 't', -- todos
     },
     Tinkerwell = {
       id = 'com.tinkerwellapp.Tinkerwell',

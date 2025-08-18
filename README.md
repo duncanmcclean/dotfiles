@@ -13,20 +13,9 @@ My Dotfiles serve as a crucial tool for me to maintain and manage the configurat
 
 - **[Dotbot](https://github.com/anishathalye/dotbot)** for bootstrapping my dotfiles. Whenever I setup a new computer or wipe fresh, I only need to run a single Dotbot command to install software, create symlinks and configure stuff.
 - **[Oh My Zsh](https://ohmyz.sh/)** is my shell.
+- **[Starship](https://starship.rs)** makes my terminal prompt pretty.
 - **[Hammerspoon](https://www.hammerspoon.org/)** for window management & keyboard shortcuts.
 - **[Homebrew](https://brew.sh/)** for dependency management
-
-### Screenshots
-
-#### iTerm & Oh My Zsh
-
-![iTerm & Oh My Zsh](screenshots/iterm.png)
-
-- iTerm Theme: Lovelace
-- Oh My Zsh Theme: `robbyrussell`
-- Oh My Zsh Plugins:
-  - `git`
-  - `zsh-syntax-highlighting`
 
 ### Inspiration
 
