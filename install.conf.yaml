@@ -14,6 +14,7 @@
     ~/.gitignore: git/gitignore
     ~/.composer/composer.json: composer/composer.json
     ~/.composer/config.json: composer/config.json
+    ~/.config/starship.toml: starship/starship.toml
     ~/.hammerspoon: hammerspoon
     ~/.vimrc: vim/.vimrc
     ~/.zshrc: zsh/.zshrc

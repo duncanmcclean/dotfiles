@@ -9,7 +9,6 @@ brew "gh"
 brew "git"
 brew "mas"
 brew "stripe/stripe-cli/stripe"
-brew "spaceship"
 brew "yt-dlp"
 brew "zoxide"
 

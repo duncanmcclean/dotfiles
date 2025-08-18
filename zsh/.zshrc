@@ -1,12 +1,6 @@
 export DOTFILES="$HOME/.dotfiles"
 export ZSH="$HOME/.oh-my-zsh"
 
-# ------------------------------------------------------------------------------
-# Zsh Theme
-# ------------------------------------------------------------------------------
-
-source "/opt/homebrew/opt/spaceship/spaceship.zsh"
-
 
 # ------------------------------------------------------------------------------
 # Zsh Config
@@ -54,6 +48,14 @@ export NVM_DIR="/Users/duncan/Library/Application Support/Herd/config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
+
+
+# ------------------------------------------------------------------------------
+# Starship
+# https://github.com/starship/starship
+# ------------------------------------------------------------------------------
+
+eval "$(starship init zsh)"
 
 
 # ------------------------------------------------------------------------------
