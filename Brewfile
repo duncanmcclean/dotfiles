@@ -8,6 +8,8 @@ brew "fzf"
 brew "gh"
 brew "git"
 brew "mas"
+brew "spaceship"
+brew "sst/tap/opencode"
 brew "stripe/stripe-cli/stripe"
 brew "yt-dlp"
 brew "zoxide"
@@ -17,13 +19,15 @@ cask "anydesk"
 cask "audacity"
 cask "audio-hijack"
 cask "bartender"
-cask "brave-browser"
 cask "chatgpt"
+cask "claude"
+cask "claude-code"
 cask "cleanshot"
 cask "discord"
 cask "dropbox"
 cask "figma"
 cask "font-jetbrains-mono"
+cask "ghostty"
 cask "github"
 cask "hammerspoon"
 cask "herd"
@@ -36,9 +40,12 @@ cask "name-mangler"
 cask "obs"
 cask "obsidian"
 cask "phpstorm"
+cask "pronotes"
+cask "propresenter"
 cask "rapidapi"
 cask "ray"
 cask "raycast"
+cask "screenflow"
 cask "slack"
 cask "spotify"
 cask "tableplus"
@@ -51,9 +58,10 @@ cask "visual-studio-code"
 cask "vlc"
 cask "zoom"
 
-mas "Keynote", id: 409183694  
-mas "Numbers", id: 409203825  
-mas "Overcast", id: 888422857  
-mas "Pages", id: 409201541  
-mas "Things", id: 904280696  
-mas "Xcode", id: 497799835  
+mas "Keynote", id: 409183694
+mas "Minimal Theme for Twitter / X", id: 1668204600
+mas "Numbers", id: 409203825
+mas "Overcast", id: 888422857
+mas "Pages", id: 409201541
+mas "Things", id: 904280696
+mas "Xcode", id: 497799835
