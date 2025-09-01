@@ -56,6 +56,7 @@ osslink() {
         ln -s $CLONE_LOCATION/resources/dist public/vendor/statamic/cp
         ln -s $CLONE_LOCATION/resources/dist-dev public/vendor/statamic/cp-dev
         ln -s $CLONE_LOCATION/resources/dist-frontend public/vendor/statamic/frontend
+        ln -s $CLONE_LOCATION/resources/js/package $CLONE_LOCATION/resources/dist-package
     elif [[ -d "$CLONE_LOCATION/dist/build" ]]; then
         rm -rf public/vendor/$PACKAGE_NAME
         ln -s $CLONE_LOCATION/dist public/vendor/$PACKAGE_NAME
