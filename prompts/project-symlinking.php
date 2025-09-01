@@ -10,7 +10,6 @@ $recommended = [
     '/Users/duncan/Code/Statamic/cms' => 'statamic/cms',
     '/Users/duncan/Code/Statamic/runway' => 'statamic-rad-pack/runway',
     '/Users/duncan/Code/SideProjects/statamic-cargo' => 'duncanmcclean/statamic-cargo',
-    '/Users/duncan/Code/SideProjects/simple-commerce' => 'duncanmcclean/simple-commerce',
 ];
 
 $projects = collect(scandir('/Users/duncan/Code'))
