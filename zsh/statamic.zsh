@@ -14,8 +14,13 @@ pfresh() {
     statamic new $1 --no-interaction
     cd $1
     puser
-    osslink statamic/cms
     init
+
+    echo "Do you want to symlink statamic/cms? (y/n)"
+    read answer
+    if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+        osslink statamic/cms
+    fi
 
     echo ""
     echo "Site created at ~/Code/Statamic/$1"
