@@ -17,6 +17,7 @@
     ~/.config/ghostty/config: ghostty/config
     ~/.config/opencode/opencode.json: opencode/config.json
     ~/.config/starship.toml: starship/starship.toml
+    ~/.tmux.conf: tmux/tmux.conf
     ~/.hammerspoon: hammerspoon
     ~/.vimrc: vim/.vimrc
     ~/.zshrc: zsh/.zshrc

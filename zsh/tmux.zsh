@@ -1,0 +1,30 @@
+alias tl="tmux list-sessions"
+alias ts="tmux new-session -s"
+alias ta="tmux attach -t"
+alias tksv="tmux kill-server"
+alias tc="sesh connect"
+alias tr="tmux source-file ~/.tmux.conf"
+
+
+# ------------------------------------------------------------------------------
+# Opens or creates a new session in the current directory
+# ------------------------------------------------------------------------------
+
+tm() {
+  currentDirectory="~${PWD#$HOME}"
+  sesh connect $currentDirectory
+}
+
+
+# ------------------------------------------------------------------------------
+# Kill session with z style argument, or kill current session if no argument
+# ------------------------------------------------------------------------------
+
+tks() {
+  if [ -n "$1" ]; then
+    tmux kill-session -t $(sesh list -c | rg $1 || echo $1)
+    return
+  fi
+
+  tmux kill-session -t .
+}
