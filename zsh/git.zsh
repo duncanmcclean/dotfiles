@@ -18,15 +18,17 @@ alias init="git init && git add . && git commit -m 'Initial commit'"
 
 alias pushf="git push --force"
 
-function push() {
-    branch=$(git rev-parse --abbrev-ref HEAD)
+alias push="git push"
 
-    if git ls-remote --exit-code --heads origin $branch >/dev/null 2>&1; then
-        git push origin $branch
-    else
-        git push --set-upstream origin $branch
-    fi
-}
+# function push() {
+#     branch=$(git rev-parse --abbrev-ref HEAD)
+
+#     if git ls-remote --exit-code --heads origin $branch >/dev/null 2>&1; then
+#         git push origin $branch
+#     else
+#         git push --set-upstream origin $branch
+#     fi
+# }
 
 
 # ------------------------------------------------------------------------------
