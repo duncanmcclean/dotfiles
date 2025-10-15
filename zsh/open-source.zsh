@@ -54,7 +54,11 @@ osslink() {
         ln -s $CLONE_LOCATION/resources/dist public/vendor/statamic/cp
         ln -s $CLONE_LOCATION/resources/dist-dev public/vendor/statamic/cp-dev
         ln -s $CLONE_LOCATION/resources/dist-frontend public/vendor/statamic/frontend
+
+        rm -rf $CLONE_LOCATION/resources/dist-package
         ln -s $CLONE_LOCATION/packages/cms $CLONE_LOCATION/resources/dist-package
+
+        rm -f $CLONE_LOCATION/packages/cms/src/ui.css
         ln -s $CLONE_LOCATION/packages/ui/src/ui.css $CLONE_LOCATION/packages/cms/src/ui.css
     elif [[ -d "$CLONE_LOCATION/dist/build" ]]; then
         if [ -d "public" ]; then
