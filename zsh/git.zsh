@@ -10,25 +10,8 @@ alias wip="all && commit 'wip'"
 alias nah="git reset HEAD --hard"
 alias empty="git commit --allow-empty -m 'Empty commit'"
 alias init="git init && git add . && git commit -m 'Initial commit'"
-
-
-# ------------------------------------------------------------------------------
-# Push commits to the remote.
-# ------------------------------------------------------------------------------
-
 alias pushf="git push --force"
-
 alias push="git push"
-
-# function push() {
-#     branch=$(git rev-parse --abbrev-ref HEAD)
-
-#     if git ls-remote --exit-code --heads origin $branch >/dev/null 2>&1; then
-#         git push origin $branch
-#     else
-#         git push --set-upstream origin $branch
-#     fi
-# }
 
 
 # ------------------------------------------------------------------------------
