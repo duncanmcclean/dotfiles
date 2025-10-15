@@ -1,6 +1,3 @@
-alias fixcms="rm -rf public/statamic && composer reinstall statamic/cms && php artisan statamic:install"
-
-
 # ------------------------------------------------------------------------------
 # Fork, clone and install dependencies
 # ------------------------------------------------------------------------------

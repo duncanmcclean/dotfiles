@@ -3,6 +3,7 @@ alias pdeets="herd php please support:details"
 alias puser="cp ~/.dotfiles/statamic/duncan@statamic.com.yaml users/duncan@statamic.com.yaml"
 alias puserme="cp ~/.dotfiles/statamic/duncan@duncanmcclean.com.yaml users/duncan@duncanmcclean.com.yaml"
 alias stacheid="a tinker --execute=\"echo app('stache')->generateId()\" | pbcopy"
+alias fixcms="composer reinstall statamic/cms && rm -rf public/vendor/statamic php artisan statamic:install"
 
 
 # ------------------------------------------------------------------------------
