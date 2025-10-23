@@ -112,19 +112,4 @@ return {
           Obsidian = { cell = 1 },
         },
     },
-    {
-        name = 'Screencasting',
-        cells = {
-          { '10,1 40x18' },
-        },
-        apps = {
-          Safari = { cell = 1 },
-          Chrome = { cell = 1 },
-          Tinkerwell = { cell = 1 },
-          Code = { cell = 1 },
-          PhpStorm = { cell = 1 },
-          Ray = { cell = 1 },
-          Ghostty = { cell = 1 },
-        },
-    },
 }
