@@ -73,8 +73,34 @@ checkr() {
 
 # Git checkout a PR with fzf fuzzy search
 checkpr() {
-  if [ -n "$1" ]; then gh pr checkout $1; return; fi
-  gh pr list | fzf | awk '{print $1}' | xargs gh pr checkout
+  local pr_number
+  if [ -n "$1" ]; then
+    pr_number=$1
+  else
+    pr_number=$(gh_pretty_list_prs | gum filter --placeholder 'Checkout PR...' | awk '{print $1}' | sed "s/#//")
+    if [ -z "$pr_number" ]; then return; fi
+  fi
+
+  gh pr checkout $pr_number
+
+  local pr_info=$(gh pr view $pr_number --json isCrossRepository,headRepositoryOwner,headRefName,headRepository)
+  local is_fork=$(echo $pr_info | jq -r '.isCrossRepository')
+
+  if [ "$is_fork" = "true" ]; then
+    local fork_owner=$(echo $pr_info | jq -r '.headRepositoryOwner.login')
+    local branch_name=$(echo $pr_info | jq -r '.headRefName')
+    local repo_name=$(echo $pr_info | jq -r '.headRepository.name')
+    local fork_url="git@github.com:${fork_owner}/${repo_name}.git"
+
+    if git remote get-url $fork_owner &> /dev/null; then
+      git remote set-url $fork_owner $fork_url
+    else
+      git remote add $fork_owner $fork_url
+    fi
+    git fetch $fork_owner
+
+    git branch --set-upstream-to=$fork_owner/$branch_name
+  fi
 }
 
 # Git delete branch with fzf fuzzy search
@@ -104,4 +130,11 @@ gundo() {
 # Back to the default branch
 gmain() {
   git checkout $(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name')
+}
+
+gh_pretty_list_prs() {
+  gh pr list \
+    --limit 500 \
+    --json number,title,author,headRefName,updatedAt \
+    --template '{{range .}}{{tablerow (printf "#%v" .number | autocolor "green") (truncate 60 .title) (truncate 15 .author.login) (truncate 40 .headRefName) (timeago .updatedAt)}}{{end}}'
 }
