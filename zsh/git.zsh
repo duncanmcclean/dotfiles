@@ -103,5 +103,5 @@ gundo() {
 
 # Back to the default branch
 gmain() {
-  git checkout $(git branch --format='%(refname:short)' | grep -E '^(main|7.x|6.|x5.x|master)$' | head -n 1)
+  git checkout $(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name')
 }
