@@ -31,44 +31,4 @@ oss() {
 # Link up a package to the current project
 # ------------------------------------------------------------------------------
 
-osslink() {
-    php ~/.dotfiles/prompts/project-symlinking.php $1
-
-    [ -e "/tmp/project-symlinking.txt" ] || return 1
-
-    read contents < /tmp/project-symlinking.txt
-    IFS='|' read -r CLONE_LOCATION PACAKGE_VENDOR PACKAGE_NAME <<< "$contents"
-    rm /tmp/project-symlinking.txt
-
-    # vendor symlink
-    rm -rf vendor/$PACAKGE_VENDOR/$PACKAGE_NAME
-    ln -s $CLONE_LOCATION vendor/$PACAKGE_VENDOR/$PACKAGE_NAME
-
-    # public/vendor symlink
-    if [[ $PACAKGE_VENDOR == "statamic" && $PACKAGE_NAME == "cms" ]]; then
-        if [ -d "public" ]; then
-            rm -rf public/vendor/statamic
-            mkdir -p public/vendor/statamic
-        fi
-
-        ln -s $CLONE_LOCATION/resources/dist public/vendor/statamic/cp
-        ln -s $CLONE_LOCATION/resources/dist-dev public/vendor/statamic/cp-dev
-        ln -s $CLONE_LOCATION/resources/dist-frontend public/vendor/statamic/frontend
-
-        rm -rf $CLONE_LOCATION/resources/dist-package
-        ln -s $CLONE_LOCATION/packages/cms $CLONE_LOCATION/resources/dist-package
-
-        rm -f $CLONE_LOCATION/packages/cms/src/ui.css
-        ln -s $CLONE_LOCATION/packages/ui/src/ui.css $CLONE_LOCATION/packages/cms/src/ui.css
-    elif [[ -d "$CLONE_LOCATION/dist/build" ]]; then
-        if [ -d "public" ]; then
-            rm -rf public/vendor/$PACKAGE_NAME
-            ln -s $CLONE_LOCATION/dist public/vendor/$PACKAGE_NAME
-        fi
-    elif [[ -d "$CLONE_LOCATION/resources/dist/build" ]]; then
-        if [ -d "public" ]; then
-            rm -rf public/vendor/$PACKAGE_NAME
-            ln -s $CLONE_LOCATION/resources/dist public/vendor/$PACKAGE_NAME
-        fi
-    fi
-}
+alias osslink="tether"
