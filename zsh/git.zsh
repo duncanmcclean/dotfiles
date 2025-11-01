@@ -37,11 +37,11 @@ function gtag() {
 
 # Re-tag the latest tag.
 function retag() {
-    local latest_tag=$(git describe --tags --abbrev=0)
-    git tag -d $latest_tag
-    git push origin :refs/tags/$latest_tag
-    git tag $latest_tag
-    git push --tags
+  local latest_tag=$(git describe --tags --abbrev=0)
+  git tag -d $latest_tag
+  git push origin :refs/tags/$latest_tag
+  git tag $latest_tag
+  git push --tags
 }
 
 
@@ -58,10 +58,10 @@ check() {
 
 # Git checkout new branch
 checknew() {
-    if [ -n "$1" ]; then git checkout -b $1; return; fi
-    local selected=$(git branch -vv | fzf | awk '{print $1}' | sed "s/.* //")
-    if [ -z "$selected" ]; then return; fi
-    git checkout -b $selected
+  if [ -n "$1" ]; then git checkout -b $1; return; fi
+  local selected=$(git branch -vv | fzf | awk '{print $1}' | sed "s/.* //")
+  if [ -z "$selected" ]; then return; fi
+  git checkout -b $selected
 }
 
 # Git checkout remote branch with fzf fuzzy search
