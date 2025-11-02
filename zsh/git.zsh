@@ -19,8 +19,44 @@ alias push="git push"
 # ------------------------------------------------------------------------------
 
 alias glt='git describe --tags --abbrev=0' # git latest tag
-alias changelog="gcslt | sed -e 's/\[.*\] //g' | pbcopy" # git changelog
 alias gcslt='git --no-pager log $(git describe --tags --abbrev=0)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
+
+# Prepare a changelog
+changelog() {
+  changelog=$(gcslt)
+
+  # Replace commit hashes with "-"
+  changelog=$(echo "$changelog" | sed 's/^[a-f0-9]\{7,\} /- /')
+
+  # Remove ticket/issue references in square brackets
+  changelog=$(echo "$changelog" | sed -e 's/\[.*\] //g')
+
+  # Remove parentheses around PR numbers
+  changelog=$(echo "$changelog" | sed -e 's/(\(#[0-9][0-9]*\))/\1/g')
+
+  # Get the authors of the last ~50 PRs
+  pull_requests=$(gh pr list --state merged --limit 50 --json number,author)
+
+  # Append username to the end of every line
+  changelog=$(while IFS= read -r line; do
+    pr_number=$(echo "$line" | sed -n 's/.*#\([0-9][0-9]*\).*/\1/p')
+    
+    if [ -n "$pr_number" ]; then
+      author=$(echo "$pull_requests" | jq -r ".[] | select(.number == $pr_number) | .author.login")
+
+      # Older PRs won't be included in $pull_requests, so we need to do another request.
+      if [ -z "$author" ]; then
+        author=$(gh pr view "$pr_number" --json author | jq -r '.author.login' || echo "unknown")
+      fi
+
+      echo "$line by @$author"
+    else
+      echo "$line"
+    fi
+  done <<< "$changelog")
+
+  echo $changelog | pbcopy
+}
 
 # Create a tag & push to the remote.
 function gtag() {
