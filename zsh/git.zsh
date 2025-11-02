@@ -59,7 +59,7 @@ changelog() {
 }
 
 # Create a tag & push to the remote.
-function gtag() {
+gtag() {
     local tag=$1
 
     # Before tagging, ensure the tag follows the same format as the last tag.
@@ -72,7 +72,7 @@ function gtag() {
 }
 
 # Re-tag the latest tag.
-function retag() {
+retag() {
   local latest_tag=$(git describe --tags --abbrev=0)
   git tag -d $latest_tag
   git push origin :refs/tags/$latest_tag
