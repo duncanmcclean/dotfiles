@@ -20,7 +20,7 @@ pfresh() {
     echo "Do you want to symlink statamic/cms? (y/n)"
     read answer
     if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
-        osslink statamic/cms
+        tether statamic/cms
     fi
 
     echo ""
