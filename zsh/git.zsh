@@ -56,6 +56,8 @@ changelog() {
   done <<< "$changelog")
 
   echo $changelog | pbcopy
+
+  pstorm CHANGELOG.md
 }
 
 # Create a tag & push to the remote.
