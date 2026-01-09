@@ -15,10 +15,11 @@ return {
           Ray = { cell = 1 },
           Ghostty = { cell = 1 },
           Obsidian = { cell = 1 },
+          OpenCode = { cell = 1 },
         },
     },
     {
-        name = 'Split',
+        name = 'Split Half',
         cells = {
             { positions.halves.left },
             { positions.halves.right },
@@ -34,6 +35,7 @@ return {
             Ray = { cell = 1 },
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
+            OpenCode = { cell = 2 },
         },
     },
     {
@@ -52,6 +54,7 @@ return {
             Code = { cell = 2 },
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
+            OpenCode = { cell = 2 },
             PhpStorm = { cell = 2, open = true },
         },
     },
@@ -92,6 +95,7 @@ return {
             PhpStorm = { cell = 3, open = true },
             Code = { cell = 3 },
             Tower = { cell = 3 },
+            OpenCode = { cell = 2 },
         }
     },
     {
@@ -110,6 +114,7 @@ return {
           Ray = { cell = 1 },
           Ghostty = { cell = 1 },
           Obsidian = { cell = 1 },
+          OpenCode = { cell = 2 },
         },
     },
 }
