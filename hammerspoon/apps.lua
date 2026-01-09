@@ -30,9 +30,6 @@ return {
       id = 'com.hnc.Discord',
       summon = 'd',
     },
-    GitHubDesktop = {
-      id = 'com.github.GitHubClient',
-    },
     Tower = {
       id = 'com.fournova.Tower3',
       summon = 'g', -- git
@@ -44,6 +41,10 @@ return {
     Obsidian = {
       id = 'md.obsidian',
       summon = 'n', -- notes
+    },
+    OpenCode = {
+      id = 'ai.opencode.desktop',
+      summon = 'a', -- ai
     },
     Linear = {
       id = 'com.linear.app',
