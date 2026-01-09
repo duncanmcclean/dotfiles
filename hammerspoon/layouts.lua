@@ -37,25 +37,7 @@ return {
         },
     },
     {
-        name = 'Narrow',
-        cells = {
-          { '0,0 15x20', positions.sixths.left },
-          { '15,0 53x20', positions.fiveSixths.right },
-        },
-        apps = {
-          Ray = { cell = 1, open = true },
-          Ghostty = { cell = 1 },
-          PhpStorm = { cell = 2, open = true },
-          Code = { cell = 2 },
-          Safari = { cell = 2 },
-          Chrome = { cell = 2 },
-          Tower = { cell = 2 },
-          Tinkerwell = { cell = 2 },
-          Obsidian = { cell = 2 },
-        },
-    },
-    {
-        name = 'Narrow Split',
+        name = 'Split Narrow',
         cells = {
             { '0,0 18x20', positions.twoThirds.left },
             { '18,0 42x20', positions.twoThirds.right },
@@ -71,6 +53,24 @@ return {
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
             PhpStorm = { cell = 2, open = true },
+        },
+    },
+    {
+        name = 'Split Narrower',
+        cells = {
+          { '0,0 15x20', positions.sixths.left },
+          { '15,0 53x20', positions.fiveSixths.right },
+        },
+        apps = {
+          Ray = { cell = 1, open = true },
+          Ghostty = { cell = 1 },
+          PhpStorm = { cell = 2, open = true },
+          Code = { cell = 2 },
+          Safari = { cell = 2 },
+          Chrome = { cell = 2 },
+          Tower = { cell = 2 },
+          Tinkerwell = { cell = 2 },
+          Obsidian = { cell = 2 },
         },
     },
     {
