@@ -20,6 +20,7 @@
 - Follow Laravel conventions. Don't fight the framework.
 - Use proper error handling patterns (exceptions, custom exception classes)
 - Maintain consistent naming conventions (PSR-12, Laravel standards).
+- Please remember to add any new environment variables to `.env.example`
 
 ### Controllers
 
