@@ -110,11 +110,11 @@ return {
           Tinkerwell = { cell = 1 },
           TablePlus = { cell = 1 },
           Code = { cell = 1 },
-          PhpStorm = { cell = 1, open = true },
+          PhpStorm = { cell = 1 },
           Ray = { cell = 1 },
           Ghostty = { cell = 1 },
           Obsidian = { cell = 1 },
-          OpenCode = { cell = 2 },
+          OpenCode = { cell = 1 },
         },
     },
 }
