@@ -14,6 +14,7 @@
 - Public interfaces should feel natural and discoverable.
 - Avoid nested ternary operators - prefer match expressions, switch statements, or if/else chains for multiple conditions.
 - Choose clarity over brevity - explicit code is often better than overly compact code.
+- Please respect the existing tab/spaces preferences.
 
 ## Rules for Laravel projects
 
