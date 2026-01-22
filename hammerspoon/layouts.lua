@@ -61,8 +61,8 @@ return {
     {
         name = 'Split Narrower',
         cells = {
-          { '0,0 15x20', positions.sixths.left },
-          { '15,0 53x20', positions.fiveSixths.right },
+          { '0,0 10x20', positions.sixths.left },
+          { '10,0 53x20', positions.fiveSixths.right },
         },
         apps = {
           Ray = { cell = 1, open = true },
