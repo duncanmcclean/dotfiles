@@ -15,9 +15,8 @@
     ~/.composer/composer.json: composer/composer.json
     ~/.composer/config.json: composer/config.json
     ~/.config/ghostty/config: ghostty/config
-    ~/.claude/CLAUDE.md: opencode/AGENTS.md
+    ~/.claude/CLAUDE.md: agents/AGENTS.md
     ~/.config/opencode/opencode.json: opencode/config.json
-    ~/.config/opencode/AGENTS.md: opencode/AGENTS.md
     ~/.config/starship.toml: starship/starship.toml
     ~/.tmux.conf: tmux/tmux.conf
     ~/.hammerspoon: hammerspoon

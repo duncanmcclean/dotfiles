@@ -1,8 +1,16 @@
 {
     "$schema": "https://opencode.ai/config.json",
     "instructions": [
+        "~/.dotfiles/agents/AGENTS.md",
         "CLAUDE.md"
     ],
+    "mcp": {
+        "ray-app": {
+            "type": "remote",
+            "url": "http://localhost:2411/mcp",
+            "enabled": true
+        }
+    },
     "lsp": {
         "php": {
             "command": [
