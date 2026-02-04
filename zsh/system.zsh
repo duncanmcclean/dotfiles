@@ -5,6 +5,7 @@ alias sshconfig="vim ~/.ssh/config"
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias pstorm='open -a ~/Applications/PhpStorm.app "`pwd`"'
+alias claudee="claude --dangerously-skip-permissions"
 
 
 # ------------------------------------------------------------------------------
