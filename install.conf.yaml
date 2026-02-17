@@ -10,6 +10,7 @@
     command: "sudo --validate"
 - clean: ['~']
 - link:
+    # ln -s ~/.dotfiles/... ~/...
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore
     ~/.composer/composer.json: composer/composer.json
