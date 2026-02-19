@@ -22,6 +22,8 @@
 - Use proper error handling patterns (exceptions, custom exception classes)
 - Maintain consistent naming conventions (PSR-12, Laravel standards).
 - Please remember to add any new environment variables to `.env.example`
+- When writing queries, always use `Model::query()`, rather than going straight into `Model::where()`
+  - The only exception to this is using `Model::find()`
 
 ### Controllers
 
