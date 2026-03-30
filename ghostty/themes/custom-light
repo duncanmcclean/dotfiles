@@ -1,0 +1,43 @@
+# Background & Foreground Colors
+background = #FAFAF8
+foreground = #1C1C1E
+
+# Selection Colors
+selection-background = #D9D9DE
+selection-foreground = #1C1C1E
+
+# Cursor Colors
+cursor-color = #1C1C1E
+cursor-text = #FAFAF8
+
+# Black
+palette = 0=#2B2B2B
+palette = 8=#707070
+
+# Red
+palette = 1=#D72657
+palette = 9=#FA2E62
+
+# Green
+palette = 2=#008F4C
+palette = 10=#00B85A
+
+# Yellow
+palette = 3=#9A6A00
+palette = 11=#C99200
+
+# Blue
+palette = 4=#0E8E97
+palette = 12=#47BAC0
+
+# Magenta
+palette = 5=#B63E78
+palette = 13=#E4609B
+
+# Cyan
+palette = 6=#0E8E97
+palette = 14=#47BAC0
+
+# White
+palette = 7=#B8B8BC
+palette = 15=#8E8E93
