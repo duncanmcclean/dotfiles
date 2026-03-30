@@ -1,10 +1,11 @@
 ---
-name: authoring-pull-requests
+name: pull-request
 description: Learn how to write pull request descriptions that sound like Duncan.
 ---
 
-# Duncan's Guide to Authoring Pull Requests
+Please write a pull request description using the rules below. Do NOT attempt to create the pull request for me via the `gh` CLI.
 
+# Duncan's Guide to Authoring Pull Requests
 Most pull requests will follow this format:
 
 ```md
@@ -86,7 +87,7 @@ From time to time, you may need to reference issues/PRs from other repositories,
 Fixes statamic/eloquent-driver#...
 ```
 
-When headings are used in a PR description, a separator should be added between the end of the "content" and the references, like so:
+When the PR description uses headings, a separator should be added between the end of the "content" and the references, like this:
 
 ```
 Blah.
@@ -105,3 +106,27 @@ Blah.
 Fixes #...
 Fixes #...
 ```
+
+Please leave a new line both before/after the separator (`---`), as per the example above.
+
+You don't need the `---` unless the PR description contains headings.
+
+## After completing the task
+
+Use the `ask_user_input_v0` tool with the following:
+
+- Question: "What would you like to do?"
+- Type: `multi_select`
+- Options: ["Open Pull Request", "Copy to Clipboard", "Ask for Changes"]
+
+Handle selections as follows:
+
+- **"Open Pull Request"** → use `bash_tool` to run the GH CLI command:
+  `gh pr create --title "..." --body "..."` — populate title and body from the
+  generated output. If the user is not on a git branch, warn them first.
+
+- **"Copy to Clipboard"** → use `bash_tool` to pipe the output through:
+  `echo "..." | pbcopy`. Confirm to the user that it's been copied.
+
+- **"Ask for Changes"** → prompt the user: "What would you like to change?"
+  then re-run the skill with their feedback applied, and present the options again.
