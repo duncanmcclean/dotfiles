@@ -88,9 +88,9 @@ local layout = hs.loadSpoon('GridLayout')
   :setGrid('60x20')
   :setMargins('15x15')
 
-if (hs.screen.primaryScreen():name() == 'LG HDR WQHD+') then
-  layout:setMargins('30x30')
-end
+-- if (hs.screen.primaryScreen():name() == 'LG HDR WQHD+') then
+--   layout:setMargins('15x15')
+-- end
 
 local windowManagementBindings = {
   ['h'] = function() hs.window.focusedWindow():focusWindowWest(nil, true) end,
