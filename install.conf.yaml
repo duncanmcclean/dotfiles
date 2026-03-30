@@ -15,9 +15,11 @@
     ~/.gitignore: git/gitignore
     ~/.composer/composer.json: composer/composer.json
     ~/.composer/config.json: composer/config.json
-    ~/.config/ghostty/config: ghostty/config
+    ~/.config/ghostty: ghostty
     ~/.agents: agents
     ~/.claude/CLAUDE.md: agents/AGENTS.md
+    ~/.claude/settings.json: claude/settings.json
+    ~/.claude/statusline.sh: claude/statusline.sh
     ~/.claude/skills: agents/skills
     ~/.codex/AGENTS.md: agents/AGENTS.md
     ~/.config/opencode/opencode.json: opencode/config.json
