@@ -65,7 +65,7 @@ return {
           { '10,0 53x20', positions.fiveSixths.right },
         },
         apps = {
-          Ray = { cell = 1, open = true },
+          Ray = { cell = 1 },
           Ghostty = { cell = 1 },
           PhpStorm = { cell = 2, open = true },
           Code = { cell = 2 },
