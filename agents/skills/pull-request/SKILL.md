@@ -109,7 +109,7 @@ Fixes #...
 
 Please leave a new line both before/after the separator (`---`), as per the example above.
 
-You don't need the `---` unless the PR description contains headings.
+DO NOT add the `---` unless the PR description contains headings.
 
 ## After completing the task
 
@@ -122,8 +122,10 @@ Use the `ask_user_input_v0` tool with the following:
 Handle selections as follows:
 
 - **"Open Pull Request"** → use `bash_tool` to run the GH CLI command:
-  `gh pr create --title "..." --body "..."` — populate title and body from the
-  generated output. If the user is not on a git branch, warn them first.
+  `gh pr create --title "..." --body "..."` — populate the title and body
+  from the generated output (some repositories I contribute to have a version
+  prefix in PR titles, eg. `[6.x] `. fetch the latest PR before opening a PR
+  to check). If the user is not on a git branch, warn them first.
 
 - **"Copy to Clipboard"** → use `bash_tool` to pipe the output through:
   `echo "..." | pbcopy`. Confirm to the user that it's been copied.
