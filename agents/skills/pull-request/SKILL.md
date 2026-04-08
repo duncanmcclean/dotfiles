@@ -1,6 +1,6 @@
 ---
 name: pull-request
-description: Learn how to write pull request descriptions that sound like Duncan.
+description: Write pull request descriptions that sound like they were written by Duncan.
 ---
 
 Please write a pull request description using the rules below. Do NOT attempt to create the pull request for me via the `gh` CLI.
