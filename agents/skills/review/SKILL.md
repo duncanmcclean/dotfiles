@@ -1,5 +1,5 @@
 ---
-name: pr-review
+name: review
 description: >-
   Review a GitHub pull request with a code review mindset. Use when the user
   provides a PR number to review, asks to review a pull request, or wants
