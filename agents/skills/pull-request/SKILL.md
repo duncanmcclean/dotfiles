@@ -116,7 +116,7 @@ DO NOT add the `---` unless the PR description contains headings.
 Use the `ask_user_input_v0` tool with the following:
 
 - Question: "What would you like to do?"
-- Type: `multi_select`
+- Type: `single_select`
 - Options: ["Open Pull Request", "Copy to Clipboard", "Ask for Changes"]
 
 Handle selections as follows:
