@@ -12,7 +12,7 @@ Even so often, I need to make a bulk change across all of the repositories. This
 There are three groups of projects I might want you to update:
 
 - First-party addons
-  All located in `~/Code/Statamic`. `audit-log`, `collaboration`, `eloquent-driver`, `importer`, `migrator`, `podcast-categories`, `seo-pro`, `ssg` and `wikilinks`
+  All located in `~/Code/Statamic`. `collaboration`, `eloquent-driver`, `importer`, `migrator`, `podcast-categories`, `seo-pro`, `ssg` and `wikilinks`
 - First-party starter kits
   All located in `~/Code/Statamic`. Repositories that start with `starter-kit-`
 - My own addons
