@@ -18,8 +18,6 @@
     ~/.config/ghostty: ghostty
     ~/.agents: agents
     ~/.claude/CLAUDE.md: agents/AGENTS.md
-    ~/.claude/settings.json: claude/settings.json
-    ~/.claude/statusline.sh: claude/statusline.sh
     ~/.claude/skills: agents/skills
     ~/.codex/AGENTS.md: agents/AGENTS.md
     ~/.config/opencode/opencode.json: opencode/config.json
