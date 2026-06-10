@@ -20,7 +20,6 @@
     ~/.claude/CLAUDE.md: agents/AGENTS.md
     ~/.claude/skills: agents/skills
     ~/.codex/AGENTS.md: agents/AGENTS.md
-    ~/.config/opencode/opencode.json: opencode/config.json
     ~/.config/starship.toml: starship/starship.toml
     ~/.tmux.conf: tmux/tmux.conf
     ~/.hammerspoon: hammerspoon

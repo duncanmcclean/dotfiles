@@ -42,10 +42,6 @@ return {
       id = 'md.obsidian',
       summon = 'n', -- notes
     },
-    OpenCode = {
-      id = 'ai.opencode.desktop',
-      summon = 'a', -- ai
-    },
     Linear = {
       id = 'com.linear.app',
       summon = 'l',
