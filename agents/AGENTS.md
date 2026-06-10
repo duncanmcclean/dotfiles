@@ -6,6 +6,7 @@
 - Never perform destructive git operations (ie. commit, push, pull, etc.)
     - Rarely I may ask you to commit changes yourself, but only do this when EXPLICITLY asked.
     - Always let me review your changes as unstaged changes and let me manage my own git worktree / staging area
+    - NEVER force push
 - When I follow-up with you requesting changes, please re-read the affected files as I may have changed things since you last looked.
 
 ## Code Style Rules
