@@ -66,4 +66,7 @@ return {
       id = 'com.tinkerwellapp.Tinkerwell',
       summon = 'w',
     },
+    Solo = {
+        id = 'com.soloterm.solo',
+    }
   }

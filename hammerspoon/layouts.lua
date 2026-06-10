@@ -15,6 +15,7 @@ return {
           Ray = { cell = 1 },
           Ghostty = { cell = 1 },
           Obsidian = { cell = 1 },
+          Solo = { cell = 1 },
         },
     },
     {
@@ -28,12 +29,13 @@ return {
             Chrome = { cell = 1 },
             TablePlus = { cell = 1 },
             Obsidian = { cell = 1 },
+            Ray = { cell = 1 },
             Code = { cell = 2 },
             PhpStorm = { cell = 2, open = true },
             Ghostty = { cell = 2 },
-            Ray = { cell = 1 },
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
+            Solo = { cell = 2 },
         },
     },
     {
@@ -53,6 +55,7 @@ return {
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
             PhpStorm = { cell = 2, open = true },
+            Solo = { cell = 2 },
         },
     },
     {
@@ -71,6 +74,7 @@ return {
           Tower = { cell = 2 },
           Tinkerwell = { cell = 2 },
           Obsidian = { cell = 2 },
+          Solo = { cell = 2 },
         },
     },
     {
@@ -84,6 +88,7 @@ return {
             Slack = { cell = 1 },
             Ray = { cell = 1 },
             Ghostty = { cell = 1 },
+            Solo = { cell = 1 },
             Safari = { cell = 2, open = true },
             Chrome = { cell = 2 },
             TablePlus = { cell = 2 },
@@ -110,6 +115,25 @@ return {
           Ray = { cell = 1 },
           Ghostty = { cell = 1 },
           Obsidian = { cell = 1 },
+          Solo = { cell = 1 },
+        },
+    },
+    {
+        name = 'Forms 2.0',
+        cells = {
+            { '0,0 23x20', '20,0 40x20' },
+            { '23,0 50x20', '20,0 40x20' },
+        },
+        apps = {
+            Safari = { cell = 1 },
+            Chrome = { cell = 1, open = true },
+            Obsidian = { cell = 1 },
+            PhpStorm = { cell = 2, open = true },
+            Ghostty = { cell = 2 },
+            Ray = { cell = 2 },
+            Tower = { cell = 2 },
+            Tinkerwell = { cell = 2 },
+            Solo = { cell = 2 },
         },
     },
 }
