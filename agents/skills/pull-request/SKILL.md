@@ -5,6 +5,9 @@ description: Write pull request descriptions that sound like they were written b
 
 Please write a pull request description using the rules below. Do NOT attempt to create the pull request for me via the `gh` CLI.
 
+# Before opening a PR
+Before drafting a pull request description, please ensure that a non-default branch is being used and that all relevant changes have been committed and pushed up to the remote.
+
 # Duncan's Guide to Authoring Pull Requests
 Most pull requests will follow this format:
 
@@ -110,6 +113,10 @@ Fixes #...
 Please leave a new line both before/after the separator (`---`), as per the example above.
 
 DO NOT add the `---` unless the PR description contains headings.
+
+## Claude Code credit
+
+Do NOT include a credit string (`Generated with Claude Code`) anywhere in the PR description.
 
 ## After completing the task
 

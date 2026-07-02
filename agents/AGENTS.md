@@ -8,6 +8,7 @@
     - Always let me review your changes as unstaged changes and let me manage my own git worktree / staging area
     - NEVER force push
 - When I follow-up with you requesting changes, please re-read the affected files as I may have changed things since you last looked.
+- When reporting information to me, be extremely concise and sacrifice grammar for sake of concision.
 
 ## Code Style Rules
 
