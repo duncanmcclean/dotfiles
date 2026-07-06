@@ -3,7 +3,7 @@
 	email = duncan@duncanmcclean.com
 
 [core]
-	excludesfile = /Users/duncan/.gitignore
+	excludesfile = /Users/duncan/.gitignore_global
 
 [init]
 	defaultBranch = main
@@ -31,3 +31,6 @@
 
 [include]
 	path = ~/.ssh/.gitconfig-signingkey
+
+[includeIf "gitdir:~/Code/Statamic/"]
+	path = ~/.gitconfig-statamic

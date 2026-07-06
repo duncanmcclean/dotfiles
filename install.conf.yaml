@@ -12,7 +12,9 @@
 - link:
     # ln -s ~/.dotfiles/... ~/...
     ~/.gitconfig: git/gitconfig
-    ~/.gitignore: git/gitignore
+    ~/.gitignore_global: git/gitignore
+    ~/.gitconfig-statamic: git/gitconfig-statamic
+    ~/.gitignore_statamic: git/gitignore-statamic
     ~/.composer/composer.json: composer/composer.json
     ~/.composer/config.json: composer/config.json
     ~/.config/ghostty: ghostty
