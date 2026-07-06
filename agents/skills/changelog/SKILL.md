@@ -77,7 +77,7 @@ You do not need to list *everything*. Only the noteworthy bits. The user will be
 
 ## After completing the task
 
-Present the summary of changes to the user, then use the `ask_user_input_v0` tool:
+Present the summary of changes to the user, then use the `ask_user_input_v0` tool (if available):
 
 - Question: "What would you like to do?"
 - Type: `single_select`

@@ -114,17 +114,17 @@ Please leave a new line both before/after the separator (`---`), as per the exam
 
 DO NOT add the `---` unless the PR description contains headings.
 
-## Claude Code credit
+## AI credit
 
-Do NOT include a credit string (`Generated with Claude Code`) anywhere in the PR description.
+Do NOT include a credit string (`Generated with Claude Code` or similar) anywhere in the PR description.
 
 ## After completing the task
 
-Use the `ask_user_input_v0` tool with the following:
+Use the `ask_user_input_v0` tool (if available) with the following:
 
 - Question: "What would you like to do?"
 - Type: `single_select`
-- Options: ["Open Pull Request", "Copy to Clipboard", "Ask for Changes"]
+- Options: ["Open Pull Request", "Copy to Clipboard"]
 
 Handle selections as follows:
 
@@ -136,6 +136,3 @@ Handle selections as follows:
 
 - **"Copy to Clipboard"** → use `bash_tool` to pipe the output through:
   `echo "..." | pbcopy`. Confirm to the user that it's been copied.
-
-- **"Ask for Changes"** → prompt the user: "What would you like to change?"
-  then re-run the skill with their feedback applied, and present the options again.

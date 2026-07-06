@@ -30,7 +30,7 @@ Given information about the task, you should `cd` into the first project, checko
 
 Once complete, create a new branch, commit the changes (either as individual commits or as a single `wip` commit), push the changes to GitHub. From there, I will open a pull request and review the changes manually.
 
-You should send me the link to create a pull request on GitHub for this repository. You should then present me with a few options using the `ask_user_input_v0` tool:
+You should send me the link to create a pull request on GitHub for this repository. You should then present me with a few options using the `ask_user_input_v0` tool (if available):
 
 - Question: "What would you like to do next?"
 - Type: `single_select`
