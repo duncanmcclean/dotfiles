@@ -23,7 +23,6 @@
     ~/.claude/skills: agents/skills
     ~/.codex/AGENTS.md: agents/AGENTS.md
     ~/.config/starship.toml: starship/starship.toml
-    ~/.tmux.conf: tmux/tmux.conf
     ~/.hammerspoon: hammerspoon
     ~/.vimrc: vim/.vimrc
     ~/.zshrc: zsh/.zshrc
