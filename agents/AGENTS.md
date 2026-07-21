@@ -3,12 +3,17 @@
 - Always check for existing code patterns before implementing new features.
 - Always follow the established coding style and conventions in each directory.
 - Never modify files outside of the current working project directory.
-- Never perform destructive git operations (ie. commit, push, pull, etc.)
-  - Rarely I may ask you to commit changes yourself, but only do this when EXPLICITLY asked.
-  - Always let me review your changes as unstaged changes and let me manage my own git worktree / staging area
-  - NEVER force push
 - When I follow-up with you requesting changes, please re-read the affected files as I may have changed things since you last looked.
 - When reporting information to me, be extremely concise and sacrifice grammar for sake of concision.
+
+
+## Git
+
+- Never perform destructive Git operations without me **explicitly** asking.
+- When I ask you to commit changes for me, please follow these rules:
+  - Write commit messages in lowercase.
+  - Use backticks (```) when mentioning class names, methods or config options.
+- Never, under any circumstances, force push.
 
 
 ## Code Style Rules
@@ -20,6 +25,11 @@
 - Avoid nested ternary operators - prefer match expressions, switch statements, or if/else chains for multiple conditions.
 - Choose clarity over brevity - explicit code is often better than overly compact code.
 - Please respect the existing tab/spaces preferences.
+- I prefer `private` functions over `protected` functions.
+- When adding `private` or `protected` methods, aim to add them directly under the method that uses it, accounting for other methods that method may call first.
+- When writing tests, aim to write tests in the order the code happens in. Happy case first, edge cases after.
+- When multiple tests do the same thing but the code is slightly different. Consider using a PHPUnit data provider to swap out values.
+- Don't introduce an abstraction, like a helper method, if it's short and can inlined in the call site.
 - When multiple variables are next to each other, try to organise them based on line length. Obviously, ensure you don't break any "dependencies".
     Bad:
     ```php
@@ -49,6 +59,7 @@
 - Please remember to add any new environment variables to `.env.example`
 - When writing queries, always use `Model::query()`, rather than going straight into `Model::where()`
   - The only exception to this is using `Model::find()`
+- Always add environment variables to the _bottom_ of the `.env.example`
 
 
 ### Controllers
@@ -82,7 +93,7 @@ When something doesn't fit into one of these cases, please create an invokable c
   - Refs
   - Computed
   - Methods
-  - Exposed variables
+  - Exposed variables (unless its a Statamic fieldtype)
   - Watchers
   - `onMounted()` / `onBeforeUnmount()`
 
