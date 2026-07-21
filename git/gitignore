@@ -10,3 +10,5 @@ Thumbs.db
 *.sqlite
 .idea
 .obsidian
+
+**/.claude/settings.local.json
