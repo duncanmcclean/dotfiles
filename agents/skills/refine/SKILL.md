@@ -5,7 +5,7 @@ description: My process of "refining" code — making code readable, tested and 
 
 This skill should be used after writing a medium/large PRs. The ultimate goal of this skill is to produce code that _looks_ like it was written by me, rather than a random developer.
 
-Please review the guidelines detailed below and apply them to changes in the working copy (only those related to the current change).
+Please review the guidelines detailed below and apply them to the relevant files.
 
 ## YAGNI
 
@@ -74,14 +74,6 @@ Report back with:
 - Files changed
 - What was cleaned up/consolidated/removed
 - Any concerns or items that need user input
-
-
-
-
-## Code Style
-
-- Shape of code
-- vue component ordering
 
 
 ## Important

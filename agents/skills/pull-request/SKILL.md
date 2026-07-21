@@ -120,7 +120,9 @@ Do NOT include a credit string (`Generated with Claude Code` or similar) anywher
 
 ## After completing the task
 
-Use the `ask_user_input_v0` tool (if available) with the following:
+**Important:** Please output the description you've drafted so I can review it before decide on next steps.
+
+Once you've output the description, use the `ask_user_input_v0` tool (if available) with the following:
 
 - Question: "What would you like to do?"
 - Type: `single_select`
