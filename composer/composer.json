@@ -2,7 +2,8 @@
     "require": {
         "statamic/cli": "dev-master",
         "laravel/pint": "^1.10",
-        "illuminate/collections": "^11.21"
+        "illuminate/collections": "^11.21",
+        "cpx/cpx": "^2.0"
     },
     "repositories": [
         {
