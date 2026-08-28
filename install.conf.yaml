@@ -54,5 +54,7 @@
   - description: Apply macOS Preferences
     command: "./.macos"
     quiet: false
+  - description: Add to Laravel Herd's paths
+    command: "herd park ~/Code/Freelance && herd park ~/Code/OpenSource && herd park ~/Code/Personal && herd park ~/Code/SideProjects && herd park ~/Code/Statamic && herd park ~/Code/Throwaway  herd link ~/.dotfiles/http duncan"
   - description: Link http directory
     command: "cd ~/.dotfiles/http && herd link duncan"
