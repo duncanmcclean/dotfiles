@@ -10,5 +10,6 @@ Thumbs.db
 *.sqlite
 .idea
 .obsidian
+worktrees/
 
 **/.claude/settings.local.json
