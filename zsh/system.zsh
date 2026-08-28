@@ -7,6 +7,7 @@ alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias pstorm='open -a ~/Applications/PhpStorm.app "`pwd`"'
 alias claudee="claude --dangerously-skip-permissions"
 alias codexx="codex --ask-for-approval never"
+alias zilla="SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock open -a FileZilla"
 
 
 # ------------------------------------------------------------------------------
