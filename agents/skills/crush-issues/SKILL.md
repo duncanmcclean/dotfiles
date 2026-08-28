@@ -13,10 +13,13 @@ Every agent should follow the `worktree` skill: create a worktree with `tether w
 
 When you identify an issue as "user error", please describe the reported issue to me, explain why its user error and draft a comment for me to post to GitHub (Do NOT post it yourself).
 
-When you're done, please respond to me with (in this order):
+When each agent is done, it should respond with a summary containing (in this order):
 
 - Link to the GitHub issue
+- Link to open the worktree in Tower.app
+  - Provide the worktree's absolute path as the `path` query parameter here: `open "http://duncan.test/tower.php?path=[...]"`
+  - Please don't open the link yourself. I'll do it when I get around to reviewing your changes.
 - Summary of the issue and what you've changed
 - Reproduction steps
-  - When possible, please perform any set up steps in the sandbox site beforehand to streamline my review.
+  - When possible, please perform any set up steps in the sandbox site beforehand to streamline my review
 - Link to the sandbox site

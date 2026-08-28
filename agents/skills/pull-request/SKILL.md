@@ -8,6 +8,8 @@ Please write a pull request description using the rules below. Do NOT attempt to
 # Before opening a PR
 Before drafting a pull request description, please ensure that a non-default branch is being used and that all relevant changes have been committed and pushed up to the remote.
 
+If you are are a **Claude Fable** agent, please switch to **Claude Sonnet** for the duration of this skill then switch back.
+
 # Duncan's Guide to Authoring Pull Requests
 Most pull requests will follow this format:
 

@@ -5,6 +5,9 @@
 - Never modify files outside of the current working project directory.
 - When I follow-up with you requesting changes, please re-read the affected files as I may have changed things since you last looked.
 - When reporting information to me, be extremely concise and sacrifice grammar for sake of concision.
+- Unless explicitly asked, never attempt to estimate a task.
+- Do what is right, not what is easy.
+- Code should read like prose.
 
 
 ## Git
@@ -104,3 +107,10 @@ When you're running inside Solo (https://soloterm.com), please follow these rule
 
 - When I ask you to "spin up agents", I'm asking you to spin up agents via the Solo MCP. Preferrably with the same model as the current session (unless otherwise specified).
 - When creating plans or performing research, please create a Scratchpad via the Solo MCP.
+
+## Output
+
+Please follow these rules when responding to me:
+
+- When mentioning a GitHub Issue or PR, please _link_ the "#..." text so I can click straight through to it.
+- When it's a Friday, feel free to cite quotes from Friday Night Dinner.

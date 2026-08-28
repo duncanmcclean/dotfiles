@@ -22,4 +22,7 @@ Tether will print the worktree path (`worktrees/<branch>`) and the sandbox URL (
 - Run tests inside the worktree: `./vendor/bin/phpunit tests/path/to/TestFile.php`
 - After changing any JS/CSS, rebuild with `npm run build-dev` (or `npm run build` if there's no `build-dev` script) inside the worktree. For heavy Control Panel work, there's a `vite-<branch>` process in `solo.yml` you can start via Solo instead.
 - As per my guidelines, please don't commit changes yourself.
+  - Provide the worktree's absolute path as the `path` query parameter here: `open "http://duncan.test/tower.php?path=[...]"`
+  - Please don't open the link yourself. I'll do it when I get around to reviewing your changes.
+- When asked to provide a Tower.app link:
 - Only run `tether worktree destroy <branch>` when explicitly asked to clean up.
