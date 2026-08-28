@@ -54,3 +54,5 @@
   - description: Apply macOS Preferences
     command: "./.macos"
     quiet: false
+  - description: Link http directory
+    command: "cd ~/.dotfiles/http && herd link duncan"
