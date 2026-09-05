@@ -130,7 +130,7 @@ Do not skip this because the description "will be visible in the question". It w
 
 ### Step 2: ask what to do with it
 
-Only once the description has been sent, ask me "What would you like to do?" using the `AskUserQuestion` tool (or `ask_user_input_v0` if that's what's available), with these single-select options:
+Only once the description has been sent, ask me "What would you like to do?" using whichever ask-the-user tool you have (`AskUserQuestion` in Claude Code, `request_user_input` in Codex, `ask_user_input_v0` in Solo). If you have none, ask in plain text and wait for my answer. Offer these single-select options:
 
 - "Open Pull Request"
 - "Copy to Clipboard"
