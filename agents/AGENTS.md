@@ -99,6 +99,16 @@ When something doesn't fit into one of these cases, please create an invokable c
   - Exposed variables (unless its a Statamic fieldtype)
   - Watchers
   - `onMounted()` / `onBeforeUnmount()`
+- When passing props to a Vue component, if the name of the prop and the variable being passed in are the same (or are the same after casing is taken into account), you can just do `:prop`:
+    ```vue
+    <!-- This: -->
+    :connections="connections"
+    :is-stack-open="isStackOpen"
+
+    <!-- Is the same as... -->
+    :connections
+    :is-stack-open
+    ```
 
 
 ## Solo
