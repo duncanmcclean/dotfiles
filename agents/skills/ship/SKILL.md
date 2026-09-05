@@ -1,9 +1,9 @@
 ---
-name: one-shot
-description: Commit, push and pull request a small fix in one go.
+name: ship
+description: Commit, push and open a pull request for a small fix in one go, without stopping to ask in between.
 ---
 
-Please follow these steps when pushing a small fix or feature to GitHub.
+Please follow these steps when shipping a small fix or feature to GitHub.
 
 ## 1. Create a branch
 
@@ -30,4 +30,8 @@ You know how to do it. `git push`
 
 ## 4. Open a pull request
 
-Please open a pull request using the `/pull-request` skill.
+Write the description following the `pull-request` skill's guide, then open the PR straight away with `gh pr create` — the whole point of this skill is to do it in one go, so skip that skill's "what would you like to do?" step.
+
+Some repositories prefix PR titles with the version branch, eg. `[6.x] `. Check the most recent PRs with `gh pr list --limit 5 --json title` and match them.
+
+Finish by giving me the link to the pull request.

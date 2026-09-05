@@ -10,4 +10,4 @@ Please fetch the latest GitHub issues for this repository, rejecting those that:
 - Are assigned to someone
 - Are labelled with `can't recreate` or `needs more info`
 
-From there, send the latest three (unless I've given you another number) issues to the `crush-issues` skill. It will handle the fixing process from there.
+From there, send the latest three (unless I've given you another number) issues to the `crush-issue` skill. It will spin up an agent per issue and handle the fixing process from there.

@@ -8,8 +8,6 @@ Please write a pull request description using the rules below. Do NOT attempt to
 # Before opening a PR
 Before drafting a pull request description, please ensure that a non-default branch is being used and that all relevant changes have been committed and pushed up to the remote.
 
-If you are are a **Claude Fable** agent, please switch to **Claude Sonnet** for the duration of this skill then switch back.
-
 # Duncan's Guide to Authoring Pull Requests
 Most pull requests will follow this format:
 
@@ -122,21 +120,23 @@ Do NOT include a credit string (`Generated with Claude Code` or similar) anywher
 
 ## After completing the task
 
-**Important:** Please output the description you've drafted so I can review it before decide on next steps.
+This happens in two separate steps. The description must be sitting in the conversation, where I can read it, **before** you ask me anything.
 
-Once you've output the description, use the `ask_user_input_v0` tool (if available) with the following:
+### Step 1: show me the description
 
-- Question: "What would you like to do?"
-- Type: `single_select`
-- Options: ["Open Pull Request", "Copy to Clipboard"]
+Reply with the full description in a fenced code block and nothing else — no question, no tool call. End your turn there.
 
-Handle selections as follows:
+Do not skip this because the description "will be visible in the question". It won't be. I review the description here, not in a prompt.
 
-- **"Open Pull Request"** → use `bash_tool` to run the GH CLI command:
-  `gh pr create --title "..." --body "..."` — populate the title and body
-  from the generated output (some repositories I contribute to have a version
-  prefix in PR titles, eg. `[6.x] `. fetch the latest PR before opening a PR
-  to check). If the user is not on a git branch, warn them first.
+### Step 2: ask what to do with it
 
-- **"Copy to Clipboard"** → use `bash_tool` to pipe the output through:
-  `echo "..." | pbcopy`. Confirm to the user that it's been copied.
+Only once the description has been sent, ask me "What would you like to do?" using the `AskUserQuestion` tool (or `ask_user_input_v0` if that's what's available), with these single-select options:
+
+- "Open Pull Request"
+- "Copy to Clipboard"
+
+Handle my selection as follows:
+
+- **"Open Pull Request"** → run `gh pr create --title "..." --body "..."`, populating the title and body from the description above. Some repositories I contribute to prefix PR titles with the version branch, eg. `[6.x] `. Check the most recent PRs with `gh pr list --limit 5 --json title` and match them. If the current branch is the default branch, warn me first.
+
+- **"Copy to Clipboard"** → copy the description using the `clipboard` skill.

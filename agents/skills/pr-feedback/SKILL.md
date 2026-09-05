@@ -14,9 +14,7 @@ When the PR is substantial, please run `/refine` on the entire branch after addr
 When the agent is done, it should respond with a summary containing (in this order):
 
 - Link to GitHub PR
-- Link to open the worktree in Tower.app
-  - Provide the worktree's absolute path as the `path` query parameter here: `open "http://duncan.test/tower.php?path=[...]"`
-  - Please don't open the link yourself. I'll do it when I get around to reviewing your changes.
+- Link to open the worktree in Tower.app (follow the `tower` skill — don't open it yourself)
 - Summary of the feedback and what you've changed
 - Reproduction steps
   - When possible, please perform any set up steps in the sandbox site beforehand to streamline my review
