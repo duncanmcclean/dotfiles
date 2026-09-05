@@ -9,7 +9,9 @@ description: >-
 
 # Review Pull Request
 
-Review a single GitHub pull request by number. Prioritize bugs, behavioral regressions, security issues, and missing tests. Findings are the primary focus, ordered by severity.
+Review a single GitHub pull request by number. Prioritize bugs, behavioral regressions, security issues, and missing tests.
+
+Output is split in two: **Findings** — things that should change before this merges — and **Observations** — things worth knowing that don't block anything. Only Findings affect the verdict. On a good PR, Findings is empty. That is the expected outcome of a review, not a failed one.
 
 ## Arguments
 
@@ -80,9 +82,9 @@ The user may provide a PR number (e.g. `14263`). Parse from the user's message o
 
 6. **Read changed files** in the current codebase to understand the context around each change. This is critical for catching behavioral regressions. Skip vendored, generated, and lock files.
 
-7. **Analyze the changes** with this priority:
+7. **Analyze the changes.** The list below is what to look at, not a list of things to produce. Most of these will turn up nothing on most PRs; a category that turns up nothing produces nothing. Never manufacture an item to fill a heading.
    - **Purpose** — If there's a linked issue, does this PR actually resolve it?
-   - **CI & mergeability** — Are required checks green *and actually run* (a branch merely being behind is fine, but not so far behind that required checks never ran), and does it merge without conflicts? Failures here (step 4) are blockers to report; a clean result is not reported (see step 8).
+   - **CI & mergeability** — Are required checks green *and actually run* (a branch merely being behind is fine, but not so far behind that required checks never ran), and does it merge without conflicts? Failures here (step 4) are blockers to report; a clean result is not reported (see step 9).
    - **Bugs** — Logic errors, null/undefined refs, off-by-one, race conditions, type mismatches
    - **Behavioral regressions** — Does this break existing functionality, contracts?
    - **Breaking changes** – Do APIs change? Are they backwards-compatible? Things like method signature changes are breaking. Unacceptable in a minor release.
@@ -92,13 +94,44 @@ The user may provide a PR number (e.g. `14263`). Parse from the user's message o
    - **Consistency** – Does this follow the same style/pattern as existing code/features?
    - **Other concerns** — Performance, maintainability, missing localization
 
-8. **Present findings** ordered by severity. For each finding:
-   - State severity: **Critical** (must fix), **Warning** (should fix), or **Note** (consider)
-   - Reference specific files and lines
-   - Explain the issue and suggest a fix when possible
+8. **Classify everything you found** as either a Finding or an Observation. The test is not how interesting the issue is or how confident you are — it is what happens if the PR merges exactly as it stands.
 
-   If there are no findings, say so — don't invent issues. Only add a CI/mergeability finding when there's an actual problem (failing/pending/never-ran checks, conflicts, blocked state). Step 4 is a check you perform, not content to output: when CI and mergeability are clean, do not report on it at all — no "CI & Mergeability" header, no summary of which commands you ran or that N checks passed, no bullet list of what was verified. Passing CI is a silent precondition for a "Mergeable" verdict, not a finding worth narrating.
+   **Findings — merging as-is hurts.** Something is broken, unsafe, or regressive, or the fix is meaningfully more expensive after merge than before it.
+   - **Critical** — must fix. Bugs, security holes, breaking changes, data loss, red/missing CI, merge conflicts.
+   - **Warning** — should fix. Real problems that will bite, but aren't fatal.
+   - **Nit** — small, but worth doing *now*, because now is genuinely cheaper than later. The bar is a one-way door: public API surface that a release locks in, a pattern that gets copied once it's merged, migrations and data shape, behavior that a merged test cements. **If the identical change would be exactly as easy to make next week, it is not a Nit** — it's an Observation. Nits should be rare. Naming, tidier loops, extra guard clauses, and reorganized code are almost never Nits.
 
-   Your bottom-line verdict must account for CI and merge state (step 4): a PR is **not** "Mergeable" if any required check is failing, unverified, or never ran (branch too stale to trigger it), or if it has merge conflicts — even if the diff is otherwise clean. A branch merely being a bit behind (required checks still green) is fine.
+   **Observations — merging as-is is fine.** No ask attached. You're telling the human something, not requesting a change.
+   - Pre-existing issues in code the PR touched but didn't cause.
+   - "Not a problem, but I'd have written this differently."
+   - Anything you'd like changed but can't honestly say is worse to defer.
 
-9. **Do not make code changes** unless the user explicitly asks.
+   Attribution edge cases:
+   - **PR touches a line carrying a pre-existing bug** → Observation. Unless the PR makes it reachable, makes it worse, or this is plainly the moment to fix it — then Finding.
+   - **PR's new code extends an existing bad pattern** → Finding. New code is never pre-existing.
+   - **Pre-existing issues away from the diff** → don't report them at all. Only surface pre-existing code you had to read in order to review this PR, or that sits directly adjacent to the change. A PR review is not a codebase audit.
+   - **A serious pre-existing problem (e.g. a security hole) in ground the PR touches** → report it as an Observation, plainly and without softening. The human decides whether it warrants its own issue. Don't promote it to a Finding because it's serious, and don't bury it because it isn't one.
+
+9. **Present the review.**
+
+   **Lead with the verdict.** It is binary — there is no middle:
+   - **Mergeable** — no Findings, CI green and actually run, no conflicts.
+   - **Needs changes** — one or more Findings at any severity (a Nit counts), or a CI/merge-state blocker from step 4.
+
+   Never write "mergeable with nits" or any hedged variant. A Nit means you want a change before merge, so that's **Needs changes**. Observations never qualify the verdict — a PR with ten Observations and zero Findings is plainly **Mergeable**, and must be stated that way.
+
+   **Then Findings**, ordered by severity. File and line, what's wrong, suggested fix where you have one.
+
+   **Then Observations**, one line each. No severity labels, no code blocks, no suggested-fix blocks. If an item needs more than a line to explain, it's probably a Finding; if it isn't, cut it.
+
+   Omit either section entirely when it's empty. If both are empty, say so — don't invent issues to fill space.
+
+   Only report CI/mergeability when there's an actual problem (failing/pending/never-ran checks, conflicts, blocked state). Step 4 is a check you perform, not content to output: when CI and mergeability are clean, do not report on it at all — no "CI & Mergeability" header, no summary of which commands you ran or that N checks passed, no bullet list of what was verified. Passing CI is a silent precondition for **Mergeable**, not a finding worth narrating.
+
+10. **Do not make code changes** unless the user explicitly asks.
+
+11. **Never post anything to GitHub unless the request that started *this* review asked for it.** Default output is your findings in the session, nothing else — no `gh pr comment`, no `gh pr review`, no inline comments, no approving/requesting changes, no issue comments.
+
+    Permission to post does **not** carry over. If the user asked you to post earlier in the session, that applied to that review only. A follow-up like "commits have been pushed, please re-review", "take another look", or "review again" is a request for a *fresh* review with **no** posting — treat it exactly as if it were the first thing said in the session. Same for an orchestrator or any automated caller re-triggering a review: a re-run is not an instruction to post.
+
+    Only post when the current message says so (e.g. "review and post the comments", "leave this as a PR review"). If you're unsure whether the user wants it posted, present the findings and ask — don't post.
