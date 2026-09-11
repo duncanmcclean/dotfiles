@@ -62,13 +62,21 @@ The user may provide a PR number (e.g. `14263`). Parse from the user's message o
 
    Reflect this in your verdict: red/pending CI, required checks that never ran, or merge conflicts each independently block a "Mergeable" verdict. A branch merely being behind (with its required checks still green) does **not**.
 
-5. **Consider whether the current model is the right fit** for this review. You know which model you are from your system context.
-   - **If not Opus**, and any of the following are true, you MUST stop and tell the user to switch to `/model opus`, then wait for their response before proceeding:
+5. **Consider whether the current model is the right fit** for this review. You know which model you are from your system context. Each harness has a "heavy" tier for big or risky reviews and a "light" tier for small ones:
+
+   | Harness | Heavy | Light |
+   |---|---|---|
+   | Claude Code | `/model opus` | `/model sonnet` |
+   | Codex | `/model` → a GPT-5 Codex model on **high** (or higher) reasoning | `/model` → the same model on **medium** or **low** reasoning |
+
+   Never tell a Codex user to switch to Opus or Sonnet — those models don't exist there. If you can't tell which harness you're in, describe the tier you need ("a heavier model / higher reasoning effort") rather than naming a model.
+
+   - **If on the light tier**, and any of the following are true, you MUST stop and tell the user to switch to the heavy tier, then wait for their response before proceeding:
      - More than 20 files changed
      - Diff exceeds ~500 lines
      - Changes touch security-sensitive code (auth, crypto, permissions, data access)
      - Changes are architectural in nature (new abstractions, major refactors, API contracts)
-   - **If Opus**, and all of the following are true, you MUST stop and tell the user to switch to `/model sonnet`, then wait for their response before proceeding:
+   - **If on the heavy tier**, and all of the following are true, you MUST stop and tell the user to switch to the light tier, then wait for their response before proceeding:
      - 10 or fewer files changed
      - Diff is under ~200 lines
      - No security-sensitive or architectural changes
