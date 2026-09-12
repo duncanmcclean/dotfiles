@@ -1,16 +1,13 @@
 ---
 name: addon-release
-description: Prepare a release for a Statamic addon, or clean up after one. Preparing creates a `release` branch, generates the changelog entry and opens the release PR. Cleaning up checks the release shipped, then deletes the release branch and pulls the tag. Use when the user says "prepare a release", "cut a release", "pr merged", "released" or similar. Only for Statamic addon repositories — never for statamic/cms.
+description: Tag a new version of an existing Statamic addon. Creates a `release` branch, generates the changelog entry, opens the release PR, waits for the user to merge it, then triggers the "Create Release" workflow, watches it finish and tidies up the branch and tag. Use when the user says "prepare a release", "cut a release", "tag a release" or similar. Also use "pr merged" or "released" to resume from the merge if the session was lost. Only for Statamic addon repositories — never for statamic/cms.
 ---
 
-Please follow the steps below when releasing a Statamic addon. There are two parts, run at different times:
+Please follow the steps below when releasing a Statamic addon. It's one flow: you prepare the release, I merge the PR, you take it from there.
 
-- **Preparing a release** creates the branch, writes the changelog and opens the PR. Use it when I say "prepare a release", "start a release" or "cut a release".
-- **Cleaning up** happens once the PR has been merged and the release workflow has run. Use it when I say "pr merged", "released", "release tagged", "it's out" or similar.
+Merging the PR is mine to do. Never merge it yourself, even if everything went perfectly. Once I've merged it, that's the go signal: trigger the release workflow without checking with me.
 
-Never merge the PR or tag a release yourself, even if everything went perfectly.
-
-# Preparing a release
+If the session was lost partway through and I say "pr merged" or "released", pick up at step 9. Find the PR with `gh pr list --state all --limit 5 --search "head:release"` and work out how far things got before doing anything.
 
 ## 1. Check where we are
 
@@ -25,6 +22,8 @@ git status --porcelain
 - Trust `gh repo view` for the default branch. In some repos `master` is the next major version, not the default.
 - If the current branch isn't the default branch, stop and ask me. Don't check it out yourself.
 - If the working tree is dirty, mention it and ask whether to continue. The release branch would inherit those changes.
+
+Remember the default branch. It's the branch the release workflow runs against later.
 
 ## 2. Sync with the remote
 
@@ -82,48 +81,88 @@ Open the PR directly with the `gh` CLI. Don't use the `pull-request` skill, it's
 gh pr create --title "[6.x] 6.1.0" --body "Changelog for 6.1.0"
 ```
 
-## 8. Report back
+## 8. Hand over and wait for the merge
 
-- Link to the pull request.
+Tell me:
+
+- The link to the pull request.
 - The version number chosen and why (minor if there were new features, otherwise patch).
 - How many entries went under "What's new" and "What's fixed".
 - Anything noteworthy from the changelog skill's own summary, like commits it skipped or titles it reworded.
-- A reminder that the PR is mine to review and merge, and that the release workflow still needs triggering by hand once it's in.
+- That you're watching the PR and will trigger the release as soon as I merge it.
 
-# Cleaning up after a release
-
-When I say "pr merged", "released" or "release tagged", I mean the release PR is in and the **Create Release** workflow has been run manually. Check that's actually true before deleting anything.
-
-## 1. Confirm the PR merged
+Then start a persistent `Monitor` that polls the PR and emits one line when it reaches a terminal state:
 
 ```sh
-gh pr view <number> --json number,title,state,mergedAt,mergeCommit
+while true; do
+  state=$(gh pr view <number> --json state -q .state 2>/dev/null || echo UNKNOWN)
+  case "$state" in
+    MERGED|CLOSED) echo "PR <number> $state"; exit 0 ;;
+  esac
+  sleep 30
+done
 ```
 
-If the number isn't in context, find it with `gh pr list --state merged --limit 5 --search "head:release"`. If the PR is still open, or was closed without merging, stop and say so. There's nothing to clean up.
+Set `persistent: true` so it survives however long I take to review. Don't poll more often than every 30 seconds.
 
-## 2. Confirm the release actually happened
+- `MERGED` means go. Carry on to step 9.
+- `CLOSED` means I've abandoned the release. Stop the monitor if it's still running, tell me, and don't touch the branch.
 
-Merging the PR doesn't release anything. The `.github/workflows/release.yml` workflow is `workflow_dispatch` only, so someone has to trigger it by hand with the version as input. Check the release itself, not just the PR:
+## 9. Trigger the release workflow
+
+Merging the PR doesn't release anything. The `.github/workflows/release.yml` workflow is `workflow_dispatch` only, so trigger it against the default branch with the version as input:
+
+```sh
+gh workflow run release.yml --ref <default-branch> -f version=<version>
+```
+
+The version has no `v` prefix, the workflow adds it. Before triggering, check a run isn't already in flight from a previous attempt:
 
 ```sh
 gh run list --workflow=release.yml --limit 3 --json displayTitle,status,conclusion,createdAt,url
+```
+
+If the newest run is queued or in progress and was created after the merge, don't trigger a second one. Watch that one instead.
+
+## 10. Watch the workflow
+
+The run takes a few seconds to appear after dispatching:
+
+```sh
+sleep 10
+gh run list --workflow=release.yml --limit 1 --json databaseId,status,url -q '.[0]'
+```
+
+Then watch it. Builds can take several minutes, so use a `Monitor` that emits on every terminal state rather than a foreground command that might time out:
+
+```sh
+while true; do
+  read -r run_status conclusion < <(gh run view <run-id> --json status,conclusion -q '"\(.status) \(.conclusion)"' 2>/dev/null || echo "unknown unknown")
+  if [ "$run_status" = "completed" ]; then echo "Run <run-id> $conclusion"; exit 0; fi
+  sleep 30
+done
+```
+
+- If the conclusion is anything other than `success`, stop. Link the run, pull the failed step's log with `gh run view <run-id> --log-failed` and tell me what went wrong. Leave the `release` branch alone, it may be needed to retry.
+- Only continue once the run succeeded.
+
+## 11. Confirm the release exists
+
+```sh
 gh release view v<version> --json tagName,createdAt,isLatest
 ```
 
-- If the run is still in progress, wait or stop. The tag isn't pushed until near the end.
-- If the run failed, or `gh release view` can't find the release, stop and tell me. The release branch may still be needed to retry.
-- Only continue when the run succeeded **and** the release exists.
+If it can't find the release, stop and tell me even though the run says it succeeded.
 
-## 3. Delete the release branch
+## 12. Delete the release branch
 
 ```sh
 git checkout <default-branch> && git branch -D release && git pull
 ```
 
-Use the default branch you found in step 1 of preparing the release. `-D` is needed because the branch was squash-merged, so `-d` won't recognise it as merged.
+`-D` is needed because the branch was squash-merged, so `-d` won't recognise it as merged.
 
-## 4. Pull the tag down
+## 13. Pull the tag down
 
 Tags sit off-branch, so the pull above won't bring it:
 
@@ -134,7 +173,7 @@ git tag --list 'v*' --sort=-v:refname | head -n1
 
 Confirm the newest local tag is the version just released.
 
-## 5. Check the remote branch is gone
+## 14. Check the remote branch is gone
 
 GitHub usually deletes `release` on merge, but a leftover remote branch will block the next release:
 
@@ -144,6 +183,6 @@ git ls-remote --heads origin release
 
 If it's still there, tell me and ask before deleting it.
 
-## 6. Report back
+## 15. Report back
 
-The version released, that the workflow succeeded, that the branch has been deleted, that the tag is now local, and which branch I'm on now.
+The version released, a link to the release and the workflow run, that the branch has been deleted, that the tag is now local, and which branch I'm on now.
