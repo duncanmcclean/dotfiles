@@ -71,22 +71,32 @@ The user may provide a PR number (e.g. `14263`). Parse from the user's message o
 
    Never tell a Codex user to switch to Opus or Sonnet — those models don't exist there. If you can't tell which harness you're in, describe the tier you need ("a heavier model / higher reasoning effort") rather than naming a model.
 
-   - **If on the light tier**, and any of the following are true, you MUST stop and tell the user to switch to the heavy tier, then wait for their response before proceeding:
+   - **If on the light tier**, and any of the following are true, the current model is a mismatch:
      - More than 20 files changed
      - Diff exceeds ~500 lines
      - Changes touch security-sensitive code (auth, crypto, permissions, data access)
      - Changes are architectural in nature (new abstractions, major refactors, API contracts)
-   - **If on the heavy tier**, and all of the following are true, you MUST stop and tell the user to switch to the light tier, then wait for their response before proceeding:
+   - **If on the heavy tier**, and all of the following are true, the current model is a mismatch:
      - 10 or fewer files changed
      - Diff is under ~200 lines
      - No security-sensitive or architectural changes
 
-   Do not rationalize skipping this step or proceeding anyway because the PR seems tractable, time is short, or the cost seems low. If the model is a mismatch, stop. Do not continue the review under the current model. State the model mismatch plainly and wait for the user's response.
+   Do not rationalize skipping this step or proceeding anyway because the PR seems tractable, time is short, or the cost seems low. If the model is a mismatch, do not continue the review under the current model. Hand it off instead:
 
-   **Switching models requires a real human — it cannot be done programmatically mid-session.** Only a human can run `/model` in this session. So when this check triggers:
-   - **Halt and wait for an actual human.** Do not proceed on the current model, and do not treat your own follow-up turn as permission to continue.
-   - **An automated caller must not answer this prompt on the user's behalf.** If you were spawned/driven by an orchestrator or any non-human process (e.g. a Solo agent), that caller replying "yes, switch" does **not** change the model — the session stays on the wrong model and the review silently proceeds mismatched. A text answer is not a model switch.
-   - **If you are that orchestrator** (you spawned this review agent and it has stopped for a model switch): do **not** reply to it. Stop and tell the human that this specific PR review needs their input — they must open that agent's session and run `/model` themselves — then leave it parked until they do.
+   **Running inside Solo** — hand the review to a separate Solo agent on the right model:
+   1. Tell the user, in one line, which model you're handing off to and why.
+   2. `mcp__solo__list_agent_tools` — resolve the runtime for the current harness (`Claude` in Claude Code, `Codex` in Codex).
+   3. `mcp__solo__spawn_agent` with that `agent_tool_id`, named `"review #<number>"`, and `extra_args` selecting the right model:
+      - Claude Code: `["--model", "opus"]` or `["--model", "sonnet"]`
+      - Codex: `["-c", "model_reasoning_effort=high"]` or `["-c", "model_reasoning_effort=medium"]`
+   4. `mcp__solo__send_input` to that agent: `/review <number>`, plus the user's original request verbatim (so any instruction to post carries over), plus: "You were spawned by another session to run this review on the right model. Skip the model check. When you're done, write your full review to a Solo scratchpad named `review-<number>` and stop."
+   5. `mcp__solo__timer_fire_when_idle_any` watching that agent, so you're woken when it goes idle. When woken, check the `review-<number>` scratchpad exists; if it doesn't, the agent is probably waiting on a question — relay it to the user rather than answering it yourself.
+   6. Read the scratchpad, `mcp__solo__close_process` the agent, then delete the scratchpad.
+   7. Present the review to the user exactly as written — don't re-review or edit it. Your job ends there; skip the remaining steps.
+
+   If you were yourself spawned to run a handed-off review, never hand off again — just run the review.
+
+   **Not running inside Solo** (or Solo isn't available) — stop, tell the user to switch model, and wait for their response. Switching models requires a real human: only a human can run `/model` in this session. Don't treat your own follow-up turn, or an automated caller's "yes, switch", as a model switch.
 
 6. **Read changed files** in the current codebase to understand the context around each change. This is critical for catching behavioral regressions. Skip vendored, generated, and lock files.
 
