@@ -62,3 +62,6 @@ agents/skills/ideas
 agents/skills/make-responsive
 agents/skills/markup-from-image
 agents/skills/ui
+
+# Skills synced from claude.ai
+agents/skills/synced/
