@@ -36,7 +36,7 @@ Tags need fetching separately. The release workflow tags a separate "Build asset
 
 If `git pull` isn't a clean fast-forward, stop and tell me. Don't merge or rebase around it.
 
-## 3. Make sure there's no `release` branch already
+## 3. Delete any leftover `release` branch
 
 Check locally and on the remote:
 
@@ -45,7 +45,14 @@ git branch --list release
 git ls-remote --heads origin release
 ```
 
-If either returns anything, stop and ask me what to do. Don't delete, reuse, reset or branch off it. A leftover `release` branch usually means a previous release is still in flight.
+A leftover `release` branch is a stale one from the last release that never got cleaned up. Delete it without asking and carry on. Never reuse, reset or branch off it.
+
+```sh
+git branch -D release
+git push origin --delete release
+```
+
+Only run whichever of those applies. Mention in the final report that a stale branch was deleted.
 
 ## 4. Create the branch
 
@@ -181,7 +188,7 @@ GitHub usually deletes `release` on merge, but a leftover remote branch will blo
 git ls-remote --heads origin release
 ```
 
-If it's still there, tell me and ask before deleting it.
+If it's still there, delete it with `git push origin --delete release` and carry on.
 
 ## 15. Report back
 
