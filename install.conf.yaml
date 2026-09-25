@@ -21,6 +21,8 @@
     ~/.agents: agents
     ~/.claude/CLAUDE.md: agents/AGENTS.md
     ~/.claude/skills: agents/skills
+    ~/.claude-statamic/CLAUDE.md: agents/AGENTS.md
+    ~/.claude-statamic/skills: agents/skills
     ~/.codex/AGENTS.md: agents/AGENTS.md
     ~/.config/starship.toml: starship/starship.toml
     ~/.hammerspoon: hammerspoon
