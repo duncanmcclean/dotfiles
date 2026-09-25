@@ -48,6 +48,9 @@ export HERD_PHP_84_INI_SCAN_DIR="/Users/duncan/Library/Application Support/Herd/
 # Herd injected PHP 8.5 configuration.
 export HERD_PHP_85_INI_SCAN_DIR="/Users/duncan/Library/Application Support/Herd/config/php/85/"
 
+# Herd injected PHP 8.6 configuration.
+export HERD_PHP_86_INI_SCAN_DIR="/Users/duncan/Library/Application Support/Herd/config/php/86"
+
 
 # ------------------------------------------------------------------------------
 # Node Version Manager (NVM)
