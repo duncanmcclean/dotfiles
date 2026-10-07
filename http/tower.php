@@ -7,7 +7,7 @@
  */
 
 const HOME = '/Users/duncan';
-const GITTOWER = '/opt/homebrew/bin/gittower';
+const GITTOWER = '/Applications/Tower.app/Contents/Helpers/gittower';
 
 $path = trim((string) ($_GET['path'] ?? ''));
 
@@ -16,6 +16,6 @@ if (! str_starts_with($path, HOME) || ! is_dir($path)) {
     exit("Not a directory under ".HOME.": {$path}");
 }
 
-exec(sprintf('%s %s > /dev/null 2>&1 &', GITTOWER, escapeshellarg($path)));
+exec(sprintf('%s open %s > /dev/null 2>&1 &', GITTOWER, escapeshellarg($path)));
 
 echo "Opening {$path} in Tower…<script>setTimeout(() => window.close(), 400)</script>";

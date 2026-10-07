@@ -20,7 +20,7 @@ Inside a worktree, that resolves to the worktree itself (eg. `~/Code/Statamic/cm
 When the user asks you to open it:
 
 ```sh
-gittower "/absolute/path/to/repo"
+gittower open "/absolute/path/to/repo"
 ```
 
 ## Providing a link instead
