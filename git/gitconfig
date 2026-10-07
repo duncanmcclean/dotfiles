@@ -34,3 +34,6 @@
 
 [includeIf "gitdir:~/Code/Statamic/"]
 	path = ~/.gitconfig-statamic
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
