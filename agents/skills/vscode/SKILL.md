@@ -15,6 +15,33 @@ git rev-parse --show-toplevel
 
 Inside a worktree, that resolves to the worktree itself (eg. `~/Code/Statamic/cms/worktrees/1234`) rather than the main checkout, which is what we want.
 
+## Worktrees with a sandbox site
+
+When the worktree has its own sandbox site (see the `worktree` skill), open both in the same window as a multi-root workspace.
+
+From the package root (the parent of `worktrees/`), find the worktree's sandbox URL:
+
+```sh
+tether worktree list
+```
+
+Each line is the branch, its status and the sandbox URL. A URL like `http://sandbox-1234.test` maps to `~/Code/Throwaway/sandbox-1234`. If the branch has no URL, or the directory doesn't exist, there's no sandbox. Just open the worktree on its own.
+
+Otherwise, write a workspace file inside the sandbox, so it's removed along with the sandbox when the worktree is destroyed:
+
+```sh
+cat > ~/Code/Throwaway/sandbox-1234/sandbox-1234.code-workspace <<'JSON'
+{
+    "folders": [
+        { "path": "/absolute/path/to/cms/worktrees/1234" },
+        { "path": "/absolute/path/to/Throwaway/sandbox-1234" }
+    ]
+}
+JSON
+```
+
+Use the workspace file in place of the repository path below.
+
 ## Opening it yourself
 
 When the user asks you to open it:
