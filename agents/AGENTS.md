@@ -18,6 +18,7 @@
   - Write commit messages in lowercase.
   - Use backticks (```) when mentioning class names, methods or config options.
 - Never, under any circumstances, force push.
+- Never add yourself (Claude, Codex, etc) as a co-author or co-committer. No `Co-Authored-By` trailers in commits, no "Generated with" footers in PRs.
 
 
 ## Code Style Rules
