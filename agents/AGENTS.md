@@ -8,6 +8,7 @@
 - Unless explicitly asked, never attempt to estimate a task.
 - Do what is right, not what is easy.
 - Code should read like prose.
+- Never run the whole test suite locally. Run the tests relevant to your change and rely on CI for the rest.
 
 
 ## Git
@@ -32,6 +33,8 @@
 - When adding `private` or `protected` methods, aim to add them directly under the method that uses it, accounting for other methods that method may call first.
 - When writing tests, aim to write tests in the order the code happens in. Happy case first, edge cases after.
 - When multiple tests do the same thing but the code is slightly different. Consider using a PHPUnit data provider to swap out values.
+- Don't write low-value tests, like asserting that a string is a string. Every test should prove a behaviour that could realistically break.
+- Variables holding a count should end in `Count` (eg. `$entryCount`, not `$entries`) so they can't be mistaken for a collection.
 - Don't introduce an abstraction, like a helper method, if it's short and can inlined in the call site.
 - When multiple variables are next to each other, try to organise them based on line length. Obviously, ensure you don't break any "dependencies".
     Bad:
