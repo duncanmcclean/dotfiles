@@ -20,8 +20,8 @@ git status --porcelain
 
 - If a remote points to `statamic/cms`, stop. The `statamic-release` skill should be used instead.
 - Trust `gh repo view` for the default branch. In some repos `master` is the next major version, not the default.
-- If the current branch isn't the default branch, stop and ask me. Don't check it out yourself.
-- If the working tree is dirty, mention it and ask whether to continue. The release branch would inherit those changes.
+- If the working tree is dirty, stop and ask me whether to continue. The release branch would inherit those changes, and switching branches would carry them along.
+- If the current branch isn't the default branch, check it out. Releases always start from the default branch.
 
 Remember the default branch. It's the branch the release workflow runs against later.
 
