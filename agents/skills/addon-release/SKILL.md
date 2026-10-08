@@ -98,22 +98,12 @@ Tell me:
 - Anything noteworthy from the changelog skill's own summary, like commits it skipped or titles it reworded.
 - That you're watching the PR and will trigger the release as soon as I merge it.
 
-Then start a persistent `Monitor` that polls the PR and emits one line when it reaches a terminal state:
+Then use a Solo `timer_set` timer to check the PR's state every minute or so, rather than a sleep loop. It's a repeating timer, since it needs to survive however long I take to review. Make the body self-contained, since it arrives as a fresh turn:
 
-```sh
-while true; do
-  state=$(gh pr view <number> --json state -q .state 2>/dev/null || echo UNKNOWN)
-  case "$state" in
-    MERGED|CLOSED) echo "PR <number> $state"; exit 0 ;;
-  esac
-  sleep 30
-done
-```
-
-Set `persistent: true` so it survives however long I take to review. Don't poll more often than every 30 seconds.
+> Check the state of PR #123 in ~/Code/statamic/some-addon with `gh pr view 123 --json state -q .state`. If it's still open, do nothing. Otherwise, cancel this timer and carry on from step 8 of the `addon-release` skill.
 
 - `MERGED` means go. Carry on to step 9.
-- `CLOSED` means I've abandoned the release. Stop the monitor if it's still running, tell me, and don't touch the branch.
+- `CLOSED` means I've abandoned the release. Cancel the timer, tell me, and don't touch the branch.
 
 ## 9. Trigger the release workflow
 
@@ -140,15 +130,9 @@ sleep 10
 gh run list --workflow=release.yml --limit 1 --json databaseId,status,url -q '.[0]'
 ```
 
-Then watch it. Builds can take several minutes, so use a `Monitor` that emits on every terminal state rather than a foreground command that might time out:
+Then watch it. Builds can take several minutes, so set a Solo `timer_set` timer rather than a foreground command that might time out:
 
-```sh
-while true; do
-  read -r run_status conclusion < <(gh run view <run-id> --json status,conclusion -q '"\(.status) \(.conclusion)"' 2>/dev/null || echo "unknown unknown")
-  if [ "$run_status" = "completed" ]; then echo "Run <run-id> $conclusion"; exit 0; fi
-  sleep 30
-done
-```
+> Check release run <run-id> in ~/Code/statamic/some-addon with `gh run view <run-id> --json status,conclusion`. If it hasn't completed, set another 1 minute timer with this same message. Otherwise, carry on from step 10 of the `addon-release` skill.
 
 - If the conclusion is anything other than `success`, stop. Link the run, pull the failed step's log with `gh run view <run-id> --log-failed` and tell me what went wrong. Leave the `release` branch alone, it may be needed to retry.
 - Only continue once the run succeeded.
