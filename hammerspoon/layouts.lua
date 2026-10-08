@@ -129,7 +129,7 @@ return {
             Chrome = { cell = 1 },
             Solo = { cell = 1 },
             Tower = { cell = 1, open = true },
-            PhpStorm = { cell = 2, open = true },
+            PhpStorm = { cell = 2 },
         },
     },
 }
