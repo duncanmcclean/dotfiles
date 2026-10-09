@@ -30,7 +30,7 @@ You know how to do it. `git push`
 
 ## 4. Open a pull request
 
-Write the description following the `pull-request` skill's guide, then open the PR straight away with `gh pr create` — the whole point of this skill is to do it in one go, so skip that skill's "what would you like to do?" step.
+Write the description following the `pull-request` skill's guide, then open the PR straight away with `gh pr create` — the whole point of this skill is to do it in one go, so skip that skill's "what would you like to do?" step. Pass the body with `--body-file -` and a quoted heredoc (`<<'EOF'`), like the `pull-request` skill does, so backticks don't get escaped.
 
 Some repositories prefix PR titles with the version branch, eg. `[6.x] `. Check the most recent PRs with `gh pr list --limit 5 --json title` and match them.
 

@@ -137,6 +137,14 @@ Only once the description has been sent, ask me "What would you like to do?" usi
 
 Handle my selection as follows:
 
-- **"Open Pull Request"** → run `gh pr create --title "..." --body "..."`, populating the title and body from the description above. Some repositories I contribute to prefix PR titles with the version branch, eg. `[6.x] `. Check the most recent PRs with `gh pr list --limit 5 --json title` and match them. If the current branch is the default branch, warn me first.
+- **"Open Pull Request"** → run `gh pr create`, populating the title and body from the description above. Pass the body through a quoted heredoc so backticks reach GitHub untouched — never escape them as `` \` ``:
+
+    ```bash
+    gh pr create --title "..." --body-file - <<'EOF'
+    ...
+    EOF
+    ```
+
+    Some repositories I contribute to prefix PR titles with the version branch, eg. `[6.x] `. Check the most recent PRs with `gh pr list --limit 5 --json title` and match them. If the current branch is the default branch, warn me first.
 
 - **"Copy to Clipboard"** → copy the description using the `clipboard` skill.
