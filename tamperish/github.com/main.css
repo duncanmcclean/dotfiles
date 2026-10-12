@@ -1,0 +1,11 @@
+/** Top right buttons */
+[data-testid="top-bar-actions"] { display: none !important; }
+[data-testid="top-nav-right"] [href="/notifications"] { display: none !important; }
+
+/** Home / Dashboard */
+#dashboard .feed-right-sidebar { display: none !important; }
+
+/** Pull Requests **/
+[class*="MergeStatusButton-module__mergeStatusButton"] {
+    display: none !important;
+}
