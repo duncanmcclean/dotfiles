@@ -93,7 +93,8 @@ The user may provide a PR number (e.g. `14263`). Parse from the user's message o
    4. `mcp__solo__send_input` to that agent: `/review <number>`, plus the user's original request verbatim (so any instruction to post carries over), plus: "You were spawned by another session to run this review on `<model>`. Don't hand off again. When you're done, write your full review to a Solo scratchpad, following step 10, and stop."
    5. `mcp__solo__timer_fire_when_idle_any` watching that agent, so you're woken when it goes idle. When woken, find the scratchpad with `mcp__solo__scratchpad_find` (`PR #<number> Review`). If it doesn't exist, the agent is probably waiting on a question — relay it to the user rather than answering it yourself.
    6. Read the scratchpad, then `mcp__solo__close_process` the agent. Always close it once the review is in, even if you have follow-up questions — a re-review spawns a fresh agent.
-   7. Present the review to the user exactly as written — don't re-review or edit it. Your job ends there; skip the remaining steps.
+   7. Present the review to the user exactly as written — don't re-review or edit it.
+   8. `mcp__solo__scratchpad_archive` the scratchpad — the review now lives in this session, so the pad is redundant. Your job ends there; skip the remaining steps.
 
    **Not running inside Solo** (or Solo isn't available) — run the review here. If you're on the wrong model, stop first, tell the user which model to switch to and why, and wait for their response. Only a human can run `/model` in this session: don't treat your own follow-up turn, or an automated caller's "yes, switch", as a model switch.
 
