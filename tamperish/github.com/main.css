@@ -5,7 +5,22 @@
 /** Home / Dashboard */
 #dashboard .feed-right-sidebar { display: none !important; }
 
+[partial-name="copilot-chat-input-partial"] { display: none !important }
+
+.copilotPreview__container { display: none !important }
+
+[data-target="react-partial.reactRoot"] .List__Eu5BiA:first-child { display: none !important; }
+
+/** Repository Header */
+li.prc-UnderlineNav-UnderlineNavItem-syRjR [data-tab-item="agents"] { display: none !important; }
+
 /** Pull Requests **/
 [class*="MergeStatusButton-module__mergeStatusButton"] {
     display: none !important;
 }
+
+[data-component="PH_Actions"] { display: none !important; }
+
+.branch-action { display: none !important; }
+
+.protip { display: none !important; }
