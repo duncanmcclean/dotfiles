@@ -36,13 +36,19 @@ Some repositories prefix PR titles with the version branch, eg. `[6.x] `. Check 
 
 Give me the link to the pull request.
 
-## 5. Watch CI
+## 5. Attach the pull request to the Linear issue
+
+If we've discussed a Linear issue in this conversation, attach the pull request to it with the Linear MCP's `create_attachment` tool, so the work stays tracked. Use the PR's URL and title.
+
+Skip this step when there's no Linear issue.
+
+## 6. Watch CI
 
 Once the PR is open, keep an eye on its GitHub Actions checks and fix anything that breaks, without stopping to ask.
 
 Use a Solo `timer_set` timer to check back every minute or so, rather than a sleep loop. Make the timer's body self-contained, since it arrives as a fresh turn: the repository path, the PR number and what to do next. For example:
 
-> Check CI on PR #123 in ~/Code/statamic/cms with `gh pr checks 123`. If anything is still pending, set another 1 minute timer with this same message. Otherwise, follow step 5 of the `ship` skill.
+> Check CI on PR #123 in ~/Code/statamic/cms with `gh pr checks 123`. If anything is still pending, set another 1 minute timer with this same message. Otherwise, follow step 6 of the `ship` skill.
 
 If there are still no checks after a couple of timers, the repository doesn't run CI on PRs, so stop checking.
 
