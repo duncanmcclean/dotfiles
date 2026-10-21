@@ -5,10 +5,8 @@ alias sshconfig="vim ~/.ssh/config"
 alias key="cat ~/.ssh/id_rsa.pub | pbcopy"
 alias cleardns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias pstorm='open -a ~/Applications/PhpStorm.app "`pwd`"'
-alias claudee="claude --dangerously-skip-permissions"
 alias claudes="CLAUDE_CONFIG_DIR=~/.claude-statamic claude"
-alias codexx="codex --ask-for-approval never"
-alias zilla="SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock open -a FileZilla"
+alias fzilla="SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock open -a FileZilla"
 
 
 # ------------------------------------------------------------------------------
@@ -32,17 +30,6 @@ internet() {
     fi
 
     echo '✅ Connected to internet.'
-}
-
-
-# ------------------------------------------------------------------------------
-# Cloudflare Tunnels
-# ------------------------------------------------------------------------------
-
-share() {
-    subdomain="${PWD:t}"
-
-    cftunnel share "$subdomain.dunc.lol"
 }
 
 
