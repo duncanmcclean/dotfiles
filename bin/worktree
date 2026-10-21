@@ -1,0 +1,630 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# ------------------------------------------------------------------------------
+# Output
+# ------------------------------------------------------------------------------
+
+fail() {
+    gum style \
+        --foreground 196 --border-foreground 196 --border double \
+        --align center --width 60 --margin "1 1" \
+        "$@"
+
+    exit 1
+}
+
+warn() {
+    gum style \
+        --foreground 208 --border-foreground 208 --border double \
+        --align center --width 60 --margin "1 1" \
+        "$@"
+}
+
+success() {
+    gum style \
+        --foreground 29 --border-foreground 29 --border double \
+        --align center --width 60 --margin "1 1" \
+        "$@"
+}
+
+step() {
+    gum log --level info "$@"
+}
+
+
+# ------------------------------------------------------------------------------
+# Ensure dependencies are installed
+# ------------------------------------------------------------------------------
+
+for dependency in gum jq herd perl; do
+    if ! command -v "$dependency" &> /dev/null; then
+        echo "❌ $dependency is required but not installed"
+        exit 1
+    fi
+done
+
+
+# ------------------------------------------------------------------------------
+# App
+# ------------------------------------------------------------------------------
+
+locate_app_root() {
+    local git_common_dir
+    git_common_dir=$(git rev-parse --path-format=absolute --git-common-dir 2> /dev/null) \
+        || fail '❌ Run this from inside a Laravel app.'
+
+    APP_ROOT=$(dirname "$git_common_dir")
+    TLD=$(herd tld)
+
+    if [[ ! -f "$APP_ROOT/artisan" ]]; then
+        fail '❌ Run this from inside a Laravel app.' 'Packages use `tether worktree` instead.'
+    fi
+
+    INVOKED_FROM="$PWD"
+    cd "$APP_ROOT"
+}
+
+worktree_directory() {
+    local branch="$1"
+
+    if [[ -n "$branch" ]]; then
+        echo "${branch//\//-}"
+    elif [[ "$INVOKED_FROM" == "$APP_ROOT/worktrees/"* ]]; then
+        local relative_path="${INVOKED_FROM#$APP_ROOT/worktrees/}"
+        echo "${relative_path%%/*}"
+    fi
+}
+
+
+# ------------------------------------------------------------------------------
+# Environment files
+# ------------------------------------------------------------------------------
+
+env_value() {
+    local file="$1" key="$2"
+
+    grep -m1 "^$key=" "$file" 2> /dev/null | cut -d= -f2- | sed 's/^"//; s/"$//' || true
+}
+
+set_env_value() {
+    local file="$1" key="$2" value="$3"
+    local temp_file=$(mktemp)
+
+    awk -v key="$key=" -v line="$key=$value" '
+        index($0, key) == 1 { print line; found = 1; next }
+        { print }
+        END { if (!found) print line }
+    ' "$file" > "$temp_file"
+
+    mv "$temp_file" "$file"
+}
+
+replace_host_in_env() {
+    local file="$1" old_host="$2" new_host="$3"
+
+    OLD_HOST="$old_host" NEW_HOST="$new_host" \
+        perl -pi -e 's/(?<![\w.-])\Q$ENV{OLD_HOST}\E(?![\w.-])/$ENV{NEW_HOST}/g' "$file"
+}
+
+isolate_shared_service_prefixes() {
+    local file="$1" branch="$2"
+    local app_name=$(env_value "$file" APP_NAME)
+    local suffix=$(echo "$branch" | tr -c '[:alnum:]\n' '_')
+
+    if [[ -n "$app_name" ]]; then
+        set_env_value "$file" APP_NAME "\"$app_name ($branch)\""
+    fi
+
+    for key in REDIS_PREFIX CACHE_PREFIX HORIZON_PREFIX SCOUT_PREFIX; do
+        if grep -q "^$key=" "$file"; then
+            set_env_value "$file" "$key" "$(env_value "$file" "$key")${suffix}_"
+        fi
+    done
+}
+
+
+# ------------------------------------------------------------------------------
+# Herd
+# ------------------------------------------------------------------------------
+
+HERD_CONFIG="$HOME/Library/Application Support/Herd/config/valet"
+
+herd_links() {
+    for link in "$HERD_CONFIG/Sites"/*; do
+        if [[ -L "$link" ]]; then
+            echo "$(basename "$link") $(readlink "$link")"
+        fi
+    done
+}
+
+is_secured() {
+    local site="$1"
+
+    [[ -f "$HERD_CONFIG/Certificates/$site.$TLD.crt" ]]
+}
+
+isolated_php_version() {
+    local site="$1"
+
+    herd isolated | awk -F'|' -v site="$site.$TLD" '
+        { gsub(/ /, "", $2); gsub(/ /, "", $3) }
+        $2 == site { print $3 }
+    '
+}
+
+links_pointing_at() {
+    local path="$1"
+
+    herd_links | awk -v path="$path" '$2 == path { print $1 }'
+}
+
+workspace_for() {
+    local path="$1"
+
+    herd workspaces --json | sed -n '/^\[/,$p' | jq -c --arg path "$path" '.[] | select(.path == $path)'
+}
+
+extra_domain_name() {
+    local site="$1" parent="$2" workspace="$3"
+
+    if [[ "$site" == *".$parent" ]]; then
+        echo "${site%.$parent}.$workspace"
+    else
+        echo "${workspace%.$parent}.$site"
+    fi
+}
+
+link_site() {
+    local worktree_path="$1" site="$2" secured="$3" php_version="$4"
+
+    (
+        cd "$worktree_path"
+
+        if [[ -n "$php_version" ]]; then
+            herd link "$site" --isolate="$php_version" --quiet
+        else
+            herd link "$site" --quiet
+        fi
+    )
+
+    if [[ "$secured" == true ]]; then
+        herd secure "$site" --silent > /dev/null
+    fi
+}
+
+unlink_site() {
+    local site="$1"
+
+    if is_secured "$site"; then
+        herd unsecure "$site" --quiet || true
+    fi
+
+    if [[ -n $(isolated_php_version "$site") ]]; then
+        herd unisolate --site="$site" --quiet || true
+    fi
+
+    herd unlink "$site" --quiet || true
+
+    if [[ -L "$HERD_CONFIG/Sites/$site" ]]; then
+        rm "$HERD_CONFIG/Sites/$site"
+    fi
+}
+
+
+# ------------------------------------------------------------------------------
+# Databases
+# ------------------------------------------------------------------------------
+
+run_sql() {
+    local sql="$1"
+    local host=$(env_value .env DB_HOST)
+    local port=$(env_value .env DB_PORT)
+    local username=$(env_value .env DB_USERNAME)
+    local password=$(env_value .env DB_PASSWORD)
+
+    if [[ "$password" == null ]]; then
+        password=""
+    fi
+
+    case "$(env_value .env DB_CONNECTION)" in
+        mysql|mariadb)
+            MYSQL_PWD="$password" mysql -h "${host:-127.0.0.1}" -P "${port:-3306}" -u "${username:-root}" -N -B -e "$sql"
+            ;;
+        pgsql)
+            PGPASSWORD="$password" psql -h "${host:-127.0.0.1}" -p "${port:-5432}" -U "${username:-root}" -d postgres -tA -c "$sql"
+            ;;
+    esac
+}
+
+database_exists() {
+    local database="$1"
+
+    case "$(env_value .env DB_CONNECTION)" in
+        mysql|mariadb) [[ -n $(run_sql "SHOW DATABASES LIKE '$database'") ]] ;;
+        pgsql) [[ -n $(run_sql "SELECT 1 FROM pg_database WHERE datname = '$database'") ]] ;;
+        *) false ;;
+    esac
+}
+
+drop_database() {
+    local database="$1"
+
+    step "Dropping the $database database"
+
+    case "$(env_value .env DB_CONNECTION)" in
+        mysql|mariadb) run_sql "DROP DATABASE IF EXISTS \`$database\`" ;;
+        pgsql) run_sql "DROP DATABASE IF EXISTS \"$database\" WITH (FORCE)" > /dev/null ;;
+    esac
+}
+
+drop_legacy_database() {
+    local worktree_env="$1"
+    local main_database=$(env_value .env DB_DATABASE)
+    local database=$(env_value "$worktree_env" DB_DATABASE)
+
+    if [[ "$database" == *_wt_* && "$database" != "$main_database" ]]; then
+        drop_database "$database"
+    fi
+}
+
+workspace_database_name() {
+    local workspace="$1"
+
+    echo "$(env_value .env DB_DATABASE)_$workspace" | tr '[:upper:]' '[:lower:]' | tr -c '[:alnum:]_\n' '_'
+}
+
+
+# ------------------------------------------------------------------------------
+# Solo
+# ------------------------------------------------------------------------------
+
+solo_is_running() {
+    command -v solo &> /dev/null && solo status --json &> /dev/null
+}
+
+solo_projects_in_worktrees() {
+    solo projects list --json --limit 500 \
+        | jq -r --arg prefix "$APP_ROOT/worktrees/" '.data.projects[] | select(.path | startswith($prefix)) | "\(.id) \(.path)"'
+}
+
+solo_project_for() {
+    local worktree_path="$1"
+
+    solo_projects_in_worktrees | awk -v path="$worktree_path" '$2 == path { print $1 }'
+}
+
+running_inside_solo_project() {
+    local project_id="$1"
+
+    [[ -n "${SOLO_PROCESS_ID:-}" ]] \
+        && [[ $(solo processes get "$SOLO_PROCESS_ID" --json | jq -r '.data.projectId') == "$project_id" ]]
+}
+
+
+# ------------------------------------------------------------------------------
+# Commands
+# ------------------------------------------------------------------------------
+
+worktree_new() {
+    local branch="" base_ref="" database_strategy="fresh"
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --base)
+                base_ref="$2"
+                shift 2
+                ;;
+            --db=*)
+                database_strategy="${1#--db=}"
+                shift
+                ;;
+            *)
+                if [[ -z "$branch" ]]; then
+                    branch="$1"
+                fi
+                shift
+                ;;
+        esac
+    done
+
+    if [[ -z "$branch" ]]; then
+        fail '❌ Usage: worktree new <branch> [--base <ref>] [--db=fresh|copy]'
+    fi
+
+    local herd_database_mode
+    case "$database_strategy" in
+        fresh) herd_database_mode=empty ;;
+        copy) herd_database_mode=clone ;;
+        *) fail '❌ --db must be either fresh or copy' ;;
+    esac
+
+    local suffix="${branch//\//-}"
+    local worktree_path="$APP_ROOT/worktrees/$suffix"
+
+    if [[ -e "$worktree_path" ]]; then
+        fail "❌ A worktree already exists at worktrees/$suffix"
+    fi
+
+    if git show-ref --verify --quiet "refs/heads/$branch" || git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+        git worktree add "$worktree_path" "$branch"
+    else
+        if [[ -z "$base_ref" ]]; then
+            base_ref=$(git symbolic-ref --quiet --short refs/remotes/origin/HEAD || true)
+        fi
+
+        if [[ -z "$base_ref" ]]; then
+            fail '❌ Could not work out the default branch.' 'Pass one with --base, eg. --base origin/main'
+        fi
+
+        git worktree add "$worktree_path" -b "$branch" "$base_ref"
+    fi
+
+    step 'Creating the Herd workspace'
+    local workspace
+    workspace=$(cd "$worktree_path" && herd workspace --database="$herd_database_mode" --json | sed -n '/^{/,$p') \
+        || fail '❌ Herd couldn'"'"'t create the workspace' "Run \`worktree destroy $suffix --force\` to clean up."
+
+    local secured=$(echo "$workspace" | jq -r '.secured')
+    local parent=$(echo "$workspace" | jq -r '.parent_site')
+    local workspace_site=$(echo "$workspace" | jq -r '.site')
+    local database=$(echo "$workspace" | jq -r '.database_name')
+
+    if [[ $(echo "$workspace" | jq -r '.database_mode') != "$herd_database_mode" ]]; then
+        (cd "$worktree_path" && herd workspace:delete --force --quiet)
+        fail '❌ Herd couldn'"'"'t give the worktree its own database' 'The worktree has been removed again, rather than share the main database.'
+    fi
+
+    (
+        cd "$worktree_path"
+
+        if [[ ! -d vendor ]]; then
+            step 'Installing Composer dependencies'
+            herd composer install --no-interaction --quiet
+        fi
+
+        if [[ ! -d node_modules && -f package.json ]]; then
+            step 'Installing npm dependencies'
+            npm install --silent
+        fi
+    )
+
+    step 'Copying storage and built assets'
+    cp -c -R "$APP_ROOT/storage/app/." "$worktree_path/storage/app/"
+    copy_built_assets "$worktree_path"
+
+    if [[ -L "$APP_ROOT/public/storage" ]]; then
+        (cd "$worktree_path" && herd php artisan storage:link --force --quiet)
+    fi
+
+    local worktree_env="$worktree_path/.env"
+    local php_version=$(isolated_php_version "$workspace_site")
+    local scheme=$([[ "$secured" == true ]] && echo https || echo http)
+    local urls=("$scheme://$workspace_site.$TLD")
+
+    isolate_shared_service_prefixes "$worktree_env" "$branch"
+    replace_host_in_env "$worktree_env" "$parent.$TLD" "$workspace_site.$TLD"
+
+    for site in $(links_pointing_at "$APP_ROOT"); do
+        if [[ "$site" == "$parent" ]]; then
+            continue
+        fi
+
+        local extra_site=$(extra_domain_name "$site" "$parent" "$workspace_site")
+
+        step "Linking $extra_site.$TLD"
+        link_site "$worktree_path" "$extra_site" "$secured" "$php_version" < /dev/null
+        replace_host_in_env "$worktree_env" "$site.$TLD" "$extra_site.$TLD"
+        urls+=("$scheme://$extra_site.$TLD")
+    done
+
+    if [[ "$database_strategy" == fresh ]]; then
+        step 'Seeding'
+        (cd "$worktree_path" && herd php artisan db:seed --force --no-interaction --quiet)
+    fi
+
+    (cd "$worktree_path" && herd php artisan optimize:clear --quiet) \
+        || warn '⚠️  Failed to clear caches' 'Run `php artisan optimize:clear` yourself.'
+
+    local solo_message='Solo is not running, so no Solo project was created.'
+    if solo_is_running; then
+        solo projects create "$(basename "$APP_ROOT") ($branch)" "$worktree_path" --json > /dev/null
+        solo_message='Trust the Solo project'"'"'s commands to start Vite & co.'
+    fi
+
+    success \
+        '✅ Worktree created' \
+        "worktrees/$suffix" \
+        "${urls[@]}" \
+        "Database: $database" \
+        "$solo_message"
+}
+
+copy_built_assets() {
+    local worktree_path="$1"
+
+    git ls-files --others --ignored --exclude-standard --directory public | while read -r path; do
+        path="${path%/}"
+
+        if [[ "$(basename "$path")" == .* || "$path" == public/hot || "$path" == public/storage ]]; then
+            continue
+        fi
+
+        if [[ -d "$path" ]]; then
+            mkdir -p "$worktree_path/$path"
+            cp -c -R "$path/." "$worktree_path/$path/"
+        else
+            mkdir -p "$(dirname "$worktree_path/$path")"
+            cp -c "$path" "$worktree_path/$path"
+        fi
+    done
+}
+
+worktree_destroy() {
+    local branch="" force=false
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --force)
+                force=true
+                shift
+                ;;
+            *)
+                if [[ -z "$branch" ]]; then
+                    branch="$1"
+                fi
+                shift
+                ;;
+        esac
+    done
+
+    local suffix=$(worktree_directory "$branch")
+
+    if [[ -z "$suffix" ]]; then
+        fail '❌ Usage: worktree destroy <branch> [--force]'
+    fi
+
+    local worktree_path="$APP_ROOT/worktrees/$suffix"
+
+    if [[ ! -d "$worktree_path" ]]; then
+        fail "❌ No worktree exists at worktrees/$suffix"
+    fi
+
+    branch=$(git -C "$worktree_path" branch --show-current)
+
+    if [[ "$force" == false ]]; then
+        if [[ -n $(git -C "$worktree_path" status --porcelain) ]]; then
+            fail '❌ The worktree has uncommitted changes.' 'Commit them, or pass --force to throw them away.'
+        fi
+
+        gum confirm "Destroy worktrees/$suffix, its sites and its database?" || exit 1
+    fi
+
+    local unpushed_count=$(git log "$branch" --not --remotes --oneline 2> /dev/null | wc -l | tr -d ' ')
+    if [[ "$unpushed_count" -gt 0 ]]; then
+        warn "⚠️  $branch has $unpushed_count unpushed commit(s)" 'The branch is being kept — only the worktree is removed.'
+    fi
+
+    local workspace=$(workspace_for "$worktree_path")
+    local workspace_site=$(echo "$workspace" | jq -r 'select(.served) | .site')
+
+    for site in $(links_pointing_at "$worktree_path"); do
+        if [[ "$site" != "$workspace_site" ]]; then
+            step "Unlinking $site.$TLD"
+            unlink_site "$site" < /dev/null
+        fi
+    done
+
+    if [[ -n "$workspace_site" ]]; then
+        step "Deleting the $workspace_site.$TLD workspace"
+        herd workspace:delete "$(echo "$workspace" | jq -r '.name')" --force --quiet
+    else
+        drop_legacy_database "$worktree_path/.env"
+        git worktree remove --force "$worktree_path"
+    fi
+
+    rmdir worktrees 2> /dev/null || true
+
+    local solo_message=""
+    if solo_is_running; then
+        local project_id=$(solo_project_for "$worktree_path")
+
+        if [[ -n "$project_id" ]] && running_inside_solo_project "$project_id"; then
+            solo_message='Close its Solo project when you'"'"'re done here (or run `worktree prune` later).'
+        elif [[ -n "$project_id" ]]; then
+            solo projects delete "$project_id" --confirm-stop-running --json > /dev/null
+        fi
+    fi
+
+    success '✅ Worktree destroyed' ${solo_message:+"$solo_message"}
+}
+
+worktree_prune() {
+    local force=false
+
+    if [[ " $* " == *" --force "* ]]; then
+        force=true
+    fi
+
+    git worktree prune
+
+    local orphaned_links=$(herd_links | while read -r site path; do
+        if [[ "$path" == "$APP_ROOT/worktrees/"* && ! -d "$path" ]]; then
+            echo "$site $path"
+        fi
+    done)
+
+    local orphaned_solo_projects=""
+    if solo_is_running; then
+        orphaned_solo_projects=$(solo_projects_in_worktrees | while read -r id path; do
+            if [[ ! -d "$path" ]]; then
+                echo "$id $path"
+            fi
+        done)
+    fi
+
+    local main_database=$(env_value .env DB_DATABASE)
+    local databases_in_use=$(git worktree list --porcelain | grep '^worktree ' | cut -d' ' -f2- | while read -r worktree_path; do
+        env_value "$worktree_path/.env" DB_DATABASE
+    done)
+
+    local orphaned_databases=$(printf '%s\n%s\n' "$orphaned_links" "$orphaned_solo_projects" | awk 'NF { print $2 }' | sort -u | while read -r path; do
+        local workspace=$(basename "$path")
+
+        for database in "$(workspace_database_name "$workspace")" "$(workspace_database_name "wt_$workspace")"; do
+            if [[ "$database" != "$main_database" ]] && ! echo "$databases_in_use" | grep -qx "$database" && database_exists "$database"; then
+                echo "$database"
+            fi
+        done
+    done)
+
+    if [[ -z "$orphaned_links$orphaned_databases$orphaned_solo_projects" ]]; then
+        echo 'Nothing to prune.'
+        return
+    fi
+
+    echo 'Leftovers from worktrees that no longer exist:'
+    [[ -n "$orphaned_links" ]] && echo "$orphaned_links" | awk -v tld="$TLD" '{ print "  Herd site: " $1 "." tld }'
+    [[ -n "$orphaned_databases" ]] && echo "$orphaned_databases" | sed 's/^/  Database: /'
+    [[ -n "$orphaned_solo_projects" ]] && echo "$orphaned_solo_projects" | awk '{ print "  Solo project: " $2 }'
+
+    if [[ "$force" == false ]]; then
+        gum confirm 'Remove them?' || exit 1
+    fi
+
+    echo "$orphaned_links" | while read -r site path; do
+        if [[ -n "$site" ]]; then
+            unlink_site "$site" < /dev/null
+        fi
+    done
+
+    for database in $orphaned_databases; do
+        drop_database "$database"
+    done
+
+    echo "$orphaned_solo_projects" | while read -r id path; do
+        if [[ -n "$id" ]]; then
+            solo projects delete "$id" --confirm-stop-running --json > /dev/null
+        fi
+    done
+
+    success '✅ Pruned'
+}
+
+locate_app_root
+
+case "${1:-}" in
+    new)
+        worktree_new "${@:2}"
+        ;;
+    destroy)
+        worktree_destroy "${@:2}"
+        ;;
+    prune)
+        worktree_prune "${@:2}"
+        ;;
+    *)
+        fail '❌ Usage: worktree <new|destroy|prune>'
+        ;;
+esac
