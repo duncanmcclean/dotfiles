@@ -39,6 +39,26 @@ return {
         },
     },
     {
+        name = 'Split Half Focused',
+        cells = {
+            { '5,1 25x18' },
+            { '30,1 25x18' },
+        },
+        apps = {
+            Safari = { cell = 1, open = true },
+            Chrome = { cell = 1 },
+            TablePlus = { cell = 1 },
+            Obsidian = { cell = 1 },
+            Ray = { cell = 1 },
+            Code = { cell = 2 },
+            PhpStorm = { cell = 2, open = true },
+            Ghostty = { cell = 2 },
+            Tower = { cell = 2 },
+            Tinkerwell = { cell = 2 },
+            Solo = { cell = 2 },
+        },
+    },
+    {
         name = 'Split Narrow',
         cells = {
             { '0,0 18x20', positions.twoThirds.left },
