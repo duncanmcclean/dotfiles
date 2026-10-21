@@ -18,12 +18,12 @@
     ~/.composer/composer.json: composer/composer.json
     ~/.composer/config.json: composer/config.json
     ~/.config/ghostty: ghostty
-    ~/.agents: agents
-    ~/.claude/CLAUDE.md: agents/AGENTS.md
-    ~/.claude/skills: agents/skills
-    ~/.claude-statamic/CLAUDE.md: agents/AGENTS.md
-    ~/.claude-statamic/skills: agents/skills
-    ~/.codex/AGENTS.md: agents/AGENTS.md
+    ~/.agents: ai
+    ~/.claude/CLAUDE.md: ai/AGENTS.md
+    ~/.claude/skills: ai/skills
+    ~/.claude-statamic/CLAUDE.md: ai/AGENTS.md
+    ~/.claude-statamic/skills: ai/skills
+    ~/.codex/AGENTS.md: ai/AGENTS.md
     ~/.config/starship.toml: starship/starship.toml
     ~/.hammerspoon: hammerspoon
     ~/.vimrc: vim/.vimrc
