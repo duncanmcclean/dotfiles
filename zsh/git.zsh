@@ -40,7 +40,7 @@ changelog() {
   # Append username to the end of every line
   changelog=$(while IFS= read -r line; do
     pr_number=$(echo "$line" | sed -n 's/.*#\([0-9][0-9]*\).*/\1/p')
-    
+
     if [ -n "$pr_number" ]; then
       author=$(echo "$pull_requests" | jq -r ".[] | select(.number == $pr_number) | .author.login")
 
@@ -69,15 +69,6 @@ gtag() {
 
     git tag $tag
     git push --tags
-}
-
-# Re-tag the latest tag.
-retag() {
-  local latest_tag=$(git describe --tags --abbrev=0)
-  git tag -d $latest_tag
-  git push origin :refs/tags/$latest_tag
-  git tag $latest_tag
-  git push --tags
 }
 
 
