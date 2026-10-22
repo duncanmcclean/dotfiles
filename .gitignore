@@ -1,16 +1,1 @@
 Brewfile.lock.json
-
-# ui.sh skills
-ai/skills/add-dark-mode
-ai/skills/brand-kit
-ai/skills/canonicalize-tailwind
-ai/skills/componentize
-ai/skills/dark-mode-image
-ai/skills/design
-ai/skills/ideas
-ai/skills/make-responsive
-ai/skills/markup-from-image
-ai/skills/ui
-
-# Skills synced from claude.ai
-ai/skills/synced/
