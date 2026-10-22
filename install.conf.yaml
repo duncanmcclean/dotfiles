@@ -51,6 +51,8 @@
     command: "brew bundle"
   - description: Cleaning up Homebrew
     command: "brew cleanup"
+  - description: Installing Claude Code
+    command: "[ -x ~/.local/bin/claude ] || curl -fsSL https://claude.ai/install.sh | bash"
   - description: Switch Git remote to SSH
     command: "git remote set-url origin git@github.com:duncanmcclean/dotfiles.git"
   - description: Apply macOS Preferences
