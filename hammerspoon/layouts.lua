@@ -51,7 +51,7 @@ return {
             Obsidian = { cell = 1 },
             Ray = { cell = 1 },
             Code = { cell = 2 },
-            PhpStorm = { cell = 2, open = true },
+            PhpStorm = { cell = 1, open = true },
             Ghostty = { cell = 2 },
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },

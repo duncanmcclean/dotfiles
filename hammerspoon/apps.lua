@@ -5,7 +5,7 @@ return {
       focus = positions.center.large,
     },
     PhpStorm = {
-      id = 'com.jetbrains.PhpStorm',
+      id = 'com.jetbrains.PhpStormLight-EAP',
       summon = 'p',
       focus = positions.center.large,
     },
