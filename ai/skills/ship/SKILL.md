@@ -20,9 +20,10 @@ Obviously, make sure it doesn't conflict with a branch on the remote.
 
 ## 2. Commit changes
 
-Depending on the number of changes, it may make sense to split each "part" of a fix or feature into its own commit.
+Commit following the `commit` skill, with two exceptions:
 
-Make sure to only commit files and changes made by this agent. Other agents may be working on the same branch.
+- Only commit files and changes made by this agent. Other agents may be working on the same branch.
+- Don't stop to ask about a mix of staged and unstaged changes — the whole point of this skill is to do it in one go. Just commit this agent's changes.
 
 ## 3. Push
 
