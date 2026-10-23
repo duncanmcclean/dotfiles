@@ -1,6 +1,7 @@
 ## General Rules
 
 - Always check for existing code patterns before implementing new features.
+- I care a lot about precedence and consistency. Before adding something new, look for a similar API or concept that already exists in the codebase and follow it. If there's precedent, match it — naming, structure and behaviour. If you're deviating from it, tell me why.
 - Always follow the established coding style and conventions in each directory.
 - Never modify files outside of the current working project directory.
 - When I follow-up with you requesting changes, please re-read the affected files as I may have changed things since you last looked.
