@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CLOUDFLARE_IPS=$(curl -fsS https://www.cloudflare.com/ips-v4 https://www.cloudflare.com/ips-v6 | grep -E '^[0-9a-f:.]+/[0-9]+$')
+
+if [ "$(echo "$CLOUDFLARE_IPS" | wc -l)" -lt 10 ]; then
+  echo "Cloudflare IP list looks wrong, leaving firewall alone" >&2
+  exit 1
+fi
+
+for ip in $CLOUDFLARE_IPS; do
+  ufw allow proto tcp from "$ip" to any port 443 comment "HTTPS - Cloudflare ($ip)" > /dev/null
+done
+
+EXISTING_IPS=$(ufw status | grep -oP 'HTTPS - Cloudflare \(\K[^)]+' | sort -u)
+
+for ip in $EXISTING_IPS; do
+  if ! echo "$CLOUDFLARE_IPS" | grep -qx "$ip"; then
+    ufw delete allow proto tcp from "$ip" to any port 443 > /dev/null
+  fi
+done
+
+ufw delete allow 443/tcp > /dev/null 2>&1 || true
+ufw delete allow 80/tcp > /dev/null 2>&1 || true
+
+echo "Remember to sync firewall rules in Forge and remove the HTTP/HTTPS rules."
