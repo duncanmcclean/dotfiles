@@ -60,6 +60,10 @@ TODO: Screenshot
 TODO: Screenshot
 ```
 
+Whenever you add this section, take the screenshots yourself (eg. with the `claude-in-chrome` or `run` skill) — "before" from the base branch, "after" from this branch. Never switch branches with uncommitted changes; use a worktree if needed.
+
+If you can upload them to GitHub yourself, embed them in the description. Otherwise, save them somewhere I can get at them (eg. `~/Desktop/pr-screenshots/before.png`), reveal them in Finder with `open -R`, and give me the full paths so I can drag them into the PR.
+
 
 ## Major changes
 When a pull request contains major changes (eg. a new feature), feel free to add sections to provide context about different parts of the change. Especially if they add APIs for developers to hook into, or introduce a behaviour change.
