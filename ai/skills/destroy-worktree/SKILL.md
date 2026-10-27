@@ -35,7 +35,7 @@ worktree destroy <branch> --force          # Laravel apps
 
 Tether removes the worktree, deletes any tethered sandbox sites, and cleans up the `vite-<branch>` process from `solo.yml`.
 
-`worktree` deletes the worktree's Herd workspace (its links, certificates and database), removes the worktree and deletes its Solo project. When you're running inside that Solo project, it's left alone (deleting it would kill this session) — tell me to close it myself.
+`worktree` deletes the worktree's Herd workspace (its links, certificates and database), removes the worktree and deletes the processes in the app's Solo project labelled with its branch (eg. `crush #1234 (1234)`). When one of those is this session, it's left alone (deleting it would kill this session) — tell me to close it myself.
 
 The `--force` flag is needed because the interactive confirmation prompt won't work here — that's why the safety checks above matter.
 

@@ -7,7 +7,7 @@ Investigate and fix the GitHub issue I've provided.
 
 Always spin up a separate agent via the Solo MCP to do the work, even for a single issue — one agent per issue, each following the rest of this skill. Keep this session free for me.
 
-In a Laravel app, create each issue's worktree yourself before spinning up its agent (see below), then spin the agent up in the worktree's Solo project. That way, closing the project tidies up the agent along with the worktree's processes.
+In a Laravel app, create each issue's worktree yourself before spinning up its agent (see below), then spin the agent up in the app's own Solo project, labelling it with the branch (eg. `crush #1234 (1234)`). That label is how `worktree destroy` finds the worktree's processes to tidy up. Tell the agent to work in `worktrees/<branch>`, since it starts in the main checkout.
 
 ## Understand the issue
 
@@ -17,7 +17,7 @@ When you identify an issue as "user error", describe the reported issue to me, e
 
 ## Work in a worktree
 
-Follow the `worktree` skill: create a worktree with `tether worktree new [issue-number]` (packages) or `worktree new [issue-number]` (Laravel apps — it'll already exist when you were spun up in its Solo project) and do all of your work in there, testing against the worktree's own site. This keeps the fix isolated from other issues being fixed alongside it, and from what I'm working on in the main checkout.
+Follow the `worktree` skill: create a worktree with `tether worktree new [issue-number]` (packages) or `worktree new [issue-number]` (Laravel apps — it'll already exist when you were spun up for it) and do all of your work in there, testing against the worktree's own site. This keeps the fix isolated from other issues being fixed alongside it, and from what I'm working on in the main checkout.
 
 **Important:** When the issue links a reproduction repository, feel free to clone it down to `~/Code/Throwaway`, name it `[repo]-[issue-number]`, install Composer dependencies and use that repo as this issue's sandbox.
 

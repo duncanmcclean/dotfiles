@@ -36,7 +36,7 @@ worktree destroy <branch> --force          # if it has a worktree (Laravel apps)
 git branch -D <branch>
 ```
 
-`tether worktree destroy` removes the worktree, its sandbox site(s) and the `vite-<branch>` entry in `solo.yml`. `worktree destroy` removes the worktree, its Herd workspace (links, certificates and database) and its Solo project. `--force` is needed because the interactive confirmation won't work here — that's why the checks above matter. The worktree must be destroyed before the branch can be deleted.
+`tether worktree destroy` removes the worktree, its sandbox site(s) and the `vite-<branch>` entry in `solo.yml`. `worktree destroy` removes the worktree, its Herd workspace (links, certificates and database) and the Solo processes labelled with its branch. `--force` is needed because the interactive confirmation won't work here — that's why the checks above matter. The worktree must be destroyed before the branch can be deleted.
 
 Some local branches won't have a worktree — just delete the branch for those.
 
@@ -44,7 +44,7 @@ Finish with a prune to sweep up anything orphaned by worktrees that were deleted
 
 ```sh
 tether worktree prune --force   # packages: sandbox sites and stale solo.yml entries
-worktree prune --force          # Laravel apps: Herd links, databases and Solo projects
+worktree prune --force          # Laravel apps: Herd links and databases
 ```
 
 ## Report back

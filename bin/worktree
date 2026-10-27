@@ -284,22 +284,16 @@ solo_is_running() {
     command -v solo &> /dev/null && solo status --json &> /dev/null
 }
 
-solo_projects_in_worktrees() {
+solo_project_for_app() {
     solo projects list --json --limit 500 \
-        | jq -r --arg prefix "$APP_ROOT/worktrees/" '.data.projects[] | select(.path | startswith($prefix)) | "\(.id) \(.path)"'
+        | jq -r --arg path "$APP_ROOT" '.data.projects[] | select(.path == $path) | .id'
 }
 
-solo_project_for() {
-    local worktree_path="$1"
+solo_processes_labelled() {
+    local project_id="$1" branch="$2"
 
-    solo_projects_in_worktrees | awk -v path="$worktree_path" '$2 == path { print $1 }'
-}
-
-running_inside_solo_project() {
-    local project_id="$1"
-
-    [[ -n "${SOLO_PROCESS_ID:-}" ]] \
-        && [[ $(solo processes get "$SOLO_PROCESS_ID" --json | jq -r '.data.projectId') == "$project_id" ]]
+    solo processes list --project-id "$project_id" --json --limit 500 \
+        | jq -r --arg label " ($branch)" '.data.processes[] | select(.name | endswith($label)) | .id'
 }
 
 
@@ -427,18 +421,11 @@ worktree_new() {
     (cd "$worktree_path" && herd php artisan optimize:clear --quiet) \
         || warn '⚠️  Failed to clear caches' 'Run `php artisan optimize:clear` yourself.'
 
-    local solo_message='Solo is not running, so no Solo project was created.'
-    if solo_is_running; then
-        solo projects create "$(basename "$APP_ROOT") ($branch)" "$worktree_path" --json > /dev/null
-        solo_message='Trust the Solo project'"'"'s commands to start Vite & co.'
-    fi
-
     success \
         '✅ Worktree created' \
         "worktrees/$suffix" \
         "${urls[@]}" \
-        "Database: $database" \
-        "$solo_message"
+        "Database: $database"
 }
 
 copy_built_assets() {
@@ -527,14 +514,15 @@ worktree_destroy() {
     rmdir worktrees 2> /dev/null || true
 
     local solo_message=""
-    if solo_is_running; then
-        local project_id=$(solo_project_for "$worktree_path")
-
-        if [[ -n "$project_id" ]] && running_inside_solo_project "$project_id"; then
-            solo_message='Close its Solo project when you'"'"'re done here (or run `worktree prune` later).'
-        elif [[ -n "$project_id" ]]; then
-            solo projects delete "$project_id" --confirm-stop-running --json > /dev/null
-        fi
+    local project_id=$(solo_is_running && solo_project_for_app || true)
+    if [[ -n "$project_id" ]]; then
+        for process_id in $(solo_processes_labelled "$project_id" "$branch"); do
+            if [[ "$process_id" == "${SOLO_PROCESS_ID:-}" ]]; then
+                solo_message="Close this session's Solo process when you're done here."
+            else
+                solo processes delete "$process_id" --confirm-stop-running --json > /dev/null
+            fi
+        done
     fi
 
     success '✅ Worktree destroyed' ${solo_message:+"$solo_message"}
@@ -555,21 +543,12 @@ worktree_prune() {
         fi
     done)
 
-    local orphaned_solo_projects=""
-    if solo_is_running; then
-        orphaned_solo_projects=$(solo_projects_in_worktrees | while read -r id path; do
-            if [[ ! -d "$path" ]]; then
-                echo "$id $path"
-            fi
-        done)
-    fi
-
     local main_database=$(env_value .env DB_DATABASE)
     local databases_in_use=$(git worktree list --porcelain | grep '^worktree ' | cut -d' ' -f2- | while read -r worktree_path; do
         env_value "$worktree_path/.env" DB_DATABASE
     done)
 
-    local orphaned_databases=$(printf '%s\n%s\n' "$orphaned_links" "$orphaned_solo_projects" | awk 'NF { print $2 }' | sort -u | while read -r path; do
+    local orphaned_databases=$(echo "$orphaned_links" | awk 'NF { print $2 }' | sort -u | while read -r path; do
         local workspace=$(basename "$path")
 
         for database in "$(workspace_database_name "$workspace")" "$(workspace_database_name "wt_$workspace")"; do
@@ -579,7 +558,7 @@ worktree_prune() {
         done
     done)
 
-    if [[ -z "$orphaned_links$orphaned_databases$orphaned_solo_projects" ]]; then
+    if [[ -z "$orphaned_links$orphaned_databases" ]]; then
         echo 'Nothing to prune.'
         return
     fi
@@ -587,7 +566,6 @@ worktree_prune() {
     echo 'Leftovers from worktrees that no longer exist:'
     [[ -n "$orphaned_links" ]] && echo "$orphaned_links" | awk -v tld="$TLD" '{ print "  Herd site: " $1 "." tld }'
     [[ -n "$orphaned_databases" ]] && echo "$orphaned_databases" | sed 's/^/  Database: /'
-    [[ -n "$orphaned_solo_projects" ]] && echo "$orphaned_solo_projects" | awk '{ print "  Solo project: " $2 }'
 
     if [[ "$force" == false ]]; then
         gum confirm 'Remove them?' || exit 1
@@ -601,12 +579,6 @@ worktree_prune() {
 
     for database in $orphaned_databases; do
         drop_database "$database"
-    done
-
-    echo "$orphaned_solo_projects" | while read -r id path; do
-        if [[ -n "$id" ]]; then
-            solo projects delete "$id" --confirm-stop-running --json > /dev/null
-        fi
     done
 
     success '✅ Pruned'

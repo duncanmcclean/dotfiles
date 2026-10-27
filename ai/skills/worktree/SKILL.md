@@ -41,12 +41,13 @@ worktree new fix-1234
 
 Pass `--base <ref>` if the work should branch from something other than the default branch (eg. `--base origin/main` when the local `main` might be stale). The worktree gets a fresh database, migrated and seeded — only pass `--db=copy` (a copy of the main database) when I ask for it.
 
-`worktree` will print the worktree path (`worktrees/<branch>`), its URLs and its database. The worktree is served as a subdomain of the app (eg. `https://1234.harvestglasgow.test`), as is every other domain the app is served on (eg. `https://1234.harvestayr.test`). It also gets its own Solo project with the same processes as the app. From then on:
+`worktree` will print the worktree path (`worktrees/<branch>`), its URLs and its database. The worktree is served as a subdomain of the app (eg. `https://1234.harvestglasgow.test`), as is every other domain the app is served on (eg. `https://1234.harvestayr.test`). From then on:
 
 - **Never** point the worktree at the main checkout's database, and never run migrations or seeders against it.
 - Test in the browser at the worktree's URLs. Seeders should have created a user to log in with.
 - Run tests inside the worktree.
-- The Solo project's commands (Vite, Horizon, etc.) won't run until I trust them in Solo. Assets are built when the worktree is created — after changing any JS/CSS, rebuild with `npm run build` inside the worktree unless its Vite process is running.
+- **Never** create a Solo project for the worktree. Spawn any processes (agents, terminals) in the app's own Solo project, labelling them with the branch, eg. `crush #1234 (1234)`. `worktree destroy` cleans up processes labelled this way. They start in the main checkout, so `cd` into the worktree first.
+- Assets are built when the worktree is created — after changing any JS/CSS, rebuild with `npm run build` inside the worktree.
 - Only run `worktree destroy <branch>` when explicitly asked to clean up.
 
 ## Either way
