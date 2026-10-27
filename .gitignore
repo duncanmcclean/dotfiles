@@ -2,3 +2,6 @@ Brewfile.lock.json
 
 # Skills synced from claude.ai
 ai/skills/synced/
+
+# Skills installer state
+ai/.skill-lock.json
