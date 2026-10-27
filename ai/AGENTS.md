@@ -124,7 +124,7 @@ When working on a large task, like one that was planned out beforehand, please r
 
 When you're running inside Solo (https://soloterm.com), please follow these rules:
 
-- When I ask you to "spin up agents", I'm asking you to spin up agents via the Solo MCP. Preferrably with the same model as the current session (unless otherwise specified).
+- When I ask you to "spin up agents" or "sub-agents", always spin them up via the Solo MCP (`spawn_agent`), never your own built-in subagent system. Preferrably with the same model as the current session (unless otherwise specified).
 - When creating plans or performing research, please create a Scratchpad via the Solo MCP.
 
 
