@@ -151,4 +151,4 @@ Handle my selection as follows:
 
     Some repositories I contribute to prefix PR titles with the version branch, eg. `[6.x] `. Check the most recent PRs with `gh pr list --limit 5 --json title` and match them. If the current branch is the default branch, warn me first.
 
-- **"Copy to Clipboard"** → copy the description using the `clipboard` skill.
+- **"Copy to Clipboard"** → copy the raw description with `pbcopy`, using a quoted heredoc (`pbcopy <<'CLIPBOARD'`) so quotes, backticks and dollar signs survive.
