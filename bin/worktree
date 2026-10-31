@@ -373,13 +373,17 @@ worktree_new() {
     (
         cd "$worktree_path"
 
-        if [[ ! -d vendor ]]; then
-            step 'Installing Composer dependencies'
-            herd composer install --no-interaction --quiet
+        step 'Installing Composer dependencies'
+        if [[ ! -d vendor && -d "$APP_ROOT/vendor" ]]; then
+            cp -c -R "$APP_ROOT/vendor" vendor
         fi
+        herd composer install --no-interaction --quiet
 
-        if [[ ! -d node_modules && -f package.json ]]; then
+        if [[ -f package.json ]]; then
             step 'Installing npm dependencies'
+            if [[ ! -d node_modules && -d "$APP_ROOT/node_modules" ]]; then
+                cp -c -R "$APP_ROOT/node_modules" node_modules
+            fi
             npm install --silent
         fi
     )
