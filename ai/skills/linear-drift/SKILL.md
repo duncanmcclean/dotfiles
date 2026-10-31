@@ -41,23 +41,25 @@ Ignore dependency bumps, release PRs and PRs from outside the team.
 
 ## Report
 
-Write it to a Solo scratchpad named `Linear drift`, replacing the previous report. Number every proposal so I can approve them by number:
+Write it to a Solo scratchpad named `Linear drift`, replacing the previous report. Number every proposal so I can approve them by number.
+
+Link every Linear issue and GitHub issue, PR or discussion you mention, in the scratchpad and when talking to me, so I can click straight through. Use the reference as the link text, eg. [COM-301](https://linear.app/statamic/issue/COM-301) or [statamic/cms#15760](https://github.com/statamic/cms/issues/15760).
 
 ```
 - Checked at: Sat 31 Oct, 10:00
 
 ## Proposed changes
 
-1. COM-301 Remove old Glide route — PR merged 26 Oct → Done
-2. SEO-88 Sitemap N+1 — PR ready for review → In Review
+1. [COM-301](https://linear.app/statamic/issue/COM-301) Remove old Glide route — [PR](https://github.com/statamic/mouthnasium/pull/1601) merged 26 Oct → Done
+2. [SEO-88](https://linear.app/statamic/issue/SEO-88) Sitemap N+1 — [PR](https://github.com/statamic/seo-pro/pull/705) ready for review → In Review
 
 ## Stale
 
-- COM-280 Rework partner search — In Progress since 2 Oct, no PR (<assignee>)
+- [COM-280](https://linear.app/statamic/issue/COM-280) Rework partner search — In Progress since 2 Oct, no PR (<assignee>)
 
 ## Merged without a Linear issue
 
-- statamic/mouthnasium#1612 Tweak Horizon config (<author>)
+- [statamic/mouthnasium#1612](https://github.com/statamic/mouthnasium/pull/1612) Tweak Horizon config (<author>)
 ```
 
 Then summarise it in one line. When I approve ("apply 1, 2", "apply all"), make exactly those changes in Linear, then mark them as done in the scratchpad.

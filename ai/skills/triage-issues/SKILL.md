@@ -79,23 +79,25 @@ Don't start a fixer for issues that need more info, or that look like duplicates
 
 ## Queue it for me
 
-Write everything to a Solo scratchpad named `Issue triage`, appending each run under a `## <date and time>` heading. Number every proposal so I can approve them by number:
+Write everything to a Solo scratchpad named `Issue triage`, appending each run under a `## <date and time>` heading. Number every proposal so I can approve them by number.
+
+Link every Linear issue and GitHub issue, PR or discussion you mention, in the scratchpad and when talking to me, so I can click straight through. Use the reference as the link text, eg. [COM-301](https://linear.app/statamic/issue/COM-301) or [statamic/cms#15760](https://github.com/statamic/cms/issues/15760).
 
 ```
 ## Sat 31 Oct, 10:00
 
-1. statamic/cms#15760 — Bard toolbar disappears in fullscreen (bug)
+1. [statamic/cms#15760](https://github.com/statamic/cms/issues/15760) — Bard toolbar disappears in fullscreen (bug)
    - Labels: `bard`, `regression`
    - Fixer: started in cms
-2. statamic/seo-pro#712 — Allow per-entry robots.txt rules (feature request)
+2. [statamic/seo-pro#712](https://github.com/statamic/seo-pro/issues/712) — Allow per-entry robots.txt rules (feature request)
    - Linear: create "Per-entry robots.txt rules" in SEO Pro, labelled `feature`
-3. statamic/runway#870 — Relationship fieldtype throws on save (bug)
+3. [statamic-rad-pack/runway#870](https://github.com/statamic-rad-pack/runway/issues/870) — Relationship fieldtype throws on save (bug)
    - Labels: `needs more info`, `relationships`
    - Reply: "Support details" saved reply
-4. statamic/cms#15761 — Add a dark mode toggle to the login page (feature request)
+4. [statamic/cms#15761](https://github.com/statamic/cms/issues/15761) — Add a dark mode toggle to the login page (feature request)
    - Move to statamic/ideas?
 
-Skipped: statamic/ssg#240 (question), statamic/cms#15762 (duplicate of #15701)
+Skipped: [statamic/ssg#240](https://github.com/statamic/ssg/issues/240) (question), [statamic/cms#15762](https://github.com/statamic/cms/issues/15762) (duplicate of [#15701](https://github.com/statamic/cms/issues/15701))
 ```
 
 Then tell me in one line how many issues came in and how many need me. When I approve ("apply 1, 3", "apply all"), apply exactly those, then mark them as done in the scratchpad.
