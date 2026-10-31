@@ -65,3 +65,5 @@
     command: "herd park ~/Code/Freelance && herd park ~/Code/OpenSource && herd park ~/Code/Personal && herd park ~/Code/SideProjects && herd park ~/Code/Statamic && herd park ~/Code/Throwaway"
   - description: Link http directory
     command: "cd ~/.dotfiles/http && herd link duncan"
+  - description: Installing global Composer packages
+    command: "composer global install"
