@@ -10,6 +10,7 @@
 - Do what is right, not what is easy.
 - Code should read like prose.
 - Never run the whole test suite locally. Run the tests relevant to your change and rely on CI for the rest.
+- Unless I say otherwise, make changes in a worktree (follow the `worktree` skill) rather than the main checkout. Only trivial changes, like fixing a typo, can skip it.
 
 
 ## Git
