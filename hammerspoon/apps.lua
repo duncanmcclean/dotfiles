@@ -4,11 +4,6 @@ return {
       summon = 'c',
       focus = positions.center.large,
     },
-    PhpStorm = {
-      id = 'com.jetbrains.PhpStormLight-EAP',
-      summon = 'p',
-      focus = positions.center.large,
-    },
     Safari = {
       id = 'com.apple.Safari',
       summon = 'b', -- browser

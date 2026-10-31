@@ -5,7 +5,6 @@ return {
             { positions.full },
         },
         apps = {
-          PhpStorm = { cell = 1, open = true },
           Safari = { cell = 1 },
           Chrome = { cell = 1 },
           Tower = { cell = 1 },
@@ -31,7 +30,6 @@ return {
             Obsidian = { cell = 1 },
             Ray = { cell = 1 },
             Code = { cell = 2 },
-            PhpStorm = { cell = 2, open = true },
             Ghostty = { cell = 2 },
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
@@ -51,7 +49,6 @@ return {
             Obsidian = { cell = 1 },
             Ray = { cell = 1 },
             Code = { cell = 2 },
-            PhpStorm = { cell = 1, open = true },
             Ghostty = { cell = 2 },
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
@@ -74,7 +71,6 @@ return {
             Code = { cell = 2 },
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
-            PhpStorm = { cell = 2 },
             Solo = { cell = 2 },
         },
     },
@@ -87,7 +83,6 @@ return {
         apps = {
           Ray = { cell = 1 },
           Ghostty = { cell = 1 },
-          PhpStorm = { cell = 2 },
           Code = { cell = 2 },
           Safari = { cell = 2 },
           Chrome = { cell = 2 },
@@ -114,7 +109,6 @@ return {
             TablePlus = { cell = 2 },
             Tinkerwell = { cell = 2 },
             Obsidian = { cell = 2 },
-            PhpStorm = { cell = 3, open = true },
             Code = { cell = 3 },
             Tower = { cell = 3 },
         }
@@ -131,7 +125,6 @@ return {
           Tinkerwell = { cell = 1 },
           TablePlus = { cell = 1 },
           Code = { cell = 1 },
-          PhpStorm = { cell = 1 },
           Ray = { cell = 1 },
           Ghostty = { cell = 1 },
           Obsidian = { cell = 1 },
@@ -149,7 +142,6 @@ return {
             Chrome = { cell = 1 },
             Solo = { cell = 1 },
             Tower = { cell = 1, open = true },
-            PhpStorm = { cell = 2 },
         },
     },
 }

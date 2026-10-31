@@ -40,7 +40,6 @@ cask "google-chrome"
 cask "hammerspoon"
 cask "herd"
 cask "imageoptim"
-cask "jetbrains-toolbox" # PhpStorm Light
 cask "jump-desktop-connect"
 cask "keymapp"
 cask "linear"
