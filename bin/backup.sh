@@ -5,6 +5,14 @@ set -euo pipefail
 VOLUME_PATH="/Volumes/LaCie"
 TIMESTAMP=$(date '+%Y-%m-%d_%H-%M-%S')
 BACKUP_PATH="${VOLUME_PATH}/${TIMESTAMP}"
+SKIP_DROPBOX=false
+
+for argument in "$@"; do
+    case "$argument" in
+        --skip-dropbox) SKIP_DROPBOX=true ;;
+        *) gum log --structured --level error "Unknown option: $argument" && exit 1 ;;
+    esac
+done
 
 localPaths=(
     "$HOME/.config/filezilla"
@@ -41,7 +49,9 @@ for localPath in "${localPaths[@]}"; do
     fi
 done
 
-if rclone listremotes | grep -q '^dropbox:$'; then
+if $SKIP_DROPBOX; then
+    gum log --structured --level info "Skipping Dropbox"
+elif rclone listremotes | grep -q '^dropbox:$'; then
     gum log --structured --level info "Backing up Dropbox..."
 
     caffeinate -i rclone sync \
