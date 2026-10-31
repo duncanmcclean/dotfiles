@@ -5,7 +5,7 @@ description: Investigate and fix a GitHub issue, Linear issue or Sentry error in
 
 Investigate and fix the issue I've provided.
 
-Always spin up a separate agent via the Solo MCP to do the work, even for a single issue — one agent per issue, each following the rest of this skill. Keep this session free for me.
+Always spin up a separate agent to do the work, even for a single issue — one agent per issue, each following the rest of this skill. Keep this session free for me.
 
 In a Laravel app, create each issue's worktree yourself before spinning up its agent (see below), then spin the agent up in the app's own Solo project, labelling it with the branch (eg. `crush #1234 (1234)`). That label is how `worktree destroy` finds the worktree's processes to tidy up. Tell the agent to work in `worktrees/<branch>`, since it starts in the main checkout.
 
