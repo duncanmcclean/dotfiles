@@ -47,11 +47,31 @@ Pass `--base <ref>` if the work should branch from something other than the defa
 - Test in the browser at the worktree's URLs. Seeders should have created a user to log in with.
 - Run tests inside the worktree.
 - **Never** create a Solo project for the worktree. Spawn any processes (agents, terminals) in the app's own Solo project, labelling them with the branch, eg. `crush #1234 (1234)`. `worktree destroy` cleans up processes labelled this way. They start in the main checkout, so `cd` into the worktree first.
-- Assets are built when the worktree is created — after changing any JS/CSS, rebuild with `npm run build` inside the worktree.
+- **Never** start servers of your own (`php artisan serve` and the like). The Herd workspace is how I view the worktree.
 - Only run `worktree destroy <branch>` when explicitly asked to clean up.
+
+### Start Vite
+
+Straight after `worktree new`, when the app's `package.json` has a `dev` script, start Vite for the worktree so its site picks up JS/CSS changes. Use the Solo MCP, without asking:
+
+1. `spawn_process` a terminal (`kind: terminal` — not a command in `solo.yml`) in the app's Solo project, named `vite (<branch>)`.
+2. `send_input` it `cd worktrees/<branch> && npm run dev`.
+
+Leave it running — `worktree destroy` deletes it along with the worktree's other processes. When you're not running inside Solo, tell me to start it myself instead.
 
 ## Either way
 
 - Work exclusively inside `worktrees/<branch>` — **never** touch the main checkout.
 - As per my guidelines, please don't commit changes yourself.
-- When asked for a Tower.app link, follow the `tower` skill. Don't open the link yourself — I'll do it when I get around to reviewing your changes.
+
+## Handing over
+
+When you're done, respond with (in this order):
+
+- Link to open the worktree in Tower.app (follow the `tower` skill — don't open it yourself)
+- Summary of what you've changed
+- Reproduction steps
+  - When possible, please perform any set up steps in the sandbox site beforehand to streamline my review
+- Link to the sandbox site (or the worktree's site, in a Laravel app)
+
+Don't wait to be asked for any of these.
