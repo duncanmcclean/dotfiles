@@ -4,18 +4,19 @@ description: >-
   Review a GitHub pull request with a code review mindset. Use when the user
   provides a PR number to review, asks to review a pull request, or wants
   inline code review of a PR's changes. If no PR number is given, detects it
-  from the current branch.
+  from the current branch, or reviews the local working copy when no PR
+  exists yet.
 ---
 
 # Review Pull Request
 
-Review a single GitHub pull request by number. Prioritize bugs, behavioral regressions, security issues, and missing tests.
+Review a single GitHub pull request by number — or, before a PR exists, the local working copy of the session's checkout or worktree. Prioritize bugs, behavioral regressions, security issues, and missing tests.
 
 Output has up to three parts: **Findings** — things that should change before this merges, **Observations** — things worth knowing that don't block anything, and **Highlights** — good decisions or good coverage worth acknowledging, with no latent concern attached. Only Findings affect the verdict. On a good PR, Findings is empty. That is the expected outcome of a review, not a failed one.
 
 ## Arguments
 
-The user may provide a PR number (e.g. `14263`). Parse from the user's message or `$ARGUMENTS`.
+The user may provide a PR number (e.g. `14263`), or the path of a checkout or worktree to review in local mode. Parse from the user's message or `$ARGUMENTS`.
 
 ## Instructions
 
@@ -25,7 +26,23 @@ The user may provide a PR number (e.g. `14263`). Parse from the user's message o
      ```bash
      gh pr view --json number -q .number
      ```
-   - If that fails (no PR for the current branch), **stop and ask the user for a PR number**. Do not guess.
+   - If that fails (no PR for the current branch), switch to **local mode** and review the working copy instead (see "Local mode" below).
+   - If there's nothing local to review either — no commits ahead of the base branch and no uncommitted changes — **stop and ask the user for a PR number**. Do not guess.
+
+   **Local mode.** The review covers everything the branch would bring to a PR: commits ahead of the base branch, plus staged, unstaged and untracked changes. Run every git command against the session's checkout or worktree — the directory you're working in, not the main checkout. The rest of this skill still applies, with these substitutions:
+   - **Step 3** — fetch the local diff instead (in parallel):
+     ```bash
+     git rev-parse --abbrev-ref HEAD
+     git rev-parse --abbrev-ref origin/HEAD
+     git log --oneline <merge-base>..HEAD
+     git diff <merge-base>
+     git ls-files --others --exclude-standard
+     ```
+     The base branch is the default branch (`origin/HEAD`) unless the user names another; the merge base is `git merge-base HEAD origin/<base>`. `git diff <merge-base>` covers commits and uncommitted changes to tracked files in one diff; read untracked files in full.
+   - **Step 4** — there's no CI or merge state to check. Skip it, and never use the `, pending CI` qualifier. If the branch obviously conflicts with the base (`git merge-tree --write-tree origin/<base> HEAD` reports conflicts), that's still a Critical finding.
+   - **Step 5** — name the agent `"review <branch>"`, and send `/review` with the absolute path of the checkout or worktree instead of a PR number, so the spawned agent reviews the same working copy. Find its scratchpad by `<branch> Review`.
+   - **Step 10** — name the scratchpad `<branch> Review`. `Reviewed at` is the short `HEAD` sha, plus `+ uncommitted changes` when there are any, and the current timestamp. `Author` is the git user. Omit `URL`. Purpose comes from the commit messages and whatever the user told you, since there's no PR body.
+   - **Step 12** — there's nothing to post to.
 
 2. **Determine the repository**:
    ```bash
@@ -90,7 +107,7 @@ The user may provide a PR number (e.g. `14263`). Parse from the user's message o
    3. `mcp__solo__spawn_agent` with that `agent_tool_id`, named `"review #<number>"`, and `extra_args` selecting the model:
       - Claude Code: `["--model", "opus"]` or `["--model", "sonnet"]`
       - Codex: `["-c", "model_reasoning_effort=high"]` or `["-c", "model_reasoning_effort=medium"]`
-   4. `mcp__solo__send_input` to that agent: `/review <number>`, plus the user's original request verbatim (so any instruction to post carries over), plus: "You were spawned by another session to run this review on `<model>`. Don't hand off again. When you're done, write your full review to a Solo scratchpad, following step 10, and stop."
+   4. `mcp__solo__send_input` to that agent: `/review <number>` (or the working copy's path, in local mode), plus the user's original request verbatim (so any instruction to post carries over), plus: "You were spawned by another session to run this review on `<model>`. Don't hand off again. When you're done, write your full review to a Solo scratchpad, following step 10, and stop."
    5. `mcp__solo__timer_fire_when_idle_any` watching that agent, so you're woken when it goes idle. When woken, find the scratchpad with `mcp__solo__scratchpad_find` (`PR #<number> Review`). If it doesn't exist, the agent is probably waiting on a question — relay it to the user rather than answering it yourself.
    6. Read the scratchpad, then `mcp__solo__close_process` the agent. Always close it once the review is in, even if you have follow-up questions — a re-review spawns a fresh agent.
    7. Present the review to the user exactly as written — don't re-review or edit it.
