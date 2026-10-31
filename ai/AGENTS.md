@@ -16,6 +16,7 @@
 ## Git
 
 - Never perform destructive Git operations without me **explicitly** asking.
+- When I say something has been merged and we've been working in a worktree, clean up the worktree and its local branch straight away (follow the `destroy-worktree` skill). Me saying it's merged counts as asking.
 - When I ask you to commit changes for me, please follow these rules:
   - Write commit messages in lowercase.
   - Use backticks (```) when mentioning class names, methods or config options.
