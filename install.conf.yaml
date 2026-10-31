@@ -40,17 +40,17 @@
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
   - description: Installing Oh My Zsh
-    command: "[ -d ~/.oh-my-zsh ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
+    command: "[ -d ~/.oh-my-zsh ] || KEEP_ZSHRC=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended"
   - description: Install Oh My Zsh Syntax Highlighting
-    command: "[ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
+    command: "[ -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
   - description: Installing Homebrew
-    command: "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\" && echo >> /Users/duncan/.zprofile && echo 'eval \"$(/opt/homebrew/bin/brew shellenv)\"' >> /Users/duncan/.zprofile && eval \"$(/opt/homebrew/bin/brew shellenv)\""
+    command: "[ -x /opt/homebrew/bin/brew ] || { /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\" && echo 'eval \"$(/opt/homebrew/bin/brew shellenv)\"' >> ~/.zprofile; }"
   - description: Updating Homebrew
-    command: "brew update"
+    command: "/opt/homebrew/bin/brew update"
   - description: Installing Brewfile bundle
-    command: "brew bundle"
+    command: "/opt/homebrew/bin/brew bundle"
   - description: Cleaning up Homebrew
-    command: "brew cleanup"
+    command: "/opt/homebrew/bin/brew cleanup"
   - description: Installing Claude Code
     command: "[ -x ~/.local/bin/claude ] || curl -fsSL https://claude.ai/install.sh | bash"
   - description: Switch Git remote to SSH
