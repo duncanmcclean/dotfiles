@@ -1,0 +1,21 @@
+{
+  "model": "opus",
+  "enabledPlugins": {
+    "php-lsp@claude-plugins-official": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.dotfiles/ai/hooks/solo.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "awaySummaryEnabled": false,
+  "theme": "auto"
+}

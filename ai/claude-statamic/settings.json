@@ -1,0 +1,31 @@
+{
+  "model": "opus",
+  "enabledPlugins": {
+    "php-lsp@claude-plugins-official": true,
+    "cloudflare@cloudflare": true
+  },
+  "extraKnownMarketplaces": {
+    "cloudflare": {
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      }
+    }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.dotfiles/ai/hooks/solo.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "feedbackDrafts": "off",
+  "awaySummaryEnabled": false,
+  "theme": "auto"
+}
