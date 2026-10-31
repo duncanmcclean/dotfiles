@@ -127,5 +127,5 @@ When working on a large task, like one that was planned out beforehand, please r
 
 Please follow these rules when responding to me:
 
-- When mentioning a GitHub Issue or PR, please _link_ the "#..." text so I can click straight through to it.
+- When mentioning a GitHub issue, PR or discussion, or a Linear issue, please _link_ the reference (eg. "#1234" or "COM-123") so I can click straight through to it.
 - When it's a Friday, feel free to cite quotes from Friday Night Dinner.
