@@ -98,7 +98,7 @@ Tell me:
 - Anything noteworthy from the changelog skill's own summary, like commits it skipped or titles it reworded.
 - That you're watching the PR and will trigger the release as soon as I merge it.
 
-Then use a Solo `timer_set` timer to check the PR's state every minute or so, rather than a sleep loop. It's a repeating timer, since it needs to survive however long I take to review. Make the body self-contained, since it arrives as a fresh turn:
+Then use a timer to check the PR's state every minute or so, rather than a sleep loop. It's a repeating timer, since it needs to survive however long I take to review. Make the body self-contained, since it arrives as a fresh turn:
 
 > Check the state of PR #123 in ~/Code/statamic/some-addon with `gh pr view 123 --json state -q .state`. If it's still open, do nothing. Otherwise, cancel this timer and carry on from step 8 of the `addon-release` skill.
 
@@ -130,7 +130,7 @@ sleep 10
 gh run list --workflow=release.yml --limit 1 --json databaseId,status,url -q '.[0]'
 ```
 
-Then watch it. Builds can take several minutes, so set a Solo `timer_set` timer rather than a foreground command that might time out:
+Then watch it. Builds can take several minutes, so set a timer rather than a foreground command that might time out:
 
 > Check release run <run-id> in ~/Code/statamic/some-addon with `gh run view <run-id> --json status,conclusion`. If it hasn't completed, set another 1 minute timer with this same message. Otherwise, carry on from step 10 of the `addon-release` skill.
 

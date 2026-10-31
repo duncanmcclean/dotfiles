@@ -47,7 +47,7 @@ Skip this step when there's no Linear issue.
 
 Once the PR is open, keep an eye on its GitHub Actions checks and fix anything that breaks, without stopping to ask.
 
-Use a Solo `timer_set` timer to check back every minute or so, rather than a sleep loop. Make the timer's body self-contained, since it arrives as a fresh turn: the repository path, the PR number and what to do next. For example:
+Use a timer to check back every minute or so, rather than a sleep loop. Make the timer's body self-contained, since it arrives as a fresh turn: the repository path, the PR number and what to do next. For example:
 
 > Check CI on PR #123 in ~/Code/statamic/cms with `gh pr checks 123`. If anything is still pending, set another 1 minute timer with this same message. Otherwise, follow step 6 of the `ship` skill.
 

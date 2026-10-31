@@ -213,14 +213,8 @@ remote branch unprompted.
 Only for a minor release (`vX.Y.0`). Patch releases (`vX.Y.Z`, Z > 0) don't
 get documented — skip this step entirely for those.
 
-Use Solo MCP to run the **`document-release`** skill in the `docs` project:
-
-1. `mcp__solo__list_projects` — find the project named `docs`.
-2. `mcp__solo__list_agent_tools` — resolve the `Claude` runtime's id.
-3. `mcp__solo__spawn_agent` scoped to the `docs` project
-   (`project_id` from step 1, `agent_tool_id` from step 2), named
-   `"<version>: document-release"`.
-4. `mcp__solo__send_input` to that agent with `/document-release`.
+Spin up a Claude agent in the `docs` project, named
+`"<version>: document-release"`, and send it `/document-release`.
 
 Don't wait for it to finish — it does its own research, commits, and opens a
 PR independently. Just confirm the agent spawned and started.
