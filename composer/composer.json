@@ -1,15 +1,9 @@
 {
     "require": {
-        "statamic/cli": "dev-master",
+        "statamic/cli": "^3.7",
         "laravel/pint": "^1.10",
         "illuminate/collections": "^11.21",
         "cpx/cpx": "^2.0",
         "laravel/cloud-cli": "^0.7.0"
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/Users/duncan/Code/Statamic/cli"
-        }
-    ]
+    }
 }
