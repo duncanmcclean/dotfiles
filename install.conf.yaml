@@ -58,7 +58,10 @@
   - description: Apply macOS Preferences
     command: "./.macos"
     quiet: false
+  - description: Checking Herd has been opened
+    command: "command -v herd > /dev/null || { echo 'Open Herd, then re-run ./install'; exit 1; }"
+    stdout: true
   - description: Add to Laravel Herd's paths
-    command: "herd park ~/Code/Freelance && herd park ~/Code/OpenSource && herd park ~/Code/Personal && herd park ~/Code/SideProjects && herd park ~/Code/Statamic && herd park ~/Code/Throwaway  herd link ~/.dotfiles/http duncan"
+    command: "herd park ~/Code/Freelance && herd park ~/Code/OpenSource && herd park ~/Code/Personal && herd park ~/Code/SideProjects && herd park ~/Code/Statamic && herd park ~/Code/Throwaway"
   - description: Link http directory
     command: "cd ~/.dotfiles/http && herd link duncan"
