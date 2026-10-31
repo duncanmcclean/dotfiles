@@ -1,11 +1,13 @@
 ---
 name: cleanup-worktrees
-description: This skill should be used when asked to clean up worktrees and local branches — removing anything whose work has been PR'd, keeping anything that hasn't.
+description: This skill should be used when asked to clean up worktrees and local branches — removing anything whose work has been PR'd, keeping anything that hasn't. Works on the current checkout, or every checkout in a directory I give it (eg. ~/Code/Statamic).
 ---
 
 Clean up worktrees and local branches in the current checkout. The rule: **anything with a pull request gets cleaned up** (the work lives on GitHub now), **anything without a pull request is kept** (it's not safe anywhere else yet).
 
 Run everything from the checkout root (the directory containing `worktrees/`). If the current directory is a worktree, `cd` to the checkout root first.
+
+When I give you a directory of checkouts instead (eg. `/cleanup-worktrees ~/Code/Statamic`), do this for every checkout directly inside it that has a `worktrees/` directory, one at a time, and give one combined report at the end, grouped by checkout.
 
 When the checkout root has an `artisan` file, it's a **Laravel app** and its worktrees are managed by `worktree`. Otherwise, it's a **package** and its worktrees are managed by Tether.
 
