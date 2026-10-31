@@ -8,6 +8,8 @@ My Dotfiles serve as a crucial tool for me to maintain and manage the configurat
 
 - `git clone https://github.com/duncanmcclean/dotfiles.git ~/.dotfiles`
 - `bash ~/.dotfiles/install`
+- Sign into 1Password and enable its SSH agent
+- `bash ~/.dotfiles/bin/clone-repos.sh`
 
 ### What's being used
 
