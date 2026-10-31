@@ -27,7 +27,6 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH=$PATH:/usr/local/mysql/bin/
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
-export PATH=/Users/duncan/.opencode/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
 
 # Herd injected PHP binary.
