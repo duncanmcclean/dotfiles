@@ -1,0 +1,66 @@
+model = "gpt-6-astra"
+model_reasoning_effort = "high"
+approvals_reviewer = "auto_review"
+service_tier = "fast"
+
+[mcp_servers.solo]
+command = "/Applications/Solo.app/Contents/MacOS/mcp"
+
+[mcp_servers.fastmail_personal]
+enabled = true
+url = "https://api.fastmail.com/mcp"
+
+[mcp_servers.fastmail_doublethreedigital]
+enabled = true
+url = "https://api.fastmail.com/mcp"
+
+[mcp_servers.freeagent]
+command = "php"
+args = ["/Users/duncan/Code/SideProjects/freeagent-mcp/artisan", "mcp:start", "freeagent"]
+cwd = "/Users/duncan/Code/SideProjects/freeagent-mcp"
+startup_timeout_sec = 20
+tool_timeout_sec = 120
+default_tools_approval_mode = "writes"
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[[hooks.SessionStart]]
+matcher = "startup|resume"
+
+[[hooks.SessionStart.hooks]]
+type = "command"
+command = "~/.dotfiles/ai/hooks/solo.sh"
+
+[features]
+js_repl = false
+
+[desktop]
+conversationDetailMode = "STEPS_PROSE"
+ambient-suggestions-enabled = true
+followUpQueueMode = "queue"
+dock-icon-preference = "app-default"

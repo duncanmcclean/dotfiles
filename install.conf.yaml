@@ -19,10 +19,13 @@
     ~/.config/ghostty: ghostty
     ~/.agents: ai
     ~/.claude/CLAUDE.md: ai/AGENTS.md
+    ~/.claude/settings.json: ai/claude/settings.json
     ~/.claude/skills: ai/skills
     ~/.claude-statamic/CLAUDE.md: ai/AGENTS.md
+    ~/.claude-statamic/settings.json: ai/claude-statamic/settings.json
     ~/.claude-statamic/skills: ai/skills
     ~/.codex/AGENTS.md: ai/AGENTS.md
+    ~/.codex/config.toml: ai/codex/config.toml
     ~/.config/starship.toml: starship/starship.toml
     ~/.hammerspoon: hammerspoon
     ~/.vimrc: vim/.vimrc
