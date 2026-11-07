@@ -1,6 +1,4 @@
-tap "homebrew/bundle"
-tap "homebrew/services"
-
+brew "ampcode/tap/ampcode"
 brew "antoniorodr/memo/memo"
 brew "awscli"
 brew "cloudflared"
