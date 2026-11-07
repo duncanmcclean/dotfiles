@@ -1,4 +1,7 @@
-tap "laravel/moat", "https://github.com/laravel/moat"
+tap "ampcode/tap", trusted: { formulae: ["ampcode"] }
+tap "antoniorodr/memo", trusted: { formulae: ["memo"] }
+tap "laravel/moat", "https://github.com/laravel/moat", trusted: { formulae: ["moat"] }
+tap "stripe/stripe-cli", trusted: { formulae: ["stripe"] }
 
 brew "ampcode/tap/ampcode"
 brew "antoniorodr/memo/memo"
