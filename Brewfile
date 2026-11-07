@@ -1,3 +1,5 @@
+tap "laravel/moat", "https://github.com/laravel/moat"
+
 brew "ampcode/tap/ampcode"
 brew "antoniorodr/memo/memo"
 brew "awscli"
