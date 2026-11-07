@@ -1,6 +1,7 @@
 [user]
 	name = Duncan McClean
 	email = duncan@duncanmcclean.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJW4ymyF/gLEEoOyCYRizaTanvgsmdh0c+RAVcWJWpfI
 
 [core]
 	excludesfile = /Users/duncan/.gitignore_global
