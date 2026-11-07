@@ -1,17 +1,16 @@
 ---
 name: destroy-worktree
-description: This skill should be used when asked to destroy, delete or tear down the current worktree — removing the worktree, its sites, database and the local branch.
+description: This skill should be used when asked to destroy, delete or tear down the current worktree — removing the worktree, its sandbox sites and the local branch.
 ---
 
 Destroy the worktree currently being worked in, along with everything that was set up for it and its local branch.
 
 ## Figure out what to destroy
 
-The current working directory should be inside `worktrees/<branch>` of a checkout (eg. `~/Code/Statamic/cms/worktrees/fix-1234`). From inside the worktree:
+The current working directory should be inside `worktrees/<branch>` of a package checkout (eg. `~/Code/Statamic/cms/worktrees/fix-1234`). From inside the worktree:
 
 - Get the branch name: `git branch --show-current`
 - The checkout root is the parent of the `worktrees/` directory.
-- When the checkout root has an `artisan` file, it's a **Laravel app** worktree (created by `worktree`). Otherwise, it's a **package** worktree (created by Tether).
 
 If the current directory is **not** inside a `worktrees/` directory, stop and check with me — don't guess which worktree to destroy.
 
@@ -29,17 +28,14 @@ If either turns anything up, stop and tell me what would be lost. Only proceed o
 `cd` to the checkout root first — the shell can't be sitting inside the directory being deleted — then:
 
 ```sh
-tether worktree destroy <branch> --force   # packages
-worktree destroy <branch> --force          # Laravel apps
+tether worktree destroy <branch> --force
 ```
 
 Tether removes the worktree, deletes any tethered sandbox sites, and cleans up the `vite-<branch>` process from `solo.yml`.
 
-`worktree` deletes the worktree's Herd workspace (its links, certificates and database), removes the worktree and deletes the processes in the app's Solo project labelled with its branch (eg. `crush #1234 (1234)`). When one of those is this session, it's left alone (deleting it would kill this session) — tell me to close it myself.
-
 The `--force` flag is needed because the interactive confirmation prompt won't work here — that's why the safety checks above matter.
 
-Neither deletes the local branch, so delete it afterwards from the checkout root:
+Tether doesn't delete the local branch, so delete it afterwards from the checkout root:
 
 ```sh
 git branch -D <branch>
@@ -49,4 +45,4 @@ git branch -D <branch>
 
 ## Afterwards
 
-Confirm what was removed: the worktree path, sandbox site(s) or Herd links, database (for Laravel apps) and branch name.
+Confirm what was removed: the worktree path, sandbox site(s) and branch name.

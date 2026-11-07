@@ -9,7 +9,7 @@ Run everything from the checkout root (the directory containing `worktrees/`). I
 
 When I give you a directory of checkouts instead (eg. `/cleanup-worktrees ~/Code/Statamic`), do this for every checkout directly inside it that has a `worktrees/` directory, one at a time, and give one combined report at the end, grouped by checkout.
 
-When the checkout root has an `artisan` file, it's a **Laravel app** and its worktrees are managed by `worktree`. Otherwise, it's a **package** and its worktrees are managed by Tether.
+Worktrees are managed by Tether. Laravel apps don't have worktrees — just their local branches to clean up.
 
 ## Gather the candidates
 
@@ -33,22 +33,20 @@ Never destroy a worktree with uncommitted changes (`git -C worktrees/<branch> st
 For each branch that qualifies:
 
 ```sh
-tether worktree destroy <branch> --force   # if it has a worktree (packages)
-worktree destroy <branch> --force          # if it has a worktree (Laravel apps)
+tether worktree destroy <branch> --force   # if it has a worktree
 git branch -D <branch>
 ```
 
-`tether worktree destroy` removes the worktree, its sandbox site(s) and the `vite-<branch>` entry in `solo.yml`. `worktree destroy` removes the worktree, its Herd workspace (links, certificates and database) and the Solo processes labelled with its branch. `--force` is needed because the interactive confirmation won't work here — that's why the checks above matter. The worktree must be destroyed before the branch can be deleted.
+`tether worktree destroy` removes the worktree, its sandbox site(s) and the `vite-<branch>` entry in `solo.yml`. `--force` is needed because the interactive confirmation won't work here — that's why the checks above matter. The worktree must be destroyed before the branch can be deleted.
 
 Some local branches won't have a worktree — just delete the branch for those.
 
-Finish with a prune to sweep up anything orphaned by worktrees that were deleted some other way:
+Finish with a prune to sweep up sandbox sites and stale `solo.yml` entries orphaned by worktrees that were deleted some other way:
 
 ```sh
-tether worktree prune --force   # packages: sandbox sites and stale solo.yml entries
-worktree prune --force          # Laravel apps: Herd links and databases
+tether worktree prune --force
 ```
 
 ## Report back
 
-Give a short summary: what was deleted (worktrees, sandboxes or Herd links, databases, branches), what was kept because it hasn't been PR'd, and anything skipped because of uncommitted/unpushed work.
+Give a short summary: what was deleted (worktrees, sandboxes, branches), what was kept because it hasn't been PR'd, and anything skipped because of uncommitted/unpushed work.

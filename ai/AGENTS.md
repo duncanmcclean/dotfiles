@@ -10,7 +10,7 @@
 - Do what is right, not what is easy.
 - Code should read like prose.
 - Never run the whole test suite locally. Run the tests relevant to your change and rely on CI for the rest.
-- Unless I say otherwise, make changes in a worktree (follow the `worktree` skill) rather than the main checkout. Only trivial changes, like fixing a typo, can skip it.
+- In packages (statamic/cms, addons), make changes in a worktree (follow the `worktree` skill) rather than the main checkout unless I say otherwise. Only trivial changes, like fixing a typo, can skip it. Laravel apps are worked on in the main checkout — never create worktrees for them.
 
 
 ## Git
@@ -21,6 +21,7 @@
   - Write commit messages in lowercase.
   - Use backticks (```) when mentioning class names, methods or config options.
 - Never, under any circumstances, force push.
+- Branch names should be short and sweet, describing what the change does (eg. `fix-asset-upload`, `bulk-actions`). No prefixes like `feature/` or `fix/`, no name, and no GitHub issue or Linear ticket numbers.
 - Save screenshots for pull requests to `~/Downloads`, never the Desktop.
 - Never add yourself (Claude, Codex, etc) as a co-author or co-committer. No `Co-Authored-By` trailers in commits, no "Generated with" footers in PRs.
 

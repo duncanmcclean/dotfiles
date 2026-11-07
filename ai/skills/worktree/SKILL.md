@@ -1,18 +1,15 @@
 ---
 name: worktree
-description: This skill should be used when asked to work on a bug fix or feature in a worktree — of statamic/cms, another locally-cloned package, or a Laravel app.
+description: This skill should be used when asked to work on a bug fix or feature in a worktree of a package — statamic/cms, an addon or another locally-cloned package. Laravel apps don't use worktrees; work on them in the main checkout.
 ---
 
 Work on the task in a Git worktree, allowing other work to continue in parallel.
 
-How the worktree is set up depends on what's being worked on:
+Worktrees are only for **packages** (statamic/cms, addons — no `artisan` file in the root). They use Tether, which pairs the worktree with a copy of a sandbox site. Laravel apps (an `artisan` file in the root) are worked on in the main checkout instead — don't create a worktree for them.
 
-- **Packages** (statamic/cms, addons — no `artisan` file in the root) use Tether, which pairs the worktree with a copy of a sandbox site.
-- **Laravel apps** (an `artisan` file in the root) use `worktree`, which wraps Herd's workspaces to serve the worktree as its own site with its own database.
+Use a short, descriptive branch name (eg. `fix-asset-upload`) — no prefixes, names or issue numbers.
 
-Either way, use `[issue-number]` as the branch name for bug fixes, or a descriptive name for features.
-
-## Packages
+## Creating the worktree
 
 Create the worktree from the root of the package checkout (eg. `~/Code/Statamic/cms`):
 
@@ -28,39 +25,6 @@ Tether will print the worktree path (`worktrees/<branch>`) and the sandbox URL (
 - Run tests inside the worktree: `./vendor/bin/phpunit tests/path/to/TestFile.php`
 - After changing any JS/CSS, rebuild with `npm run build-dev` (or `npm run build` if there's no `build-dev` script) inside the worktree. For heavy Control Panel work, there's a `vite-<branch>` process in `solo.yml` you can start via Solo instead.
 - Only run `tether worktree destroy <branch>` when explicitly asked to clean up.
-
-## Laravel apps
-
-Create the worktree from anywhere inside the app:
-
-```sh
-worktree new fix-1234
-```
-
-**Always** use `worktree new` — never `git worktree add`, the `EnterWorktree` tool or a copy of the main checkout's `.env`. Only `worktree new` serves the worktree as a Herd workspace, so I can check over UI and behaviour changes in the browser, and gives it a database of its own.
-
-Pass `--base <ref>` if the work should branch from something other than the default branch (eg. `--base origin/main` when the local `main` might be stale). The worktree gets a fresh database, migrated and seeded — only pass `--db=copy` (a copy of the main database) when I ask for it.
-
-`worktree` will print the worktree path (`worktrees/<branch>`), its URLs and its database. The worktree is served as a subdomain of the app (eg. `https://1234.harvestglasgow.test`), as is every other domain the app is served on (eg. `https://1234.harvestayr.test`). From then on:
-
-- **Never** point the worktree at the main checkout's database, and never run migrations or seeders against it.
-- Test in the browser at the worktree's URLs. Seeders should have created a user to log in with.
-- Run tests inside the worktree.
-- **Never** create a Solo project for the worktree. Spawn any processes (agents, terminals) in the app's own Solo project, labelling them with the branch, eg. `crush #1234 (1234)`. `worktree destroy` cleans up processes labelled this way. They start in the main checkout, so `cd` into the worktree first.
-- **Never** start servers of your own (`php artisan serve` and the like). The Herd workspace is how I view the worktree.
-- Only run `worktree destroy <branch>` when explicitly asked to clean up.
-
-### Start Vite
-
-Straight after `worktree new`, when the app's `package.json` has a `dev` script, start Vite for the worktree so its site picks up JS/CSS changes. Use the Solo MCP, without asking:
-
-1. `spawn_process` a terminal (`kind: terminal` — not a command in `solo.yml`) in the app's Solo project, named `vite (<branch>)`.
-2. `send_input` it `cd worktrees/<branch> && npm run dev`.
-
-Leave it running — `worktree destroy` deletes it along with the worktree's other processes. When you're not running inside Solo, tell me to start it myself instead.
-
-## Either way
-
 - Work exclusively inside `worktrees/<branch>` — **never** touch the main checkout.
 - As per my guidelines, please don't commit changes yourself.
 
@@ -72,6 +36,6 @@ When you're done, respond with (in this order):
 - Summary of what you've changed
 - Reproduction steps
   - When possible, please perform any set up steps in the sandbox site beforehand to streamline my review
-- Link to the sandbox site (or the worktree's site, in a Laravel app)
+- Link to the sandbox site
 
 Don't wait to be asked for any of these.

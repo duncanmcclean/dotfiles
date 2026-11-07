@@ -31,7 +31,6 @@
     ~/.hammerspoon: hammerspoon
     ~/.vimrc: vim/.vimrc
     ~/.zshrc: zsh/.zshrc
-    ~/.local/bin/worktree: bin/worktree
 - create:
     - ~/Code
     - ~/Code/Freelance

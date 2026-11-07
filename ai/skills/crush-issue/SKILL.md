@@ -7,8 +7,6 @@ Investigate and fix the issue I've provided.
 
 Always spin up a separate agent to do the work, even for a single issue — one agent per issue, each following the rest of this skill. Keep this session free for me.
 
-In a Laravel app, create each issue's worktree yourself before spinning up its agent (see below), then spin the agent up in the app's own Solo project, labelling it with the branch (eg. `crush #1234 (1234)`). That label is how `worktree destroy` finds the worktree's processes to tidy up. Tell the agent to work in `worktrees/<branch>`, since it starts in the main checkout.
-
 ## Where the issue lives
 
 | Given                                    | Read it with    | Branch name                   |
@@ -17,7 +15,7 @@ In a Laravel app, create each issue's worktree yourself before spinning up its a
 | A `linear.app/.../issue/...` link        | The Linear MCP  | Its identifier, eg. `eng-123` |
 | A `sentry.io/.../issues/...` link        | The Sentry MCP  | Its short ID, eg. `api-1a2`   |
 
-Branch names are lowercase, and agents are labelled with the identifier as it's shown, eg. `crush ENG-123 (eng-123)`. When the MCP a link needs isn't connected, stop and tell me rather than guessing at the issue.
+Branch names are lowercase. When the MCP a link needs isn't connected, stop and tell me rather than guessing at the issue.
 
 ## Understand the issue
 
@@ -27,7 +25,9 @@ When you identify an issue as "user error" (or, for a Sentry error, expected beh
 
 ## Work in a worktree
 
-Follow the `worktree` skill: create a worktree with `tether worktree new [branch]` (packages) or `worktree new [branch]` (Laravel apps — it'll already exist when you were spun up for it) and do all of your work in there, testing against the worktree's own site. This keeps the fix isolated from other issues being fixed alongside it, and from what I'm working on in the main checkout.
+In a package, follow the `worktree` skill: create a worktree with `tether worktree new [branch]` and do all of your work in there, testing against the worktree's own sandbox site. This keeps the fix isolated from other issues being fixed alongside it, and from what I'm working on in the main checkout.
+
+In a Laravel app, there are no worktrees — create the branch in the main checkout and work there.
 
 **Important:** When the issue links a reproduction repository, feel free to clone it down to `~/Code/Throwaway`, name it `[repo]-[branch]`, install Composer dependencies and use that repo as this issue's sandbox.
 
@@ -51,9 +51,9 @@ Don't skip these because the fix is small. They're the last thing standing betwe
 Respond with a summary containing (in this order):
 
 - Link to the GitHub issue, Linear issue or Sentry error
-- Link to open the worktree in Tower.app (follow the `tower` skill — don't open it yourself)
+- Link to open the worktree in Tower.app (follow the `tower` skill — don't open it yourself), or the branch name in a Laravel app
 - Summary of the issue and what you've changed
 - Anything the review turned up that you didn't act on
 - Reproduction steps
   - When possible, please perform any set up steps in the sandbox site beforehand to streamline my review
-- Link to the sandbox site (or the worktree's site, in a Laravel app)
+- Link to the sandbox site (packages only)
