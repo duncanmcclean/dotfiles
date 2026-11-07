@@ -1,17 +1,5 @@
 {
   "model": "opus",
-  "enabledPlugins": {
-    "php-lsp@claude-plugins-official": true,
-    "cloudflare@cloudflare": true
-  },
-  "extraKnownMarketplaces": {
-    "cloudflare": {
-      "source": {
-        "source": "github",
-        "repo": "cloudflare/skills"
-      }
-    }
-  },
   "hooks": {
     "SessionStart": [
       {
@@ -25,7 +13,20 @@
       }
     ]
   },
+  "enabledPlugins": {
+    "php-lsp@claude-plugins-official": true,
+    "cloudflare@cloudflare": true
+  },
+  "extraKnownMarketplaces": {
+    "cloudflare": {
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      }
+    }
+  },
   "feedbackDrafts": "off",
   "awaySummaryEnabled": false,
-  "theme": "auto"
+  "theme": "auto",
+  "tui": "fullscreen"
 }

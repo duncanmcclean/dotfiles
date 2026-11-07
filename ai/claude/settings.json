@@ -19,6 +19,6 @@
   "awaySummaryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
-  "agentPushNotifEnabled": true,
-  "switchModelsOnFlag": true
+  "switchModelsOnFlag": true,
+  "agentPushNotifEnabled": true
 }

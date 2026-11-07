@@ -3,6 +3,8 @@ model_reasoning_effort = "high"
 approvals_reviewer = "auto_review"
 service_tier = "fast"
 
+notify = ["/Users/duncan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+
 [mcp_servers.solo]
 command = "/Applications/Solo.app/Contents/MacOS/mcp"
 
@@ -21,6 +23,29 @@ cwd = "/Users/duncan/Code/SideProjects/freeagent-mcp"
 startup_timeout_sec = 20
 tool_timeout_sec = 120
 default_tools_approval_mode = "writes"
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+env_vars = ["BROWSER_USE_ACCESS_EXECUTOR_ID", "BROWSER_USE_ACCESS_PIPE_PATH", "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"]
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/duncan/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "/Users/duncan/.codex"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
+BROWSER_USE_TINYSKY_ENABLED = "1"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.1103.41825"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/duncan/.codex/plugins/cache/openai-bundled/browser/26.1103.41825/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+SKY_CUA_SERVICE_PATH = "/Users/duncan/.codex/computer-use/Codex Computer Use.app"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
 
 [plugins."visualize@openai-bundled"]
 enabled = true
@@ -49,12 +74,23 @@ enabled = true
 [plugins."chrome@openai-bundled"]
 enabled = true
 
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
 [[hooks.SessionStart]]
 matcher = "startup|resume"
 
 [[hooks.SessionStart.hooks]]
 type = "command"
 command = "~/.dotfiles/ai/hooks/solo.sh"
+
+[hooks.state]
+
+[hooks.state."/Users/duncan/.codex/config.toml:session_start:0:0"]
+trusted_hash = "sha256:cc9d17b32b97d19b46c9999ce098600759512e5e51ade410cfb955abdb3ca40a"
 
 [features]
 js_repl = false
@@ -64,3 +100,20 @@ conversationDetailMode = "STEPS_PROSE"
 ambient-suggestions-enabled = true
 followUpQueueMode = "queue"
 dock-icon-preference = "app-default"
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "/Users/duncan/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "/Users/duncan/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[tui]
+screen_reader_detection_done = true
+
+[tui.model_availability_nux]
+"gpt-6.1-sol" = 1
+
+[projects."/Users/duncan/.dotfiles"]
+trust_level = "trusted"
