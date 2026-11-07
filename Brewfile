@@ -72,11 +72,7 @@ cask "zoom"
 mas "1Blocker - Ad Blocker", id: 1365531024
 mas "1Password for Safari", id: 1569813296
 mas "JSON Peep for Safari", id: 1458969831
-mas "Keynote", id: 409183694
 mas "Minimal Theme for Twitter / X", id: 1668204600
-mas "Numbers", id: 409203825
-mas "Overcast", id: 888422857
-mas "Pages", id: 409201541
 mas "Tamperish for Safari", id: 1516885392
 mas "Things", id: 904280696
 mas "Xcode", id: 497799835
