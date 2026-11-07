@@ -63,5 +63,8 @@ return {
     },
     Solo = {
         id = 'com.soloterm.solo',
+    },
+    Amp = {
+        id = 'com.ampcode.amp.macos',
     }
   }

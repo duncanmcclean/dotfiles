@@ -15,6 +15,7 @@ return {
           Ghostty = { cell = 1 },
           Obsidian = { cell = 1 },
           Solo = { cell = 1 },
+          Amp = { cell = 1 },
         },
     },
     {
@@ -34,6 +35,7 @@ return {
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
             Solo = { cell = 2 },
+            Amp = { cell = 2 },
         },
     },
     {
@@ -53,6 +55,7 @@ return {
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
             Solo = { cell = 2 },
+            Amp = { cell = 2 },
         },
     },
     {
@@ -72,6 +75,7 @@ return {
             Tower = { cell = 2 },
             Tinkerwell = { cell = 2 },
             Solo = { cell = 2 },
+            Amp = { cell = 2 },
         },
     },
     {
@@ -90,6 +94,7 @@ return {
           Tinkerwell = { cell = 2 },
           Obsidian = { cell = 2 },
           Solo = { cell = 2 },
+          Amp = { cell = 2 },
         },
     },
     {
@@ -104,6 +109,7 @@ return {
             Ray = { cell = 1 },
             Ghostty = { cell = 1 },
             Solo = { cell = 1 },
+            Amp = { cell = 1 },
             Safari = { cell = 2, open = true },
             Chrome = { cell = 2 },
             TablePlus = { cell = 2 },
@@ -116,7 +122,7 @@ return {
     {
         name = 'Centered',
         cells = {
-          { '5,1 50x18' },
+          { '10,1 40x18' },
         },
         apps = {
           Safari = { cell = 1 },
@@ -129,6 +135,7 @@ return {
           Ghostty = { cell = 1 },
           Obsidian = { cell = 1 },
           Solo = { cell = 1 },
+          Amp = { cell = 1 },
         },
     },
     {
@@ -141,6 +148,7 @@ return {
             Safari = { cell = 1 },
             Chrome = { cell = 1 },
             Solo = { cell = 1 },
+            Amp = { cell = 1 },
             Tower = { cell = 1, open = true },
         },
     },
