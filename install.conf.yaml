@@ -47,6 +47,7 @@
     command: "[ -d ~/.oh-my-zsh ] || GIT_CONFIG_GLOBAL=/dev/null KEEP_ZSHRC=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended"
   - description: Install Oh My Zsh Syntax Highlighting
     command: "[ -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ] || GIT_CONFIG_GLOBAL=/dev/null git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
+- shell:
   - description: Installing Homebrew
     command: "[ -x /opt/homebrew/bin/brew ] || { NONINTERACTIVE=1 /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\" && echo 'eval \"$(/opt/homebrew/bin/brew shellenv)\"' >> ~/.zprofile; }"
   - description: Updating Homebrew
@@ -55,13 +56,16 @@
     command: "/opt/homebrew/bin/brew bundle"
   - description: Cleaning up Homebrew
     command: "/opt/homebrew/bin/brew cleanup"
+- shell:
   - description: Installing Claude Code
     command: "[ -x ~/.local/bin/claude ] || curl -fsSL https://claude.ai/install.sh | bash"
   - description: Switch Git remote to SSH
     command: "git remote set-url origin git@github.com:duncanmcclean/dotfiles.git"
+- shell:
   - description: Apply macOS Preferences
     command: "./.macos"
     quiet: false
+- shell:
   - description: Checking Herd has been opened
     command: "command -v herd > /dev/null || { echo 'Open Herd, then re-run ./install'; exit 1; }"
     stdout: true
@@ -69,5 +73,6 @@
     command: "herd park ~/Code/Freelance && herd park ~/Code/OpenSource && herd park ~/Code/Personal && herd park ~/Code/SideProjects && herd park ~/Code/Statamic && herd park ~/Code/Throwaway"
   - description: Link http directory
     command: "cd ~/.dotfiles/http && herd link duncan"
+- shell:
   - description: Installing global Composer packages
     command: "composer global install"
