@@ -44,11 +44,11 @@
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
   - description: Installing Oh My Zsh
-    command: "[ -d ~/.oh-my-zsh ] || KEEP_ZSHRC=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended"
+    command: "[ -d ~/.oh-my-zsh ] || GIT_CONFIG_GLOBAL=/dev/null KEEP_ZSHRC=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended"
   - description: Install Oh My Zsh Syntax Highlighting
-    command: "[ -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
+    command: "[ -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ] || GIT_CONFIG_GLOBAL=/dev/null git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
   - description: Installing Homebrew
-    command: "[ -x /opt/homebrew/bin/brew ] || { /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\" && echo 'eval \"$(/opt/homebrew/bin/brew shellenv)\"' >> ~/.zprofile; }"
+    command: "[ -x /opt/homebrew/bin/brew ] || { NONINTERACTIVE=1 /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\" && echo 'eval \"$(/opt/homebrew/bin/brew shellenv)\"' >> ~/.zprofile; }"
   - description: Updating Homebrew
     command: "/opt/homebrew/bin/brew update"
   - description: Installing Brewfile bundle
