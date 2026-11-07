@@ -1,8 +1,5 @@
 {
-  "model": "opus",
-  "enabledPlugins": {
-    "php-lsp@claude-plugins-official": true
-  },
+  "model": "fable",
   "hooks": {
     "SessionStart": [
       {
@@ -16,6 +13,12 @@
       }
     ]
   },
+  "enabledPlugins": {
+    "php-lsp@claude-plugins-official": true
+  },
   "awaySummaryEnabled": false,
-  "theme": "auto"
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
+  "agentPushNotifEnabled": true,
+  "switchModelsOnFlag": true
 }
