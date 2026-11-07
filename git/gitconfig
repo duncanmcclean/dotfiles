@@ -43,3 +43,6 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://ampcode.com/"]
+	helper = 
+	helper = !amp git-credential-helper
