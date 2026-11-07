@@ -54,6 +54,8 @@
     command: "/opt/homebrew/bin/brew update"
   - description: Installing Brewfile bundle
     command: "/opt/homebrew/bin/brew bundle"
+  - description: Accepting the Xcode license
+    command: "! [ -d /Applications/Xcode.app ] || sudo xcodebuild -license accept"
   - description: Cleaning up Homebrew
     command: "/opt/homebrew/bin/brew cleanup"
 - shell:
