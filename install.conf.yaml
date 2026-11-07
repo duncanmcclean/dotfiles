@@ -44,7 +44,7 @@
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
   - description: Installing Oh My Zsh
-    command: "[ -d ~/.oh-my-zsh ] || GIT_CONFIG_GLOBAL=/dev/null KEEP_ZSHRC=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended"
+    command: "[ -f ~/.oh-my-zsh/oh-my-zsh.sh ] || { rm -rf ~/.oh-my-zsh && GIT_CONFIG_GLOBAL=/dev/null KEEP_ZSHRC=yes /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" \"\" --unattended; }"
   - description: Install Oh My Zsh Syntax Highlighting
     command: "[ -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ] || GIT_CONFIG_GLOBAL=/dev/null git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
 - shell:
