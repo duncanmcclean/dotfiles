@@ -22,7 +22,7 @@ repositories=(
     "duncanmcclean/cookie-notice       SideProjects/cookie-notice"
     "duncanmcclean/guest-entries       SideProjects/guest-entries"
     "duncanmcclean/simple-commerce     SideProjects/simple-commerce"
-    "duncanmcclean/statamic-cargo       SideProjects/statamic-cargo"
+    "duncanmcclean/statamic-cargo      SideProjects/statamic-cargo"
     "duncanmcclean/tether              SideProjects/tether"
 )
 
