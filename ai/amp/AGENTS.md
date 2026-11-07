@@ -19,6 +19,7 @@
   - Write commit messages in lowercase.
   - Use backticks (```) when mentioning class names, methods or config options.
 - Never, under any circumstances, force push.
+- Branch names should be short and sweet, describing what the change does (eg. `fix-asset-upload`, `bulk-actions`). No prefixes like `feature/` or `fix/`, no name, and no GitHub issue or Linear ticket numbers.
 
 
 ## Code Style Rules
