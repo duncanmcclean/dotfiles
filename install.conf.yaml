@@ -60,7 +60,8 @@
   - description: Installing Claude Code
     command: "[ -x ~/.local/bin/claude ] || curl -fsSL https://claude.ai/install.sh | bash"
   - description: Switch Git remote to SSH
-    command: "git remote set-url origin git@github.com:duncanmcclean/dotfiles.git"
+    command: "ssh -o BatchMode=yes -T git@github.com 2>&1 | grep -q 'successfully authenticated' && git remote set-url origin git@github.com:duncanmcclean/dotfiles.git || echo 'No SSH access to GitHub yet, leaving the remote on HTTPS'"
+    stdout: true
 - shell:
   - description: Apply macOS Preferences
     command: "./.macos"
