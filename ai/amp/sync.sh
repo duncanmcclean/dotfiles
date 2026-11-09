@@ -10,6 +10,12 @@ accounts=(
     "duncan@statamic.com"
 )
 
+excludedSkills() {
+    case "$1" in
+        duncan@statamic.com) echo "review" ;;
+    esac
+}
+
 activeAccount=$(amp account list | awk '$1 == "*" { print $2 }')
 trap 'amp account switch "$activeAccount" > /dev/null' EXIT
 
@@ -33,6 +39,10 @@ for account in "${accounts[@]}"; do
     fi
 
     rsync -a --delete --exclude .git "$SOURCE_PATH/" "$checkoutPath/"
+
+    for skill in $(excludedSkills "$account"); do
+        rm -rf "$checkoutPath/$skill"
+    done
 
     if [[ -z "$(git -C "$checkoutPath" status --porcelain)" ]]; then
         gum log --structured --level info "Skills are already up to date" account "$account"
